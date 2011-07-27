@@ -63,7 +63,7 @@ cycleGraph::cycleGraph( wxWindow* parent, cycleDataClass *cycles) {
     int tmpIdx;
     items.resize(maxDays, vector<int>( verticalItems, 0 ) );
     if ( maxDays )
-        for ( int i = 0; i < hist.size(); i++ )
+        for ( size_t i = 0; i < hist.size(); i++ )
             for ( int j = 0; j < hist[i].size(); j++ )
                 if ( hist[i][j] > 2000 ) {
                     tmpIdx = ( hist[i][j] - minTemp ) / step;
@@ -86,7 +86,7 @@ void cycleGraph::OnPaint( wxPaintEvent& event ) {
     wxPaintDC dc( this );
 
     // rectangles
-    for ( int i = 0; i < items.size(); i++ )
+    for ( size_t i = 0; i < items.size(); i++ )
         for ( int j = 0; j < items[i].size(); j++) {
             dc.SetBrush( wxBrush( wxColour( (unsigned char)( 255 - ( 255 * items[i][j] / maxValue) ),
                                             255, (unsigned char)( 255 - ( 255 * items[i][j] / maxValue)))));

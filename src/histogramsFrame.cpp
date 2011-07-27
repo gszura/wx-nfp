@@ -29,7 +29,7 @@ histogramsFrame::histogramsFrame( wxWindow* parent, cycleDataClass *cycles ) {
     initData(cycles, &items);
 
     maxValue = -1;
-    for (int i = 0; i < items.size(); i++)
+    for (size_t i = 0; i < items.size(); i++)
         if (items[i].quantity > maxValue)
             maxValue = items[i].quantity;
 }
@@ -63,7 +63,7 @@ void histogramsFrame::OnPaint( wxPaintEvent& event ) {
     dc.DrawLabel( str, wxRect( 0, 0, 20, 10 ), wxALIGN_LEFT );
 
 
-    for (int i = 0; i < items.size(); i++) {
+    for (size_t i = 0; i < items.size(); i++) {
         dc.DrawRectangle((blockL+space)*i+space+startX, startY, blockL, -(items[i].quantity*blockH));
 
         str = wxString::Format( wxT( "%d" ), items[i].value );
