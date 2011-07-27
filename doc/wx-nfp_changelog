@@ -18,10 +18,10 @@
 == known issues
 * Printing under Linux doesn't work
 
-== 0.9 beta (build XXX, 2010-07-xx)
+== 0.9 beta (build XXX, 2011-xx-xx)
 * New: Allow to define more than one result (mucus/cervix 1st day/peak day) - it will be used for irregular cycles, especially during breastfeeding and peri-menopause (see Billings ovulation method rules).
 * New: Renamed "Phase 1, 2, 3" to "fertile phrase" and "infertile phrase"; also allow to define more than one phrase of each type - reason the same as above.
-
+* New: Implemented saving automatically changes done for day, card, set.
 
 == 0.9 beta (build 645, 2010-05-12)
 * New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.

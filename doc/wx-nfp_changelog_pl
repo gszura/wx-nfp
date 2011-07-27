@@ -1,35 +1,45 @@
 == todo
-* Add possibility to change the character of coitus record
-* Printing under Linux
+* Automatically calculation of results
 * Protecting data file in cipher and password
 * Storing data file on the server, synchronizing changed files between server and application (it can be useful when you use more than one computer)
-* Automatically calculation of results
-* Help (pl)
-* Help (en)
+* Printing under Linux
+* Add possibility to change the character of coitus record
+* Displaying phases in different colours
+* Quick help (pl)
+* Detailed help (pl)
+* Detailed help (en)
 * Statistics
 * Sending cards via e-mail
 * Restoring previous versions from backup file
-* Fahrenheit as a temperature unit
-* Inch as a length unit
-* US date format (is it really needed..?)
+* Fahrenheit as a temperature unit (low priority)
+* Inch as a length unit (low priority)
+* US date format  (low priority) (is it really needed..?)
 
 == known issues
 * Printing under Linux doesn't work
 
-== 0.9 beta (build 635, 2010-05-05)
-* Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.
-* Created package file for Ubuntu
-* Disabled live update on Linux
-* Fixed pop-up menu on Linux.
-* Help now opens the online application help pages (there was a problem with offline help on some Linux distributions).
+== 0.9 beta (build XXX, 2011-xx-xx)
+* New: Allow to define more than one result (mucus/cervix 1st day/peak day) - it will be used for irregular cycles, especially during breastfeeding and peri-menopause (see Billings ovulation method rules).
+* New: Renamed "Phase 1, 2, 3" to "fertile phrase" and "infertile phrase"; also allow to define more than one phrase of each type - reason the same as above.
+* New: Implemented saving automatically changes done for day, card, set.
+
+== 0.9 beta (build 645, 2010-05-12)
+* New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.
+* New: Created package file for Ubuntu
+* Change: Disabled live update on Linux
+* Fix: Fixed pop-up menu on Linux.
+* Change: Help now opens the online application help pages (there was a problem with offline help on some Linux distributions).
+* Change: First day of the cycle can be now modified only if there is only one card with one day in the set.
+* Fix: Removing old backup files - now only last 15 backup files are kept.
+* Fix: When the breast self-contol reminder pop ups in the moment when context menu was active, currently opened cards' set was closed and new set has created ( changed frame->ShowModal() to frame->Show() ).
 
 == 0.8 (2010-03-13)
-* Corrected all dialogs (card's data, day's data, configuration, 'Go to card' frame) - they looked awfull on linux
-* Aplication updateed to use wxWidgets v. 2.8.10
-* Standard wxWidgets tools (gettext *.mo catalogs) replaces home-made concept of the translation to another languages.
-* Standard wxWidgets tools (wxConfig) is used now to read and write data to the config file (therefore format of the config file has been change a little bit).
-* wxHTTP replaces wxURL which doesn't work with proxy (wxWidgets' bug: http://trac.wxwidgets.org/ticket/10099)
-* ..and thousand small corrections..
+* Fix: Corrected all dialogs (card's data, day's data, configuration, 'Go to card' frame) - they looked awfull on linux
+* Change: Aplication updateed to use wxWidgets v. 2.8.10
+* Change: Standard wxWidgets tools (gettext *.mo catalogs) replaces home-made concept of the translation to another languages.
+* Change: Standard wxWidgets tools (wxConfig) is used now to read and write data to the config file (therefore format of the config file has been change a little bit).
+* Change: wxHTTP replaces wxURL which doesn't work with proxy (wxWidgets' bug: http://trac.wxwidgets.org/ticket/10099)
+* Fix: ..and thousand other fixes..
 
 == 0.7.4 (2007-11-05)
 * Poprawiony błąd - okno przypominania o samokontroli piersi pojawiało się nie zawsze wtedy, kiedy powinno
