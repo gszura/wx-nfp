@@ -235,6 +235,46 @@
 																<border>5</border>
 															</object>
 															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxAutosaveChanges" variable="checkBoxAutosaveChanges" member="yes">
+																	<label>Save automatically changes in days / cards</label>
+																	<tooltip>Save automatically changes while editing days and cards</tooltip>
+																	<handler function="checkBoxAutosaveChangesClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutosaveChanges" variable="changesAutosaveChanges" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxAutosaveSet" variable="checkBoxAutosaveSet" member="yes">
+																	<label>Save automatically card set</label>
+																	<tooltip>Save automatically changes in card set while exiting the application or closing the card set</tooltip>
+																	<handler function="checkBoxAutosaveSetClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutosaveSet" variable="changesAutosaveSet" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
 																<object class="wxCheckBox" name="ID_checkBoxCheckForMissingDays" variable="checkBoxCheckForMissingDays" member="yes">
 																	<label>Check for missing days</label>
 																	<tooltip>When the cards&apos; set is loaded check if the last card contains all days including today,&#x0A;if not then propose adding missing ones.</tooltip>
@@ -1050,9 +1090,9 @@
 															</object>
 															<object class="sizeritem">
 																<object class="wxButton" name="ID_buttonFontResultPhases" variable="buttonFontResultPhases" member="yes">
-																	<label>Phase I/II/III</label>
+																	<label>Fertile / Unfertile Phase</label>
 																	<size>-1,30</size>
-																	<tooltip>Set font and colour of strings &apos;Phase I/II/III&apos;.</tooltip>
+																	<tooltip>Set font and colour of strings &apos;Fertile / Unfertile Phase&apos;.</tooltip>
 																	<handler function="buttonFontResultPhasesClick" entry="EVT_BUTTON" />
 																</object>
 																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

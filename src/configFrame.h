@@ -55,6 +55,7 @@ public:
     virtual ~configFrame();
 
     //(*Declarations(configFrame)
+    wxStaticText* changesAutosaveChanges;
     wxStaticText* staticUnits;
     wxComboBox* comboBoxTemperatureRangeLow;
     wxPanel* panelApplication;
@@ -64,6 +65,7 @@ public:
     wxButton* buttonFontResultDefault;
     wxStaticText* changesBreastAutocontrolInterval;
     wxButton* buttonCancel;
+    wxCheckBox* checkBoxAutosaveSet;
     wxStaticText* changesTemperatureRangeHigh;
     wxStaticText* space7;
     wxPanel* panelColours;
@@ -151,6 +153,8 @@ public:
     wxComboBox* comboBoxTemperatureRangeHigh;
     wxStaticText* staticTemperatureRangeLow;
     wxButton* buttonColourPointBefore;
+    wxCheckBox* checkBoxAutosaveChanges;
+    wxStaticText* changesAutosaveSet;
     wxStaticText* changesFlatButtons;
     wxPanel* panelGeneral;
     wxSpinCtrl* spinCtrlBreastsAutocontrolReminderDay;
@@ -183,6 +187,10 @@ protected:
     static const long ID_panelGeneral;
     static const long ID_checkBoxOpenLastOpenedFile;
     static const long ID_changesOpenLastOpenedFile;
+    static const long ID_checkBoxAutosaveChanges;
+    static const long ID_changesAutosaveChanges;
+    static const long ID_checkBoxAutosaveSet;
+    static const long ID_changesAutosaveSet;
     static const long ID_checkBoxCheckForMissingDays;
     static const long ID_changesCheckForMissingDays;
     static const long ID_checkBoxBreastsAutocontrolReminder;
@@ -279,13 +287,11 @@ private:
     void buttonOkClick (wxCommandEvent& event);
     void buttonCancelClick (wxCommandEvent& event);
     void buttonSaveClick (wxCommandEvent& event);
-
     void listBoxLanguageSelected (wxCommandEvent& event);
     void checkBoxRememberPositionClick (wxCommandEvent& event);
     void checkBoxFlatButtonsClick (wxCommandEvent& event);
     void checkBoxCheckForUpdatesClick (wxCommandEvent& event);
     void textUpdatesProxyUpdated (wxCommandEvent& event);
-
     void checkBoxOpenLastOpenedFileClick (wxCommandEvent& event);
     void checkBoxCheckForMissingDaysClick (wxCommandEvent& event);
     void checkBoxBreastsAutocontrolReminderClick (wxCommandEvent& event);
@@ -295,7 +301,6 @@ private:
     void comboBoxTemperatureUnitUpdated (wxCommandEvent& event );
     void comboBoxTemperatureRangeHighUpdated (wxCommandEvent& event );
     void comboBoxTemperatureRangeLowUpdated (wxCommandEvent& event );
-
     void buttonColourBackgroundClick (wxCommandEvent& event);
     void buttonColourCell11Click (wxCommandEvent& event);
     void buttonColourCell12Click (wxCommandEvent& event);
@@ -310,7 +315,6 @@ private:
     void buttonColourTemperatureLevelLineClick (wxCommandEvent& event);
     void buttonColourPhaseLineClick (wxCommandEvent& event);
     void buttonColourBordersClick (wxCommandEvent& event);
-
     void buttonFontHeadTopicClick (wxCommandEvent& event);
     void buttonFontHeadNameClick (wxCommandEvent& event);
     void buttonFontHeadValueClick (wxCommandEvent& event);
@@ -319,8 +323,9 @@ private:
     void buttonFontResultHeartClick (wxCommandEvent& event);
     void buttonFontResultResultsClick (wxCommandEvent& event);
     void buttonFontResultPhasesClick (wxCommandEvent& event);
-
     void buttonSetDefaultsClick (wxCommandEvent& event);
+    void checkBoxAutosaveChangesClick(wxCommandEvent& event);
+    void checkBoxAutosaveSetClick(wxCommandEvent& event);
     //*)
 
 private:

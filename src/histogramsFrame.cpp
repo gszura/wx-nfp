@@ -16,8 +16,7 @@ BEGIN_EVENT_TABLE( histogramsFrame, wxDialog )
 END_EVENT_TABLE()
 
 
-histogramsFrame::histogramsFrame( wxWindow* parent, cycleDataClass *cycles )
-{
+histogramsFrame::histogramsFrame( wxWindow* parent, cycleDataClass *cycles ) {
     Create( parent, wxID_ANY, _( "Length of cycles" ), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T( "wxID_ANY" ) );
     boxSizer = new wxBoxSizer( wxVERTICAL );
     boxSizer->SetMinSize( 500, 500 );
@@ -36,8 +35,7 @@ histogramsFrame::histogramsFrame( wxWindow* parent, cycleDataClass *cycles )
 }
 
 
-void histogramsFrame::OnPaint( wxPaintEvent& event )
-{
+void histogramsFrame::OnPaint( wxPaintEvent& event ) {
     wxPaintDC dc( this );
 
     wxCoord width;
@@ -65,8 +63,7 @@ void histogramsFrame::OnPaint( wxPaintEvent& event )
     dc.DrawLabel( str, wxRect( 0, 0, 20, 10 ), wxALIGN_LEFT );
 
 
-    for (int i = 0; i < items.size(); i++)
-    {
+    for (int i = 0; i < items.size(); i++) {
         dc.DrawRectangle((blockL+space)*i+space+startX, startY, blockL, -(items[i].quantity*blockH));
 
         str = wxString::Format( wxT( "%d" ), items[i].value );
@@ -78,19 +75,16 @@ void histogramsFrame::OnPaint( wxPaintEvent& event )
     }
 }
 
-int histogramsFrame::initData(cycleDataClass *cycles, vector< histItem > *items)
-{
+int histogramsFrame::initData(cycleDataClass *cycles, vector< histItem > *items) {
 
-    for(int i=1; i<=cycles->getCardsCount(); i++)
-    {
+    for(int i=1; i<=cycles->getCardsCount(); i++) {
         cardEntry *card=cycles->getCard(i);
         if(!card->getCardLocked())
             continue;
 
         int days=card->getDaysCount();
 
-        while(items->size()<days+1)
-        {
+        while(items->size()<days+1) {
             histItem hhh= {items->size(), 0};
             items->push_back(hhh);
         }
@@ -106,18 +100,15 @@ int histogramsFrame::initData(cycleDataClass *cycles, vector< histItem > *items)
 
 
     // if not enough elements to draw histogram
-    if(!items->size())
-    {
+    if(!items->size()) {
         histItem hhh= {28, 0};
         items->push_back(hhh);
     }
 }
 
-int histogramsFrame::getMaxValue()
-{
+int histogramsFrame::getMaxValue() {
     return maxValue;
 }
-vector<histItem> histogramsFrame::getHist()
-{
+vector<histItem> histogramsFrame::getHist() {
     return items;
 }

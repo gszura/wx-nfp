@@ -39,6 +39,10 @@ const long configFrame::ID_changesUpdatesProxy = wxNewId();
 const long configFrame::ID_panelGeneral = wxNewId();
 const long configFrame::ID_checkBoxOpenLastOpenedFile = wxNewId();
 const long configFrame::ID_changesOpenLastOpenedFile = wxNewId();
+const long configFrame::ID_checkBoxAutosaveChanges = wxNewId();
+const long configFrame::ID_changesAutosaveChanges = wxNewId();
+const long configFrame::ID_checkBoxAutosaveSet = wxNewId();
+const long configFrame::ID_changesAutosaveSet = wxNewId();
 const long configFrame::ID_checkBoxCheckForMissingDays = wxNewId();
 const long configFrame::ID_changesCheckForMissingDays = wxNewId();
 const long configFrame::ID_checkBoxBreastsAutocontrolReminder = wxNewId();
@@ -145,8 +149,7 @@ const wxEventType wxEVT_CONFIG_DATA_MODIFIED_EVENT = wxNewEventType();
 /**
  *
  */
-configFrame::configFrame(wxWindow* parent,configClass *config, wxWindowID id,const wxPoint& pos,const wxSize& size)
-{
+configFrame::configFrame(wxWindow* parent,configClass *config, wxWindowID id,const wxPoint& pos,const wxSize& size) {
     m_parent = parent;
     m_config = config;
 
@@ -155,8 +158,7 @@ configFrame::configFrame(wxWindow* parent,configClass *config, wxWindowID id,con
     update();
 }
 
-void configFrame::buildGui(wxWindow* parent)
-{
+void configFrame::buildGui(wxWindow* parent) {
     //(*Initialize(configFrame)
     wxBoxSizer* sizerMain2;
     wxStaticBoxSizer* sizerFonts1;
@@ -268,6 +270,20 @@ void configFrame::buildGui(wxWindow* parent)
     changesOpenLastOpenedFile = new wxStaticText(panelApplication, ID_changesOpenLastOpenedFile, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesOpenLastOpenedFile"));
     changesOpenLastOpenedFile->SetForegroundColour(wxColour(255,0,0));
     sizerApplication2->Add(changesOpenLastOpenedFile, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxAutosaveChanges = new wxCheckBox(panelApplication, ID_checkBoxAutosaveChanges, _("Save automatically changes in days / cards"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveChanges"));
+    checkBoxAutosaveChanges->SetValue(false);
+    checkBoxAutosaveChanges->SetToolTip(_("Save automatically changes while editing days and cards"));
+    sizerApplication2->Add(checkBoxAutosaveChanges, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutosaveChanges = new wxStaticText(panelApplication, ID_changesAutosaveChanges, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveChanges"));
+    changesAutosaveChanges->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication2->Add(changesAutosaveChanges, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxAutosaveSet = new wxCheckBox(panelApplication, ID_checkBoxAutosaveSet, _("Save automatically card set"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveSet"));
+    checkBoxAutosaveSet->SetValue(false);
+    checkBoxAutosaveSet->SetToolTip(_("Save automatically changes in card set while exiting the application or closing the card set"));
+    sizerApplication2->Add(checkBoxAutosaveSet, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutosaveSet = new wxStaticText(panelApplication, ID_changesAutosaveSet, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveSet"));
+    changesAutosaveSet->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication2->Add(changesAutosaveSet, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxCheckForMissingDays = new wxCheckBox(panelApplication, ID_checkBoxCheckForMissingDays, _("Check for missing days"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxCheckForMissingDays"));
     checkBoxCheckForMissingDays->SetValue(false);
     checkBoxCheckForMissingDays->SetToolTip(_("When the cards\' set is loaded check if the last card contains all days including today,\nif not then propose adding missing ones."));
@@ -547,8 +563,8 @@ void configFrame::buildGui(wxWindow* parent)
     changesFontResultResults = new wxStaticText(panelFonts, ID_changesFontResultResults, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesFontResultResults"));
     changesFontResultResults->SetForegroundColour(wxColour(255,0,0));
     sizerFonts2->Add(changesFontResultResults, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
-    buttonFontResultPhases = new wxButton(panelFonts, ID_buttonFontResultPhases, _("Phase I/II/III"), wxDefaultPosition, wxSize(-1,30), 0, wxDefaultValidator, _T("ID_buttonFontResultPhases"));
-    buttonFontResultPhases->SetToolTip(_("Set font and colour of strings \'Phase I/II/III\'."));
+    buttonFontResultPhases = new wxButton(panelFonts, ID_buttonFontResultPhases, _("Fertile / Unfertile Phase"), wxDefaultPosition, wxSize(-1,30), 0, wxDefaultValidator, _T("ID_buttonFontResultPhases"));
+    buttonFontResultPhases->SetToolTip(_("Set font and colour of strings \'Fertile / Unfertile Phase\'."));
     sizerFonts2->Add(buttonFontResultPhases, 1, wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
     changesFontResultPhases = new wxStaticText(panelFonts, ID_changesFontResultPhases, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesFontResultPhases"));
     changesFontResultPhases->SetForegroundColour(wxColour(255,0,0));
@@ -601,6 +617,8 @@ void configFrame::buildGui(wxWindow* parent)
     Connect(ID_checkBoxCheckForUpdates,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxCheckForUpdatesClick);
     Connect(ID_textUpdatesProxy,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::textUpdatesProxyUpdated);
     Connect(ID_checkBoxOpenLastOpenedFile,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxOpenLastOpenedFileClick);
+    Connect(ID_checkBoxAutosaveChanges,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveChangesClick);
+    Connect(ID_checkBoxAutosaveSet,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveSetClick);
     Connect(ID_checkBoxCheckForMissingDays,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxCheckForMissingDaysClick);
     Connect(ID_checkBoxBreastsAutocontrolReminder,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxBreastsAutocontrolReminderClick);
     Connect(ID_spinCtrlBreastsAutocontrolReminderDay,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated);
@@ -739,7 +757,7 @@ void configFrame::buildGui(wxWindow* parent)
     //GetSizer()->SetSizeHints( this );
     //Center();
     wxIcon wx_nfp_ICON( wx_nfp_xpm );
-     SetIcon( wx_nfp_ICON );
+    SetIcon( wx_nfp_ICON );
 
     /*******************************/
     // added to force resizing buttons on colours and fonts panels
@@ -760,8 +778,7 @@ void configFrame::buildGui(wxWindow* parent)
 /**
  *
  */
-configFrame::~configFrame()
-{
+configFrame::~configFrame() {
     //(*Destroy(configFrame)
     //*)
 }
@@ -771,16 +788,14 @@ configFrame::~configFrame()
 /**
  * configFrameClose
  */
-void configFrame::configFrameClose( wxCloseEvent& /*event*/ )
-{
+void configFrame::configFrameClose( wxCloseEvent& /*event*/ ) {
     Destroy();
 }
 
 /**
  * buttonOkClick
  */
-void configFrame::buttonOkClick( wxCommandEvent& event )
-{
+void configFrame::buttonOkClick( wxCommandEvent& event ) {
     save();
     EndModal( 1 );
 }
@@ -788,16 +803,14 @@ void configFrame::buttonOkClick( wxCommandEvent& event )
 /**
  * buttonCancelClick
  */
-void configFrame::buttonCancelClick( wxCommandEvent& event )
-{
+void configFrame::buttonCancelClick( wxCommandEvent& event ) {
     EndModal( 0 );
 }
 
 /**
  * buttonSaveClick
  */
-void configFrame::buttonSaveClick( wxCommandEvent& event )
-{
+void configFrame::buttonSaveClick( wxCommandEvent& event ) {
     save();
 }
 
@@ -806,8 +819,7 @@ void configFrame::buttonSaveClick( wxCommandEvent& event )
 /**
  * listBoxLanguageSelected
  */
-void configFrame::listBoxLanguageSelected( wxCommandEvent& event )
-{
+void configFrame::listBoxLanguageSelected( wxCommandEvent& event ) {
     if ( listBoxLanguage->GetSelection() != wxNOT_FOUND ) {
         if ( m_langIdentifiers[ listBoxLanguage->GetSelection()] == m_config->langId ) {
             if ( changesLanguage->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -827,8 +839,7 @@ void configFrame::listBoxLanguageSelected( wxCommandEvent& event )
 /**
  * checkBoxRememberPositionClick
  */
-void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event ) {
     if ( checkBoxRememberPosition->GetValue() == m_config->rememberPosition ) {
         if ( changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -846,8 +857,7 @@ void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event )
 /**
  * checkBoxFlatButtonsClick
  */
-void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event ) {
     if ( checkBoxFlatButtons->GetValue() == m_config->useFlatButtons ) {
         if ( changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -865,8 +875,7 @@ void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event )
 /**
  * checkBoxCheckForUpdatesClick
  */
-void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event ) {
     if ( checkBoxCheckForUpdates->GetValue() ) {
         staticUpdatesProxy->Enable( true );
         textUpdatesProxy->Enable( true );
@@ -893,8 +902,7 @@ void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event )
 /**
  * textUpdatesProxyUpdated
  */
-void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event )
-{
+void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event ) {
     if ( textUpdatesProxy->GetValue().IsSameAs( m_config->updatesProxy ) ) {
         if ( changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -914,8 +922,7 @@ void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event )
 /**
  * checkBoxOpenLastOpenedFileClick
  */
-void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event ) {
     if ( checkBoxOpenLastOpenedFile->GetValue() == m_config->openLastOpenedFile ) {
         if ( changesOpenLastOpenedFile->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -931,10 +938,45 @@ void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event )
 }
 
 /**
+ * checkBoxAutosaveChangesClick
+ */
+void configFrame::checkBoxAutosaveChangesClick(wxCommandEvent& event) {
+    if ( checkBoxAutosaveChanges->GetValue() == m_config->autosaveChanges ) {
+        if ( changesAutosaveChanges->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutosaveChanges->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutosaveChanges->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutosaveChanges->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxAutosaveSetClick
+ */
+void configFrame::checkBoxAutosaveSetClick(wxCommandEvent& event) {
+    if ( checkBoxAutosaveSet->GetValue() == m_config->autosaveSet) {
+        if ( changesAutosaveSet->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutosaveSet->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutosaveSet->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutosaveSet->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
  * checkBoxCheckForMissingDaysClick
  */
-void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event ) {
     if ( checkBoxCheckForMissingDays->GetValue() == m_config->checkForMissingDays ) {
         if ( changesCheckForMissingDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -952,8 +994,7 @@ void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event )
 /**
  * checkBoxBreastsAutocontrolReminderClick
  */
-void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event )
-{
+void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event ) {
     if ( checkBoxBreastsAutocontrolReminder->GetValue() ) {
         spinCtrlBreastsAutocontrolReminderDay->Enable( true );
         spinCtrlBreastAutocontrolInterval->Enable( true );
@@ -987,8 +1028,7 @@ void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event
 /**
  * spinCtrlBreastsAutocontrolReminderDayUpdated
  */
-void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& event )
-{
+void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& event ) {
     if ( !m_init ) {
         if ( spinCtrlBreastsAutocontrolReminderDay->GetValue() == m_config->breastSelfControlReminderDay ) {
             if ( changesBreastsAutocontrolReminderDay->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1008,8 +1048,7 @@ void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& eve
 /**
  * spinCtrlBreastAutocontrolIntervalUpdated
  */
-void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event )
-{
+void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event ) {
     if ( !m_init ) {
         if ( spinCtrlBreastAutocontrolInterval->GetValue() == m_config->breastSelfControlInterval ) {
             if ( changesBreastAutocontrolInterval->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1029,8 +1068,7 @@ void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event )
 /**
  * comboBoxLengthUnitUpdated
  */
-void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event )
-{
+void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event ) {
     // TODO - is it working in different languages????
     if ( comboBoxLengthUnit->GetValue().IsSameAs( _( "centimiter" ) ) && m_config->lengthInCentimeters ) {
         if ( changesLengthUnit->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1049,8 +1087,7 @@ void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event )
 /**
  * comboBoxTemperatureUnitUpdated
  */
-void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event )
-{
+void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event ) {
     // TODO - is it working in different languages????
     if ( comboBoxTemperatureUnit->GetValue().IsSameAs( _( "Celsius" ) ) ) {
         staticTemperatureCorF1->SetLabel( _T( "C" ) );
@@ -1100,8 +1137,7 @@ void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event )
 /**
  * comboBoxTemperatureRangeHighUpdated
  */
-void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event )
-{
+void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event ) {
     if ( m_util.strToTemperature( comboBoxTemperatureRangeHigh->GetValue() ) == m_config->temperatureRangeHigh ) {
         if ( changesTemperatureRangeHigh->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1119,8 +1155,7 @@ void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event )
 /**
  * comboBoxTemperatureRangeLowUpdated
  */
-void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event )
-{
+void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event ) {
     if ( m_util.strToTemperature( comboBoxTemperatureRangeLow->GetValue() ) == m_config->temperatureRangeLow ) {
         if ( changesTemperatureRangeLow->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1140,8 +1175,7 @@ void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event )
 /**
  * buttonColourBackgroundClick
  */
-void configFrame::buttonColourBackgroundClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourBackgroundClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourBackground, _( "Background" ) );
     checkColourChanges( buttonColourBackground, m_config->colourBackground, changesColourBackground );
 }
@@ -1149,8 +1183,7 @@ void configFrame::buttonColourBackgroundClick( wxCommandEvent& event )
 /**
  * buttonColourCell11Click
  */
-void configFrame::buttonColourCell11Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourCell11Click( wxCommandEvent& event ) {
     showColourDialog( buttonColourCell11, _( "Cell 1,1" ) );
     checkCellsColourChanges();
 }
@@ -1158,8 +1191,7 @@ void configFrame::buttonColourCell11Click( wxCommandEvent& event )
 /**
  * buttonColourCell12Click
  */
-void configFrame::buttonColourCell12Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourCell12Click( wxCommandEvent& event ) {
 
     showColourDialog( buttonColourCell12, _( "Cell 1,2" ) );
     checkCellsColourChanges();
@@ -1168,8 +1200,7 @@ void configFrame::buttonColourCell12Click( wxCommandEvent& event )
 /**
  * buttonColourCell21Click
  */
-void configFrame::buttonColourCell21Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourCell21Click( wxCommandEvent& event ) {
     showColourDialog( buttonColourCell21, _( "Cell 2,1" ) );
     checkCellsColourChanges();
 }
@@ -1177,8 +1208,7 @@ void configFrame::buttonColourCell21Click( wxCommandEvent& event )
 /**
  * buttonColourCell22Click
  */
-void configFrame::buttonColourCell22Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourCell22Click( wxCommandEvent& event ) {
     showColourDialog( buttonColourCell22, _( "Cell 2,2" ) );
     checkCellsColourChanges();
 }
@@ -1186,8 +1216,7 @@ void configFrame::buttonColourCell22Click( wxCommandEvent& event )
 /**
  * buttonColourMarkedCell1Click
  */
-void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event ) {
     showColourDialog( buttonColourMarkedCell1, _( "Active day's cell 1" ) );
     checkCellsColourChanges();
 }
@@ -1195,8 +1224,7 @@ void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event )
 /**
  * buttonColourMarkedCell2Click
  */
-void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event )
-{
+void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event ) {
     showColourDialog( buttonColourMarkedCell2, _( "Active day's cell 2" ) );
     checkCellsColourChanges();
 }
@@ -1204,8 +1232,7 @@ void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event )
 /**
  * buttonColourPointNormalClick
  */
-void configFrame::buttonColourPointNormalClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourPointNormalClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourPointNormal,  _( "Temperature point" ) );
     checkColourChanges( buttonColourPointNormal, m_config->colourPointNormal, changesColourPointNormal );
 }
@@ -1213,8 +1240,7 @@ void configFrame::buttonColourPointNormalClick( wxCommandEvent& event )
 /**
  * buttonColourPointBeforeClick
  */
-void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourPointBefore, _( "Low-level temperature point" ) );
     checkColourChanges( buttonColourPointBefore, m_config->colourPointBefore, changesColourPointBefore );
 }
@@ -1222,8 +1248,7 @@ void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event )
 /**
  * buttonColourPointAfterClick
  */
-void configFrame::buttonColourPointAfterClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourPointAfterClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourPointAfter, _( "High-level temperature point" ) );
     checkColourChanges( buttonColourPointAfter, m_config->colourPointAfter, changesColourPointAfter );
 }
@@ -1231,8 +1256,7 @@ void configFrame::buttonColourPointAfterClick( wxCommandEvent& event )
 /**
  * buttonColourTemperatureLineClick
  */
-void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourTemperatureLine, _( "Temperatures line" ) );
     checkColourChanges( buttonColourTemperatureLine, m_config->colourTemperatureLine, changesColourTemperatureLine );
 }
@@ -1240,8 +1264,7 @@ void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event )
 /**
  * buttonColourTemperatureLevelLineClick
  */
-void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourTemperatureLevelLine, _( "Low- and high-level temperature line" ) );
     checkColourChanges( buttonColourTemperatureLevelLine, m_config->colourTemperatureLevelLine, changesColourTemperatureLevelLine );
 }
@@ -1249,8 +1272,7 @@ void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event )
 /**
  * buttonColourPhaseLineClick
  */
-void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourPhaseLine, _( "Cycle's phases line" ) );
     checkColourChanges( buttonColourPhaseLine, m_config->colourPhaseLine, changesColourPhaseLine );
 }
@@ -1258,8 +1280,7 @@ void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event )
 /**
  * buttonColourBordersClick
  */
-void configFrame::buttonColourBordersClick( wxCommandEvent& event )
-{
+void configFrame::buttonColourBordersClick( wxCommandEvent& event ) {
     showColourDialog( buttonColourBorders, _( "Borders" ) );
     checkColourChanges( buttonColourBorders, m_config->colourBorders, changesColourBorders );
 }
@@ -1269,48 +1290,42 @@ void configFrame::buttonColourBordersClick( wxCommandEvent& event )
 /**
  * buttonFontHeadTopicClick
  */
-void configFrame::buttonFontHeadTopicClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontHeadTopicClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontHeadTopic, m_config->fontHeadTopic, m_config->fontHeadTopicColour, changesFontHeadTopic, _( "Cycle observation card" ) );
 }
 
 /**
  * buttonFontHeadNameClick
  */
-void configFrame::buttonFontHeadNameClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontHeadNameClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontHeadName, m_config->fontHeadName, m_config->fontHeadNameColour, changesFontHeadName, _( "Name of the parameter in the header" ) );
 }
 
 /**
  * buttonFontHeadValueClick
  */
-void configFrame::buttonFontHeadValueClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontHeadValueClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontHeadValue, m_config->fontHeadValue, m_config->fontHeadValueColour, changesFontHeadValue, _( "Value of the parameter in the header" ) );
 }
 
 /**
  * buttonFontResultHeaderClick
  */
-void configFrame::buttonFontResultHeaderClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontResultHeaderClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontResultHeader, m_config->fontResultHeader, m_config->fontResultHeaderColour, changesFontResultHeader, _( "First column of the chart" ) );
 }
 
 /**
  * buttonFontResultDefaultClick
  */
-void configFrame::buttonFontResultDefaultClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontResultDefaultClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontResultDefault, m_config->fontResultDefault, m_config->fontResultDefaultColour, changesFontResultDefault, _( "Data in the chart" ) );
 }
 
 /**
  * buttonFontResultHeartClick
  */
-void configFrame::buttonFontResultHeartClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontResultHeartClick( wxCommandEvent& event ) {
     long retL = wxGetNumberFromUser( _( "Choose the size of the character used in the 'coitus record' row:" ) , _T( "" ), _( "Size.." ), buttonFontResultHeart->GetFont().GetPointSize(), 5, 30, this );
     if ( retL != -1 ) {
         wxFont f = buttonFontResultHeart->GetFont();
@@ -1340,16 +1355,14 @@ void configFrame::buttonFontResultHeartClick( wxCommandEvent& event )
 /**
  * buttonFontResultResultsClick
  */
-void configFrame::buttonFontResultResultsClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontResultResultsClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontResultResults, m_config->fontResultResults, m_config->fontResultResultsColour, changesFontResultResults, _( "Results' rows in the chart" ) );
 }
 
 /**
  * buttonFontResultPhasesClick
  */
-void configFrame::buttonFontResultPhasesClick( wxCommandEvent& event )
-{
+void configFrame::buttonFontResultPhasesClick( wxCommandEvent& event ) {
     showFontDialog( buttonFontResultPhases, m_config->fontResultPhases, m_config->fontResultPhasesColour, changesFontResultPhases, _( "Phase I/II/III" ) );
 }
 
@@ -1358,8 +1371,7 @@ void configFrame::buttonFontResultPhasesClick( wxCommandEvent& event )
 /**
  * buttonSetDefaultsClick
  */
-void configFrame::buttonSetDefaultsClick( wxCommandEvent& event )
-{
+void configFrame::buttonSetDefaultsClick( wxCommandEvent& event ) {
     m_config->setDefaultParams();
 
 // Fonts update notification
@@ -1378,8 +1390,7 @@ void configFrame::buttonSetDefaultsClick( wxCommandEvent& event )
 /**
  *
  */
-void configFrame::setButtonsStyle()
-{
+void configFrame::setButtonsStyle() {
     int flatButton = 0;
     if ( m_config->useFlatButtons ) {
         flatButton = wxNO_BORDER;
@@ -1402,8 +1413,7 @@ void configFrame::setButtonsStyle()
 /**
  * update
  */
-void configFrame::update()
-{
+void configFrame::update() {
     /*******************************/
     /** PAGE GENERAL */
 
@@ -1433,6 +1443,8 @@ void configFrame::update()
     /*******************************/
     /** PAGE APPLICATION */
     checkBoxOpenLastOpenedFile->SetValue( m_config->openLastOpenedFile );
+    checkBoxAutosaveChanges->SetValue( m_config->autosaveChanges );
+    checkBoxAutosaveSet->SetValue( m_config->autosaveSet );
     checkBoxCheckForMissingDays->SetValue( m_config->checkForMissingDays );
 
     spinCtrlBreastsAutocontrolReminderDay->SetValue( m_config->breastSelfControlReminderDay );
@@ -1554,6 +1566,8 @@ void configFrame::update()
     changesCheckForUpdates->SetLabel( _T( "" ) );
     changesUpdatesProxy->SetLabel( _T( "" ) );
     changesOpenLastOpenedFile->SetLabel( _T( "" ) );
+    changesAutosaveChanges->SetLabel( _T( "" ) );
+    changesAutosaveSet->SetLabel( _T( "" ) );
     changesCheckForMissingDays->SetLabel( _T( "" ) );
     changesBreastsAutocontrolReminder->SetLabel( _T( "" ) );
     changesBreastsAutocontrolReminderDay->SetLabel( _T( "" ) );
@@ -1586,8 +1600,7 @@ void configFrame::update()
 /**
  * Open teh colourDialog and set the choosen colour as a background colour of the button.
  */
-void configFrame::showColourDialog( wxButton *button, wxString name )
-{
+void configFrame::showColourDialog( wxButton *button, wxString name ) {
     wxColour newColour = wxGetColourFromUser( this, button->GetBackgroundColour(), _( "Choose colour for:" ) + name );
     if ( newColour.IsOk() ) {
         setColour( button, newColour );
@@ -1597,8 +1610,7 @@ void configFrame::showColourDialog( wxButton *button, wxString name )
 /**
  * Set the colour as a background colour of the button. If the colour is "too dark" set the foreground colour of the button to white.
  */
-void configFrame::setColour( wxButton *button, wxColour newColour )
-{
+void configFrame::setColour( wxButton *button, wxColour newColour ) {
     button->SetBackgroundColour( newColour );
 
     if ( newColour.Red() < 180 && newColour.Green() < 180 && newColour.Blue() < 180 ) {
@@ -1611,8 +1623,7 @@ void configFrame::setColour( wxButton *button, wxColour newColour )
 /**
  * Check if the current colour of the button is different than currently active colour. If yes than enable the 'changes mark'. If not than disable the 'changes mark'.
  */
-void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxStaticText *changesMark )
-{
+void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxStaticText *changesMark ) {
     if ( button->GetBackgroundColour() == prevColour ) {
         if ( changesMark->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1630,8 +1641,7 @@ void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxS
 /**
  * Check if the current colour of at least one of the cells' buttons is different than currently active colour. If yes than enable the 'changes mark'. If not than disable the 'changes mark'.
  */
-void configFrame::checkCellsColourChanges()
-{
+void configFrame::checkCellsColourChanges() {
     if ( buttonColourCell11->GetBackgroundColour() == m_config->colourCell11 &&
             buttonColourCell12->GetBackgroundColour() == m_config->colourCell12 &&
             buttonColourCell21->GetBackgroundColour() == m_config->colourCell21 &&
@@ -1655,8 +1665,7 @@ void configFrame::checkCellsColourChanges()
 /**
  * setFont
  */
-void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour prevColour, wxStaticText *changesMark, wxString name )
-{
+void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour prevColour, wxStaticText *changesMark, wxString name ) {
     m_fontData.SetInitialFont( button->GetFont() );
     m_fontData.SetColour( button->GetForegroundColour() );
 
@@ -1693,8 +1702,7 @@ void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour pr
 /**
  * update the buttons state (buttonSave, buttonCancel).
  */
-void configFrame::updateButtonsState()
-{
+void configFrame::updateButtonsState() {
     if ( m_changes == 0 ) {
         buttonSave->Enable( false );
     } else {
@@ -1705,8 +1713,7 @@ void configFrame::updateButtonsState()
 /**
  * save
  */
-bool configFrame::save()
-{
+bool configFrame::save() {
     // check if proxy is defined correctly
     /*
     if ( m_config->checkForUpdates ) {
@@ -1754,6 +1761,8 @@ bool configFrame::save()
     /*******************************/
     /** PAGE APPLICATION */
     m_config->openLastOpenedFile = checkBoxOpenLastOpenedFile->GetValue();
+    m_config->autosaveChanges = checkBoxAutosaveChanges->GetValue();
+    m_config->autosaveSet = checkBoxAutosaveSet->GetValue();
     m_config->checkForMissingDays = checkBoxCheckForMissingDays->GetValue();
 
     if ( checkBoxBreastsAutocontrolReminder->GetValue() ) {
@@ -1876,8 +1885,7 @@ bool configFrame::save()
 /**
  * areFontsTheSame
  */
-bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1, wxColour colour2 )
-{
+bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1, wxColour colour2 ) {
     if ( !areFontsTheSame( font1, font2 ) ) {
         return false;
     }
@@ -1892,8 +1900,7 @@ bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1,
 /**
  * areFontsTheSame
  */
-bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 )
-{
+bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 ) {
     if ( font1.GetPointSize() != font2.GetPointSize() ) {
         return false;
     }
@@ -1922,8 +1929,7 @@ bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 )
 /**
  *
  */
-void configFrame::sendDataUpdateEvent( int id, wxString message )
-{
+void configFrame::sendDataUpdateEvent( int id, wxString message ) {
     wxCommandEvent event( wxEVT_CONFIG_DATA_MODIFIED_EVENT, CONFIG_EVENT );
     event.SetInt( id );
     event.SetString( message );
@@ -1931,3 +1937,4 @@ void configFrame::sendDataUpdateEvent( int id, wxString message )
 }
 
 /******************************************************************************/
+

@@ -21,8 +21,7 @@
 /**
  *
  */
-configClass::configClass( wxString configFile )
-{
+configClass::configClass( wxString configFile ) {
     m_configFile = configFile;
     verticalDisplacement = 0;
     langId = -1;
@@ -41,12 +40,14 @@ configClass::configClass( wxString configFile )
 /**
  * odpalane przy starcie programu, oraz gdy wybrano przycisk "przywroc domyslne" w oknie konfiguracji.
  */
-void configClass::setDefaultParams()
-{
+void configClass::setDefaultParams() {
 
 
     // ogolne
     openLastOpenedFile = true;
+    autosaveChanges = true;
+    autosaveSet = false;
+
     rememberPosition = true;
     checkForMissingDays = true;
 #if defined(__WXMSW__)
@@ -182,8 +183,7 @@ void configClass::setDefaultParams()
 /**
  *
  */
-void configClass::calculateParams()
-{
+void configClass::calculateParams() {
     rowsCountTemp = ( temperatureRangeHigh - temperatureRangeLow ) / 5 + 1;
     rowsCount = rowsCountAboveTemp + rowsCountTemp + rowsCountBelowTemp;
     rowNoCervix = rowsCountAboveTemp + rowsCountTemp + rowNoCervixBelowTemp;
@@ -196,8 +196,7 @@ void configClass::calculateParams()
 /**
  *
  */
-bool configClass::readParamsFromConfigFile()
-{
+bool configClass::readParamsFromConfigFile() {
     if (!wxFileExists(m_configFile)) {
         return false;
     }
@@ -258,6 +257,9 @@ bool configClass::readParamsFromConfigFile()
     // last open file
     config->Read( CONF_ENTRY_openLastOpenedFile, &openLastOpenedFile );
     config->Read( CONF_ENTRY_lastOpenedFileName, &dataFileName );
+    // autosave
+    config->Read( CONF_ENTRY_autosaveChanges, &autosaveChanges );
+    config->Read( CONF_ENTRY_autosaveSet, &autosaveSet );
     // missing days
     config->Read( CONF_ENTRY_checkForMissingDays, &checkForMissingDays );
     // breast self control reminder
@@ -335,8 +337,7 @@ bool configClass::readParamsFromConfigFile()
 /**
  *
  */
-bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColour &colour )
-{
+bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColour &colour ) {
     int red = -1, green = -1, blue = -1;
 
     if ( ! config->Read( name + CONF_ENTRY_EXT_RED, &red ) ) {
@@ -360,8 +361,7 @@ bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColou
 /**
  *
  */
-bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &font )
-{
+bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &font ) {
     int      pointSize = -1;
     int      family    = -1;
     int      style     = -1;
@@ -401,8 +401,7 @@ bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &f
 /**
  * Support for previous version of config file..
  */
-bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
-{
+bool configClass::readParamsFromOldVersionOfConfigFile(wxString input) {
     // parse the configuration entries and put it to the 'params' hash map
     paramsHash params;
     wxString entry, name, value;
@@ -448,6 +447,7 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
 
     // last open file
     readBool( params, _T("openLastOpenedFile"),           openLastOpenedFile );
+
     readString( params, _T("lastOpenedFileName"),         dataFileName );
     // missing days
     readBool( params, _T("checkForMissingDays"),          checkForMissingDays );
@@ -544,8 +544,7 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
 /**
  *
  */
-void configClass::readString(paramsHash params, wxString name, wxString &paramToSet )
-{
+void configClass::readString(paramsHash params, wxString name, wxString &paramToSet ) {
     if ( ! params[name].IsEmpty() ) {
         paramToSet = params[name];
     }
@@ -554,8 +553,7 @@ void configClass::readString(paramsHash params, wxString name, wxString &paramTo
 /**
  *
  */
-void configClass::readInt(paramsHash params, wxString name, int &paramToSet )
-{
+void configClass::readInt(paramsHash params, wxString name, int &paramToSet ) {
     if ( ! params[name].IsEmpty() ) {
         paramToSet = m_util.strToInt(params[name]);
     }
@@ -564,8 +562,7 @@ void configClass::readInt(paramsHash params, wxString name, int &paramToSet )
 /**
  *
  */
-void configClass::readBool(paramsHash params, wxString name, bool &paramToSet )
-{
+void configClass::readBool(paramsHash params, wxString name, bool &paramToSet ) {
     if ( ! params[name].IsEmpty() ) {
         paramToSet = m_util.strToBool(params[name]);
     }
@@ -574,8 +571,7 @@ void configClass::readBool(paramsHash params, wxString name, bool &paramToSet )
 /**
  *
  */
-void configClass::readColour(paramsHash params, wxString name, wxColour &paramToSet )
-{
+void configClass::readColour(paramsHash params, wxString name, wxColour &paramToSet ) {
     int red = -1, green = -1, blue = -1;
 
     if ( ! params[name + _T(".red")].IsEmpty() )  red = m_util.strToInt( params[name + _T(".red")] );
@@ -590,8 +586,7 @@ void configClass::readColour(paramsHash params, wxString name, wxColour &paramTo
 /**
  *
  */
-void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet)
-{
+void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet) {
     int      pointSize = -1;
     int      family    = -1;
     int      style     = -1;
@@ -626,8 +621,7 @@ void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet)
 /**
  *
  */
-bool configClass::saveParamsToConfigFile()
-{
+bool configClass::saveParamsToConfigFile() {
     wxConfigBase * config = new wxFileConfig( wxEmptyString, wxEmptyString, m_configFile );
 
     /* GENERAL */
@@ -665,6 +659,11 @@ bool configClass::saveParamsToConfigFile()
     } else {
         config->DeleteEntry( CONF_ENTRY_lastOpenedFileName, false );
     }
+
+    // autosave
+    config->Write( CONF_ENTRY_autosaveChanges,             autosaveChanges );
+    config->Write( CONF_ENTRY_autosaveSet,                 autosaveSet );
+
     // missing days
     config->Write( CONF_ENTRY_checkForMissingDays,          checkForMissingDays );
     // breast self control reminder
@@ -728,8 +727,7 @@ bool configClass::saveParamsToConfigFile()
 /**
  *
  */
-bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour input )
-{
+bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour input ) {
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_RED ), input.Red() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_GREEN ), input.Green() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_BLUE ), input.Blue() );
@@ -739,8 +737,7 @@ bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour
 /**
  *
  */
-bool configClass::saveParamFont( wxConfigBase *config, wxString name, wxFont input )
-{
+bool configClass::saveParamFont( wxConfigBase *config, wxString name, wxFont input ) {
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_POINTSIZE ), input.GetPointSize() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_FAMILY ), (long)input.GetFamily() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_STYLE ), (long)input.GetStyle() );

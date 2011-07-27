@@ -113,8 +113,7 @@ END_EVENT_TABLE()
  * constructor
  */
 nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id, const wxString &title, const wxPoint &position, const wxSize& size, long style )
-    : wxFrame( parent, id, title, position, size, style )
-{
+    : wxFrame( parent, id, title, position, size, style ) {
     m_config = config;
     m_parent = parent;
 
@@ -136,17 +135,13 @@ nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id
     scrollBarVertical->SetScrollbar( 0, 5, 30, 4 );
     m_config->verticalDisplacement = 0;
 
-    if (( m_config->openLastOpenedFile || m_config->openFileFromParams ) && !m_config->dataFileName.IsEmpty() )
-    {
-        if ( !m_cycleData->readCardsDataFromFile( m_config->dataFileName ) )
-        {
+    if (( m_config->openLastOpenedFile || m_config->openFileFromParams ) && !m_config->dataFileName.IsEmpty() ) {
+        if ( !m_cycleData->readCardsDataFromFile( m_config->dataFileName ) ) {
             wxMessageBox( wxString::Format( _( "Error occured while reading data from file:\n" ), m_cycleData->getErrorMessages().c_str() ), _( "Error" ), wxOK | wxICON_ERROR );
             m_cycleData->createNewSet();
             m_config->dataFileName = wxEmptyString;
         }
-    }
-    else
-    {
+    } else {
         m_cycleData->createNewSet();
         m_config->dataFileName = wxEmptyString;
     }
@@ -155,8 +150,7 @@ nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id
     m_config->checkLastDayVisibility = true;
     updateAll();
 
-    if ( m_config->dataFileName.IsEmpty() )
-    {
+    if ( m_config->dataFileName.IsEmpty() ) {
         m_cardFrm->update();
         m_cardFrm->Show();
     }
@@ -170,8 +164,7 @@ nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id
 
 #if defined(__WXMSW__)
     // check for updates
-    if ( m_config->checkForUpdates )
-    {
+    if ( m_config->checkForUpdates ) {
         checkForUpdates( false );
     }
 #endif
@@ -184,8 +177,7 @@ nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id
 /**
  * destructor
  */
-nfpMainFrame::~nfpMainFrame()
-{
+nfpMainFrame::~nfpMainFrame() {
     if (timerNotification->IsRunning())
         timerNotification->Stop();
     if (timerMain->IsRunning())
@@ -201,12 +193,10 @@ nfpMainFrame::~nfpMainFrame()
 /**
  * CreateGUIControls
  */
-void nfpMainFrame::CreateGUIControls( void )
-{
+void nfpMainFrame::CreateGUIControls( void ) {
     int flatButton = 0;
     int flatToolbar = 0;
-    if ( m_config->useFlatButtons )
-    {
+    if ( m_config->useFlatButtons ) {
         flatButton = wxNO_BORDER;
         flatToolbar = wxTB_FLAT;
     }
@@ -413,41 +403,29 @@ void nfpMainFrame::CreateGUIControls( void )
 /**
  *
  */
-void nfpMainFrame::newAppAvailableEvent( wxCommandEvent& event )
-{
+void nfpMainFrame::newAppAvailableEvent( wxCommandEvent& event ) {
     int id = event.GetInt();
-    if ( id == EVENT_STATUS_UPDATE_AVAILABLE )
-    {
+    if ( id == EVENT_STATUS_UPDATE_AVAILABLE ) {
         statusBar->SetStatusText( wxEmptyString, 1 );
 
         updatesNotificationForm *frame = new updatesNotificationForm( this, m_config, event.GetString() );
         frame->Show( true );
-    }
-    else
-    {
-        if ( id == EVENT_STATUS_UPDATE_NOT_AVAILABLE )
-        {
+    } else {
+        if ( id == EVENT_STATUS_UPDATE_NOT_AVAILABLE ) {
 
             statusBar->SetStatusText( _( "New version of application is not available." ), 1 );
-            if ( m_showNewAppMessage )
-            {
+            if ( m_showNewAppMessage ) {
                 wxMessageBox( _( "New version of application is not available." ), _( "Notification" ), wxOK );
             }
-        }
-        else if ( id == EVENT_STATUS_ERROR )
-        {
+        } else if ( id == EVENT_STATUS_ERROR ) {
 
             statusBar->SetStatusText( event.GetString(), 1 );
-            if ( m_showNewAppMessage )
-            {
+            if ( m_showNewAppMessage ) {
                 wxMessageBox( event.GetString(), _( "Warning" ), wxOK );
             }
-        }
-        else
-        {
+        } else {
             statusBar->SetStatusText( wxString::Format( _( "Unknown event ID: %i, message: %s" ), event.GetInt(), event.GetString().c_str() ), 1 );
-            if ( m_showNewAppMessage )
-            {
+            if ( m_showNewAppMessage ) {
                 wxMessageBox( wxString::Format( _( "Unknown event ID: %i, message: %s" ), event.GetInt(), event.GetString().c_str() ), _( "Warning" ), wxOK );
             }
         }
@@ -462,30 +440,22 @@ void nfpMainFrame::newAppAvailableEvent( wxCommandEvent& event )
 /**
  *
  */
-void nfpMainFrame::newAppDownloadedEvent( wxCommandEvent& event )
-{
+void nfpMainFrame::newAppDownloadedEvent( wxCommandEvent& event ) {
     int id = event.GetInt();
-    if ( id == EVENT_STATUS_UPDATE_DOWNLOADED )
-    {
+    if ( id == EVENT_STATUS_UPDATE_DOWNLOADED ) {
         m_newAppSetupFile = event.GetString();
 
         int answer = wxMessageBox( _( "New version of application is ready for installation.\n-Press 'Yes' if you want to reinstall the application now.\n-Press 'No' if you prefer to reinstall it later." ) , _( "Question" ), wxYES_NO );
-        if ( answer == wxYES )
-        {
-            if ( askToSaveChanges( false ) )
-            {
+        if ( answer == wxYES ) {
+            if ( askToSaveChanges( false ) ) {
                 m_cycleData->setCardModified( false );
                 runUpdateProgram( true );
             }
-        }
-        else
-        {
+        } else {
             m_doUpdateOnExit = true;
             wxMessageBox( _( "You chose to not reinstall the application now. I ask you again when you close the application." ), _( "Notification" ), wxOK | wxICON_INFORMATION );
         }
-    }
-    else
-    {
+    } else {
 
     }
 }
@@ -493,24 +463,19 @@ void nfpMainFrame::newAppDownloadedEvent( wxCommandEvent& event )
 /**
  * runUpdateProgram
  */
-void nfpMainFrame::runUpdateProgram( bool closeWindowIfSuccess )
-{
+void nfpMainFrame::runUpdateProgram( bool closeWindowIfSuccess ) {
 #if defined(__UNIX__)
     // TODO
     wxMessageBox( wxString::Format( _( "Cannot execute file: %s - NOT IMPLEMENTED YET!" ), m_newAppSetupFile.c_str() ), _( "Error" ), wxOK | wxICON_ERROR, this );
 #else
 
     long pid = wxExecute( m_newAppSetupFile, wxEXEC_ASYNC );
-    if ( pid )
-    {
-        if ( closeWindowIfSuccess )
-        {
+    if ( pid ) {
+        if ( closeWindowIfSuccess ) {
 
             Close();
         }
-    }
-    else
-    {
+    } else {
         wxMessageBox( wxString::Format( _( "Cannot execute file: %s" ), m_newAppSetupFile.c_str() ), _( "Error" ), wxOK | wxICON_ERROR, this );
     }
 #endif
@@ -523,33 +488,25 @@ void nfpMainFrame::runUpdateProgram( bool closeWindowIfSuccess )
 /**
  * configDataModifiedEvent
  */
-void nfpMainFrame::configDataModifiedEvent( wxCommandEvent& event )
-{
+void nfpMainFrame::configDataModifiedEvent( wxCommandEvent& event ) {
     int id = event.GetInt();
     wxString message = event.GetString();
 
-    if ( id == CONFIG_LANGUAGE_CHANGED )
-    {
+    if ( id == CONFIG_LANGUAGE_CHANGED ) {
         // Language update notification
         // actually nothing to do with this event
-    }
-    else if ( id == CONFIG_FONT_CHANGED )
-    {
+    } else if ( id == CONFIG_FONT_CHANGED ) {
         // Font update notification
         // TODO Font update notification - recalculate labels sizes in windowTop
         windowTop->recalculateComponentsSizes();
         windowLeft->recalculateComponentsSizes();
-    }
-    else if ( id == CONFIG_BUTTONS_STYLE_CHANGED )
-    {
+    } else if ( id == CONFIG_BUTTONS_STYLE_CHANGED ) {
         // Buttons style update notification
         // TODO
         setButtonsStyle();
         m_cardFrm->setButtonsStyle();
         m_dayFrm->setButtonsStyle();
-    }
-    else
-    {
+    } else {
         // Config update
         Refresh();
         m_dayFrm->updateMeasuredTemperatureList();
@@ -559,28 +516,20 @@ void nfpMainFrame::configDataModifiedEvent( wxCommandEvent& event )
 /**
  * cardDataModifiedEvent
  */
-void nfpMainFrame::cardDataModifiedEvent( wxCommandEvent& event )
-{
+void nfpMainFrame::cardDataModifiedEvent( wxCommandEvent& event ) {
     int id = event.GetInt();
     wxString message = event.GetString();
 
-    if ( id == ACTIVE_CARD_UPDATE )
-    {
+    if ( id == ACTIVE_CARD_UPDATE ) {
         windowTop->Refresh();
-    }
-    else if ( id == ACTIVE_CARD_UPDATE_WITH_1ST_DAY )
-    {
+    } else if ( id == ACTIVE_CARD_UPDATE_WITH_1ST_DAY ) {
         checkForMissingDays();
         windowTop->Refresh();
         windowMain->Refresh();
-    }
-    else if ( id == ACTIVE_CARD_UPDATE_WITH_PLACES )
-    {
+    } else if ( id == ACTIVE_CARD_UPDATE_WITH_PLACES ) {
         windowTop->Refresh();
         windowMain->Refresh();
-    }
-    else
-    {
+    } else {
         windowTop->Refresh();
         windowLeft->repaint_activeCardUpdated();
         windowMain->Refresh();
@@ -590,13 +539,11 @@ void nfpMainFrame::cardDataModifiedEvent( wxCommandEvent& event )
 /**
  * dayDataModifiedEvent
  */
-void nfpMainFrame::dayDataModifiedEvent( wxCommandEvent& event )
-{
+void nfpMainFrame::dayDataModifiedEvent( wxCommandEvent& event ) {
     int id = event.GetInt();
     wxString message = event.GetString();
 
-    if ( id == ACTIVE_DAY_UPDATE_WITH_RESULTS )
-    {
+    if ( id == ACTIVE_DAY_UPDATE_WITH_RESULTS ) {
         int start = m_cycleData->getCard()->getResultTemperatureLowLevelStart() - 1;
         int end   = m_cycleData->getCard()->getResultTemperatureHighLevelEnd() + 1;
         if ( start < 1 )
@@ -617,15 +564,12 @@ void nfpMainFrame::dayDataModifiedEvent( wxCommandEvent& event )
 /**
  * nfpMainFrameClose
  */
-void nfpMainFrame::nfpMainFrameClose( wxCloseEvent& event )
-{
-    if ( askToSaveChanges( true ) )
-    {
+void nfpMainFrame::nfpMainFrameClose( wxCloseEvent& event ) {
+    if ( askToSaveChanges( true ) ) {
         m_cardFrm->GetPosition( & ( m_config->formCardLeft ), & ( m_config->formCardTop ) );
         m_dayFrm->GetPosition( & ( m_config->formDayLeft ), & ( m_config->formDayTop ) );
         m_config->formMainMaximized = this->IsMaximized();
-        if ( !m_config->formMainMaximized )
-        {
+        if ( !m_config->formMainMaximized ) {
             this->GetPosition( & ( m_config->formMainLeft ), & ( m_config->formMainTop ) );
             this->GetSize( & ( m_config->formMainWidth ), & ( m_config->formMainHeight ) );
         }
@@ -636,16 +580,13 @@ void nfpMainFrame::nfpMainFrameClose( wxCloseEvent& event )
         if (timerMain->IsRunning())
             timerMain->Stop();
 
-        if ( m_doUpdateOnExit )
-        {
+        if ( m_doUpdateOnExit ) {
             int answer = wxMessageBox( _( "New version of application is ready for installation.\n-Press 'Yes' if you want to reinstall the application now.\n-Press 'No' if you prefer to reinstall it later." ), _( "Question" ), wxYES_NO );
-            if ( answer == wxYES )
-            {
+            if ( answer == wxYES ) {
                 runUpdateProgram( false );
 
                 long pid = wxExecute( m_newAppSetupFile, wxEXEC_ASYNC );
-                if ( !pid )
-                {
+                if ( !pid ) {
                     wxMessageBox( wxString::Format( _( "Cannot execute file: %s" ), m_newAppSetupFile.c_str() ), _( "Error" ), wxOK | wxICON_ERROR, this );
                 }
             }
@@ -658,8 +599,7 @@ void nfpMainFrame::nfpMainFrameClose( wxCloseEvent& event )
 /**
  * nfpMainFrameMouseWheel
  */
-void nfpMainFrame::nfpMainFrameMouseWheel( wxMouseEvent& event )
-{
+void nfpMainFrame::nfpMainFrameMouseWheel( wxMouseEvent& event ) {
 
 
 
@@ -669,8 +609,7 @@ void nfpMainFrame::nfpMainFrameMouseWheel( wxMouseEvent& event )
 /**
  * nfpMainFrameSize
  */
-void nfpMainFrame::nfpMainFrameSize( wxSizeEvent& event )
-{
+void nfpMainFrame::nfpMainFrameSize( wxSizeEvent& event ) {
 
 
     // insert your code here
@@ -679,12 +618,10 @@ void nfpMainFrame::nfpMainFrameSize( wxSizeEvent& event )
 /**
  * scrollBarVerticalScroll
  */
-void nfpMainFrame::scrollBarVerticalScroll( wxScrollEvent& event )
-{
+void nfpMainFrame::scrollBarVerticalScroll( wxScrollEvent& event ) {
 
 
-    if ( m_config->verticalDisplacement != ( 0 - windowMain->getCellHeight() * event.GetPosition() ) )
-    {
+    if ( m_config->verticalDisplacement != ( 0 - windowMain->getCellHeight() * event.GetPosition() ) ) {
         m_config->verticalDisplacement = 0 - windowMain->getCellHeight() * event.GetPosition();
 
         Refresh();
@@ -694,44 +631,35 @@ void nfpMainFrame::scrollBarVerticalScroll( wxScrollEvent& event )
 /**
  * timerMainTimer
  */
-void nfpMainFrame::timerMainTimer( wxTimerEvent& event )
-{
-    if (( m_cycleData->getCardModified() != m_cardModifiedPrev ) || ( ! m_config->dataFileName.IsSameAs( m_dataFileNamePrev ) ) )
-    {
+void nfpMainFrame::timerMainTimer( wxTimerEvent& event ) {
+    if (( m_cycleData->getCardModified() != m_cardModifiedPrev ) || ( ! m_config->dataFileName.IsSameAs( m_dataFileNamePrev ) ) ) {
 
         m_dataFileNamePrev = m_config->dataFileName;
         m_cardModifiedPrev = m_cycleData->getCardModified();
 
         wxString t = _( "Natural Family Planing" );
         t << _T( "  -  " );
-        if ( m_dataFileNamePrev.IsEmpty() )
-        {
+        if ( m_dataFileNamePrev.IsEmpty() ) {
             t << _( "new_set" );
-        }
-        else
-        {
+        } else {
             t << m_dataFileNamePrev;
         }
-        if ( m_cardModifiedPrev )
-        {
+        if ( m_cardModifiedPrev ) {
             t << _T( " (*)" );
         }
 
         this->SetTitle( t );
     }
 
-    if ( m_newAppStatusMessage > 1 )
-    {
+    if ( m_newAppStatusMessage > 1 ) {
         m_newAppStatusMessage--;
     }
-    if ( m_newAppStatusMessage == 1 )
-    {
+    if ( m_newAppStatusMessage == 1 ) {
         m_newAppStatusMessage--;
         statusBar->SetStatusText( wxEmptyString, 1 );
     }
 
-    if ( doCheckForMissingDays )
-    {
+    if ( doCheckForMissingDays ) {
         doCheckForMissingDays = false;
         checkForMissingDays();
     }
@@ -741,10 +669,8 @@ void nfpMainFrame::timerMainTimer( wxTimerEvent& event )
 /**
  * timerNotificationTimer
  */
-void nfpMainFrame::timerNotificationTimer( wxTimerEvent& event )
-{
-    if ( m_config->breastSelfControlReminderDay > 0 )
-    {
+void nfpMainFrame::timerNotificationTimer( wxTimerEvent& event ) {
+    if ( m_config->breastSelfControlReminderDay > 0 ) {
         wxDateTime ftoc = m_cycleData->getCard( m_cycleData->getCardsCount() )->getFirstDayOfCycle();
         wxDateTime today = wxDateTime::Today();
         int cycleDay = getNumberOfDays( ftoc, today );
@@ -752,22 +678,15 @@ void nfpMainFrame::timerNotificationTimer( wxTimerEvent& event )
         cycleDay++;
         bool showBreastSelfControlReminder = false;
 
-        if ( cycleDay < m_config->breastSelfControlReminderDay )
-        {
+        if ( cycleDay < m_config->breastSelfControlReminderDay ) {
             showBreastSelfControlReminder = false;
-        }
-        else if ( cycleDay == m_config->breastSelfControlReminderDay && daysFromLastReminder > 0 )
-        {
+        } else if ( cycleDay == m_config->breastSelfControlReminderDay && daysFromLastReminder > 0 ) {
             showBreastSelfControlReminder = true;
             m_config->breastSelfControlLastReminder = today;
-        }
-        else if ( daysFromLastReminder >= m_config->breastSelfControlInterval )
-        {
+        } else if ( daysFromLastReminder >= m_config->breastSelfControlInterval ) {
             showBreastSelfControlReminder = true;
             m_config->breastSelfControlLastReminder = today;
-        }
-        else if ( daysFromLastReminder >= cycleDay )
-        {
+        } else if ( daysFromLastReminder >= cycleDay ) {
             // reminder byl pokazany w poprzednim cyklu
             showBreastSelfControlReminder = true;
             m_config->breastSelfControlLastReminder = today;
@@ -785,10 +704,8 @@ void nfpMainFrame::timerNotificationTimer( wxTimerEvent& event )
 /**
  * prevCardClick
  */
-void nfpMainFrame::prevCardClick( wxCommandEvent& event )
-{
-    if ( checkCardAndDayFramesStates( true, true ) )
-    {
+void nfpMainFrame::prevCardClick( wxCommandEvent& event ) {
+    if ( checkCardAndDayFramesStates( true, true ) ) {
         int c = m_cycleData->getActiveCard() - 1;
         if ( c < 1 )
             c = 1;
@@ -802,10 +719,8 @@ void nfpMainFrame::prevCardClick( wxCommandEvent& event )
 /**
  * nextCardClick
  */
-void nfpMainFrame::nextCardClick( wxCommandEvent& event )
-{
-    if ( checkCardAndDayFramesStates( true, true ) )
-    {
+void nfpMainFrame::nextCardClick( wxCommandEvent& event ) {
+    if ( checkCardAndDayFramesStates( true, true ) ) {
         int c = m_cycleData->getActiveCard() + 1;
         if ( c > m_cycleData->getCardsCount() )
             c = m_cycleData->getCardsCount();
@@ -819,21 +734,16 @@ void nfpMainFrame::nextCardClick( wxCommandEvent& event )
 /**
  * newDayClick
  */
-void nfpMainFrame::newDayClick( wxCommandEvent& event )
-{
-    if ( checkDayFrameState( false, true ) )
-    {
-        if ( m_cycleData->addNewDay() > -1 )
-        {
+void nfpMainFrame::newDayClick( wxCommandEvent& event ) {
+    if ( checkDayFrameState( false, true ) ) {
+        if ( m_cycleData->addNewDay() > -1 ) {
             m_cycleData->setActiveDay( m_cycleData->getDaysCount() );
             m_cycleData->setCardModified( true );
             m_config->checkCurrentDayVisibility = true;
             updateAll();
             m_dayFrm->update();
             m_dayFrm->Show();
-        }
-        else
-        {
+        } else {
             wxMessageBox( _( "Error occured while adding new day" ), _( "Error" ), wxOK | wxICON_ERROR );
         }
     }
@@ -846,8 +756,7 @@ void nfpMainFrame::newDayClick( wxCommandEvent& event )
 /**
  * MnuActivated
  */
-void nfpMainFrame::MnuActivated( wxMenuEvent& event )
-{
+void nfpMainFrame::MnuActivated( wxMenuEvent& event ) {
     menuResults->Check( ID_MNU_RESULTS_MUCUS_1ST_DAY, false );
     menuResults->Check( ID_MNU_RESULTS_MUCUS_1ST_DAY_FERTILE, false );
     menuResults->Check( ID_MNU_RESULTS_MUCUS_PEAK_DAY, false );
@@ -865,8 +774,7 @@ void nfpMainFrame::MnuActivated( wxMenuEvent& event )
     int cardsCount = m_cycleData->getCardsCount();
     int daysCount = m_cycleData->getDaysCount();
 
-    if ( activeDay > 0 )
-    {
+    if ( activeDay > 0 ) {
         dayNoString << _T( " " ) << activeDay;
         cardEntry *card = m_cycleData->getCard();
         if ( card->isResultMucus1stDay(activeDay) )
@@ -898,20 +806,15 @@ void nfpMainFrame::MnuActivated( wxMenuEvent& event )
         menuResults->Enable( ID_MNU_RESULTS_INFERTILE_PHASE_START, true );
         menuResults->Enable( ID_MNU_RESULTS_AUTOCALCULATE, true );
 
-        if ( activeCard == cardsCount )
-        {
+        if ( activeCard == cardsCount ) {
             menuMoveDays->Enable( ID_MNU_MOVE_DAYS_TO_PREV_CARD, true );
             if ( activeDay > 1 )
                 menuMoveDays->Enable( ID_MNU_MOVE_DAYS_TO_NEXT_CARD, true );
-        }
-        else if ( activeCard == cardsCount - 1 )
-        {
+        } else if ( activeCard == cardsCount - 1 ) {
             if ( activeDay > 1 )
                 menuMoveDays->Enable( ID_MNU_MOVE_DAYS_TO_NEXT_CARD, true );
         }
-    }
-    else
-    {
+    } else {
         dayNoString << _T( " XX" );
 
         menuDay->Enable( ID_MNU_EDIT_DAY, false );
@@ -930,22 +833,16 @@ void nfpMainFrame::MnuActivated( wxMenuEvent& event )
 
 
 
-    if ( m_cycleData->getCard()->getCardLocked() )
-    {
+    if ( m_cycleData->getCard()->getCardLocked() ) {
         // card locked
         menuDay->Enable( ID_MNU_EDIT_DAY, false );
         menuDay->Enable( ID_MNU_DELETE_DAY, false );
         menuDay->Enable( ID_MNU_NEW_DAY, false );
-    }
-    else
-    {
+    } else {
 
-        if ( activeCard == cardsCount && activeDay == daysCount && daysCount > 1 )
-        {
+        if ( activeCard == cardsCount && activeDay == daysCount && daysCount > 1 ) {
             menuDay->Enable( ID_MNU_DELETE_DAY, true );
-        }
-        else
-        {
+        } else {
             menuDay->Enable( ID_MNU_DELETE_DAY, false );
         }
 
@@ -959,10 +856,8 @@ void nfpMainFrame::MnuActivated( wxMenuEvent& event )
 /**
  * MnuNewSetClick
  */
-void nfpMainFrame::MnuNewSetClick( wxCommandEvent& event )
-{
-    if ( askToSaveChanges( true ) )
-    {
+void nfpMainFrame::MnuNewSetClick( wxCommandEvent& event ) {
+    if ( askToSaveChanges( true ) ) {
         m_cycleData->createNewSet();
         m_config->dataFileName = wxEmptyString;
         m_cycleData->setActiveCard( m_cycleData->getCardsCount() );
@@ -979,10 +874,8 @@ void nfpMainFrame::MnuNewSetClick( wxCommandEvent& event )
 /**
  * MnuOpenSetClick
  */
-void nfpMainFrame::MnuOpenSetClick( wxCommandEvent& event )
-{
-    if ( askToSaveChanges( true ) )
-    {
+void nfpMainFrame::MnuOpenSetClick( wxCommandEvent& event ) {
+    if ( askToSaveChanges( true ) ) {
         wxString message = _( "Open cards' set..." );
         wxString default_path = wxEmptyString;
         wxString default_filename = wxEmptyString;
@@ -990,8 +883,7 @@ void nfpMainFrame::MnuOpenSetClick( wxCommandEvent& event )
         wxString wildcard = _T( "*.nfpdata" );
         int flags = wxFD_OPEN | wxFD_FILE_MUST_EXIST;
         wxString filename = wxFileSelector( message, default_path, default_filename, default_extension, wildcard, flags, this );
-        if ( !filename.empty() )
-        {
+        if ( !filename.empty() ) {
             m_cycleData->removeAll();
             Refresh();
             m_cycleData->setActiveCard( -1 );
@@ -999,15 +891,12 @@ void nfpMainFrame::MnuOpenSetClick( wxCommandEvent& event )
             m_config->dataFileName = filename;
 
             m_cycleData->setCardModified( false );
-            if ( m_cycleData->readCardsDataFromFile( m_config->dataFileName ) )
-            {
+            if ( m_cycleData->readCardsDataFromFile( m_config->dataFileName ) ) {
                 m_cycleData->setActiveCard( m_cycleData->getCardsCount() );
                 m_config->checkLastDayVisibility = true;
                 updateAll();
                 checkForMissingDays();
-            }
-            else
-            {
+            } else {
                 wxMessageBox( wxString::Format( _( "Error occured while reading data from file:\n%s" ), m_cycleData->getErrorMessages().c_str() ), _( "Error" ), wxOK | wxICON_ERROR );
                 MnuNewSetClick( event );
             }
@@ -1018,35 +907,30 @@ void nfpMainFrame::MnuOpenSetClick( wxCommandEvent& event )
 /**
  * MnuSaveSetClick
  */
-void nfpMainFrame::MnuSaveSetClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuSaveSetClick( wxCommandEvent& event ) {
     saveChanges( false, true );
 }
 
 /**
  * MnuSaveSetAsClick
  */
-void nfpMainFrame::MnuSaveSetAsClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuSaveSetAsClick( wxCommandEvent& event ) {
     saveChanges( true, true );
 }
 
 /**
  * MnuPrintClick
  */
-void nfpMainFrame::MnuPrintClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuPrintClick( wxCommandEvent& event ) {
     //printFrame *frame = new printFrame (this, m_config, m_cycleData, GOTO_CARD);
     printFrame *frame = new printFrame( this, m_config, 1, m_cycleData->getCardsCount(), m_cycleData->getActiveCard() );
     int ret = frame->ShowModal();
 
-    if ( ret > 0 )
-    {
+    if ( ret > 0 ) {
         int firstCard = 0;
         int lastCard = 0;
         bool printLegend = false;
-        if ( ret > 999999 )
-        {
+        if ( ret > 999999 ) {
             printLegend = true;
             ret = ret % 1000000;
         }
@@ -1061,15 +945,12 @@ void nfpMainFrame::MnuPrintClick( wxCommandEvent& event )
         wxPrinter printer( & printDialogData );
         customPrintout printout( m_config, m_cycleData, firstCard, lastCard, printLegend, _T( "wx-nfp" ) );
 
-        if ( !printer.Print( this, &printout, true ) )
-        {
+        if ( !printer.Print( this, &printout, true ) ) {
             if ( wxPrinter::GetLastError() == wxPRINTER_ERROR )
                 wxMessageBox( _( "Problem with printing occurred.\nPerhaps your current printer is not set correctly?" ) , _( "Error" ), wxOK );
             else
                 wxMessageBox( _( "Printing has been canceled." ), _( "Error" ), wxOK );
-        }
-        else
-        {
+        } else {
             ( *m_printData ) = printer.GetPrintDialogData().GetPrintData();
         }
     }
@@ -1078,13 +959,11 @@ void nfpMainFrame::MnuPrintClick( wxCommandEvent& event )
 /**
  * MnuPrintPreviewClick
  */
-void nfpMainFrame::MnuPrintPreviewClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuPrintPreviewClick( wxCommandEvent& event ) {
     // Pass two printout objects: for preview, and possible printing.
     wxPrintDialogData printDialogData( * m_printData );
     wxPrintPreview *preview = new wxPrintPreview( new customPrintout( m_config, m_cycleData, 11, 11, false ), new customPrintout( m_config, m_cycleData, 11, 11, false ), & printDialogData );
-    if ( !preview->Ok() )
-    {
+    if ( !preview->Ok() ) {
         delete preview;
         wxMessageBox( _T( "There was a problem previewing.\nPerhaps your current printer is not set correctly?" ), _T( "Previewing" ), wxOK );
         return;
@@ -1101,16 +980,14 @@ void nfpMainFrame::MnuPrintPreviewClick( wxCommandEvent& event )
 /**
  * MnuPrintPageSetupClick
  */
-void nfpMainFrame::MnuPrintPageSetupClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuPrintPageSetupClick( wxCommandEvent& event ) {
     // TODO
 }
 
 /**
  * MnuOptionsClick
  */
-void nfpMainFrame::MnuOptionsClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuOptionsClick( wxCommandEvent& event ) {
     configFrame *frame = new configFrame( this, m_config );
     frame->ShowModal();
 
@@ -1123,8 +1000,7 @@ void nfpMainFrame::MnuOptionsClick( wxCommandEvent& event )
 /**
  * nfpMainFrame
  */
-void nfpMainFrame::MnuExitClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuExitClick( wxCommandEvent& event ) {
     Close();
 }
 
@@ -1133,36 +1009,30 @@ void nfpMainFrame::MnuExitClick( wxCommandEvent& event )
 /**
  * MnuPreviousCardClick
  */
-void nfpMainFrame::MnuPreviousCardClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuPreviousCardClick( wxCommandEvent& event ) {
     prevCardClick( event );
 }
 
 /**
  * MnuNextCardClick
  */
-void nfpMainFrame::MnuNextCardClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuNextCardClick( wxCommandEvent& event ) {
     nextCardClick( event );
 }
 
 /**
  * MnuGoToCardClick
  */
-void nfpMainFrame::MnuGoToCardClick( wxCommandEvent& event )
-{
-    if ( m_cycleData->getCardsCount() < 1 )
-    {
+void nfpMainFrame::MnuGoToCardClick( wxCommandEvent& event ) {
+    if ( m_cycleData->getCardsCount() < 1 ) {
         return;
     }
 
-    if ( checkCardAndDayFramesStates( true, true ) )
-    {
+    if ( checkCardAndDayFramesStates( true, true ) ) {
         goToFrame *frame = new goToFrame( this, m_config, m_cycleData, GOTO_CARD );
         int ret = frame->ShowModal();
 
-        if ( ret > 0 )
-        {
+        if ( ret > 0 ) {
             updateAll();
         }
     }
@@ -1171,10 +1041,8 @@ void nfpMainFrame::MnuGoToCardClick( wxCommandEvent& event )
 /**
  * MnuEditCardClick
  */
-void nfpMainFrame::MnuEditCardClick( wxCommandEvent& event )
-{
-    if ( !m_cardFrm->IsShown() )
-    {
+void nfpMainFrame::MnuEditCardClick( wxCommandEvent& event ) {
+    if ( !m_cardFrm->IsShown() ) {
         m_cardFrm->update();
         m_cardFrm->Show();
     }
@@ -1183,20 +1051,15 @@ void nfpMainFrame::MnuEditCardClick( wxCommandEvent& event )
 /**
  * MnuDeleteCardClick
  */
-void nfpMainFrame::MnuDeleteCardClick( wxCommandEvent& event )
-{
-    if ( checkCardAndDayFramesStates( true, true ) )
-    {
-        if ( m_cycleData->removeLastCard() )
-        {
+void nfpMainFrame::MnuDeleteCardClick( wxCommandEvent& event ) {
+    if ( checkCardAndDayFramesStates( true, true ) ) {
+        if ( m_cycleData->removeLastCard() ) {
             m_cycleData->setActiveDay( -1 );
             m_cycleData->setActiveCard( m_cycleData->getCardsCount() );
             m_cycleData->setCardModified( true );
             m_config->checkFirstDayVisibility = true;
             updateAll();
-        }
-        else
-        {
+        } else {
             // removing card failed
         }
     }
@@ -1205,23 +1068,17 @@ void nfpMainFrame::MnuDeleteCardClick( wxCommandEvent& event )
 /**
  * MnuLockClick
  */
-void nfpMainFrame::MnuLockClick( wxCommandEvent& event )
-{
-    if ( m_cycleData->getActiveCard() > 0 && checkCardAndDayFramesStates( true, true ) )
-    {
-        if ( m_cycleData->getCard()->getCardLocked() )
-        {
+void nfpMainFrame::MnuLockClick( wxCommandEvent& event ) {
+    if ( m_cycleData->getActiveCard() > 0 && checkCardAndDayFramesStates( true, true ) ) {
+        if ( m_cycleData->getCard()->getCardLocked() ) {
             int answer = wxMessageBox( _( "Are you sure you want to unlock the card?\nCard's data will not be protected against accidental changes." ), _( "Warning" ), wxYES_NO );
-            if ( answer == wxYES )
-            {
+            if ( answer == wxYES ) {
                 m_cycleData->getCard()->setCardLocked( false );
                 m_cycleData->setCardModified( true );
                 updateAll();
                 m_dayFrm->checkIfDataHasBeenChanged(true);
             }
-        }
-        else
-        {
+        } else {
             // lock card
             m_cycleData->getCard()->setCardLocked( true );
             m_cycleData->setCardModified( true );
@@ -1233,20 +1090,16 @@ void nfpMainFrame::MnuLockClick( wxCommandEvent& event )
 /**
  * MnuNewCardClick
  */
-void nfpMainFrame::MnuNewCardClick( wxCommandEvent& event )
-{
-    if ( checkCardAndDayFramesStates( true, true ) )
-    {
+void nfpMainFrame::MnuNewCardClick( wxCommandEvent& event ) {
+    if ( checkCardAndDayFramesStates( true, true ) ) {
         // lock the current card
         m_cycleData->getCard()->setCardLocked( true );
         m_cycleData->setCardModified( true );
 
         // create new card
-        if ( m_cycleData->addNewCard() > -1 )
-        {
+        if ( m_cycleData->addNewCard() > -1 ) {
             m_cycleData->setActiveCard( m_cycleData->getCardsCount() );
-            if ( m_cycleData->addNewDay() > -1 )
-            {
+            if ( m_cycleData->addNewDay() > -1 ) {
                 m_cycleData->setActiveDay( -1 );
                 m_config->breastSelfControlLastReminder = -1;
 
@@ -1254,18 +1107,14 @@ void nfpMainFrame::MnuNewCardClick( wxCommandEvent& event )
                 updateAll();
                 m_cardFrm->update();
                 m_cardFrm->Show();
-            }
-            else
-            {
+            } else {
                 updateAll();
                 wxMessageBox( _( "Error occured while adding new day" ), _( "Error" ), wxOK | wxICON_ERROR );
 
                 // what should I do here? remove added card?
 
             }
-        }
-        else
-        {
+        } else {
             updateAll();
             wxMessageBox( _( "Error occured while adding new card" ), _( "Error" ), wxOK | wxICON_ERROR );
         }
@@ -1277,13 +1126,11 @@ void nfpMainFrame::MnuNewCardClick( wxCommandEvent& event )
 /**
  * MnuEditDayClick
  */
-void nfpMainFrame::MnuEditDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuEditDayClick( wxCommandEvent& event ) {
 
 
 
-    if ( !m_dayFrm->IsShown() )
-    {
+    if ( !m_dayFrm->IsShown() ) {
         m_dayFrm->update();
         m_dayFrm->Show();
     }
@@ -1292,32 +1139,23 @@ void nfpMainFrame::MnuEditDayClick( wxCommandEvent& event )
 /**
  * MnuDeleteDayClick
  */
-void nfpMainFrame::MnuDeleteDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuDeleteDayClick( wxCommandEvent& event ) {
 
 
 
-    if ( checkDayFrameState( true, true ) )
-    {
-        if ( m_cycleData->removeLastDay() )
-        {
-            if ( m_cycleData->getActiveDay() > m_cycleData->getDaysCount() )
-            {
+    if ( checkDayFrameState( true, true ) ) {
+        if ( m_cycleData->removeLastDay() ) {
+            if ( m_cycleData->getActiveDay() > m_cycleData->getDaysCount() ) {
                 m_cycleData->setActiveDay( m_cycleData->getDaysCount() );
             }
             m_cycleData->setCardModified( true );
-            if ( m_cycleData->getActiveDay() > 0 )
-            {
+            if ( m_cycleData->getActiveDay() > 0 ) {
                 m_config->checkCurrentDayVisibility = true;
-            }
-            else
-            {
+            } else {
                 m_config->checkLastDayVisibility = true;
             }
             updateAll();
-        }
-        else
-        {
+        } else {
             // removing day failed
         }
     }
@@ -1326,21 +1164,18 @@ void nfpMainFrame::MnuDeleteDayClick( wxCommandEvent& event )
 /**
  * MnuNewDayClick
  */
-void nfpMainFrame::MnuNewDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuNewDayClick( wxCommandEvent& event ) {
     newDayClick( event );
 }
 
 /**
  * MnuResultsMucus1stDayClick
  */
-void nfpMainFrame::MnuResultsMucus1stDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsMucus1stDayClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultMucus1stDay();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1352,13 +1187,11 @@ void nfpMainFrame::MnuResultsMucus1stDayClick( wxCommandEvent& event )
 /**
  * MnuResultsMucus1stDayFertileClick
  */
-void nfpMainFrame::MnuResultsMucus1stDayFertileClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsMucus1stDayFertileClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultMucus1stMoreFertileDay();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1370,13 +1203,11 @@ void nfpMainFrame::MnuResultsMucus1stDayFertileClick( wxCommandEvent& event )
 /**
  * MnuResultsMucusPeakDayClick
  */
-void nfpMainFrame::MnuResultsMucusPeakDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsMucusPeakDayClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultMucusPeak();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1388,13 +1219,11 @@ void nfpMainFrame::MnuResultsMucusPeakDayClick( wxCommandEvent& event )
 /**
  * MnuResultsCervix1stDayClick
  */
-void nfpMainFrame::MnuResultsCervix1stDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsCervix1stDayClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultCervix1stDay();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1406,13 +1235,11 @@ void nfpMainFrame::MnuResultsCervix1stDayClick( wxCommandEvent& event )
 /**
  * MnuResultsCervixPeakDayClick
  */
-void nfpMainFrame::MnuResultsCervixPeakDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsCervixPeakDayClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultCervixPeak();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1424,13 +1251,11 @@ void nfpMainFrame::MnuResultsCervixPeakDayClick( wxCommandEvent& event )
 /**
  * MnuResultsTemperature1stDayClick
  */
-void nfpMainFrame::MnuResultsTemperature1stDayClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsTemperature1stDayClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultTemperaturesLevels();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1442,13 +1267,11 @@ void nfpMainFrame::MnuResultsTemperature1stDayClick( wxCommandEvent& event )
 /**
  * MnuResultsTemperatureResetClick
  */
-void nfpMainFrame::MnuResultsTemperatureResetClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsTemperatureResetClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->resetResultTemperaturesLevels();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1460,13 +1283,11 @@ void nfpMainFrame::MnuResultsTemperatureResetClick( wxCommandEvent& event )
 /**
  * MnuResultsFertilePhaseStartClick
  */
-void nfpMainFrame::MnuResultsFertilePhaseStartClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsFertilePhaseStartClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultFertilePhaseStart();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1478,13 +1299,11 @@ void nfpMainFrame::MnuResultsFertilePhaseStartClick( wxCommandEvent& event )
 /**
  * MnuResultsInfertilePhaseStartClick
  */
-void nfpMainFrame::MnuResultsInfertilePhaseStartClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsInfertilePhaseStartClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->setResultInfertilePhaseStart();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Setting result faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1496,13 +1315,11 @@ void nfpMainFrame::MnuResultsInfertilePhaseStartClick( wxCommandEvent& event )
 /**
  * MnuResultsAutocalculateClick
  */
-void nfpMainFrame::MnuResultsAutocalculateClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuResultsAutocalculateClick( wxCommandEvent& event ) {
     if ( ! doModifyLockedCard() ) return;
 
     int * ret = m_cycleData->calculateResultsAutomatically();
-    if ( ret == NULL )
-    {
+    if ( ret == NULL ) {
         showNotification(_("Calculating results automatically faild:") + m_cycleData->getErrorMessages());
         return;
     }
@@ -1516,13 +1333,11 @@ void nfpMainFrame::MnuResultsAutocalculateClick( wxCommandEvent& event )
 /**
  * MnuMoveDaysToPrevCardClick
  */
-void nfpMainFrame::MnuMoveDaysToPrevCardClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuMoveDaysToPrevCardClick( wxCommandEvent& event ) {
 
 
 
-    if ( checkDayFrameState( true, true ) )
-    {
+    if ( checkDayFrameState( true, true ) ) {
         int activeDay = m_cycleData->getActiveDay();
         int daysCount = m_cycleData->getDaysCount();
         wxString msg;
@@ -1535,10 +1350,8 @@ void nfpMainFrame::MnuMoveDaysToPrevCardClick( wxCommandEvent& event )
         if ( activeDay == daysCount )
             msg << _T( "\n" ) << _( "Current card will be removed, because all days will be moved." );
 
-        if ( wxMessageBox( msg, _( "Question" ), wxYES_NO ) == wxYES )
-        {
-            if ( ! m_cycleData->moveDaysToPreviousCard( activeDay ) )
-            {
+        if ( wxMessageBox( msg, _( "Question" ), wxYES_NO ) == wxYES ) {
+            if ( ! m_cycleData->moveDaysToPreviousCard( activeDay ) ) {
                 wxMessageBox( wxString::Format( _( "Error occured while moving days to the previous card\n%s" ), m_cycleData->getErrorMessages().c_str() ), _( "Error" ), wxOK | wxICON_ERROR );
             }
             m_cycleData->setCardModified( true );
@@ -1550,10 +1363,8 @@ void nfpMainFrame::MnuMoveDaysToPrevCardClick( wxCommandEvent& event )
 /**
  * MnuMoveDaysToNextCardClick
  */
-void nfpMainFrame::MnuMoveDaysToNextCardClick( wxCommandEvent& event )
-{
-    if ( checkDayFrameState( true, true ) )
-    {
+void nfpMainFrame::MnuMoveDaysToNextCardClick( wxCommandEvent& event ) {
+    if ( checkDayFrameState( true, true ) ) {
         int activeDay = m_cycleData->getActiveDay();
         int activeCard = m_cycleData->getActiveCard();
         int daysCount = m_cycleData->getDaysCount();
@@ -1568,10 +1379,8 @@ void nfpMainFrame::MnuMoveDaysToNextCardClick( wxCommandEvent& event )
         if ( activeCard == cardsCount )
             msg << _T( "\n" ) << _( "New card will be created." );
 
-        if ( wxMessageBox( msg, _( "Question" ), wxYES_NO ) == wxYES )
-        {
-            if ( ! m_cycleData->moveDaysToNextCard( activeDay ) )
-            {
+        if ( wxMessageBox( msg, _( "Question" ), wxYES_NO ) == wxYES ) {
+            if ( ! m_cycleData->moveDaysToNextCard( activeDay ) ) {
                 wxMessageBox( wxString::Format( _( "Error occured while moving days to the next card\n%s" ), m_cycleData->getErrorMessages().c_str() ), _( "Error" ), wxOK | wxICON_ERROR );
             }
             m_cycleData->setCardModified( true );
@@ -1585,16 +1394,12 @@ void nfpMainFrame::MnuMoveDaysToNextCardClick( wxCommandEvent& event )
 /**
  * Display histogram of length of cycles
  */
-void nfpMainFrame::MnuLengthOfCycleHist( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuLengthOfCycleHist( wxCommandEvent& event ) {
 
 
     histogramsFrame *hist = new histogramsFrame(this, m_cycleData);
-    if ( hist->ShowModal() == wxID_OK )
-    {
-    }
-    else     // somethink wrong
-    {
+    if ( hist->ShowModal() == wxID_OK ) {
+    } else { // somethink wrong
     }
 
     hist->Destroy();
@@ -1604,16 +1409,12 @@ void nfpMainFrame::MnuLengthOfCycleHist( wxCommandEvent& event )
 /**
  * Display histogram of temperature in cycles
  */
-void nfpMainFrame::MnuCycleHist( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuCycleHist( wxCommandEvent& event ) {
 
 
     cycleGraph *hist = new cycleGraph(this, m_cycleData);
-    if ( hist->ShowModal() == wxID_OK )
-    {
-    }
-    else     // somethink wrong
-    {
+    if ( hist->ShowModal() == wxID_OK ) {
+    } else { // somethink wrong
     }
 
     hist->Destroy();
@@ -1625,8 +1426,7 @@ void nfpMainFrame::MnuCycleHist( wxCommandEvent& event )
 /**
  * MnuHelpClick
  */
-void nfpMainFrame::MnuHelpClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuHelpClick( wxCommandEvent& event ) {
     /*
     Offline help
     wxString helpUrl = m_util.getHelpUrl( _("en") );
@@ -1642,32 +1442,28 @@ void nfpMainFrame::MnuHelpClick( wxCommandEvent& event )
 /**
  * MnuHomePageClick
  */
-void nfpMainFrame::MnuHomePageClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuHomePageClick( wxCommandEvent& event ) {
     wxLaunchDefaultBrowser( wxString::Format( _( "%s?l=en" ), HOME_URL ) );
 }
 
 /**
  * MnuReportBugClick
  */
-void nfpMainFrame::MnuReportBugClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuReportBugClick( wxCommandEvent& event ) {
     wxLaunchDefaultBrowser( wxString::Format( _( "%s%s?l=en" ), HOME_URL, REPORT_BUG_PATH ) );
 }
 
 /**
  * MnuAboutClick
  */
-void nfpMainFrame::MnuUpdatesClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuUpdatesClick( wxCommandEvent& event ) {
     checkForUpdates( true );
 }
 
 /**
  * MnuAboutClick
  */
-void nfpMainFrame::MnuAboutClick( wxCommandEvent& event )
-{
+void nfpMainFrame::MnuAboutClick( wxCommandEvent& event ) {
     m_parent->Show();
     m_parent->SetFocus();
 }
@@ -1680,20 +1476,16 @@ void nfpMainFrame::MnuAboutClick( wxCommandEvent& event )
 /**
  * OnContextMenu
  */
-void nfpMainFrame::OnContextMenu( wxContextMenuEvent& event )
-{
+void nfpMainFrame::OnContextMenu( wxContextMenuEvent& event ) {
     wxPoint point = event.GetPosition();
     point = ScreenToClient( point );
 
     int x1 = windowLeft->GetPosition().x + windowLeft->GetSize().GetX();
     int y1 = windowTop->GetPosition().y + windowTop->GetSize().GetY();
 
-    if ( point.y <= y1 )
-    {
+    if ( point.y <= y1 ) {
         PopupMenu( menuCard );
-    }
-    else if ( point.x > x1 )
-    {
+    } else if ( point.x > x1 ) {
         PopupMenu( menuDay );
     }
 }
@@ -1706,10 +1498,8 @@ void nfpMainFrame::OnContextMenu( wxContextMenuEvent& event )
 /**
  * Set focus on the card frame.
  */
-void nfpMainFrame::setFocusOnCardFrm()
-{
-    if ( m_cardFrm->IsShown() )
-    {
+void nfpMainFrame::setFocusOnCardFrm() {
+    if ( m_cardFrm->IsShown() ) {
 
         m_cardFrm->SetFocus();
     }
@@ -1719,17 +1509,14 @@ void nfpMainFrame::setFocusOnCardFrm()
 /**
  * check if new version of application is available.
  */
-void nfpMainFrame::checkForUpdates( bool showMessage )
-{
+void nfpMainFrame::checkForUpdates( bool showMessage ) {
     m_showNewAppMessage = showMessage;
 
     liveUpdateClass *checkUpdatesThread = new liveUpdateClass( this, m_config, true );
-    if ( checkUpdatesThread->Create() != wxTHREAD_NO_ERROR )
-    {
+    if ( checkUpdatesThread->Create() != wxTHREAD_NO_ERROR ) {
         // ...
     }
-    if ( checkUpdatesThread->Run() != wxTHREAD_NO_ERROR )
-    {
+    if ( checkUpdatesThread->Run() != wxTHREAD_NO_ERROR ) {
         // ...
     }
     menuHelp->Enable( ID_MNU_UPDATE, false );
@@ -1739,12 +1526,10 @@ void nfpMainFrame::checkForUpdates( bool showMessage )
 /**
  *
  */
-void nfpMainFrame::setButtonsStyle()
-{
+void nfpMainFrame::setButtonsStyle() {
     int flatButton = 0;
     int flatToolbar = 0;
-    if ( m_config->useFlatButtons )
-    {
+    if ( m_config->useFlatButtons ) {
         flatButton = wxNO_BORDER;
         flatToolbar = wxTB_FLAT;
     }
@@ -1760,8 +1545,7 @@ void nfpMainFrame::setButtonsStyle()
 /**
  *
  */
-void nfpMainFrame::updateAll()
-{
+void nfpMainFrame::updateAll() {
     Refresh();
     //windowMain->repaint(-1, -1);
     //windowLeft->Refresh();
@@ -1772,46 +1556,35 @@ void nfpMainFrame::updateAll()
 /**
  *
  */
-void nfpMainFrame::updateButtons()
-{
-    if ( m_cycleData->getActiveCard() == 1 )
-    {
+void nfpMainFrame::updateButtons() {
+    if ( m_cycleData->getActiveCard() == 1 ) {
         toolBar->EnableTool( ID_BUTTONPREVCARD, false );
         menuCard->Enable( ID_MNU_PREVIOUS_CARD, false );
-    }
-    else
-    {
+    } else {
         toolBar->EnableTool( ID_BUTTONPREVCARD, true );
         menuCard->Enable( ID_MNU_PREVIOUS_CARD, true );
     }
 
-    if ( m_cycleData->getActiveCard() == m_cycleData->getCardsCount() )
-    {
+    if ( m_cycleData->getActiveCard() == m_cycleData->getCardsCount() ) {
         toolBar->EnableTool( ID_BUTTONNEXTCARD, false );
         menuCard->Enable( ID_MNU_NEXT_CARD, false );
         menuCard->Enable( ID_MNU_DELETE_CARD, true );
         buttonNewDay->Enable( true );
-    }
-    else
-    {
+    } else {
         toolBar->EnableTool( ID_BUTTONNEXTCARD, true );
         menuCard->Enable( ID_MNU_NEXT_CARD, true );
         menuCard->Enable( ID_MNU_DELETE_CARD, false );
         buttonNewDay->Enable( false );
     }
 
-    if ( m_cycleData->getActiveCard() > 0 )
-    {
-        if ( m_cycleData->getCard()->getCardLocked() )
-        {
+    if ( m_cycleData->getActiveCard() > 0 ) {
+        if ( m_cycleData->getCard()->getCardLocked() ) {
             menuCard->Enable( ID_MNU_EDIT_CARD, false );
             menuCard->Enable( ID_MNU_DELETE_CARD, false );
             buttonNewDay->Enable( false );
             menuCard->SetLabel( ID_MNU_LOCK_CARD, _( "Unlock card\tCtrl+L" ) );
             menuCard->SetHelpString( ID_MNU_LOCK_CARD, _( "Unlock card. It will be possible to edit all card's data again" ) );
-        }
-        else
-        {
+        } else {
             menuCard->Enable( ID_MNU_EDIT_CARD, true );
             menuCard->SetLabel( ID_MNU_LOCK_CARD, _( "Lock card\tCtrl+L" ) );
             menuCard->SetHelpString( ID_MNU_LOCK_CARD, _( "Lock card. This option protects card's data against accidental changes" ) );
@@ -1822,33 +1595,25 @@ void nfpMainFrame::updateButtons()
 /**
  *
  */
-bool nfpMainFrame::askToSaveChanges( bool cancelAllowed )
-{
-    if ( checkCardAndDayFramesStates( true, cancelAllowed ) )
-    {
-        if ( m_cycleData->getCardModified() )
-        {
-            int answer;
-            if ( cancelAllowed )
-            {
-                answer = wxMessageBox( _( "Save changes in current cards' set to the file?" ), _( "Warning" ), wxYES_NO | wxCANCEL );
+bool nfpMainFrame::askToSaveChanges( bool cancelAllowed ) {
+    if ( checkCardAndDayFramesStates( true, cancelAllowed ) ) {
+        if ( m_cycleData->getCardModified() ) {
+            if (m_config->autosaveSet) {
+                return saveChanges( false, cancelAllowed );
             }
-            else
-            {
+            int answer;
+            if ( cancelAllowed ) {
+                answer = wxMessageBox( _( "Save changes in current cards' set to the file?" ), _( "Warning" ), wxYES_NO | wxCANCEL );
+            } else {
                 answer = wxMessageBox( _( "Save changes in current cards' set to the file?" ), _( "Warning" ), wxYES_NO );
             }
-            if ( answer == wxCANCEL )
-            {
+            if ( answer == wxCANCEL ) {
                 return false;
-            }
-            else if ( answer == wxYES )
-            {
+            } else if ( answer == wxYES ) {
                 return saveChanges( false, cancelAllowed );
             }
         }
-    }
-    else
-    {
+    } else {
         return false;
     }
     return true;
@@ -1857,12 +1622,9 @@ bool nfpMainFrame::askToSaveChanges( bool cancelAllowed )
 /**
  *
  */
-bool nfpMainFrame::saveChanges( bool forceNewFile, bool cancelAllowed )
-{
-    if ( checkCardAndDayFramesStates( false, true ) )
-    {
-        if ( m_config->dataFileName.IsEmpty() || forceNewFile )
-        {
+bool nfpMainFrame::saveChanges( bool forceNewFile, bool cancelAllowed ) {
+    if ( checkCardAndDayFramesStates( false, true ) ) {
+        if ( m_config->dataFileName.IsEmpty() || forceNewFile ) {
 
             wxString message = _( "Save cards' set as..." ) ;
             wxString default_path = wxEmptyString;
@@ -1871,57 +1633,41 @@ bool nfpMainFrame::saveChanges( bool forceNewFile, bool cancelAllowed )
             wxString wildcard = _T( "*.nfpdata" );
             int flags = wxFD_SAVE | wxFD_OVERWRITE_PROMPT;
 
-            if ( m_config->dataFileName.IsEmpty() )
-            {
-                if ( !wxDirExists( m_util.getCardSetDataPath() ) )
-                {
+            if ( m_config->dataFileName.IsEmpty() ) {
+                if ( !wxDirExists( m_util.getCardSetDataPath() ) ) {
                     wxFileName::Mkdir( m_util.getCardSetDataPath(), 0755, wxPATH_MKDIR_FULL );
                 }
                 default_path = m_util.getCardSetDataPath();
                 default_filename = _( "new_set" );
                 default_extension = _T( ".nfpdata" );
-            }
-            else
-            {
+            } else {
                 default_filename = m_config->dataFileName;
             }
 
             wxString filename = wxFileSelector( message, default_path, default_filename, default_extension, wildcard, flags, this );
-            if ( !filename.empty() )
-            {
+            if ( !filename.empty() ) {
                 // set extension of the file if it's missing
                 if (filename.Find( _T( ".nfpdata" )) == -1)
                     filename << _T( ".nfpdata" );
                 m_config->dataFileName = filename;
-            }
-            else
-            {
-                if ( cancelAllowed )
-                {
+            } else {
+                if ( cancelAllowed ) {
                     return false;
-                }
-                else
-                {
+                } else {
                     return true;
                 }
             }
         }
 
-        if ( ! m_config->dataFileName.IsEmpty() && ( m_cycleData->getCardModified() || forceNewFile ) )
-        {
-            if ( m_cycleData->saveCardsDataToFile( m_config->dataFileName ) )
-            {
+        if ( ! m_config->dataFileName.IsEmpty() && ( m_cycleData->getCardModified() || forceNewFile ) ) {
+            if ( m_cycleData->saveCardsDataToFile( m_config->dataFileName ) ) {
                 m_cycleData->setCardModified( false );
-            }
-            else
-            {
+            } else {
                 wxMessageBox( wxString::Format( _( "Error occured while saving data to file:\n%s" ), m_cycleData->getErrorMessages().c_str() ), _( "Error" ), wxOK | wxICON_ERROR );
                 return false;
             }
         }
-    }
-    else
-    {
+    } else {
         return false;
     }
     return true;
@@ -1930,18 +1676,12 @@ bool nfpMainFrame::saveChanges( bool forceNewFile, bool cancelAllowed )
 /**
  * check if card or day frames are visible and if data have been modified, ask to save changes
  */
-bool nfpMainFrame::checkCardAndDayFramesStates( bool closeFrame, bool cancelAllowed )
-{
-    if ( !checkCardFrameState( closeFrame, cancelAllowed ) )
-    {
+bool nfpMainFrame::checkCardAndDayFramesStates( bool closeFrame, bool cancelAllowed ) {
+    if ( !checkCardFrameState( closeFrame, cancelAllowed ) ) {
         return false;
-    }
-    else if ( ! checkDayFrameState( closeFrame, cancelAllowed ) )
-    {
+    } else if ( ! checkDayFrameState( closeFrame, cancelAllowed ) ) {
         return false;
-    }
-    else
-    {
+    } else {
         return true;
     }
 }
@@ -1949,17 +1689,12 @@ bool nfpMainFrame::checkCardAndDayFramesStates( bool closeFrame, bool cancelAllo
 /**
  * check if the day frame is visible and if data have been modified, ask to save changes
  */
-bool nfpMainFrame::checkDayFrameState( bool closeFrame, bool cancelAllowed )
-{
-    if ( m_dayFrm->IsShown() )
-    {
-        if ( m_dayFrm->checkIfDataHasBeenChanged( cancelAllowed ) )
-        {
+bool nfpMainFrame::checkDayFrameState( bool closeFrame, bool cancelAllowed ) {
+    if ( m_dayFrm->IsShown() ) {
+        if ( m_dayFrm->checkIfDataHasBeenChanged( cancelAllowed ) ) {
             if ( closeFrame )
                 m_dayFrm->Hide();
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -1969,17 +1704,12 @@ bool nfpMainFrame::checkDayFrameState( bool closeFrame, bool cancelAllowed )
 /**
  * check if the card frame is visible and if data have been modified, ask to save changes
  */
-bool nfpMainFrame::checkCardFrameState( bool closeFrame, bool cancelAllowed )
-{
-    if ( m_cardFrm->IsShown() )
-    {
-        if ( m_cardFrm->checkIfCanExit( cancelAllowed ) )
-        {
+bool nfpMainFrame::checkCardFrameState( bool closeFrame, bool cancelAllowed ) {
+    if ( m_cardFrm->IsShown() ) {
+        if ( m_cardFrm->checkIfCanExit( cancelAllowed ) ) {
             if ( closeFrame )
                 m_cardFrm->Hide();
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -1991,18 +1721,14 @@ bool nfpMainFrame::checkCardFrameState( bool closeFrame, bool cancelAllowed )
  * check if there are missing days (based on current date) on the card
  * and prompt to add them.
  */
-bool nfpMainFrame::checkForMissingDays()
-{
-    if ( !m_config->checkForMissingDays )
-    {
+bool nfpMainFrame::checkForMissingDays() {
+    if ( !m_config->checkForMissingDays ) {
         return true;
     }
-    if ( m_cycleData->getActiveCard() < 1 )
-    {
+    if ( m_cycleData->getActiveCard() < 1 ) {
         return true;
     }
-    if ( m_cycleData->getCard()->getCardLocked() )
-    {
+    if ( m_cycleData->getCard()->getCardLocked() ) {
         return true;
     }
 
@@ -2011,41 +1737,32 @@ bool nfpMainFrame::checkForMissingDays()
     wxDateTime today = wxDateTime::Today();
 
     int daysToAdd = getNumberOfDays( lastDay, today );
-    if ( daysToAdd < 1 )
-    {
+    if ( daysToAdd < 1 ) {
         return true;
     }
 
 
     int answer = wxMessageBox( wxString::Format( wxPLURAL( "%i day should be added to the current card to have on the card all days including today.\nDo you want me to add it now?", "%i days should be added to the current card to have on the card all days including today.\nDo you want me to add them now?", daysToAdd), daysToAdd), _( "Question" ), wxYES_NO );
-    if ( answer == wxYES )
-    {
+    if ( answer == wxYES ) {
         bool ok = true;
 
-        for ( int i = 0; i < daysToAdd; i++ )
-        {
-            if ( m_cycleData->addNewDay() < 1 )
-            {
+        for ( int i = 0; i < daysToAdd; i++ ) {
+            if ( m_cycleData->addNewDay() < 1 ) {
                 ok = false;
             }
         }
 
-        if ( ok )
-        {
+        if ( ok ) {
             m_cycleData->setActiveDay( m_cycleData->getDaysCount() - daysToAdd + 1 );
             m_cycleData->setCardModified( true );
             m_config->checkCurrentDayVisibility = true;
             updateAll();
             m_dayFrm->update();
             m_dayFrm->Show();
-        }
-        else
-        {
+        } else {
             wxMessageBox( _( "Error occured while adding new day" ), _( "Error" ), wxOK | wxICON_ERROR );
         }
-    }
-    else
-    {
+    } else {
 
     }
 
@@ -2056,8 +1773,7 @@ bool nfpMainFrame::checkForMissingDays()
 /**
  * get number of days between dateTime1 and dateTime2 (== dateTime2 - dateTime1)
  */
-int nfpMainFrame::getNumberOfDays( wxDateTime dateTime1, wxDateTime dateTime2 )
-{
+int nfpMainFrame::getNumberOfDays( wxDateTime dateTime1, wxDateTime dateTime2 ) {
     int year1  = dateTime1.GetYear();
     int month1 = dateTime1.GetMonth();
     int day1   = dateTime1.GetDay();
@@ -2066,61 +1782,48 @@ int nfpMainFrame::getNumberOfDays( wxDateTime dateTime1, wxDateTime dateTime2 )
     int day2   = dateTime2.GetDay();
     int daysNumber = 0;
 
-    if ( year1 > year2 )
-    {
+    if ( year1 > year2 ) {
 
         return -1;
     }
-    if ( year1 == year2 && month1 > month2 )
-    {
+    if ( year1 == year2 && month1 > month2 ) {
 
         return -1;
     }
-    if ( year1 == year2 && month1 == month2 && day1 > day2 )
-    {
+    if ( year1 == year2 && month1 == month2 && day1 > day2 ) {
 
         return -1;
     }
 
-    if ( year1 < year2 )
-    {
+    if ( year1 < year2 ) {
         daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( month1 ), year1, ( wxDateTime::Calendar )( 0 ) ) - day1;
 
-        for ( int m = month1 + 1; m < 12; m++ )
-        {
+        for ( int m = month1 + 1; m < 12; m++ ) {
             daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year1, ( wxDateTime::Calendar )( 0 ) );
 
         }
-        for ( int y = year1 + 1; y < year2; y++ )
-        {
-            for ( int m = 0; m < 12; m++ )
-            {
+        for ( int y = year1 + 1; y < year2; y++ ) {
+            for ( int m = 0; m < 12; m++ ) {
                 daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), y, ( wxDateTime::Calendar )( 0 ) );
 
             }
         }
-        for ( int m = 0; m < month2; m++ )
-        {
+        for ( int m = 0; m < month2; m++ ) {
             daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year2, ( wxDateTime::Calendar )( 0 ) );
 
         }
         daysNumber += day2;
 
-    }
-    else if ( month1 < month2 )
-    {
+    } else if ( month1 < month2 ) {
         daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( month1 ), year2, ( wxDateTime::Calendar )( 0 ) ) - day1;
 
-        for ( int m = month1 + 1; m < month2; m++ )
-        {
+        for ( int m = month1 + 1; m < month2; m++ ) {
             daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year2, ( wxDateTime::Calendar )( 0 ) );
 
         }
         daysNumber += day2;
 
-    }
-    else
-    {
+    } else {
         daysNumber += day2 - day1;
 
     }
@@ -2128,8 +1831,7 @@ int nfpMainFrame::getNumberOfDays( wxDateTime dateTime1, wxDateTime dateTime2 )
     return daysNumber;
 }
 
-void nfpMainFrame::showNotification( const wxString& message, int textAlign )
-{
+void nfpMainFrame::showNotification( const wxString& message, int textAlign ) {
     wxPoint pos = GetPosition();
     pos.x += 10;
     pos.y += 120;
@@ -2142,8 +1844,7 @@ void nfpMainFrame::showNotification( const wxString& message, int textAlign )
  * - if not then return true
  * = if yes then ask user whether to modify it (return true) or not (return false).
  */
-bool nfpMainFrame::doModifyLockedCard()
-{
+bool nfpMainFrame::doModifyLockedCard() {
     if ( ! m_cycleData->getCard()->getCardLocked() )
         return true;
 

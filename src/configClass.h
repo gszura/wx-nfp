@@ -46,6 +46,8 @@
 /* APPLICATION */
 #define CONF_PATH_application _T( "/application/" )
 #define CONF_ENTRY_openLastOpenedFile _T( "openLastOpenedFile" )
+#define CONF_ENTRY_autosaveChanges _T( "autosaveChanges" )
+#define CONF_ENTRY_autosaveSet _T( "autosaveSet" )
 #define CONF_ENTRY_lastOpenedFileName _T( "lastOpenedFileName" )
 #define CONF_ENTRY_checkForMissingDays _T( "checkForMissingDays" )
 #define CONF_ENTRY_breastSelfControlReminderDay _T( "breastSelfControlReminderDay" )
@@ -117,165 +119,169 @@ WX_DECLARE_STRING_HASH_MAP( wxString, paramsHash );
  *
  */
 class configClass {
-     /** methods */
+    /** methods */
 public:
-     configClass(wxString);
-     void setDefaultParams();
-     void calculateParams();
+    configClass(wxString);
+    void setDefaultParams();
+    void calculateParams();
 
 public:
-     bool readParamsFromConfigFile();
-     // deprecated
-     bool readParamsFromOldVersionOfConfigFile(wxString);
+    bool readParamsFromConfigFile();
+    // deprecated
+    bool readParamsFromOldVersionOfConfigFile(wxString);
 private:
-     bool readParamsColour(wxConfigBase*, wxString, wxColour&);
-     bool readParamsFont(wxConfigBase*, wxString, wxFont&);
-     // deprecated code start
-     void readString(paramsHash, wxString, wxString&);
-     void readInt(paramsHash, wxString, int&);
-     void readBool(paramsHash, wxString, bool&);
-     void readColour(paramsHash, wxString, wxColour&);
-     void readFont(paramsHash, wxString, wxFont&);
-     // deprecated code end
+    bool readParamsColour(wxConfigBase*, wxString, wxColour&);
+    bool readParamsFont(wxConfigBase*, wxString, wxFont&);
+    // deprecated code start
+    void readString(paramsHash, wxString, wxString&);
+    void readInt(paramsHash, wxString, int&);
+    void readBool(paramsHash, wxString, bool&);
+    void readColour(paramsHash, wxString, wxColour&);
+    void readFont(paramsHash, wxString, wxFont&);
+    // deprecated code end
 
 public:
-     bool saveParamsToConfigFile();
+    bool saveParamsToConfigFile();
 private:
-     bool saveParamColour(wxConfigBase*, wxString, wxColour);
-     bool saveParamFont(wxConfigBase*, wxString, wxFont);
+    bool saveParamColour(wxConfigBase*, wxString, wxColour);
+    bool saveParamFont(wxConfigBase*, wxString, wxFont);
 
-     /**************************************************************************/
-     /** variables */
+    /**************************************************************************/
+    /** variables */
 private:
 
-     utilClass m_util;
-     wxString m_configFile;
+    utilClass m_util;
+    wxString m_configFile;
 
 public:
-     // PARAMETERS KEPT IN CONFIG FILE
-     int langId;
+    // PARAMETERS KEPT IN CONFIG FILE
+    int langId;
 
-     // true - start with last opened file, false - start with new file
-     bool openLastOpenedFile;
-     // currently opened file with cycles' data, or empty if not opened
-     wxString dataFileName;
+    // true - start with last opened file, false - start with new file
+    bool openLastOpenedFile;
 
-     bool openFileFromParams;
+    bool autosaveChanges;
+    bool autosaveSet;
 
-     // true - prompt to add to the last card (if it's not locked) missing days (based on current date)
-     bool checkForMissingDays;
+    // currently opened file with cycles' data, or empty if not opened
+    wxString dataFileName;
 
-     //
-     bool checkForUpdates;
-     wxString updatesProxy;
+    bool openFileFromParams;
 
-     // sizes and positions of frames
-     bool rememberPosition;
-     bool formMainMaximized;
-     int formMainHeight;
-     int formMainWidth;
-     int formMainLeft;
-     int formMainTop;
-     int formDayLeft;
-     int formDayTop;
-     int formCardLeft;
-     int formCardTop;
-     //
-     bool useFlatButtons;
-     bool useCoitusRecordCounter;
+    // true - prompt to add to the last card (if it's not locked) missing days (based on current date)
+    bool checkForMissingDays;
 
-     // if < 1 then do not remind about self-control of breast
-     int breastSelfControlReminderDay;
-     // if cycle is longer than 'breastSelfControlReminder' + 'breastSelfControlInterval' then remind again
-     int breastSelfControlInterval;
-     // day, when the reminder has been shown last time.
-     wxDateTime breastSelfControlLastReminder;
+    //
+    bool checkForUpdates;
+    wxString updatesProxy;
 
+    // sizes and positions of frames
+    bool rememberPosition;
+    bool formMainMaximized;
+    int formMainHeight;
+    int formMainWidth;
+    int formMainLeft;
+    int formMainTop;
+    int formDayLeft;
+    int formDayTop;
+    int formCardLeft;
+    int formCardTop;
+    //
+    bool useFlatButtons;
+    bool useCoitusRecordCounter;
 
-     bool lengthInCentimeters;
-     bool temperatureInCelsius;
-
-     // temperatures' range displayed on the graph
-     int temperatureRangeHigh; // temperatureRangeHigh
-     int temperatureRangeLow; // temperatureRangeLow
-
-     /**************************************************************************/
-     // colours
-     wxColour colourBackground;
-     wxColour colourCell11;
-     wxColour colourCell12;
-     wxColour colourCell21;
-     wxColour colourCell22;
-     wxColour colourMarkedCell1;
-     wxColour colourMarkedCell2;
-     wxColour colourPointNormal;
-     wxColour colourPointBefore;
-     wxColour colourPointAfter;
-     wxColour colourTemperatureLine;
-     wxColour colourTemperatureLevelLine;
-     wxColour colourPhaseLine;
-     wxColour colourBorders;
-     wxColour colourMarkedBorders;
-
-     /**************************************************************************/
-     // fonts
-     bool showColoursDialogForFonts;
-     wxFont fontHeadTopic;
-     wxFont fontHeadName;
-     wxFont fontHeadValue;
-     wxFont fontResultHeader;
-     wxFont fontResultDefault;
-     wxFont fontResultResults;
-     wxFont fontResultHeart;
-     wxFont fontResultPhases;
-
-     wxColour fontHeadTopicColour;
-     wxColour fontHeadNameColour;
-     wxColour fontHeadValueColour;
-     wxColour fontResultHeaderColour;
-     wxColour fontResultDefaultColour;
-     wxColour fontResultResultsColour;
-     wxColour fontResultHeartColour;
-     wxColour fontResultPhasesColour;
-
-     wxChar coitusRecordCharacter;
+    // if < 1 then do not remind about self-control of breast
+    int breastSelfControlReminderDay;
+    // if cycle is longer than 'breastSelfControlReminder' + 'breastSelfControlInterval' then remind again
+    int breastSelfControlInterval;
+    // day, when the reminder has been shown last time.
+    wxDateTime breastSelfControlLastReminder;
 
 
-     /**************************************************************************/
-     // PARAMETERS NOT KEPT IN CONFIG FILE
+    bool lengthInCentimeters;
+    bool temperatureInCelsius;
 
-     // przesuniecie w pionie
-     // verticalDisplacement == (-xxxx - 0)
-     int verticalDisplacement;
+    // temperatures' range displayed on the graph
+    int temperatureRangeHigh; // temperatureRangeHigh
+    int temperatureRangeLow; // temperatureRangeLow
 
-     // if true than check if the [current day | first day | last day] is visible on the screen
-     bool checkCurrentDayVisibility;
-     bool checkFirstDayVisibility;
-     bool checkLastDayVisibility;
+    /**************************************************************************/
+    // colours
+    wxColour colourBackground;
+    wxColour colourCell11;
+    wxColour colourCell12;
+    wxColour colourCell21;
+    wxColour colourCell22;
+    wxColour colourMarkedCell1;
+    wxColour colourMarkedCell2;
+    wxColour colourPointNormal;
+    wxColour colourPointBefore;
+    wxColour colourPointAfter;
+    wxColour colourTemperatureLine;
+    wxColour colourTemperatureLevelLine;
+    wxColour colourPhaseLine;
+    wxColour colourBorders;
+    wxColour colourMarkedBorders;
 
-     // additionalNote which is currently visible, or empty string
-     wxString visibleNote;
+    /**************************************************************************/
+    // fonts
+    bool showColoursDialogForFonts;
+    wxFont fontHeadTopic;
+    wxFont fontHeadName;
+    wxFont fontHeadValue;
+    wxFont fontResultHeader;
+    wxFont fontResultDefault;
+    wxFont fontResultResults;
+    wxFont fontResultHeart;
+    wxFont fontResultPhases;
 
-     // True means that the warning "you need to restart the application" has been already printed.
-     // It's the information for other components which wanted to print the same warning.
-     bool warningShown;
+    wxColour fontHeadTopicColour;
+    wxColour fontHeadNameColour;
+    wxColour fontHeadValueColour;
+    wxColour fontResultHeaderColour;
+    wxColour fontResultDefaultColour;
+    wxColour fontResultResultsColour;
+    wxColour fontResultHeartColour;
+    wxColour fontResultPhasesColour;
 
-     /**************************************************************************/
-     /** cells heights and widths */
+    wxChar coitusRecordCharacter;
 
-     // off-line - if changed then application has to be restarted
-     int widowLeftWidth;
 
-     // off-line - if changed then application has to be restarted
-     int windowTopHeight;
+    /**************************************************************************/
+    // PARAMETERS NOT KEPT IN CONFIG FILE
 
-     static const int rowsCountAboveTemp = 7;
-     static const int rowsCountBelowTemp = 14;
-     static const int rowNoCervixBelowTemp  = 7;
+    // przesuniecie w pionie
+    // verticalDisplacement == (-xxxx - 0)
+    int verticalDisplacement;
 
-     int rowsCountTemp;
-     int rowsCount;
-     int rowNoCervix;
+    // if true than check if the [current day | first day | last day] is visible on the screen
+    bool checkCurrentDayVisibility;
+    bool checkFirstDayVisibility;
+    bool checkLastDayVisibility;
+
+    // additionalNote which is currently visible, or empty string
+    wxString visibleNote;
+
+    // True means that the warning "you need to restart the application" has been already printed.
+    // It's the information for other components which wanted to print the same warning.
+    bool warningShown;
+
+    /**************************************************************************/
+    /** cells heights and widths */
+
+    // off-line - if changed then application has to be restarted
+    int widowLeftWidth;
+
+    // off-line - if changed then application has to be restarted
+    int windowTopHeight;
+
+    static const int rowsCountAboveTemp = 7;
+    static const int rowsCountBelowTemp = 14;
+    static const int rowNoCervixBelowTemp  = 7;
+
+    int rowsCountTemp;
+    int rowsCount;
+    int rowNoCervix;
 };
 
 #endif

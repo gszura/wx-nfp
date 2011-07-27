@@ -1845,7 +1845,7 @@
 	"utilClass.h"
 	"dayFrame.h"
 
-1274092525 c:\projects\codeblocks\wx-nfp\src\configclass.h
+1311765218 c:\projects\codeblocks\wx-nfp\src\configclass.h
 	<wx/wx.h>
 	<wx/fileconf.h>
 	"utilClass.h"
@@ -2033,7 +2033,7 @@
 
 1273780844 c:\projects\codeblocks\wx-nfp\src\wx-nfpappinfo.h
 
-1311690725 c:\projects\codeblocks\wx-nfp\src\wx-nfpappversion.h
+1311769163 c:\projects\codeblocks\wx-nfp\src\wx-nfpappversion.h
 
 1273780844 c:\projects\codeblocks\wx-nfp\src\wx-nfpapp.h
 	<wx/wx.h>
@@ -2050,7 +2050,7 @@
 1311690710 source:c:\projects\codeblocks\wx-nfp\src\cardentry.cpp
 	"cardEntry.h"
 
-1311683791 source:c:\projects\codeblocks\wx-nfp\src\cardframe.cpp
+1311768443 source:c:\projects\codeblocks\wx-nfp\src\cardframe.cpp
 	"cardFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
@@ -2061,12 +2061,12 @@
 
 1271604844 c:\projects\codeblocks\wx-nfp\src\nfpmainframe_xpm.xpm
 
-1274092504 source:c:\projects\codeblocks\wx-nfp\src\configclass.cpp
+1311765211 source:c:\projects\codeblocks\wx-nfp\src\configclass.cpp
 	"configClass.h"
 	"wx-nfpAppInfo.h"
 	<wx/ffile.h>
 
-1273780844 source:c:\projects\codeblocks\wx-nfp\src\configframe.cpp
+1311766137 source:c:\projects\codeblocks\wx-nfp\src\configframe.cpp
 	"../data/xpm/wx-nfp.xpm"
 	"configFrame.h"
 	<wx/colordlg.h>
@@ -2075,7 +2075,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1273780844 c:\projects\codeblocks\wx-nfp\src\configframe.h
+1311764889 c:\projects\codeblocks\wx-nfp\src\configframe.h
 	<wx/notebook.h>
 	<wx/sizer.h>
 	<wx/stattext.h>
@@ -2210,7 +2210,7 @@
 1274186653 source:c:\projects\codeblocks\wx-nfp\src\dayentry.cpp
 	"dayEntry.h"
 
-1274166281 source:c:\projects\codeblocks\wx-nfp\src\dayframe.cpp
+1311768574 source:c:\projects\codeblocks\wx-nfp\src\dayframe.cpp
 	"dayFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
@@ -2305,7 +2305,7 @@
 1186407692 c:\apps\wxwidgets-2.8.10\include\wx\sstream.h
 	"wx/stream.h"
 
-1311686060 source:c:\projects\codeblocks\wx-nfp\src\nfpmainframe.cpp
+1311769153 source:c:\projects\codeblocks\wx-nfp\src\nfpmainframe.cpp
 	"../data/xpm/buttonNextCard_XPM.xpm"
 	"../data/xpm/buttonPrevCard_XPM.xpm"
 	"../data/xpm/wx-nfp.xpm"
@@ -4795,7 +4795,7 @@
 1274359271 source:c:\projects\codeblocks\wx-nfp\src\cyclesdata_results.cpp
 	"cyclesData.h"
 
-1311690208 source:c:\projects\codeblocks\wx-nfp\src\cyclegraph.cpp
+1311765184 source:c:\projects\codeblocks\wx-nfp\src\cyclegraph.cpp
 	"cycleGraph.h"
 	<iostream>
 	<wx/intl.h>
@@ -6674,7 +6674,7 @@
 	"nfpMainFrame.h"
 	<vector>
 
-1311690174 source:c:\projects\codeblocks\wx-nfp\src\histogramsframe.cpp
+1311765190 source:c:\projects\codeblocks\wx-nfp\src\histogramsframe.cpp
 	"histogramsFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
