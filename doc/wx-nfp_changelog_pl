@@ -1,0 +1,77 @@
+== todo
+* Add possibility to change the character of coitus record
+* Printing under Linux
+* Protecting data file in cipher and password
+* Storing data file on the server, synchronizing changed files between server and application (it can be useful when you use more than one computer)
+* Automatically calculation of results
+* Help (pl)
+* Help (en)
+* Statistics
+* Sending cards via e-mail
+* Restoring previous versions from backup file
+* Fahrenheit as a temperature unit
+* Inch as a length unit
+* US date format (is it really needed..?)
+
+== known issues
+* Printing under Linux doesn't work
+
+== 0.9 beta (build 635, 2010-05-05)
+* Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.
+* Created package file for Ubuntu
+* Disabled live update on Linux
+* Fixed pop-up menu on Linux.
+* Help now opens the online application help pages (there was a problem with offline help on some Linux distributions).
+
+== 0.8 (2010-03-13)
+* Corrected all dialogs (card's data, day's data, configuration, 'Go to card' frame) - they looked awfull on linux
+* Aplication updateed to use wxWidgets v. 2.8.10
+* Standard wxWidgets tools (gettext *.mo catalogs) replaces home-made concept of the translation to another languages.
+* Standard wxWidgets tools (wxConfig) is used now to read and write data to the config file (therefore format of the config file has been change a little bit).
+* wxHTTP replaces wxURL which doesn't work with proxy (wxWidgets' bug: http://trac.wxwidgets.org/ticket/10099)
+* ..and thousand small corrections..
+
+== 0.7.4 (2007-11-05)
+* Poprawiony błąd - okno przypominania o samokontroli piersi pojawiało się nie zawsze wtedy, kiedy powinno
+* Poprawiony błąd - gdy na karcie byly dni "z przyszłości", moduł dodawania brakujących dni do karty głupiał
+* Poprawiony błąd - gdy na karcie był jeden dzień to był źle wyświetlany
+* Drukowanie kart (M$ Windows)
+* Przenoszenie dni pomiędzy dwoma ostatnimi kartami
+
+== 0.7.3 (2007-09-27)
+* Poprawiony błąd obliczania temperatury dnia (temperatura nie była obliczana jeżeli przecinek nie został wpisany)
+* Poprawiony błąd wyświetlania dodatkowych uwag (przy zmianie wyglądu okna dodatkowe uwagi mogły się niepoprawnie wyświetlać)
+* Przypominanie o samokontroli piersi
+
+== 0.7.2 (2007-05-26)
+* Poprawiony błąd konfiguracji serwera proxy
+
+== 0.7.1 (2007-05-24)
+* Automatyczne dodawanie brakujących dni
+* Okno konfiguracji
+
+== 0.7 (2007-04-12)
+* Zmiana sposobu zapisu rezultatow
+* Ręczne wyznaczanie dni szczytu oraz początków faz
+* Popup menu
+* Przechodzenie do karty o wybranym numerze
+* Przechodzenie do karty na podstawie podanej daty
+* Pomoc do aplikacji - szybki start w języku polskim
+
+== 0.6.6 (2007-03-05)
+* Auto-update - sprawdzanie, czy jest dostępna nowa wersja aplikacji
+* Auto-update - pobieranie nowej wersji aplikacji i instalacja (Windows)
+* Oknko mini-konfiguracji przy pierwszym uruchomieniu (ustawnienie języka aplikacji, auto-update'ów)
+* Dzień miesiąca wyświetlany w formacie "%d.%m" (dotychczas było "%m.%d")
+* Nazwy dni tygodnia, miesięcy wyświetlane w wybranym języku
+* Dodano wiecej debug logow
+* Modyfikacja okna "o programie" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+* Modyfikacja okna "edycja danych karty" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+* Modyfikacja okna "edycja danych dnia" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+
+== 0.6 (2006-11-12)
+* Czytanie danych z pliku, zapis do pliku
+* Prezentacja danych na ekranie, rysowanie wykresu temperatury
+* Dodawanie nowych kart do zestawu, edycja danych wspólnych dla całej karty
+* Dodawanie nowych dni do karty, edycja danych z obserwacji w danym dniu
+

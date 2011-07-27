@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="cardFrame">
+		<title>NFP - edit card&apos;s data</title>
+		<id_arg>0</id_arg>
+		<handler function="cardFrameClose" entry="EVT_CLOSE" />
+		<handler function="cardFrameKeyDown" entry="EVT_KEY_DOWN" />
+		<object class="wxBoxSizer" variable="sizerMain1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_panelMain" variable="panelMain" member="yes">
+					<object class="wxBoxSizer" variable="sizerMain2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="sizerCard" member="no">
+								<label>data specific for current card</label>
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer" variable="sizerCardNo" member="no">
+										<cols>3</cols>
+										<growablecols>0</growablecols>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticCardNo" variable="staticCardNo" member="yes">
+												<label>card number</label>
+												<tooltip>The card number is set automatically</tooltip>
+											</object>
+											<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_textCardNo" variable="textCardNo" member="yes">
+												<label></label>
+												<font>
+													<weight>bold</weight>
+													<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+													<relativesize>1.000000</relativesize>
+												</font>
+												<tooltip>The card number is set automatically</tooltip>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesCardNo" variable="changesCardNo" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_static1stDayOfCycle" variable="static1stDayOfCycle" member="yes">
+												<label>first day of the cycle</label>
+												<tooltip>First day of the cycle can be set for the first card only and only if there is only one card in the set</tooltip>
+											</object>
+											<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxDatePickerCtrl" name="ID_datePicker1stDayOfCycle" variable="datePicker1stDayOfCycle" member="yes">
+												<size>120,-1</size>
+												<tooltip>First day of the cycle can be set for the first card only and only if there is only one card in the set</tooltip>
+												<style>wxDP_DROPDOWN|wxDP_SHOWCENTURY</style>
+												<handler function="datePicker1stDayOfCycleDateChanged" entry="EVT_DATE_CHANGED" />
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changes1stDayOfCycle" variable="changes1stDayOfCycle" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_staticTemp" variable="staticTemp" member="yes">
+										<label>temperature measurement:</label>
+									</object>
+									<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer" variable="sizerTemp" member="no">
+										<cols>4</cols>
+										<growablecols>1</growablecols>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace1" variable="staticSpace1" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempTime" variable="staticTempTime" member="yes">
+												<label>usual time</label>
+												<tooltip>Usual time, when you will measure temperature in this cycle</tooltip>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer" variable="sizerTempTime" member="no">
+												<object class="sizeritem">
+													<object class="wxComboBox" name="ID_comboBoxTempTimeHour" variable="comboBoxTempTimeHour" member="yes">
+														<size>60,-1</size>
+														<tooltip>Usual time, when you will measure temperature in this cycle</tooltip>
+														<style>wxCB_READONLY</style>
+														<handler function="comboBoxTempTimeUpdated" entry="EVT_TEXT" />
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+												<object class="sizeritem">
+													<object class="wxComboBox" name="ID_comboBoxTempTimeMinute" variable="comboBoxTempTimeMinute" member="yes">
+														<size>60,-1</size>
+														<tooltip>Usual time, when you will measure temperature in this cycle</tooltip>
+														<style>wxCB_READONLY</style>
+														<handler function="comboBoxTempTimeUpdated" entry="EVT_TEXT" />
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempTime" variable="changesTempTime" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace2" variable="staticSpace2" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempPlace" variable="staticTempPlace" member="yes">
+												<label>usual place</label>
+												<tooltip>Usual place, when you will measure temperature in this cycle</tooltip>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxComboBox" name="ID_comboBoxTempPlace" variable="comboBoxTempPlace" member="yes">
+												<size>120,-1</size>
+												<tooltip>Usual place, when you will measure temperature in this cycle</tooltip>
+												<style>wxCB_READONLY</style>
+												<handler function="comboBoxTempPlaceUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempPlace" variable="changesTempPlace" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_staticTempCorrection" variable="staticTempCorrection" member="yes">
+										<label>temperature correction when measured:</label>
+									</object>
+									<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer" variable="sizerTempCorrection" member="no">
+										<cols>4</cols>
+										<growablecols>1</growablecols>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace3" variable="staticSpace3" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempCorrectionMouth" variable="staticTempCorrectionMouth" member="yes">
+												<label>in mouth</label>
+												<tooltip>How the temperature should be corected, when it will be measured in mouth</tooltip>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxComboBox" name="ID_comboBoxTempCorrectionMouth" variable="comboBoxTempCorrectionMouth" member="yes">
+												<size>100,-1</size>
+												<tooltip>How the temperature should be corected, when it will be measured in mouth</tooltip>
+												<style>wxCB_READONLY</style>
+												<handler function="comboBoxTempCorrectionMouthUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempCorrectionMouth" variable="changesTempCorrectionMouth" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace4" variable="staticSpace4" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempCorrectionVagina" variable="staticTempCorrectionVagina" member="yes">
+												<label>in vagina</label>
+												<tooltip>How the temperature should be corected, when it will be measured in vagina</tooltip>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxComboBox" name="ID_comboBoxTempCorrectionVagina" variable="comboBoxTempCorrectionVagina" member="yes">
+												<size>100,-1</size>
+												<tooltip>How the temperature should be corected, when it will be measured in vagina</tooltip>
+												<style>wxCB_READONLY</style>
+												<handler function="comboBoxTempCorrectionVaginaUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempCorrectionVagina" variable="changesTempCorrectionVagina" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace5" variable="staticSpace5" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempCorrectionRectum" variable="staticTempCorrectionRectum" member="yes">
+												<label>in rectum</label>
+												<tooltip>How the temperature should be corected, when it will be measured in rectum</tooltip>
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxComboBox" name="ID_comboBoxTempCorrectionRectum" variable="comboBoxTempCorrectionRectum" member="yes">
+												<size>100,-1</size>
+												<tooltip>How the temperature should be corected, when it will be measured in rectum</tooltip>
+												<style>wxCB_READONLY</style>
+												<handler function="comboBoxTempCorrectionRectumUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempCorrectionRectum" variable="changesTempCorrectionRectum" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticSpace6" variable="staticSpace6" member="yes">
+												<label></label>
+												<size>5,-1</size>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticTempCorrectionTime" variable="staticTempCorrectionTime" member="yes">
+												<label>at different time as usual</label>
+												<tooltip>How the temperature should be corected, when it will be measured 60 minutes later than usual</tooltip>
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxComboBox" name="ID_comboBoxTempCorrectionTime" variable="comboBoxTempCorrectionTime" member="yes">
+												<size>100,-1</size>
+												<tooltip>How the temperature should be corected, when it will be measured 60 minutes later than usual</tooltip>
+												<style>wxCB_READONLY</style>
+												<handler function="comboBoxTempCorrectionTimeUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesTempCorrectionTime" variable="changesTempCorrectionTime" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="sizerCardNotes" member="no">
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticNotes" variable="staticNotes" member="yes">
+												<label>notes:</label>
+												<tooltip>Type notes common for this cycle</tooltip>
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesNotes" variable="changesNotes" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxTextCtrl" name="ID_textNotes" variable="textNotes" member="yes">
+										<tooltip>Type notes common for this cycle</tooltip>
+										<minsize>180,40</minsize>
+										<maxsize>400,60</maxsize>
+										<style>wxTE_MULTILINE|wxSIMPLE_BORDER</style>
+										<handler function="textNotesUpdated" entry="EVT_TEXT" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="sizerCommon" member="no">
+								<label>data common for all cards</label>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer" variable="sizerCommon2" member="no">
+										<cols>3</cols>
+										<growablecols>0</growablecols>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticName" variable="staticName" member="yes">
+												<label>name</label>
+												<tooltip>Type your name</tooltip>
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxTextCtrl" name="ID_textName" variable="textName" member="yes">
+												<size>120,-1</size>
+												<tooltip>Type your name</tooltip>
+												<style>wxSIMPLE_BORDER</style>
+												<handler function="textNameUpdated" entry="EVT_TEXT" />
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesName" variable="changesName" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticBirthdayDay" variable="staticBirthdayDay" member="yes">
+												<label>day of birth</label>
+												<tooltip>Provide your birthday day. This information is used to calculate your age displayed on the cycles&apos; card.</tooltip>
+											</object>
+											<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxDatePickerCtrl" name="ID_datePickerBirthdayDay" variable="datePickerBirthdayDay" member="yes">
+												<size>120,-1</size>
+												<tooltip>Provide your birthday day. This information is used to calculate your age displayed on the cycles&apos; card.</tooltip>
+												<style>wxDP_DROPDOWN|wxDP_SHOWCENTURY</style>
+												<handler function="datePickerBirthdayDayDateChanged" entry="EVT_DATE_CHANGED" />
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_changesBirthdayDay" variable="changesBirthdayDay" member="yes">
+												<label></label>
+												<size>15,-1</size>
+												<fg>#FF0000</fg>
+												<style>wxALIGN_CENTRE</style>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="sizerButtons" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonSave" variable="buttonSave" member="yes">
+										<label>save changes</label>
+										<tooltip>Save changes without closing this window</tooltip>
+										<handler function="buttonSaveClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonCancel" variable="buttonCancel" member="yes">
+										<label>cancel changes</label>
+										<tooltip>Close this window without saving changes</tooltip>
+										<handler function="buttonCancelClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_staticSpace7" variable="staticSpace7" member="yes">
+										<label></label>
+									</object>
+									<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonClose" variable="buttonClose" member="yes">
+										<label>close</label>
+										<tooltip>Close this window (and ask for saving unsaved changes)</tooltip>
+										<handler function="buttonCloseClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

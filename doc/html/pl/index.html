@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>wx-nfp - pomoc do aplikacji</title>
+  <meta name="Author" content="enkeli">
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body marginwidth="10" marginheight="10" leftmargin="10" topmargin="10">
+
+<table cellpadding="1" cellspacing="5" border="0" width="800">
+
+  <tr><td colspan="2" class="header"><b>Pomoc do aplikacji wx-nfp</b></td></tr>
+
+  <!-- ======================================================================================== -->
+  <tr><td colspan="2"><hr align="left" width="500"></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <a name="toc"></a>
+      <b>Spis treści</b>
+    </td>
+  </tr>
+    
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      <ul>
+        <li><a href="#start">Wstęp</a></li>
+          <ul>
+            <li><a href="#start_info">Ważne informacje</a></li>
+            <li><a href="#start_license">Licencja</a></li>
+          </ul>
+        <li><a href="#firststeps">Pierwsze kroki</a></li>
+          <ul>
+            <li><a href="#firststeps_names">Postawowe pojęcia</a></li>
+            <li><a href="#firststeps_firstrun">Pierwsze uruchomienie aplikacji</a></li>
+            <li><a href="#firststeps_startusing">Jak rozpocząć korzystanie z aplikacji</a></li>
+          </ul>
+        <li><a href="#store">Zapisywanie danych z obserwacji</a></li>
+          <ul>
+            <li><a href="#store_day_new">Dodawanie nowych dni do karty</a></li>
+            <li><a href="#store_day_edit">Edycja danych z dnia (zapisywanie wyników obserwacji)</a></li>
+            <li><a href="#store_day_form_description">Opis pól okna edycji danych z dnia</a></li>
+            <li><a href="#store_card_new">Dodawanie nowej karty do zestawu</a></li>
+            <li><a href="#store_card_edit">Edycja danych danych wspólnych dla całej karty</a></li>
+            <li><a href="#store_card_form_description">Opis pól okna edycji danych wspólnych dla całej karty</a></li>
+          </ul>
+        <li><a href="#results">Wyznaczanie wyników obserwacji</a></li>
+          <ul>
+            <li><a href="#results_manual">Ręczne wyznaczanie wyników</a></li>
+            <li><a href="#results_auto">Automatyczne wyznaczanie wyników</a></li>
+            <li><a href="#results_rules">Reguły wyznaczania wyników</a></li>
+          </ul>
+        <li><a href="#other">Inne tematy</a></li>
+          <ul>
+            <li><a href="#print">Drukowanie kart</a></li>
+            <li><a href="#preferences">Ustawnienia programu</a></li>
+            <li><a href="#liveupdate">Aktualizacja programu</a></li>
+          </ul>
+      </ul>
+        
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"><a name="start"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <b>Wstęp</b>
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="start_info"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Ważne informacje</b>
+    </td>
+  </tr>
+    
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      
+      <p>wx-nfp jest aplikacją pomocną przy codziennej obserwacji cylku wg. naturalnych metod
+      rozpoznawania płodności.<br>
+      Jej podstawowym celem jest próba zastąpienia tradycyjnych, papierowych zeszytów obserwacji
+      cyklu wersją elektroniczną.</p>
+      
+      <p>Przyjęto założenie, że użytkownik aplikacji zna naturalne metody rozpoznawania płodności
+      i umie praktycznie je wykorzystać. Jeżeli więc nie spełniasz tego warunku, to zanim zaczniesz
+      używać aplikacji musisz nauczyć się stosowania metod NPR (np. metody podwójnego sprawdzenia)
+      poprzez lekturę książek na ten temat (osobiście polecam
+      <a target="_blank"
+        href="http://www.google.com/search?hl=pl&q=John+Sheila+Kippley+%22Sztuka+Naturalnego+Planowania+Rodziny%22&btnG=Szukaj+w+Google&lr=lang_pl">
+        John Sheila Kippley "Sztuka naturalnego planowania rodziny"
+      </a>
+      ) , a przede wszystkim poprzez ukończenie odpowiedniego kursu.<br>
+      Podstawowe informacje na temat NPR można znaleźć na następujących stronach internetowych:
+      <ul>
+        <li><a href="http://www.npr.prolife.pl">Towarzystwa Odpowiedzialnego Rodzicielstwa</a></li>
+        <li><a href="http://www.lmm.pl">Stowarzyszenia Liga Małżeństwo Małżeństwu</a></li>
+      </ul>
+      </p>
+      
+      <p>Pomoc do programu nie jest wersją ostateczną.<br>
+      Jest ona ciągle rozwijana i aktualizowana w miarę potrzeb i otrzymywanych pytań od użytkowników aplikacji.
+      </p>
+      
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="start_license"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Licencja</b>
+    </td>
+  </tr>
+    
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      
+      Niniejszy program jest wolnym oprogramowaniem; możesz go
+      rozprowadzać dalej i/lub modyfikować na warunkach
+      <a target="_blank" href="licencja-gnu.html">Powszechnej Licencji Publicznej GNU</a>
+      
+      , wydanej przez Fundację Wolnego Oprogramowania - według wersji 2-giej tej Licencji
+      lub którejś z późniejszych wersji.
+      </p>
+      
+      <p>Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on 
+      użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej 
+      gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH 
+      ZASTOSOWAŃ. W celu uzyskania bliższych informacji -
+      <a target="_blank" href="licencja-gnu.html">Powszechna Licencja Publiczna GNU</a>
+      </p>
+      
+      <p>Aplikacja jest udostępniana za darmo.
+      </p>
+      
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</a></td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"><a name="start"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <b>Pierwsze kroki</b>
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="firststeps_names"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Postawowe pojęcia</b>
+    </td>
+  </tr>
+    
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      
+      <p><b>Zestaw</b><br>
+      Rozpoczynając pracę z aplikacją użytkownik tworzy <b>zestaw</b>.<br>
+      Zestaw tworzy się tylko raz - będzie on służył przez cały czas używania aplikacji i będą
+      w nim zapisywane wyniki wszystkich obserwacji.
+      </p>
+      
+      <p><b>Karta</b><br>
+      Zestaw składa się z <b>kart</b> - jedna karta odpowiada jednemu cyklowi.<br>
+      Dla każdej karty można zdefiniować m.in. czas, oraz miejsce gdzie temperatura będzie
+      najczęściej mierzona.
+      </p>
+
+      <p><b>Dzień</b><br>
+      Każda karta składa się z <b>dni</b>. Ilość dni na karcie jest równa długości danego cyklu:
+      <ul>
+        <li>pierwszy dzień na karcie to pierwszy dzień cyklu (pierwszy dzień krwawienia miesiączkowego).</li>
+        <li>ostatni dzień na karcie to ostatni dzień cyklu pierwszy dzień cyklu (ostatni dzień
+            przed pojawieniem się krwawienia miesiączkowego).</li>
+      </ul>
+      Dla każdego dnia można zapisać wyniki wszystkich możliwych obserwacji, m.in. zmierzoną
+      temperaturę, czas i miejsce pomiaru (gdy są inne niż zwykle), zakłocenia, wyniki
+      obserwacji śluzu i badania szyjki oraz wiele innych innych.
+      </p>
+      
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="firststeps_firstrun"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Pierwsze uruchomienie aplikacji</b>
+    </td>
+  </tr>
+  
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+    
+    <p>Przy pierwszym uruchomieniu aplikacji użytkownik jest proszony o wybranie języka, w jakim
+    aplikacja ma pracować.<br>
+    Następnie może wybrać, czy chce aby aplikacja sama sprawdzała w Internecie, czy jest
+    dostępna nowa wersja programu.<br>
+    Jeżeli użytkownik wybierze, że chce włączyć automatyczne aktualizacje, zostanie zapytany
+    o adres serwera proxy:
+    <ul>
+      <li>Jeżeli Twój komputer jest podłączony bezpośrednio do Internetu, wybierz <i>Anuluj</i>.</li>
+      <li>Jeżeli Twój komputer jest podłączony do Internetu przez serwer proxy, wpisz adres serwera
+          proxy w formacie <i>ipaddress:port</i> (np. 11.22.33.44:8080) wybierz <i>OK</i>.</li>
+      </ul>
+      Więcej informacji o automatycznej aktualizacji znajduje się w rozdziale
+      <a href="#liveupdate">Aktualizacja programu.</a>.<br>
+      Powyższe parametry mogą być poźniej zmodyfikowane w 
+      <a href="#preferences">Ustawnieniach programu.</a>.
+      </p>
+      
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="firststeps_startusing"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Jak rozpocząć korzystanie z aplikacji</b>
+    </td>
+  </tr>
+  
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+    
+      <p><b>Pierwsza karta</b><br>
+      Po zadaniu powyższych pytań aplikacja uruchamia się, oraz tworzony jest nowy zestaw
+      z pierwsza kartą i pierwszym dniem oraz otwiera się okno edycji danych karty.<br>
+      Należy tutaj koniecznie:
+      <ul>
+        <li>wpisać swoje imię oraz datę urodzenia</li>
+        <li>ustawić datę rozpoczęcia cyklu - datę tę ustawia się tylko raz i tylko dla pierwszej
+            karty w zestawie.</li>
+        <li>określić czas, kiedy temperatura będzie najczęściej mierzona oraz miejsce mierzenia.</li>
+      </ul>
+      Po wpisaniu powyższych informacji należy zatwierdzić wpisane dane a następnie zamknąć
+      okno edycji danych karty.<br>
+      Więcej informacji o ustawianiu danych karty znajduje się w rozdziale
+      <a href="#store_card_edit">Edycja danych danych wspólnych dla całej karty</a>.
+      </p>
+      
+      <p><b>Pierwsze dni na karcie</b><br>
+      Jeżeli cykl rozpoczął się w dniu dzisiejszym, można teraz wpisać wyniki obserwacji
+      z dzisiejszego dnia. Aby to zrobić należy kliknąć dwokrotnie na pierwszym (i na razie jedynym)
+      dniu karty - otworzy się okno edycji danych dnia, gdzie należy wpisać wszystkie swoje obserwacje.
+      Informacje dodatkowe, dla których brakuje pól, można wpisać w polu <i>dodatkowe uwagi</i>.<br>
+      Więcej informacji o edycji danych z dnia znajduje się w rozdziale
+      <a href="#store_day_edit">Edycja danych z dnia (zapisywanie wyników obserwacji)</a>.
+      <br>
+      Jeżeli cykl rozpoczął się kilka dni wcześniej, użytkownik zostanie zapytany, czy dodać brakujące
+      dni do karty.
+      <ul>
+        <li>Jeżeli użytkownik wybierze przycisk <i>Tak</i>, wtedy aplikacja doda brakujące dni, a następnie
+        otworzy okno edycji danych dnia i ustawi jako aktywny dzień pierwszy z dodanych przed chwilą dni.</li>
+        <li>Jeżeli użytkownik zrezygnuje z tej możliwości (wybierze przycisk <i>Nie</i>,
+            może dodać brakujące dni do karty klikając odpowiednią ilość razy przycisk <i>nowy dzień</i><br>
+            W momencie dodania nowego dznia, otworzy się okno edycji danych dnia, a jeżeli okno to
+            już jest otwarte, zmieni się aktywny dzień na ostatnio dodany.</li>
+      </ul>
+      Opcja automatycznego uzupełniania brakujących dni może być wyłączona w 
+      <a href="#preferences">Ustawnieniach programu.</a>.
+      </p>
+      
+      <p><b>Zapisanie zestawu</b><br>
+      Po uzupełnieniu wszystkich danych należy zachować nowo utworzony zestaw. Zestaw pamiętany jest
+      na dysku twardym komputera w pliku o rozszerzeniu <i>xml</i>.
+      W tym celu z menu <i>Plik</i> należy wybrać opcię <i>Zapisz</i> - pojawi się wtedy okno, gdzie można
+      wybrać nazwę pliku i katalog, w ktorym ma być przechowywany zestaw.
+      Po wybraniu powyższych należy wcisnąć przycisk <i>Zapisz</i>.<br>
+      </p>
+      
+      <p><b>Co dalej?</b><br>
+      Jeżeli wszystkie dane z obserwacji zostały uzupełnione, można zamknąć aplikację.<br>
+      Przy ponownym uruchomieniu, aplikacja automatycznie otworzy zestaw, który był otwarty
+      podczas ostatniego używania aplikacji i ustawi ostatnią kartę jako aktywną.<br>
+      <br>
+      Od tego momentu należy w miarę możliwości regularnie uruchamiać aplikację i uzupełniać
+      na bieżąco wszystkie swoje obserwacje.<br>
+      <br>
+      W momencie, gdy rozpocznie się nowy cykl, należy zamiast dodawać nowy dzień, utworzyć nową kartę
+      wybierając z menu <i>Karta</i> opcię <i>Nowa karta</i><br>
+      Więcej informacji o dodawaniu nowej karty znajduje się w rozdziale
+      <a href="#store_card_new">Dodawanie nowej karty do zestawu</a>.
+      </p>
+    
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"><a name="store"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <b>Zapisywanie danych z obserwacji</b>
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_day_new"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Dodawanie nowych dni do karty</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_day_edit"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Edycja danych z dnia (zapisywanie wyników obserwacji)</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_day_form_description"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Opis pól okna edycji danych z dnia</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_card_new"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Dodawanie nowej karty do zestawu</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_card_edit"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Edycja danych danych wspólnych dla całej karty</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="store_card_form_description"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Opis pól okna edycji danych wspólnych dla całej karty</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"><a name="results"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <b>Wyznaczanie wyników obserwacji</b>
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="results_manual"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Ręczne wyznaczanie wyników</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="results_auto"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Automatyczne wyznaczanie wyników</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      funkcjonalność planowana...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="results_rules"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Reguły wyznaczania wyników</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"><a name="other"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header1">
+      <b>Inne tematy</b>
+    </td>
+  </tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="print"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Drukowanie kart</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      funkcjonalność planowana...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="preferences"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Ustawnienia programu</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      funkcjonalność planowana...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2"><a name="liveupdate"></a></td></tr>
+  <tr>
+    <td colspan="2" class="header2">
+      <b>Aktualizacja programu</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td width="10">&nbsp;</td>
+    <td>
+      dokumentacja w przygotowaniu...
+    </td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><a href="#toc">Powrót do spisu treści</a></td></tr>
+
+<!-- ======================================================================================== -->
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr><td colspan="2"><hr align="left" width="500"></td></tr>
+
+</table>
+
+<br><br><br><br><br>
+
+
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+== todo
+* Automatically calculation of results
+* Protecting data file in cipher and password
+* Storing data file on the server, synchronizing changed files between server and application (it can be useful when you use more than one computer)
+* Printing under Linux
+* Add possibility to change the character of coitus record
+* Displaying phases in different colours
+* Quick help (pl)
+* Detailed help (pl)
+* Detailed help (en)
+* Statistics
+* Sending cards via e-mail
+* Restoring previous versions from backup file
+* Fahrenheit as a temperature unit (low priority)
+* Inch as a length unit (low priority)
+* US date format  (low priority) (is it really needed..?)
+
+== known issues
+* Printing under Linux doesn't work
+
+== 0.9 beta (build XXX, 2010-07-xx)
+* New: Allow to define more than one result (mucus/cervix 1st day/peak day) - it will be used for irregular cycles, especially during breastfeeding and peri-menopause (see Billings ovulation method rules).
+* New: Renamed "Phase 1, 2, 3" to "fertile phrase" and "infertile phrase"; also allow to define more than one phrase of each type - reason the same as above.
+
+
+== 0.9 beta (build 645, 2010-05-12)
+* New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.
+* New: Created package file for Ubuntu
+* Change: Disabled live update on Linux
+* Fix: Fixed pop-up menu on Linux.
+* Change: Help now opens the online application help pages (there was a problem with offline help on some Linux distributions).
+* Change: First day of the cycle can be now modified only if there is only one card with one day in the set.
+* Fix: Removing old backup files - now only last 15 backup files are kept.
+* Fix: When the breast self-contol reminder pop ups in the moment when context menu was active, currently opened cards' set was closed and new set has created ( changed frame->ShowModal() to frame->Show() ).
+
+== 0.8 (2010-03-13)
+* Fix: Corrected all dialogs (card's data, day's data, configuration, 'Go to card' frame) - they looked awfull on linux
+* Change: Aplication updateed to use wxWidgets v. 2.8.10
+* Change: Standard wxWidgets tools (gettext *.mo catalogs) replaces home-made concept of the translation to another languages.
+* Change: Standard wxWidgets tools (wxConfig) is used now to read and write data to the config file (therefore format of the config file has been change a little bit).
+* Change: wxHTTP replaces wxURL which doesn't work with proxy (wxWidgets' bug: http://trac.wxwidgets.org/ticket/10099)
+* Fix: ..and thousand other fixes..
+
+== 0.7.4 (2007-11-05)
+* New: Implemented printing cards under M$ Windows
+* New: Implemented moving days between last two cards
+* Fix: Corrected few errors 
+
+== 0.7.3 (2007-09-27)
+* New: Implemented breast self-contol reminder
+* Fix: Corrected few errors 
+
+== 0.7.2 (2007-05-26)
+* Fix: Corrected proxy configuring errors
+
+== 0.7.1 (2007-05-24)
+* New: Implemented adding missing days feature
+* New: Implemented configuration dialog
+
+== 0.7 (2007-04-12)
+* Change: Zmiana sposobu zapisu rezultatow
+* New: Ręczne wyznaczanie dni szczytu oraz początków faz
+* New: Popup menu
+* New: Przechodzenie do karty o wybranym numerze
+* New: Przechodzenie do karty na podstawie podanej daty
+* New: Pomoc do aplikacji - szybki start w języku polskim
+
+== 0.6.6 (2007-03-05)
+* New: Auto-update - sprawdzanie, czy jest dostępna nowa wersja aplikacji
+* New: Auto-update - pobieranie nowej wersji aplikacji i instalacja (Windows)
+* New: Oknko mini-konfiguracji przy pierwszym uruchomieniu (ustawnienie języka aplikacji, auto-update'ów)
+* New: Dzień miesiąca wyświetlany w formacie "%d.%m" (dotychczas było "%m.%d")
+* New: Nazwy dni tygodnia, miesięcy wyświetlane w wybranym języku
+* Change: Modyfikacja okna "o programie" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+* Change: Modyfikacja okna "edycja danych karty" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+* Change: Modyfikacja okna "edycja danych dnia" - okno ma samo dopasowywać wielkość w zależności od długości napisów w wybranym języku (WxBoxSizer)
+
+== 0.6 (2006-11-12)
+* New: Czytanie danych z pliku, zapis do pliku
+* New: Prezentacja danych na ekranie, rysowanie wykresu temperatury
+* New: Dodawanie nowych kart do zestawu, edycja danych wspólnych dla całej karty
+* New: Dodawanie nowych dni do karty, edycja danych z obserwacji w danym dniu
+

@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="dayFrame">
+		<title>NFP - edit day&apos;s data</title>
+		<size>479,510</size>
+		<id_arg>0</id_arg>
+		<handler function="dayFrameClose" entry="EVT_CLOSE" />
+		<object class="wxBoxSizer" variable="sizerMain1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_panelMain" variable="panelMain" member="yes">
+					<object class="wxBoxSizer" variable="sizerMain2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="sizerHeader" member="no">
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="sizerHeader1" member="no">
+										<object class="sizeritem">
+											<object class="wxBoxSizer" variable="sizerHeader2" member="no">
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerHeader3" member="no">
+														<cols>4</cols>
+														<growablecols>1</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCardNo" variable="staticCardNo" member="yes">
+																<label>card number</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_textCardNo" variable="textCardNo" member="yes">
+																<label>999</label>
+																<fg>#000080</fg>
+																<font>
+																	<weight>bold</weight>
+																	<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+																	<relativesize>1.000000</relativesize>
+																</font>
+																<style>wxALIGN_RIGHT</style>
+															</object>
+															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_space1" variable="space1" member="yes">
+																<label></label>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_space2" variable="space2" member="yes">
+																<label></label>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCycleDay" variable="staticCycleDay" member="yes">
+																<label>day of cycle</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_textCycleDay" variable="textCycleDay" member="yes">
+																<label>999</label>
+																<fg>#000080</fg>
+																<font>
+																	<weight>bold</weight>
+																	<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+																	<relativesize>1.000000</relativesize>
+																</font>
+																<minsize>-1,-1</minsize>
+																<style>wxALIGN_RIGHT</style>
+															</object>
+															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxButton" name="ID_buttonPreviousDay" variable="buttonPreviousDay" member="yes">
+																<label>&lt;</label>
+																<size>40,-1</size>
+																<tooltip>Go to previous day of the card</tooltip>
+																<handler function="buttonPreviousDayClick" entry="EVT_BUTTON" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxButton" name="ID_buttonNextDay" variable="buttonNextDay" member="yes">
+																<label>&gt;</label>
+																<size>40,-1</size>
+																<tooltip>Go to next day of the card</tooltip>
+																<handler function="buttonNextDayClick" entry="EVT_BUTTON" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerDate" member="no">
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticDate" variable="staticDate" member="yes">
+																<label>date</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_textDate" variable="textDate" member="yes">
+																<label>999</label>
+																<fg>#000080</fg>
+																<font>
+																	<weight>bold</weight>
+																	<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+																	<relativesize>1.000000</relativesize>
+																</font>
+																<style>wxALIGN_RIGHT</style>
+															</object>
+															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer" variable="sizerHeader4" member="no">
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxButton" name="ID_buttonAddNewDay" variable="buttonAddNewDay" member="yes">
+														<label>add new day</label>
+														<handler function="buttonAddNewDayClick" entry="EVT_BUTTON" />
+													</object>
+													<flag>wxALL|wxALIGN_RIGHT|wxALIGN_TOP</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxStaticText" name="ID_staticCardLocked" variable="staticCardLocked" member="yes">
+														<label>Card is locked!&#x0A;Data are protected against any changes.</label>
+														<fg>#FF0000</fg>
+														<font>
+															<weight>bold</weight>
+															<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+															<relativesize>1.000000</relativesize>
+														</font>
+														<style>wxALIGN_CENTRE</style>
+													</object>
+													<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="sizerData" member="no">
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="sizerDataLeft" member="no">
+										<orient>wxVERTICAL</orient>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer" variable="sizerBasic" member="no">
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerGeneral1" member="no">
+														<cols>3</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMenstruation" variable="staticMenstruation" member="yes">
+																<label>menstruation</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxBoxSizer" variable="sizerMenstruation" member="no">
+																<object class="sizeritem">
+																	<object class="wxCheckBox" name="ID_checkBoxMenstruation1" variable="checkBoxMenstruation1" member="yes">
+																		<label>/</label>
+																		<tooltip>Small bleeding</tooltip>
+																		<style>wxSIMPLE_BORDER</style>
+																		<handler function="checkBoxMenstruation1Click" entry="EVT_CHECKBOX" />
+																	</object>
+																	<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxCheckBox" name="ID_checkBoxMenstruation2" variable="checkBoxMenstruation2" member="yes">
+																		<label>X</label>
+																		<tooltip>Heavy bleeding</tooltip>
+																		<style>wxSIMPLE_BORDER</style>
+																		<handler function="checkBoxMenstruation2Click" entry="EVT_CHECKBOX" />
+																	</object>
+																	<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																	<option>1</option>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxStaticText" name="ID_textCoitusRecordCounter" variable="textCoitusRecordCounter" member="yes">
+																		<label></label>
+																		<size>25,-1</size>
+																		<fg>#408080</fg>
+																		<style>wxALIGN_RIGHT</style>
+																	</object>
+																	<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																</object>
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMenstruation" variable="changesMenstruation" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCoitusRecord" variable="staticCoitusRecord" member="yes">
+																<label>coitus record</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxBoxSizer" variable="sizerCoitusRecord" member="no">
+																<object class="sizeritem">
+																	<object class="wxTextCtrl" name="ID_textCoitusRecord" variable="textCoitusRecord" member="yes">
+																		<size>80,-1</size>
+																		<style>wxTE_READONLY|wxTE_CENTRE|wxSIMPLE_BORDER</style>
+																	</object>
+																	<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																	<option>1</option>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxButton" name="ID_buttonCoitusRecordMinus" variable="buttonCoitusRecordMinus" member="yes">
+																		<label>-</label>
+																		<size>25,-1</size>
+																		<handler function="buttonCoitusRecordMinusClick" entry="EVT_BUTTON" />
+																	</object>
+																	<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxButton" name="ID_buttonCoitusRecordPlus" variable="buttonCoitusRecordPlus" member="yes">
+																		<label>+</label>
+																		<size>25,-1</size>
+																		<handler function="buttonCoitusRecordPlusClick" entry="EVT_BUTTON" />
+																	</object>
+																	<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<border>5</border>
+																</object>
+															</object>
+															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesCoitusRecord" variable="changesCoitusRecord" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxOtherDisturbances" variable="checkBoxOtherDisturbances" member="yes">
+																<label>disturbances (other than temperature)</label>
+																<handler function="checkBoxOtherDisturbancesClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesOtherDisturbances" variable="changesOtherDisturbances" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer" variable="sizerMucus" member="no">
+												<label>mucus observation</label>
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerMucus1" member="no">
+														<cols>3</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMucusFeeling" variable="staticMucusFeeling" member="yes">
+																<label>feeling, experience</label>
+																<tooltip>External observation</tooltip>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxMucusFeeling" variable="comboBoxMucusFeeling" member="yes">
+																<size>100,-1</size>
+																<tooltip>External observation</tooltip>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxMucusFeelingUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMucusFeeling" variable="changesMucusFeeling" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMucusAppearance" variable="staticMucusAppearance" member="yes">
+																<label>appearance</label>
+																<tooltip>Internal observation</tooltip>
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxTextCtrl" name="ID_textMucusAppearance" variable="textMucusAppearance" member="yes">
+																<tooltip>Internal observation</tooltip>
+																<style>wxTE_READONLY|wxTE_CENTRE|wxSIMPLE_BORDER</style>
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMucusAppearance" variable="changesMucusAppearance" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerMucus2" member="no">
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceOpaque" variable="checkBoxMucusAppearanceOpaque" member="yes">
+																<label>o - opaque (the opposite of clear)</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceWhite" variable="checkBoxMucusAppearanceWhite" member="yes">
+																<label>w - white</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceYellowish" variable="checkBoxMucusAppearanceYellowish" member="yes">
+																<label>y - yellowish</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceTacky" variable="checkBoxMucusAppearanceTacky" member="yes">
+																<label>t - tacky (stretches up to 1 cm)</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerMucus3" member="no">
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceClear" variable="checkBoxMucusAppearanceClear" member="yes">
+																<label>c - clear (a more-fertile mucus)</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceStretchy" variable="checkBoxMucusAppearanceStretchy" member="yes">
+																<label>s - stretchy (stretches more than 1 cm)</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerMucus4" member="no">
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAppearanceSeminalResidue" variable="checkBoxMucusAppearanceSeminalResidue" member="yes">
+																<label>SR - seminal residue from marital relations</label>
+																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerMucus5" member="no">
+														<cols>4</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMucusAmount" variable="staticMucusAmount" member="yes">
+																<label>amount of mucus</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAmount1" variable="checkBoxMucusAmount1" member="yes">
+																<label>+</label>
+																<tooltip>Trace amount</tooltip>
+																<handler function="checkBoxMucusAmount1Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAmount2" variable="checkBoxMucusAmount2" member="yes">
+																<label>++</label>
+																<tooltip>Typical amount</tooltip>
+																<handler function="checkBoxMucusAmount2Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxMucusAmount3" variable="checkBoxMucusAmount3" member="yes">
+																<label>+++</label>
+																<tooltip>Huge amount</tooltip>
+																<handler function="checkBoxMucusAmount3Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticLengthOfStretch" variable="staticLengthOfStretch" member="yes">
+																<label>length of stretch in cm</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxLengthOfStretch1" variable="checkBoxLengthOfStretch1" member="yes">
+																<label>1</label>
+																<handler function="checkBoxLengthOfStretch1Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxLengthOfStretch2" variable="checkBoxLengthOfStretch2" member="yes">
+																<label>2</label>
+																<handler function="checkBoxLengthOfStretch2Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxLengthOfStretch3" variable="checkBoxLengthOfStretch3" member="yes">
+																<label>3 ..</label>
+																<handler function="checkBoxLengthOfStretch3Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="sizerDataRight" member="no">
+										<orient>wxVERTICAL</orient>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer" variable="sizerTemperature" member="no">
+												<label>temperature measurement</label>
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerTemperature1" member="no">
+														<cols>3</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMeasuredTemperature" variable="staticMeasuredTemperature" member="yes">
+																<label>temperature</label>
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxMeasuredTemperature" variable="comboBoxMeasuredTemperature" member="yes">
+																<size>120,-1</size>
+																<handler function="comboBoxMeasuredTemperatureUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMeasuredTemperature" variable="changesMeasuredTemperature" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMeasurementTime" variable="staticMeasurementTime" member="yes">
+																<label>measurement time</label>
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxBoxSizer" variable="sizerMeasurementTime" member="no">
+																<object class="sizeritem">
+																	<object class="wxComboBox" name="ID_comboBoxMeasurementTimeHour" variable="comboBoxMeasurementTimeHour" member="yes">
+																		<size>60,-1</size>
+																		<style>wxCB_READONLY</style>
+																		<handler function="comboBoxMeasurementTimeUpdated" entry="EVT_TEXT" />
+																	</object>
+																	<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<option>1</option>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxComboBox" name="ID_comboBoxMeasurementTimeMinute" variable="comboBoxMeasurementTimeMinute" member="yes">
+																		<size>60,-1</size>
+																		<style>wxCB_READONLY</style>
+																		<handler function="comboBoxMeasurementTimeUpdated" entry="EVT_TEXT" />
+																	</object>
+																	<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	<option>1</option>
+																</object>
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMeasuredTime" variable="changesMeasuredTime" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticMeasurementPlace" variable="staticMeasurementPlace" member="yes">
+																<label>measurement place</label>
+															</object>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxMeasurementPlace" variable="comboBoxMeasurementPlace" member="yes">
+																<size>120,-1</size>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxMeasurementPlaceUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesMeasuredPlace" variable="changesMeasuredPlace" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerTemperature2" member="no">
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxTemperatureDisturbances" variable="checkBoxTemperatureDisturbances" member="yes">
+																<label>temperature measurement disturbances</label>
+																<tooltip>Disturbed temperature measurement is ignored on the temperature graph and during calculating peak values</tooltip>
+																<handler function="checkBoxTemperatureDisturbancesClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesTemperatureDisturbances" variable="changesTemperatureDisturbances" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerTemperature3" member="no">
+														<cols>3</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticAdditionalTemperatureCorrection" variable="staticAdditionalTemperatureCorrection" member="yes">
+																<label>additional correction</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxAdditionalTemperatureCorrection" variable="comboBoxAdditionalTemperatureCorrection" member="yes">
+																<size>100,-1</size>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxAdditionalTemperatureCorrectionUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesAdditionalTemperatureCorrection" variable="changesAdditionalTemperatureCorrection" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticTemperatureAfterCorections" variable="staticTemperatureAfterCorections" member="yes">
+																<label>temperature after corrections</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_textTemperatureAfterCorections" variable="textTemperatureAfterCorections" member="yes">
+																<label></label>
+																<font>
+																	<weight>bold</weight>
+																	<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+																	<relativesize>1.000000</relativesize>
+																</font>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_space3" variable="space3" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer" variable="sizerCervix" member="no">
+												<label>cervix observation</label>
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerCervix1" member="no">
+														<cols>3</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCervixPosition" variable="staticCervixPosition" member="yes">
+																<label>position</label>
+																<tooltip>If you set the position of the cervix, please set also dilation</tooltip>
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxCervixPosition" variable="comboBoxCervixPosition" member="yes">
+																<size>120,-1</size>
+																<tooltip>If you set the position of the cervix, please set also dilation</tooltip>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxCervixPositionUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesCervixPosition" variable="changesCervixPosition" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCervixDilation" variable="staticCervixDilation" member="yes">
+																<label>dilation</label>
+																<tooltip>If you set the dilation of the cervix, please set also position</tooltip>
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxCervixDilation" variable="comboBoxCervixDilation" member="yes">
+																<size>120,-1</size>
+																<tooltip>If you set the dilation of the cervix, please set also position</tooltip>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxCervixDilationUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesCervixDilation" variable="changesCervixDilation" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticCervixHardness" variable="staticCervixHardness" member="yes">
+																<label>hardness</label>
+															</object>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxComboBox" name="ID_comboBoxCervixHardness" variable="comboBoxCervixHardness" member="yes">
+																<size>120,-1</size>
+																<style>wxCB_READONLY</style>
+																<handler function="comboBoxCervixHardnessUpdated" entry="EVT_TEXT" />
+															</object>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesCervixHardness" variable="changesCervixHardness" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer" variable="sizerOther" member="no">
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="sizerOther1" member="no">
+														<cols>4</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticOvulationPain" variable="staticOvulationPain" member="yes">
+																<label>ovulation pain</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxOvulationPain1" variable="checkBoxOvulationPain1" member="yes">
+																<label>v</label>
+																<handler function="checkBoxOvulationPain1Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxOvulationPain2" variable="checkBoxOvulationPain2" member="yes">
+																<label>vv</label>
+																<handler function="checkBoxOvulationPain2Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesOvulationPain" variable="changesOvulationPain" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticBreastsTension" variable="staticBreastsTension" member="yes">
+																<label>breasts tension</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxBreastsTension1" variable="checkBoxBreastsTension1" member="yes">
+																<label>v</label>
+																<handler function="checkBoxBreastsTension1Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxBreastsTension2" variable="checkBoxBreastsTension2" member="yes">
+																<label>vv</label>
+																<handler function="checkBoxBreastsTension2Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesBreastsTension" variable="changesBreastsTension" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticSpotting" variable="staticSpotting" member="yes">
+																<label>spotting</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxSpotting1" variable="checkBoxSpotting1" member="yes">
+																<label>v</label>
+																<handler function="checkBoxSpotting1Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxSpotting2" variable="checkBoxSpotting2" member="yes">
+																<label>vv</label>
+																<handler function="checkBoxSpotting2Click" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesSpotting" variable="changesSpotting" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer" variable="sizerAdditionalNotes" member="no">
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticAdditionalNotes" variable="staticAdditionalNotes" member="yes">
+																<label>additional notes</label>
+															</object>
+															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesAdditionalNotes" variable="changesAdditionalNotes" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxTextCtrl" name="ID_textAdditionalNotes" variable="textAdditionalNotes" member="yes">
+														<minsize>200,40</minsize>
+														<maxsize>400,60</maxsize>
+														<style>wxTE_MULTILINE|wxSIMPLE_BORDER</style>
+														<handler function="textAdditionalNotesUpdated" entry="EVT_TEXT" />
+													</object>
+													<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+											</object>
+											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="sizerButtons" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonSave" variable="buttonSave" member="yes">
+										<label>save changes</label>
+										<tooltip>Save changes without closing this window</tooltip>
+										<handler function="buttonSaveClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonCancel" variable="buttonCancel" member="yes">
+										<label>cancel changes</label>
+										<tooltip>Close this window without saving changes</tooltip>
+										<handler function="buttonCancelClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_staticSpace7" variable="staticSpace7" member="yes">
+										<label></label>
+									</object>
+									<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonClose" variable="buttonClose" member="yes">
+										<label>close</label>
+										<tooltip>Close this window (and ask for saving unsaved changes)</tooltip>
+										<handler function="buttonCloseClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="win_release_static" />
+	<File name="src\aboutFrame.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="383" topLine="0" />
+	</File>
+	<File name="src\cardEntry.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="15684" topLine="821" />
+	</File>
+	<File name="src\cardEntry.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3364" topLine="76" />
+	</File>
+	<File name="src\cardFrame.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="51675" topLine="965" />
+	</File>
+	<File name="src\cardFrame.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="543" topLine="30" />
+	</File>
+	<File name="src\configClass.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="7079" topLine="144" />
+	</File>
+	<File name="src\configClass.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="8435" topLine="192" />
+	</File>
+	<File name="src\configFrame.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="915" topLine="42" />
+	</File>
+	<File name="src\customWindowLeft.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3494" topLine="79" />
+	</File>
+	<File name="src\customWindowLeft.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="586" topLine="22" />
+	</File>
+	<File name="src\customWindowMain.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1168" topLine="0" />
+	</File>
+	<File name="src\customWindowMain.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="550" topLine="0" />
+	</File>
+	<File name="src\customWindowNotes.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="486" topLine="12" />
+	</File>
+	<File name="src\customWindowNotes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="899" topLine="9" />
+	</File>
+	<File name="src\customWindowTop.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1295" topLine="0" />
+	</File>
+	<File name="src\cycleGraph.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3524" topLine="114" />
+	</File>
+	<File name="src\cycleGraph.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="308" topLine="0" />
+	</File>
+	<File name="src\cyclesData.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="930" topLine="21" />
+	</File>
+	<File name="src\cyclesData.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="2859" topLine="118" />
+	</File>
+	<File name="src\cyclesData_declarations.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3648" topLine="61" />
+	</File>
+	<File name="src\cyclesData_results.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1333" topLine="18" />
+	</File>
+	<File name="src\dayEntry.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="588" topLine="0" />
+	</File>
+	<File name="src\dayEntry.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3621" topLine="58" />
+	</File>
+	<File name="src\dayFrame.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="391" topLine="0" />
+	</File>
+	<File name="src\drawingClass.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="22012" topLine="652" />
+	</File>
+	<File name="src\drawingClass.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1528" topLine="30" />
+	</File>
+	<File name="src\goToFrame.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="12535" topLine="216" />
+	</File>
+	<File name="src\histogramsFrame.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1736" topLine="54" />
+	</File>
+	<File name="src\histogramsFrame.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="241" topLine="2" />
+	</File>
+	<File name="src\liveUpdateClass.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="7796" topLine="215" />
+	</File>
+	<File name="src\nfpMainFrame.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="16916" topLine="324" />
+	</File>
+	<File name="src\nfpMainFrame.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="6842" topLine="168" />
+	</File>
+	<File name="src\notificationFrame.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1560" topLine="41" />
+	</File>
+	<File name="src\notificationFrame.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1634" topLine="16" />
+	</File>
+	<File name="src\printFrame.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="267" topLine="0" />
+	</File>
+	<File name="src\updatesNotificationForm.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="3903" topLine="83" />
+	</File>
+	<File name="src\utilClass.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1011" topLine="21" />
+	</File>
+	<File name="src\wx-nfpApp.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="540" topLine="34" />
+	</File>
+	<File name="src\wx-nfpAppInfo.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="749" topLine="0" />
+	</File>
+	<File name="src\wx-nfpAppVersion.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="494" topLine="0" />
+	</File>
+	<File name="wx-nfpApp.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="81" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wx-nfp" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="win_release_static">
+				<Option output="wx-nfp_static.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs/win_release_static" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="0" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-O" />
+					<Add option="-Wall" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-D__GNUWIN32__" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add directory="$(#wx)/include" />
+					<Add directory="$(#wx)/lib/gcc_lib/mswu" />
+					<Add directory="$(#wx)/contrib/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wxmsw28u" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ctl3d32" />
+					<Add library="odbc32" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="libwxzlib" />
+					<Add directory="$(#wx)/lib/gcc_lib" />
+				</Linker>
+			</Target>
+			<Target title="win_release">
+				<Option output="wx-nfp.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs/win_release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="0" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-O" />
+					<Add option="-Wall" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
+					<Add option="-D__GNUWIN32__" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add directory="$(#wx)/include" />
+					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
+					<Add directory="$(#wx)/contrib/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libwxmsw28u_core" />
+					<Add library="libwxbase28u" />
+					<Add library="libwxbase28u_net" />
+					<Add library="libwxmsw28u_html" />
+					<Add library="libwxbase28u_xml" />
+					<Add library="libwxexpat" />
+					<Add library="libwxmsw28u_adv" />
+					<Add library="libwxzlib" />
+					<Add directory="$(#wx)/lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="win_debug">
+				<Option output="wx-nfp_debug.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs/win_debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="0" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-pipe" />
+					<Add option="-mthreads" />
+					<Add option="-D__GNUWIN32__" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="$(#wx)/include" />
+					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
+					<Add directory="$(#wx)/contrib/include" />
+				</Compiler>
+				<Linker>
+					<Add library="libwxmsw28ud_core" />
+					<Add library="libwxbase28ud" />
+					<Add library="libwxbase28ud_net" />
+					<Add library="libwxmsw28ud_html" />
+					<Add library="libwxbase28ud_xml" />
+					<Add library="libwxexpatd" />
+					<Add library="libwxmsw28ud_adv" />
+					<Add library="libwxzlibd" />
+					<Add directory="$(#wx)/lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="linux_release">
+				<Option output="wx-nfp" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs/linux_release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DwxUSE_UNICODE" />
+					<Add option="`wx-config --cflags --unicode=yes`" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`wx-config --libs`" />
+				</Linker>
+			</Target>
+			<Target title="linux_debug">
+				<Option output="wx-nfp_debug" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objs/linux_debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DwxUSE_UNICODE" />
+					<Add option="`wx-config --cflags --unicode=yes --debug=yes`" />
+				</Compiler>
+				<Linker>
+					<Add option="`wx-config --libs --debug=yes`" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<ResourceCompiler>
+			<Add directory="$(#wx)/include" />
+		</ResourceCompiler>
+		<Unit filename="src/aboutFrame.cpp" />
+		<Unit filename="src/aboutFrame.h" />
+		<Unit filename="src/cardEntry.cpp" />
+		<Unit filename="src/cardEntry.h" />
+		<Unit filename="src/cardFrame.cpp" />
+		<Unit filename="src/cardFrame.h" />
+		<Unit filename="src/configClass.cpp" />
+		<Unit filename="src/configClass.h" />
+		<Unit filename="src/configFrame.cpp" />
+		<Unit filename="src/configFrame.h" />
+		<Unit filename="src/customPrintout.cpp" />
+		<Unit filename="src/customPrintout.h" />
+		<Unit filename="src/customWindowLeft.cpp" />
+		<Unit filename="src/customWindowLeft.h" />
+		<Unit filename="src/customWindowMain.cpp" />
+		<Unit filename="src/customWindowMain.h" />
+		<Unit filename="src/customWindowNotes.cpp" />
+		<Unit filename="src/customWindowNotes.h" />
+		<Unit filename="src/customWindowTop.cpp" />
+		<Unit filename="src/customWindowTop.h" />
+		<Unit filename="src/cycleGraph.cpp" />
+		<Unit filename="src/cycleGraph.h" />
+		<Unit filename="src/cyclesData.cpp" />
+		<Unit filename="src/cyclesData.h" />
+		<Unit filename="src/cyclesData_declarations.h" />
+		<Unit filename="src/cyclesData_results.cpp" />
+		<Unit filename="src/dayEntry.cpp" />
+		<Unit filename="src/dayEntry.h" />
+		<Unit filename="src/dayFrame.cpp" />
+		<Unit filename="src/dayFrame.h" />
+		<Unit filename="src/drawingClass.cpp" />
+		<Unit filename="src/drawingClass.h" />
+		<Unit filename="src/goToFrame.cpp" />
+		<Unit filename="src/goToFrame.h" />
+		<Unit filename="src/histogramsFrame.cpp" />
+		<Unit filename="src/histogramsFrame.h" />
+		<Unit filename="src/liveUpdateClass.cpp" />
+		<Unit filename="src/liveUpdateClass.h" />
+		<Unit filename="src/nfpMainFrame.cpp" />
+		<Unit filename="src/nfpMainFrame.h" />
+		<Unit filename="src/notificationFrame.cpp" />
+		<Unit filename="src/notificationFrame.h" />
+		<Unit filename="src/printFrame.cpp" />
+		<Unit filename="src/printFrame.h" />
+		<Unit filename="src/translationHelper.cpp" />
+		<Unit filename="src/translationHelper.h" />
+		<Unit filename="src/updatesNotificationForm.cpp" />
+		<Unit filename="src/updatesNotificationForm.h" />
+		<Unit filename="src/utilClass.cpp" />
+		<Unit filename="src/utilClass.h" />
+		<Unit filename="src/wx-nfpApp.cpp" />
+		<Unit filename="src/wx-nfpApp.h" />
+		<Unit filename="src/wx-nfpAppInfo.h" />
+		<Unit filename="src/wx-nfpAppVersion.h" />
+		<Unit filename="wx-nfpApp.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wxsmith/cardFrame.wxs" />
+		<Unit filename="wxsmith/configFrame.wxs" />
+		<Unit filename="wxsmith/dayFrame.wxs" />
+		<Unit filename="wxsmith/goToFrame.wxs" />
+		<Extensions>
+			<code_completion />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/cardFrame.wxs" src="src/cardFrame.cpp" hdr="src/cardFrame.h" fwddecl="0" i18n="1" name="cardFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/dayFrame.wxs" src="src/dayFrame.cpp" hdr="src/dayFrame.h" fwddecl="0" i18n="1" name="dayFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/goToFrame.wxs" src="src/goToFrame.cpp" hdr="src/goToFrame.h" fwddecl="0" i18n="1" name="goToFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/configFrame.wxs" src="src/configFrame.cpp" hdr="src/configFrame.h" fwddecl="0" i18n="1" name="configFrame" language="CPP" />
+				</resources>
+			</wxsmith>
+			<envvars />
+			<debugger />
+			<AutoVersioning>
+				<Scheme minor_max="20" build_max="0" rev_max="0" rev_rand_max="1" build_times_to_increment_minor="100000" />
+				<Settings autoincrement="0" date_declarations="1" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="src/wx-nfpAppVersion.h" />
+				<Changes_Log show_changes_editor="0" app_title="%M.%m.%b" changeslog_path="changesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

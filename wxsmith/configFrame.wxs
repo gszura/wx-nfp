@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="configFrame">
+		<id_arg>0</id_arg>
+		<handler function="configFrameClose" entry="EVT_CLOSE" />
+		<object class="wxBoxSizer" variable="sizerMain1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_panelMain" variable="panelMain" member="yes">
+					<object class="wxBoxSizer" variable="sizerMain2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxNotebook" name="ID_notebook" variable="notebook" member="yes">
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelGeneral" variable="panelGeneral" member="yes">
+										<pos>64,35</pos>
+										<object class="wxBoxSizer" variable="sizerGeneral" member="no">
+											<orient>wxVERTICAL</orient>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerGeneral2" member="no">
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerGeneral4" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticLanguage" variable="staticLanguage" member="yes">
+																	<label>Choose application language:</label>
+																</object>
+																<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesLanguage" variable="changesLanguage" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxListBox" name="ID_listBoxLanguage" variable="listBoxLanguage" member="yes">
+																	<default>-1</default>
+																	<tooltip>Select new language of the application.</tooltip>
+																	<handler function="listBoxLanguageSelected" entry="EVT_LISTBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerGeneral3" member="no">
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerGeneral5" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxRememberPosition" variable="checkBoxRememberPosition" member="yes">
+																	<label>Remember windows positions and sizes</label>
+																	<tooltip>Remember application&apos;s windows and dialogs positions and sizes.</tooltip>
+																	<handler function="checkBoxRememberPositionClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesRememberPosition" variable="changesRememberPosition" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxFlatButtons" variable="checkBoxFlatButtons" member="yes">
+																	<label>Use flat buttons</label>
+																	<tooltip>Choose if all buttons in the application should be flat or standard ones.</tooltip>
+																	<handler function="checkBoxFlatButtonsClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFlatButtons" variable="changesFlatButtons" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxCheckForUpdates" variable="checkBoxCheckForUpdates" member="yes">
+																	<label>Check for application updates</label>
+																	<tooltip>If set the application checks for new version every time when it is starting.&#x0A;The only data which are sent is the information if you are using Windows or Linux operating system.</tooltip>
+																	<handler function="checkBoxCheckForUpdatesClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesCheckForUpdates" variable="changesCheckForUpdates" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="sizerGeneral6" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_space2" variable="space2" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<fg>#FF0000</fg>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_staticUpdatesProxy" variable="staticUpdatesProxy" member="yes">
+																			<label>Proxy server address:</label>
+																		</object>
+																		<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space1" variable="space1" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="sizerGeneral7" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_space3" variable="space3" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<fg>#FF0000</fg>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxTextCtrl" name="ID_textUpdatesProxy" variable="textUpdatesProxy" member="yes">
+																			<tooltip>If you are using the proxy server to comunicate with the Internet&#x0A;then write here the addess of it in the format &apos;hostname:port&apos; or &apos;hostname&apos;&#x0A;(in this case the default proxy port &apos;8080&apos; will be used),&#x0A;eg. 1.2.3.4:8088</tooltip>
+																			<handler function="textUpdatesProxyUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesUpdatesProxy" variable="changesUpdatesProxy" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+											</object>
+										</object>
+									</object>
+									<label>General</label>
+								</object>
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelApplication" variable="panelApplication" member="yes">
+										<pos>71,10</pos>
+										<object class="wxBoxSizer" variable="sizerApplication" member="no">
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerApplication1" member="no">
+													<orient>wxVERTICAL</orient>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerApplication2" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxOpenLastOpenedFile" variable="checkBoxOpenLastOpenedFile" member="yes">
+																	<label>Open the last opened cards&apos; set</label>
+																	<tooltip>Open the last opened cards&apos; set when application starts.</tooltip>
+																	<handler function="checkBoxOpenLastOpenedFileClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesOpenLastOpenedFile" variable="changesOpenLastOpenedFile" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxCheckForMissingDays" variable="checkBoxCheckForMissingDays" member="yes">
+																	<label>Check for missing days</label>
+																	<tooltip>When the cards&apos; set is loaded check if the last card contains all days including today,&#x0A;if not then propose adding missing ones.</tooltip>
+																	<handler function="checkBoxCheckForMissingDaysClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesCheckForMissingDays" variable="changesCheckForMissingDays" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxBreastsAutocontrolReminder" variable="checkBoxBreastsAutocontrolReminder" member="yes">
+																	<label>Enable the breasts self-control reminder</label>
+																	<tooltip>The breast self-control should be performed monthly.&#x0A;When you enable this function, application can reminds you about it.</tooltip>
+																	<handler function="checkBoxBreastsAutocontrolReminderClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesBreastsAutocontrolReminder" variable="changesBreastsAutocontrolReminder" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerApplication3" member="no">
+															<cols>5</cols>
+															<growablecols>1</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space5" variable="space5" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticBreastsAutocontrolReminderDay1" variable="staticBreastsAutocontrolReminderDay1" member="yes">
+																	<label>Remind at</label>
+																	<tooltip>Set on which day of cycle the application should remind about breast self-control.</tooltip>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinCtrlBreastsAutocontrolReminderDay" variable="spinCtrlBreastsAutocontrolReminderDay" member="yes">
+																	<value>6</value>
+																	<min>1</min>
+																	<max>30</max>
+																	<size>60,-1</size>
+																	<tooltip>Set on which day of cycle the application should remind about breast self-control.</tooltip>
+																	<handler function="spinCtrlBreastsAutocontrolReminderDayUpdated" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticBreastsAutocontrolReminderDay2" variable="staticBreastsAutocontrolReminderDay2" member="yes">
+																	<label>day of cycle</label>
+																	<tooltip>Set on which day of cycle the application should remind about breast self-control.</tooltip>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesBreastsAutocontrolReminderDay" variable="changesBreastsAutocontrolReminderDay" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space6" variable="space6" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticBreastAutocontrolInterval1" variable="staticBreastAutocontrolInterval1" member="yes">
+																	<label>Remind every</label>
+																	<tooltip>When the cycle is longer than reminder day defined above plus number of days defined here&#x0A;then remind again about breast self-control.&#x0A;This option is usefull during pregnancy and breast-feed time, when the cycle&apos;s &apos;length&apos; is 200 days or more ;-)</tooltip>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinCtrlBreastAutocontrolInterval" variable="spinCtrlBreastAutocontrolInterval" member="yes">
+																	<value>30</value>
+																	<min>10</min>
+																	<max>50</max>
+																	<size>60,-1</size>
+																	<tooltip>When the cycle is longer than reminder day defined above plus number of days defined here&#x0A;then remind again about breast self-control.&#x0A;This option is usefull during pregnancy and breast-feed time, when the cycle&apos;s &apos;length&apos; is 200 days or more ;-)</tooltip>
+																	<handler function="spinCtrlBreastAutocontrolIntervalUpdated" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticBreastAutocontrolInterval2" variable="staticBreastAutocontrolInterval2" member="yes">
+																	<label>days</label>
+																	<tooltip>When the cycle is longer than reminder day defined above plus number of days defined here&#x0A;then remind again about breast self-control.&#x0A;This option is usefull during pregnancy and breast-feed time, when the cycle&apos;s &apos;length&apos; is 200 days or more ;-)</tooltip>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesBreastAutocontrolInterval" variable="changesBreastAutocontrolInterval" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													</object>
+													<object class="sizeritem">
+														<object class="wxStaticText" name="ID_staticUnits" variable="staticUnits" member="yes">
+															<label>Units used in application:</label>
+															<enabled>0</enabled>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerApplication4" member="no">
+															<cols>4</cols>
+															<growablecols>1</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space7" variable="space7" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticLengthUnit" variable="staticLengthUnit" member="yes">
+																	<label>Length unit</label>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxLengthUnit" variable="comboBoxLengthUnit" member="yes">
+																	<size>120,-1</size>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxLengthUnitUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesLengthUnit" variable="changesLengthUnit" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space8" variable="space8" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureUnit" variable="staticTemperatureUnit" member="yes">
+																	<label>Temperature unit</label>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxTemperatureUnit" variable="comboBoxTemperatureUnit" member="yes">
+																	<size>120,-1</size>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxTemperatureUnitUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesTemperatureUnit" variable="changesTemperatureUnit" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													</object>
+													<object class="sizeritem">
+														<object class="wxStaticText" name="ID_staticTemperatureRange" variable="staticTemperatureRange" member="yes">
+															<label>Temperatures&apos; range on the chart:</label>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerApplication5" member="no">
+															<cols>5</cols>
+															<growablecols>1</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space9" variable="space9" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureRangeHigh" variable="staticTemperatureRangeHigh" member="yes">
+																	<label>High temperature</label>
+																	<tooltip>Define the high temperature of the chart.&#x0A;Highest temperature will be printed outside of the chart.</tooltip>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxTemperatureRangeHigh" variable="comboBoxTemperatureRangeHigh" member="yes">
+																	<size>100,-1</size>
+																	<tooltip>Define the high temperature of the chart.&#x0A;Highest temperature will be printed outside of the chart.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxTemperatureRangeHighUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureCorF1" variable="staticTemperatureCorF1" member="yes">
+																	<label></label>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesTemperatureRangeHigh" variable="changesTemperatureRangeHigh" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_space10" variable="space10" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureRangeLow" variable="staticTemperatureRangeLow" member="yes">
+																	<label>Low temperature</label>
+																	<tooltip>Define the low temperature of the chart.&#x0A;Lowest temperature will be printed outside of the chart.</tooltip>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxTemperatureRangeLow" variable="comboBoxTemperatureRangeLow" member="yes">
+																	<size>100,-1</size>
+																	<tooltip>Define the low temperature of the chart.&#x0A;Lowest temperature will be printed outside of the chart.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxTemperatureRangeLowUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureCorF2" variable="staticTemperatureCorF2" member="yes">
+																	<label></label>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesTemperatureRangeLow" variable="changesTemperatureRangeLow" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+										</object>
+									</object>
+									<label>Application</label>
+								</object>
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelColours" variable="panelColours" member="yes">
+										<pos>151,13</pos>
+										<object class="wxBoxSizer" variable="sizerColours" member="no">
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerColours1" member="no">
+													<orient>wxVERTICAL</orient>
+													<object class="sizeritem">
+														<object class="wxStaticText" name="ID_staticColours" variable="staticColours" member="yes">
+															<label>Choose colour for:</label>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerColours2" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<growablerows>0,1,2,3,4,5,6,7,8</growablerows>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourBackground" variable="buttonColourBackground" member="yes">
+																	<label>Background</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the chart&apos;s background.</tooltip>
+																	<handler function="buttonColourBackgroundClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourBackground" variable="changesColourBackground" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="sizerColours3" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_staticColourCell" variable="staticColourCell" member="yes">
+																			<label>Cells colours of &apos;normal&apos; days&#x0A;and currently active day</label>
+																			<style>wxALIGN_RIGHT</style>
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>10</border>
+																		<option>1</option>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxFlexGridSizer" variable="sizerColours4" member="no">
+																			<cols>3</cols>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourCell11" variable="buttonColourCell11" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the chart&apos;s cell 1,1 (odd column, odd row).</tooltip>
+																					<minsize>30,15</minsize>
+																					<handler function="buttonColourCell11Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourCell21" variable="buttonColourCell21" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the chart&apos;s cell 2,1 (even column, odd row).</tooltip>
+																					<handler function="buttonColourCell21Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourMarkedCell1" variable="buttonColourMarkedCell1" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the selected cell of the chart, odd row.</tooltip>
+																					<handler function="buttonColourMarkedCell1Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourCell12" variable="buttonColourCell12" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the chart&apos;s cell 1,2 (odd column, even row).</tooltip>
+																					<handler function="buttonColourCell12Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourCell22" variable="buttonColourCell22" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the chart&apos;s cell 2,2 (even column, even row).</tooltip>
+																					<handler function="buttonColourCell22Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																			<object class="sizeritem">
+																				<object class="wxButton" name="ID_buttonColourMarkedCell2" variable="buttonColourMarkedCell2" member="yes">
+																					<size>30,20</size>
+																					<tooltip>Define the colour of the selected cell of the chart, even row.</tooltip>
+																					<handler function="buttonColourMarkedCell2Click" entry="EVT_BUTTON" />
+																				</object>
+																				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																			</object>
+																		</object>
+																		<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	</object>
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourCell" variable="changesColourCell" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourPointNormal" variable="buttonColourPointNormal" member="yes">
+																	<label>Temperature point</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the temperature point.</tooltip>
+																	<handler function="buttonColourPointNormalClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourPointNormal" variable="changesColourPointNormal" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourPointBefore" variable="buttonColourPointBefore" member="yes">
+																	<label>Low-level temperature point</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the low-level temperature point.</tooltip>
+																	<handler function="buttonColourPointBeforeClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourPointBefore" variable="changesColourPointBefore" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourPointAfter" variable="buttonColourPointAfter" member="yes">
+																	<label>High-level temperature point</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the high-level temperature point.</tooltip>
+																	<handler function="buttonColourPointAfterClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourPointAfter" variable="changesColourPointAfter" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourTemperatureLine" variable="buttonColourTemperatureLine" member="yes">
+																	<label>Temperatures line</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the temperatures lines.</tooltip>
+																	<handler function="buttonColourTemperatureLineClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourTemperatureLine" variable="changesColourTemperatureLine" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourTemperatureLevelLine" variable="buttonColourTemperatureLevelLine" member="yes">
+																	<label>Low- and high-level temperature line</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the low- and high-level temperature lines.</tooltip>
+																	<handler function="buttonColourTemperatureLevelLineClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourTemperatureLevelLine" variable="changesColourTemperatureLevelLine" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourPhaseLine" variable="buttonColourPhaseLine" member="yes">
+																	<label>Cycle&apos;s phases line</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the cycle&apos;s phases lines.</tooltip>
+																	<handler function="buttonColourPhaseLineClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourPhaseLine" variable="changesColourPhaseLine" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonColourBorders" variable="buttonColourBorders" member="yes">
+																	<label>Borders</label>
+																	<size>-1,30</size>
+																	<tooltip>Define the colour of the chart&apos;s borders.</tooltip>
+																	<handler function="buttonColourBordersClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesColourBorders" variable="changesColourBorders" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+														</object>
+														<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>10</border>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+										</object>
+									</object>
+									<label>Colours</label>
+								</object>
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelFonts" variable="panelFonts" member="yes">
+										<pos>213,15</pos>
+										<object class="wxBoxSizer" variable="sizerFonts" member="no">
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerFonts1" member="no">
+													<orient>wxVERTICAL</orient>
+													<object class="sizeritem">
+														<object class="wxStaticText" name="ID_staticFonts" variable="staticFonts" member="yes">
+															<label>Choose fonts for:</label>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerFonts2" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<growablerows>0,1,2,3,4,5,6,7</growablerows>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontHeadTopic" variable="buttonFontHeadTopic" member="yes">
+																	<label>Cycle observation card</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour of the string &apos;Cycle observation card&apos; visible in the left-top corner of the window.</tooltip>
+																	<handler function="buttonFontHeadTopicClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontHeadTopic" variable="changesFontHeadTopic" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontHeadName" variable="buttonFontHeadName" member="yes">
+																	<label>Name of the parameter in the header</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour of parameters&apos; names in the header.</tooltip>
+																	<handler function="buttonFontHeadNameClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontHeadName" variable="changesFontHeadName" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontHeadValue" variable="buttonFontHeadValue" member="yes">
+																	<label>Value of the parameter in the header</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour of parameters&apos; values in the header.</tooltip>
+																	<handler function="buttonFontHeadValueClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontHeadValue" variable="changesFontHeadValue" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontResultHeader" variable="buttonFontResultHeader" member="yes">
+																	<label>First column of the chart</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour used in the first column of the chart (headers&apos; column).</tooltip>
+																	<handler function="buttonFontResultHeaderClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontResultHeader" variable="changesFontResultHeader" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontResultDefault" variable="buttonFontResultDefault" member="yes">
+																	<label>Data in the chart</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour used to present the data on the chart.</tooltip>
+																	<handler function="buttonFontResultDefaultClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontResultDefault" variable="changesFontResultDefault" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="sizerFonts3" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_staticFontResultHeart" variable="staticFontResultHeart" member="yes">
+																			<label>Character in the &apos;coitus record&apos; row</label>
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>10</border>
+																		<option>1</option>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxButton" name="ID_buttonFontResultHeart" variable="buttonFontResultHeart" member="yes">
+																			<size>-1,30</size>
+																			<tooltip>Set colour and size of the character used in the &apos;coitus record&apos; row.</tooltip>
+																			<handler function="buttonFontResultHeartClick" entry="EVT_BUTTON" />
+																		</object>
+																		<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																	</object>
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontResultHeart" variable="changesFontResultHeart" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontResultResults" variable="buttonFontResultResults" member="yes">
+																	<label>Results&apos; rows in the chart</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour of charactes in results&apos; rows on the chart (mucus and cervix peaks).</tooltip>
+																	<handler function="buttonFontResultResultsClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontResultResults" variable="changesFontResultResults" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxButton" name="ID_buttonFontResultPhases" variable="buttonFontResultPhases" member="yes">
+																	<label>Phase I/II/III</label>
+																	<size>-1,30</size>
+																	<tooltip>Set font and colour of strings &apos;Phase I/II/III&apos;.</tooltip>
+																	<handler function="buttonFontResultPhasesClick" entry="EVT_BUTTON" />
+																</object>
+																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesFontResultPhases" variable="changesFontResultPhases" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>2</border>
+															</object>
+														</object>
+														<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>10</border>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+										</object>
+									</object>
+									<label>Fonts</label>
+								</object>
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelOther" variable="panelOther" member="yes">
+										<pos>108,8</pos>
+										<object class="wxBoxSizer" variable="sizerOther" member="no">
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerOther1" member="no">
+													<object class="sizeritem">
+														<object class="wxButton" name="ID_buttonSetDefaults" variable="buttonSetDefaults" member="yes">
+															<label>Restore defaults settings</label>
+															<size>-1,30</size>
+															<tooltip>Restore defaults settings of all application parameters,&#x0A; except application language.</tooltip>
+															<handler function="buttonSetDefaultsClick" entry="EVT_BUTTON" />
+														</object>
+														<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+														<border>5</border>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+										</object>
+									</object>
+									<label>Other</label>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="sizerButtons" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonSave" variable="buttonSave" member="yes">
+										<label>Save</label>
+										<tooltip>Save and apply changes without closing this window</tooltip>
+										<handler function="buttonSaveClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonCancel" variable="buttonCancel" member="yes">
+										<label>Cancel</label>
+										<tooltip>Discard changes and close this window</tooltip>
+										<handler function="buttonCancelClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_space4" variable="space4" member="yes">
+										<label></label>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonOk" variable="buttonOk" member="yes">
+										<label>OK</label>
+										<tooltip>Save and apply changes and close this window</tooltip>
+										<handler function="buttonOkClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

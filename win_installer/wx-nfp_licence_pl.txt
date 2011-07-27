@@ -1,0 +1,10 @@
+﻿wx-nfp - aplikacja pomocna przy codziennej obserwacji cylku wg. naturalnych metod rozpoznawania płodności.
+Copyright (C) 2007-2010 Szura Grzegorz
+
+Niniejszy program jest wolnym oprogramowaniem; możesz go rozprowadzać dalej i/lub modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez Fundację Wolnego Oprogramowania - według wersji 3 tej Licencji lub którejś z późniejszych wersji.
+
+Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on  użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania bliższych informacji - Powszechna Licencja Publiczna GNU. 
+
+Pełna wersja Powszechnej Licencji Publicznej GNU jest załączona do nniejszego programu, jest ona również dostępna w Internecie:
+- wersja oryginalna (po angielsku): http://www.fsf.org/licensing/licenses/gpl.html
+- polskie tłumaczenie: http://www.gnu.org.pl/text/licencja-gnu.html

@@ -1,0 +1,43 @@
+BODY {
+	font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif;
+	color: #000000;
+	background-color: #8ac0e3
+}
+
+A:link    { font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; color: #30497c; text-decoration : none; }
+A:visited { font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; color: #30497c; text-decoration : none; }
+A:hover   { font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; color: #ffffff; text-decoration : none; }
+A:active  { font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; color: #ffffff; text-decoration : underline; }
+
+TABLE {
+	font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif;
+}
+TH {
+	font: bold 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif;
+	color:#000000;
+	background-color:#679ac9;
+}
+TD {
+	font: normal 11px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif;
+	color:#000000;
+}
+
+.err { color: #c41919; font: normal 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+.info { color: #0f7016; font: normal 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+
+
+.activedir         { color: #aa0000; font: 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; text-decoration: none; }
+.activedir:link    { color: #aa0000; font: 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; text-decoration: none; }
+.activedir:visited { color: #aa0000; font: 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; text-decoration: none; }
+.activedir:hover   { color: #ffffff; font: 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; text-decoration: none; }
+.activedir:active  { color: #ffffff; font: 11px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; text-decoration: underline; }
+
+.copyright         { color: #30497c; font: 8px  "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+
+
+.td3 { background-color: #8ac0c3; }
+
+.header { font: normal 18px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+.header1 { font: normal 14px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+.header2 { font: normal 12px "Arial CE", "Helvetica CE", Arial, Helvetica, sans-serif; }
+

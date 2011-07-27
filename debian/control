@@ -1,0 +1,23 @@
+Source: wx-nfp
+Section: Utilities
+Priority: optional
+Maintainer: Grzegorz Szura <grzegorz@szura.net>
+Standards-Version: 3.8.3
+Build-Depends: libwxgtk2.8-dev, wx-common, cdbs, debhelper (>= 7)
+Homepage: http://npr.szura.net
+
+Package: wx-nfp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libwxgtk2.8-0
+Description: Tool to store the observations of menstrual cycle
+ Natural Family Planning (NFP) is a system is a system in which you become aware
+ of the fertile and infertile times of your menstrual cycle, and you act
+ accordingly. If you want to avoid pregnancy, you have marital relations only during
+ the infertile times. If you want to become pregnant, through NFP you know the best
+ days in each cycle for seeking pregnancy.
+ .
+ wx-nfp is the tool which aims to be a replacement of the paper daily observation
+ charts. You can store here all your observations and interpret them.
+ .
+ Fore detailed information can be found on-line:
+ http://npr.szura.net

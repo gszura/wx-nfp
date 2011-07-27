@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="goToFrame">
+		<title>NFP - go to card..</title>
+		<id_arg>0</id_arg>
+		<style>wxSTAY_ON_TOP|wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</style>
+		<handler function="goToFrameClose" entry="EVT_CLOSE" />
+		<object class="wxBoxSizer" variable="sizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_panel1" variable="panel1" member="yes">
+					<object class="wxBoxSizer" variable="sizer2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="sizer3" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer" variable="sizer4" member="no">
+										<cols>2</cols>
+										<growablecols>0</growablecols>
+										<object class="sizeritem">
+											<object class="wxRadioButton" name="ID_radioButtonCardNumber" variable="radioButtonCardNumber" member="yes">
+												<label>Go to card number:</label>
+												<tooltip>Go to card with choosen number</tooltip>
+												<handler function="radioButtonCardNumberClick" entry="EVT_RADIOBUTTON" />
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxSpinCtrl" name="ID_spinCardNumber" variable="spinCardNumber" member="yes">
+												<value>0</value>
+												<size>120,-1</size>
+												<tooltip>Choose the card number</tooltip>
+												<style>wxSP_ARROW_KEYS</style>
+												<handler function="spinCardNumberChange" entry="EVT_SPINCTRL" />
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxRadioButton" name="ID_radioButtonDate" variable="radioButtonDate" member="yes">
+												<label>Go to card with day:</label>
+												<tooltip>Go to card where there is a day with choosen date</tooltip>
+												<handler function="radioButtonDateClick" entry="EVT_RADIOBUTTON" />
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxDatePickerCtrl" name="ID_datePickerDate" variable="datePickerDate" member="yes">
+												<size>120,-1</size>
+												<tooltip>Choose the date</tooltip>
+												<style>wxDP_DROPDOWN|wxDP_SHOWCENTURY</style>
+												<handler function="datePickerDateDateChanged" entry="EVT_DATE_CHANGED" />
+											</object>
+											<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_space1" variable="space1" member="yes">
+												<label></label>
+											</object>
+											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticVaildDates" variable="staticVaildDates" member="yes">
+												<label>Vaild dates: %s - %s</label>
+												<style>wxALIGN_RIGHT</style>
+											</object>
+											<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>10</border>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="sizer5" member="no">
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticCard" variable="staticCard" member="yes">
+												<label>Choosen card:</label>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_textCard" variable="textCard" member="yes">
+												<label>1</label>
+												<fg>#000080</fg>
+												<font>
+													<weight>bold</weight>
+													<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+													<relativesize>1.000000</relativesize>
+												</font>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticDay" variable="staticDay" member="yes">
+												<label>day:</label>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_textDay" variable="textDay" member="yes">
+												<label>1</label>
+												<fg>#000080</fg>
+												<font>
+													<weight>bold</weight>
+													<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+													<relativesize>1.000000</relativesize>
+												</font>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_staticDate" variable="staticDate" member="yes">
+												<label>date:</label>
+											</object>
+											<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_textDate" variable="textDate" member="yes">
+												<label>xxxx-xx-xx</label>
+												<fg>#000080</fg>
+												<font>
+													<weight>bold</weight>
+													<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+													<relativesize>1.000000</relativesize>
+												</font>
+											</object>
+											<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>10</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="sizer6" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonGoTo" variable="buttonGoTo" member="yes">
+										<label>Go to</label>
+										<tooltip>Switch to choosen card / day</tooltip>
+										<handler function="buttonGoToClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>10</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonCancel" variable="buttonCancel" member="yes">
+										<label>Cancel</label>
+										<tooltip>Cancel operation and close this window</tooltip>
+										<handler function="buttonCancelClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>10</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

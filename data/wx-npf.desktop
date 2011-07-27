@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=wx-NFP
+Name[pl]=wx-NPR
+Comment=Tool to store the observations of menstrual cycle according to Natural Family Planning rules.
+Comment[pl]=Aplikacja pomocna przy codziennej obserwacji cylku wg. naturalnych metod rozpoznawania płodności.
+Exec=wx-nfp
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=wx-nfp
+Categories=Utility

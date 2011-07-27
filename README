@@ -1,0 +1,92 @@
+
+wx-nfp: A free, cross-platform tool to store the observations of menstrual cycle
+according to Natural Family Planning rules.
+
+Natural Family Planning (NFP) is a system is a system in which you become aware
+of the fertile and infertile times of your menstrual cycle, and you act
+accordingly. If you want to avoid pregnancy, you have marital relations only during
+the infertile times. If you want to become pregnant, through NFP you know the best
+days in each cycle for seeking pregnancy.
+
+wx-nfp is the tool which aims to be a replacement of the paper daily observation
+charts. You can store here all your observations and interpret them.
+
+More information can be found on-line (currently mostly in polish, sorry for that ;)
+http://npr.szura.net
+
+wx-npf is copyright (c) 2007-2011 by Grzegorz Szura.
+
+
+Contents of this README:
+
+1.  Licensing
+2.  Changes in this version
+3.  Known issues in current release
+4.  Compilation Instructions
+
+--------------------------------------------------------------------------------
+1.  Licensing
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This package is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+On Debian systems, the complete text of the GNU General
+Public License version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+
+
+--------------------------------------------------------------------------------
+2.  Changes in this version
+
+See the changelog file (in doc folder),
+or on-line: http://npr.szura.net/changelog.php
+
+--------------------------------------------------------------------------------
+3.  Known issues in current release
+
+See the 'Known issues' section of the changelog file (in doc folder),
+or on-line: http://npr.szura.net/changelog.php
+
+--------------------------------------------------------------------------------
+4.  Compilation Instructions
+
+Source code of wx-nfp can be downloaded from
+  http://npr.szura.net/
+
+Application requires wxWidgets in version 2.8.x.
+Please find more information about installation of wxWidgets here:
+  http://www.wxWidgets.org/
+Make sure you install the devel packages otherwise you won't be able to compile wx-nfp from source.
+
+LINUX:
+To compile on Linux and other Unix systems, simply execute these commands:
+  ./configure
+  make
+  sudo make install
+
+To see compile-time options you can set, you can type:
+  ./configure --help
+
+
+M$ WINDOWS:
+The easiest way is to use Code::Blocks to compile the application:
+  http://www.codeblocks.org/
+
+The project file: wx-nfp.cbp
+
+The installer has been created using Inno Setup (and ISTool):
+  http://www.jrsoftware.org/
+  http://www.istool.org/
+
+The project file is located in the win_installer folder.
+--------------------------------------------------------------------------------
+
