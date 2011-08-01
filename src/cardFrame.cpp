@@ -951,7 +951,8 @@ void cardFrame::updateButtonsState() {
 }
 
 /**
- * ask to save chages and next check if value of the 'name' is not empty - if it's empty then do not let to exit the window.
+ * ask to save chages and next check if value of the 'name' is not
+ * empty - if it's empty then do not let to exit the window.
  */
 bool cardFrame::checkIfCanExit( bool cancelAllowed ) {
     if ( m_changes > 0 ) {
