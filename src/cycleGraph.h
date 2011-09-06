@@ -37,7 +37,7 @@ private:
     int X,Y;
 
 public:
-    cycleGraph(wxWindow* parent, cycleDataClass *cycles);
+    cycleGraph(wxWindow* parent, cycleDataClass* cycles);
     int getMaxTemp();
     int getMinTemp();
     /**

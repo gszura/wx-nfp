@@ -30,6 +30,7 @@
 #include "notificationFrame.h"
 #include "customPrintout.h"
 #include "printFrame.h"
+#include "histogramsFrame.h"
 
 
 /*******************************************************************************

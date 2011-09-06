@@ -21,7 +21,10 @@ wx_nfp_SOURCES = aboutFrame.cpp	\
 		customWindowTop.h	\
 		cyclesData.cpp	\
 		cyclesData_declarations.h	\
+		cyclesData_results.cpp \
 		cyclesData.h	\
+		cycleGraph.cpp \
+		cycleGraph.h \
 		dayEntry.cpp	\
 		dayEntry.h	\
 		dayFrame.cpp	\
@@ -30,6 +33,8 @@ wx_nfp_SOURCES = aboutFrame.cpp	\
 		drawingClass.h	\
 		goToFrame.cpp	\
 		goToFrame.h	\
+		histogramsFrame.cpp \
+		histogramsFrame.h \
 		liveUpdateClass.cpp	\
 		liveUpdateClass.h	\
 		nfpMainFrame.cpp	\
