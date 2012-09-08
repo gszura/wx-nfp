@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+Building deb packages:
+
+# ---------------------
+# 1/ do once:
+
+# prepare env:
+ apt-get install build-essential devscripts ubuntu-dev-tools debhelper dh-make diff patch cdbs quilt gnupg fakeroot lintian  pbuilder piuparts
+
+# init pbuilder:
+sudo pbuilder create --distribution $(lsb_release -cs) --othermirror "deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main restricted universe multiverse"
+
+# to update a pbuilder environment, run
+sudo pbuilder update
+
+# use pbuilder-dist (of the ubuntu-dev-tools) to have several different pbuilder setups for different Ubuntu releases. 
+# (more info: https://wiki.ubuntu.com/PbuilderHowto)
+
+# ---------------------
+
+# 2/ to create new deb file
+
+# update debian/changelog file
+
+# build a source package:
+debuild -S
+
+# build a package using pbuilder, run
+sudo pbuilder build ../*.dsc
+
+# created deb files are in: /var/cache/pbuilder/result/
+
+
+# check the source package for common mistakes
+cd ..
+lintian -Ivi *.dsc
+
+# check the content of deb file:
+lesspipe *deb
+
+
+# ---------------------
+$ For different architecture:
+
+# 1/ do once:
+pbuilder-dist $(lsb_release -cs) i386 create
+
+# 2/ to create new deb file
+pbuilder-dist precise i386 build *.dsc
+
+# created deb files are in: ~/pbuilder/DIST-ARCH_result/
+
+--------------------------------------------------------------------------------
