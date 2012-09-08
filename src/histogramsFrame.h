@@ -8,6 +8,8 @@
 #include <wx/sizer.h>
 #include <wx/dc.h>
 #include <wx/dcclient.h>
+#include <wx/panel.h>
+#include <wx/colour.h>
 #include "nfpMainFrame.h"
 #include <vector>
 using namespace std;
@@ -24,8 +26,13 @@ private:
     DECLARE_EVENT_TABLE()
 
 private:
+    wxSizerFlags flags;
     wxBoxSizer *boxSizer;
+    wxBoxSizer *minorSizer;
+    wxColour colour;
+
     wxStdDialogButtonSizer *buttons;
+    wxPanel *panel;
     vector<histItem> items;
     int maxValue;
     int margin;

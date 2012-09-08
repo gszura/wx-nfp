@@ -49,6 +49,7 @@ AC_HEADER_STDBOOL
 AC_TYPE_SIZE_T
 
 AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.18])
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
 		 src/Makefile

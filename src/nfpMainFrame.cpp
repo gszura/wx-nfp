@@ -29,6 +29,7 @@
 #include "configFrame.h"
 #include "customPrintout.h"
 #include "printFrame.h"
+#include "histogramsFrame.h"
 
 
 /*******************************************************************************
