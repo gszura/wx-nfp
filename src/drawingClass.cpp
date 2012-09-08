@@ -15,8 +15,7 @@
 /**
  * Constructor
  */
-drawingClass::drawingClass( configClass *config, cycleDataClass *cycleData, bool printing )
-{
+drawingClass::drawingClass( configClass *config, cycleDataClass *cycleData, bool printing ) {
     m_config = config;
     m_cycleData = cycleData;
     m_printing = printing;
@@ -25,7 +24,7 @@ drawingClass::drawingClass( configClass *config, cycleDataClass *cycleData, bool
     m_windowTopEntriesStartX[0] = 150;
     m_windowTopEntriesStartX[1] = 280;
     m_windowTopEntriesStartX[2] = 450;
-    m_windowTopEntriesStartX[3] = 650;
+    m_windowTopEntriesStartX[3] = 600;
 
     m_cellHeight = 15;
     m_cellsWidth[0] = m_config->widowLeftWidth;
@@ -38,8 +37,7 @@ drawingClass::drawingClass( configClass *config, cycleDataClass *cycleData, bool
 /**
  * Draw data in the top header (info window)
  */
-void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
-{
+void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo ) {
     wxCoord w, h;
     int x;
     int y = m_windowTopHeight / 2 + 1;
@@ -49,10 +47,18 @@ void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
     wxString date = _T( "?" );
     wxString name = _T( "?" );
     wxString age = _T( "?" );
+    wxString cycleType = wxEmptyString;
+    /*
     wxString tempCorrectionMouth = _T( "?" );
     wxString tempCorrectionRectum = _T( "?" );
     wxString tempCorrectionVagina = _T( "?" );
+    */
+    wxString numberOfDaysOfShortestCycle = _T( "-" );
+    wxString earliestFirstDayOfHighLevelTemperature = _T( "-" );
+    int numberOfHistoricalCyclesUsedToCalculateShortestCycle = -1;
+    int numberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature = -1;
     bool cardLocked = false;
+    bool cardCorrupted = false;
     wxString cardNote = wxEmptyString;
 
     // set data in variables
@@ -71,28 +77,58 @@ void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
         name = m_cycleData->getName();
         age = m_util.intToStr( m_util.strToInt( firstDayOfCycle.Format( _T( "%Y" ) ) ) - m_util.strToInt( m_cycleData->getBirthdayDay().Format( _T( "%Y" ) ) ) );
 
-        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_MOUTH )
+        /*
+        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_MOUTH ) {
             tempCorrectionMouth = _T( "-" );
-        else
+        } else {
             tempCorrectionMouth = m_util.temperatureToStr( card->getTemperatureCorrectionWhenMeasuredInMouth(), true, true );
-        if ( tempCorrectionMouth.IsEmpty() )
+        }
+        if ( tempCorrectionMouth.IsEmpty() ) {
             tempCorrectionMouth = _T( "?" );
+        }
 
-        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_RECTUM )
+        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_RECTUM ) {
             tempCorrectionRectum = _T( "-" );
-        else
+        } else {
             tempCorrectionRectum = m_util.temperatureToStr( card->getTemperatureCorrectionWhenMeasuredInRectum(), true, true );
-        if ( tempCorrectionRectum.IsEmpty() )
+        }
+        if ( tempCorrectionRectum.IsEmpty() ) {
             tempCorrectionRectum = _T( "?" );
+        }
 
-        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_VAGINA )
+        if ( card->getTemperatureUsualMeasurementPlace() == PLACE_VAGINA ) {
             tempCorrectionVagina = _T( "-" );
-        else
+        } else {
             tempCorrectionVagina = m_util.temperatureToStr( card->getTemperatureCorrectionWhenMeasuredInVagina(), true, true );
-        if ( tempCorrectionVagina.IsEmpty() )
+        }
+        if ( tempCorrectionVagina.IsEmpty() ) {
             tempCorrectionVagina = _T( "?" );
+        }
+        */
+
+        if (card->getCycleType() == CYCLE_TYPE_PREGNANCY) {
+            cycleType = string_cycleTypePregnancy;
+        } else if (card->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY) {
+            cycleType = string_cycleTypeAfterPregnancy;
+        } else if (card->getCycleType() == CYCLE_TYPE_PERI_MENOPAUSE) {
+            cycleType = string_cycleTypePeriMenopause;
+        }
+
+
+        numberOfHistoricalCyclesUsedToCalculateShortestCycle = m_cycleData->getNumberOfHistoricalCyclesUsedToCalculateShortestCycle( cardNo, m_config );
+        numberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature = m_cycleData->getNumberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature( cardNo, m_config );
+        int numberOfDaysOfShortestCycleInt = m_cycleData->getNumberOfDaysOfShortestCycle( cardNo, m_config );
+        int earliestFirstDayOfHighLevelTemperatureInt = m_cycleData->getEarliestFirstDayOfHighLevelTemperature( cardNo, m_config );
+        if (numberOfDaysOfShortestCycleInt > 0) {
+            numberOfDaysOfShortestCycle = m_util.intToStr(numberOfDaysOfShortestCycleInt);
+        }
+        if (earliestFirstDayOfHighLevelTemperatureInt > 0) {
+            earliestFirstDayOfHighLevelTemperature = m_util.intToStr(earliestFirstDayOfHighLevelTemperatureInt);
+        }
+
 
         cardLocked = card->getCardLocked();
+        cardCorrupted = card->getCorruptedData();
         cardNote = card->getNotes();
     }
 
@@ -132,6 +168,14 @@ void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
     str = cardNoStr;
     dc.DrawText( str, x + w, y );
 
+    // cycle type
+    if (!cycleType.IsEmpty()) {
+        x = m_windowTopEntriesStartX[1];
+        setFontHeadValue( dc );
+        str = cycleType;
+        dc.DrawText( str, x, 1 );
+    }
+
     // date
     x = m_windowTopEntriesStartX[1];
     setFontHeadName( dc );
@@ -142,50 +186,38 @@ void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
     str = date;
     dc.DrawText( str, x + w, y );
 
-    // tempCorrection header
+    // numberOfDaysOfShortestCycle header
     x = m_windowTopEntriesStartX[2];
     setFontHeadName( dc );
-    str = _( "temp. correction when measured in:" );
+    str = wxString::Format( _("shortest from last %i cycles: "), numberOfHistoricalCyclesUsedToCalculateShortestCycle );
     dc.DrawText( str, x, 1 );
+    dc.GetTextExtent( str, &w, &h );
+    setFontHeadValue( dc );
+    str = numberOfDaysOfShortestCycle;
+    dc.DrawText( str, x + w, 1 );
 
-    // tempCorrectionRectum
+    // earliestFirstDayOfHighLevelTemperature
     setFontHeadName( dc );
-    str = _("mouth: ");
+    str = wxString::Format( _("earliest high temp. from last %i cycles: "), numberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature );
     dc.DrawText( str, x, y );
     dc.GetTextExtent( str, &w, &h );
     x += w;
     setFontHeadValue( dc );
-    str = tempCorrectionMouth;
-    dc.DrawText( str, x, y );
-    dc.GetTextExtent( str, &w, &h );
-    x += w + 5;
-    // tempCorrectionRectum
-    setFontHeadName( dc );
-    str = _("rectum: ");
-    dc.DrawText( str, x, y );
-    dc.GetTextExtent( str, &w, &h );
-    x += w;
-    setFontHeadValue( dc );
-    str = tempCorrectionRectum;
-    dc.DrawText( str, x, y );
-    dc.GetTextExtent( str, &w, &h );
-    x += w + 5;
-    // tempCorrectionVagina
-    setFontHeadName( dc );
-    str = _("vagina: ");
-    dc.DrawText( str, x, y );
-    dc.GetTextExtent( str, &w, &h );
-    x += w;
-    setFontHeadValue( dc );
-    str = tempCorrectionVagina;
+    str = earliestFirstDayOfHighLevelTemperature;
     dc.DrawText( str, x, y );
 
     x = m_windowTopEntriesStartX[3];
     // card locked
-    if ( cardLocked ) {
+    if ( cardLocked || cardCorrupted ) {
+        if ( cardLocked && cardCorrupted ) {
+            str = _( "card locked / cycle data corrupted or incomplete" );
+        } else if ( cardLocked ) {
+            str = _( "card locked" );
+        } else {
+            str = _( "cycle data corrupted or incomplete" );
+        }
         setFontHeadValue( dc );
         dc.SetTextForeground( wxColour( 255, 0, 0 ) );
-        str = _( "card locked" );
         dc.DrawText( str, x, 1 );
     }
 
@@ -203,16 +235,16 @@ void drawingClass::drawInfoHead( wxDC &dc, int cardNo, int pageNo )
 /**
  * Draw data in the first column (header)
  */
-void drawingClass::drawHeader( wxDC &dc, int cardNo )
-{
+void drawingClass::drawHeader( wxDC &dc, int cardNo ) {
 
 
 
     int row = 0;
     int x = 0;
     int y0 = m_config->verticalDisplacement;
-    if ( m_printing )
+    if ( m_printing ) {
         y0 = m_windowTopHeight;
+    }
     int y = y0;
     int w = m_cellsWidth[0];
     int h = m_cellHeight;
@@ -262,20 +294,21 @@ void drawingClass::drawHeader( wxDC &dc, int cardNo )
     drawText( dc, 0, row, x, y, w, h, wxALIGN_LEFT, _( "other disturbances" ) );
     row++;
     y += h;
-    drawText( dc, 0, row, x, y, w, h, wxALIGN_LEFT, _( "temperature disturbances" ) );
-    row++;
-    y += h;
+    //drawText( dc, 0, row, x, y, w, h, wxALIGN_LEFT, _( "temperature disturbances" ) );
+    //row++;
+    //y += h;
 
     for ( int i = 0; i < m_config->rowsCountTemp; i++ ) {
         int tt = m_config->temperatureRangeHigh - ( 5 * i );
         wxString temp = m_util.intToStr( tt / 100 ) + _T( "," );
         tt = tt % 100;
-        if ( tt == 5 )
+        if ( tt == 5 ) {
             temp += _T( "05" );
-        else if ( tt % 10 == 0 )
+        } else if ( tt % 10 == 0 ) {
             temp += m_util.intToStr( tt / 10 );
-        else
+        } else {
             temp += m_util.intToStr( tt );
+        }
 
         drawText( dc, 0, row, x, y, w, h, wxALIGN_RIGHT, temp );
         row++;
@@ -291,11 +324,13 @@ void drawingClass::drawHeader( wxDC &dc, int cardNo )
     dc.GetTextExtent( _( "usual" ), &width, &heigh );
     int cw = width;
     dc.GetTextExtent( _( "time of" ), &width, &heigh );
-    if ( width > cw )
+    if ( width > cw ) {
         cw = width;
+    }
     dc.GetTextExtent( _( "measurement" ), &width, &heigh );
-    if ( width > cw )
+    if ( width > cw ) {
         cw = width;
+    }
     cw += 10;
     m_cardDataWidth = cw;
 
@@ -357,13 +392,13 @@ void drawingClass::drawHeader( wxDC &dc, int cardNo )
     h = m_cellHeight;
     dc.SetPen( wxPen( m_config->colourBorders ) );
 
-    y = y0 + h * 7;
+    y = y0 + h * m_config->rowsCountAboveTemp;
     dc.DrawLine( 0, y, w, y );
-    y = y0 + h * ( 7 + m_config->rowsCountTemp + 4 );
+    y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 4 );
     dc.DrawLine( 0, y, w, y );
-    y = y0 + h * ( 7 + m_config->rowsCountTemp + 7 );
+    y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 7 );
     dc.DrawLine( 0, y, w, y );
-    y = y0 + h * ( 7 + m_config->rowsCountTemp + 11 );
+    y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 11 );
     dc.DrawLine( 0, y, w, y );
     y = y0 + h * ( m_config->rowsCount + 1 );
     dc.DrawLine( 0, y, w, y );
@@ -375,8 +410,9 @@ void drawingClass::drawHeader( wxDC &dc, int cardNo )
 
     // draw the first row
     y = 0;
-    if ( m_printing )
+    if ( m_printing ) {
         y = y0;
+    }
 
     // draw borders in the first row
     drawText( dc, 0, 0, x, y, w, h, wxALIGN_LEFT, _( "day of cycle" ) );
@@ -390,15 +426,15 @@ void drawingClass::drawHeader( wxDC &dc, int cardNo )
 /**
  * Update card related data in the first column (header)
  */
-void drawingClass::drawCardDataInHeader( wxDC &dc, int cardNo )
-{
+void drawingClass::drawCardDataInHeader( wxDC &dc, int cardNo ) {
 
 
 
     int x = 0;
     int y0 = m_config->verticalDisplacement;
-    if ( m_printing )
+    if ( m_printing ) {
         y0 = m_windowTopHeight;
+    }
     int h = m_cellHeight;
     int row2 = m_config->rowsCountAboveTemp + 3;
     int cw = m_cardDataWidth;
@@ -441,8 +477,7 @@ void drawingClass::drawCardDataInHeader( wxDC &dc, int cardNo )
 /**
  *
  */
-void drawingClass::drawCard( wxDC &dc, int cardNo, int firstDay, int lastDay )
-{
+void drawingClass::drawCard( wxDC &dc, int cardNo, int firstDay, int lastDay ) {
     if ( m_cycleData->getCardsCount() > 0 && cardNo > 0 ) {
         cardEntry *card = m_cycleData->getCard( cardNo );
         wxDateTime date = card->getFirstDayOfCycle();
@@ -451,10 +486,12 @@ void drawingClass::drawCard( wxDC &dc, int cardNo, int firstDay, int lastDay )
 
         int x = 0;
         if ( !m_printing )
-            for ( int i = 1; i < firstDay; i++ )
+            for ( int i = 1; i < firstDay; i++ ) {
                 x += m_cellsWidth[i];
-        else
+            }
+        else {
             x = m_cellsWidth[0];
+        }
 
 
         for ( int dayNo = firstDay; dayNo <= lastDay; dayNo++ ) {
@@ -470,13 +507,13 @@ void drawingClass::drawCard( wxDC &dc, int cardNo, int firstDay, int lastDay )
     }
 }
 
-void drawingClass::markDay( wxDC &dc, int cardNo, int dayNo, bool doMark )
-{
+void drawingClass::markDay( wxDC &dc, int cardNo, int dayNo, bool doMark ) {
     if ( m_cycleData->getCardsCount() > 0 && cardNo > 0 ) {
 
         int x1 = 0;
-        for ( int i = 1; i < dayNo; i++ )
+        for ( int i = 1; i < dayNo; i++ ) {
             x1 += m_cellsWidth[i];
+        }
         int x2 = x1 + m_cellsWidth[dayNo];
 
         if (doMark) {
@@ -491,8 +528,7 @@ void drawingClass::markDay( wxDC &dc, int cardNo, int dayNo, bool doMark )
     }
 }
 
-void drawingClass::markRow( wxDC &dc, int rowNo, bool doMark )
-{
+void drawingClass::markRow( wxDC &dc, int rowNo, bool doMark ) {
     int x = m_cellsWidth[0] - 1;
     int y1 = rowNo * m_cellHeight;
     int y2 = y1 + m_cellHeight;
@@ -512,12 +548,12 @@ void drawingClass::markRow( wxDC &dc, int rowNo, bool doMark )
 /**
  * first day == 1 (0 == header).
  */
-void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime date, wxString usualMeasurementTime )
-{
+void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime date, wxString usualMeasurementTime ) {
     int x = x0;
     int y = m_config->verticalDisplacement;
-    if ( m_printing )
+    if ( m_printing ) {
         y = m_windowTopHeight;
+    }
     int y0 = y;
     int w   = 0;
     int h   = 0;
@@ -542,36 +578,57 @@ void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime 
         drawCrossOrSlash( dc, dayNo, row, x, y, w, h, day->getMenstruation() );
         row++;
         y += h;
-        /* CoitusRecord */
-        setFontResultHeart( dc );
-        drawHeart( dc, dayNo, row, x, y, w, h, day->getCoitusRecord() );
-        setFontResultDefault( dc );
+        /* sexual relations */
+        drawSexualRelation( dc, dayNo, row, x, y, w, h, day );
         row++;
         y += h;
 
         /* date - week day */
+        wxString dayOfWeek = date.Format( _T( "%w" ) );
+        // different colour for Sunday
+        if (dayOfWeek.IsSameAs( _T("0"))) {
+            dc.SetTextForeground( wxColour( 128, 0, 0 ) );
+        }
+
         drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, date.Format( _T( "%a" ) ) );
         row++;
         y += h;
         /* date - day.month */
-        drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, date.Format( _T( "%d.%m" ) ) );
+        //drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, date.Format( _T( "%e.%m" ) ) );
+        int calDayNo = m_util.strToInt(date.Format(_T( "%d" )));
+        wxString dayMonth = wxEmptyString;
+        dayMonth << calDayNo;
+        if (calDayNo==1)
+            dayMonth << date.Format(_T(".%m"));
+        drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, dayMonth );
+        //drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, date.Format( _T( "%d.%m" ) ) );
         row++;
         y += h;
 
+        // different colour for Sunday - end
+        if (dayOfWeek.IsSameAs( _T("0"))) {
+            setFontResultDefault( dc );
+        }
+
         /* OtherDisturbances */
-        if ( day->getOtherDisturbances() )
+        if ( day->getOtherDisturbances() ) {
             drawVV( dc, dayNo, row, x, y, w, h, 1 );
-        else
+        } else {
             drawVV( dc, dayNo, row, x, y, w, h, -1 );
+        }
         row++;
         y += h;
+
         /* TemperatureDisturbances */
-        if ( day->getTemperatureDisturbances() )
+        /*
+        if ( day->getTemperatureDisturbances() ) {
             drawVV( dc, dayNo, row, x, y, w, h, 1 );
-        else
+        } else {
             drawVV( dc, dayNo, row, x, y, w, h, -1 );
+        }
         row++;
         y += h;
+        */
 
         /* TEMPERATURE GRAPH BACKGROUND */
         for ( int i = 0; i < m_config->rowsCountTemp; i++ ) {
@@ -662,18 +719,21 @@ void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime 
         y += h;
         /* ResultMucusPeak */
         dataString = wxEmptyString;
-        if ( card->isResultMucus1stDay(dayNo) )
+        if ( card->isResultMucus1stDay(dayNo) ) {
             dataString = _T( "^" );
-        else if ( card->isResultMucus1stMoreFertileDay(dayNo) )
+        } else if ( card->isResultMucus1stMoreFertileDay(dayNo) ) {
             dataString = _T( "^^" );
-        else if ( card->isResultMucusPeak(dayNo) )
+        } else if ( card->isResultMucusPeak(dayNo) ) {
             dataString = string_peakDay;
-        else if ( card->isResultMucusPeak(dayNo-1) )
+        } else if ( card->isResultMucusPeak(dayNo-1) ) {
             dataString = _T( "1" );
-        else if ( card->isResultMucusPeak(dayNo-2) )
+        } else if ( card->isResultMucusPeak(dayNo-2) ) {
             dataString = _T( "2" );
-        else if ( card->isResultMucusPeak(dayNo-3) )
+        } else if ( card->isResultMucusPeak(dayNo-3) ) {
             dataString = _T( "3" );
+        } else if ( (card->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY || card->getCycleType() == CYCLE_TYPE_PERI_MENOPAUSE) && card->isResultMucusPeak(dayNo-4) ) {
+            dataString = _T( "4" );
+        }
         setFontResultResults( dc );
         drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, dataString );
         setFontResultDefault( dc );
@@ -711,16 +771,17 @@ void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime 
         y += h;
         /* ResultCervixPeak */
         dataString = wxEmptyString;
-        if ( card->isResultCervix1stDay(dayNo) )
+        if ( card->isResultCervix1stDay(dayNo) ) {
             dataString = _T( "^" );
-        else if ( card->isResultCervixPeak(dayNo) )
+        } else if ( card->isResultCervixPeak(dayNo) ) {
             dataString = string_peakDay;
-        else if ( card->isResultCervixPeak(dayNo-1) )
+        } else if ( card->isResultCervixPeak(dayNo-1) ) {
             dataString = _T( "1" );
-        else if ( card->isResultCervixPeak(dayNo-2) )
+        } else if ( card->isResultCervixPeak(dayNo-2) ) {
             dataString = _T( "2" );
-        else if ( card->isResultCervixPeak(dayNo-3) )
+        } else if ( card->isResultCervixPeak(dayNo-3) ) {
             dataString = _T( "3" );
+        }
         setFontResultResults( dc );
         drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, dataString );
         setFontResultDefault( dc );
@@ -741,33 +802,40 @@ void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime 
         y += h;
         /* AdditionalNotes */
         dataString = day->getAdditionalNotes();
-        if ( ! dataString.IsEmpty() )
+        if ( ! dataString.IsEmpty() ) {
             dataString = dataString.Mid( 0, 5 ) + _T( ".." );
+        }
         drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, dataString );
 
 
         /* draw phase line between phases */
-        if ( card->isResultFertilePhaseStart(dayNo) || card->isResultInfertilePhaseStart(dayNo) ) {
+        if ( card->isResultFertilePhaseStart(dayNo) ) {
             dc.SetPen( wxPen( m_config->colourPhaseLine ) );
             dc.DrawLine( x, y0, x, y0 + h*( m_config->rowsCount + 1 ) );
         }
 
+        if ( card->isResultInfertilePhaseStart(dayNo) ) {
+            dc.SetPen( wxPen( m_config->colourPhaseLine ) );
+            dc.DrawLine( x + w*2/3, y0, x + w*2/3, y0 + h*( m_config->rowsCount + 1 ) );
+        }
+
         int y1 = 0;
-        if ( m_printing )
+        if ( m_printing ) {
             y1 = y0;
+        }
 
         /* draw first row ("day number") */
         drawText( dc, dayNo, 0, x, y1, w, h, wxALIGN_CENTER, m_util.intToStr( dayNo ) );
 
         /* draw borders */
         dc.SetPen( wxPen( m_config->colourBorders ) );
-        y = y0 + h * 7;
+        y = y0 + h * m_config->rowsCountAboveTemp;
         dc.DrawLine( x, y, x + w, y );
-        y = y0 + h * ( 7 + m_config->rowsCountTemp + 4 );
+        y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 4 );
         dc.DrawLine( x, y, x + w, y );
-        y = y0 + h * ( 7 + m_config->rowsCountTemp + 7 );
+        y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 7 );
         dc.DrawLine( x, y, x + w, y );
-        y = y0 + h * ( 7 + m_config->rowsCountTemp + 11 );
+        y = y0 + h * ( m_config->rowsCountAboveTemp + m_config->rowsCountTemp + 11 );
         dc.DrawLine( x, y, x + w, y );
         y = y0 + h * ( m_config->rowsCount + 1 );
         dc.DrawLine( x, y, x + w, y );
@@ -787,8 +855,7 @@ void drawingClass::drawDay( wxDC &dc, int cardNo, int dayNo, int x0, wxDateTime 
 /**
  *
  */
-void drawingClass::drawTemperatureGraph( wxDC &dc, int cardNo, int firstDay )
-{
+void drawingClass::drawTemperatureGraph( wxDC &dc, int cardNo, int firstDay ) {
     // horizontal displacement (przesuniecie w poziomie) - needed for printing
     int x0 = 0;
     // vertical displacement (przesuniecie w pionie) - needed for printing
@@ -796,8 +863,9 @@ void drawingClass::drawTemperatureGraph( wxDC &dc, int cardNo, int firstDay )
 
     if ( m_printing ) {
         x0 = m_cellsWidth[0];
-        for ( int i = 1; i < firstDay; i++ )
+        for ( int i = 1; i < firstDay; i++ ) {
             x0 -= m_cellsWidth[i];
+        }
         y0 = m_windowTopHeight;
     }
 
@@ -838,123 +906,165 @@ void drawingClass::drawTemperatureGraph( wxDC &dc, int cardNo, int firstDay )
         }
         if ( tempTab[dayNo] > 0 ) {
             tempTab[dayNo] = day->getTemperatureValueAfterCorrections();
+        }
+        if ( dayNo == lowLevelStart ) {
+            xLowLevelStart = x2;
+        } else if ( dayNo == highLevelStart ) {
+            xLowLevelEnd = x2;
+        } else if ( dayNo == highLevelEnd ) {
+            xHighLevelEnd = x2 + m_cellsWidth[dayNo];
+        }
+    }
 
-            if ( dayNo == lowLevelStart ) {
-                xLowLevelStart = x2;
-            } else if ( dayNo == highLevelStart ) {
-                xLowLevelEnd = x2;
-            } else if ( dayNo == highLevelEnd ) {
-                xHighLevelEnd = x2 + m_cellsWidth[dayNo];
+    /* drawing luteal phase numbers (if temperature results are defined) */
+    if ( card->isResultTemperatureLevelSet() ) {
+        setFontResultResults( dc );
+        int pY = m_config->verticalDisplacement + ( m_config->rowsCountAboveTemp ) * h + 1;
+        int pX = 0;
+        int lutealPhaseDay = 0;
+        wxString strHeader = wxString::Format( _T( "%s:" ), string_luteal_phase );
+        wxCoord pW, pH;
+        dc.GetTextExtent( strHeader, &pW, &pH );
+
+
+        for (int dayNo=1; dayNo<=card->getDaysCount(); dayNo++) {
+            if ( card->isResultTemperatureHighLevelStart(dayNo) ) {
+                dc.DrawLabel( strHeader, wxRect( x0 + pX - pW - 3, y0 + pY, pW, h ), wxALIGN_CENTER );
+                lutealPhaseDay = 1;
             }
+
+            if (lutealPhaseDay == 21) {
+                dc.DrawLabel( _T("..."), wxRect( x0 + pX, y0 + pY, m_cellsWidth[dayNo], h ), wxALIGN_CENTER );
+                break;
+            }
+
+            if (lutealPhaseDay > 0) {
+                dc.DrawLabel( m_util.intToStr( lutealPhaseDay ), wxRect( x0 + pX, y0 + pY, m_cellsWidth[dayNo], h ), wxALIGN_CENTER );
+                lutealPhaseDay++;
+            }
+
+            pX += m_cellsWidth[dayNo];
         }
     }
 
     /* drawing phases names */
     // period of relative infertility
-    if ( card->isResultFertilePhaseStart() || card->isResultInfertilePhaseStart() ) {
+    if ( card->isResultFertilePhaseStartSet() || card->isResultInfertilePhaseStartSet() ) {
         setFontResultPhases( dc );
         wxString str = string_infertile_phase;
         wxCoord pW, pH;
         dc.GetTextExtent( str, &pW, &pH );
-        int pY = m_cellHeight * ( m_config->rowsCountAboveTemp ) + 3;
+        int pY = m_config->verticalDisplacement + ( m_config->rowsCountAboveTemp + 1 ) * h + 3;
 
-        if ( card->isResultFertilePhaseStart() ) {
-            // if the fertile phase start is defined then draw 'infertile phase' string at the begining of the card
-            if ( card->getResultFertilePhaseStart()[0] > 3 ) {
-                str = string_infertile_phase;
-            } else {
-                str = _T( " I" );
-            }
-            dc.DrawLabel( str, wxRect( x0 + 3, y0 + pY, pW, pH ), wxALIGN_LEFT | wxALIGN_TOP );
+        int firstFertilePhaseStartDay = 1000;
+        int firstInfertilePhaseStartDay = 1000;
+
+        if ( card->isResultFertilePhaseStartSet() ) {
+            firstFertilePhaseStartDay = card->getResultFertilePhaseStart()[0];
         }
+        if ( card->isResultInfertilePhaseStartSet() ) {
+            firstInfertilePhaseStartDay = card->getResultInfertilePhaseStart()[0];
+        }
+
+        if (firstFertilePhaseStartDay < firstInfertilePhaseStartDay) {
+            // draw 'infertile phase' string at the begining of the card
+            str = (firstFertilePhaseStartDay > 3 ? string_infertile_phase : _T( " I" ));
+        } else {
+            // draw 'fertile phase' string at the begining of the card
+            str = (firstInfertilePhaseStartDay > 3 ? string_fertile_phase : _T( " II" ));
+        }
+        dc.DrawLabel( str, wxRect( x0 + 3, y0 + pY, pW, pH ), wxALIGN_LEFT | wxALIGN_TOP );
 
         int pX = 0;
-        bool drawPhaseString = false;
-        for (int i=1; i<card->getDaysCount(); i++) {
-            if ( card->isResultFertilePhaseStart(i) ) {
+        for (int dayNo=1; dayNo<=card->getDaysCount(); dayNo++) {
+            if ( card->isResultFertilePhaseStart(dayNo) ) {
                 // draw 'fertile phase' string for the day 'i'
-                str = string_fertile_phase;
-                drawPhaseString = true;
-            } else if ( card->isResultInfertilePhaseStart(i) ) {
-                // draw 'infertile phase' string for the day 'i'
-                str = string_infertile_phase;
-                drawPhaseString = true;
-            }
-
-            if (drawPhaseString) {
+                str = (isPhaseChangeInNext3Days(card, dayNo) ? _T( " II" ) : string_fertile_phase );
                 dc.DrawLabel( str, wxRect( x0 + pX + 3, y0 + pY, pW, pH ), wxALIGN_LEFT | wxALIGN_TOP );
-                drawPhaseString = false;
+            } else if ( card->isResultInfertilePhaseStart(dayNo) ) {
+                // draw 'infertile phase' string for the day 'i'
+                str = (isPhaseChangeInNext3Days(card, dayNo) ? _T( " III" ) : string_infertile_phase );
+                dc.DrawLabel( str, wxRect( x0 + pX + m_cellsWidth[dayNo]/3*2 + 3, y0 + pY, pW, pH ), wxALIGN_LEFT | wxALIGN_TOP );
             }
 
-            pX += m_cellsWidth[i];
+            pX += m_cellsWidth[dayNo];
         }
     }
 
 
-/* drawing low and high levels lines */
-if ( xLowLevelStart > 0 )
-{
-    if ( xLowLevelEnd < 0 )
-        xLowLevelEnd = x2 + m_cellsWidth[card->getDaysCount()];
-    else if ( xHighLevelEnd < 0 )
-        xHighLevelEnd = x2 + m_cellsWidth[card->getDaysCount()];
+    /* drawing low and high levels lines */
+    if ( xLowLevelStart > 0 ) {
+        if ( xLowLevelEnd < 0 ) {
+            xLowLevelEnd = x2 + m_cellsWidth[card->getDaysCount()];
+        } else if ( xHighLevelEnd < 0 ) {
+            xHighLevelEnd = x2 + m_cellsWidth[card->getDaysCount()];
+        }
 
-    int y = yMin - ((( yLowLevel - m_config->temperatureRangeLow ) / 5 ) * h );
-    dc.SetPen( wxPen( m_config->colourTemperatureLevelLine, 3 ) );
-    dc.DrawLine( x0 + xLowLevelStart + 3, y0 + y, x0 + xLowLevelEnd - 3, y0 + y );
-    if ( xHighLevelEnd > 0 ) {
-        y = y - 4 * h;
-        dc.DrawLine( x0 + xLowLevelEnd + 3, y0 + y, x0 + xHighLevelEnd - 3, y0 + y );
-    }
-}
-
-
-/*drawing temperature graph */
-for ( int dayNo = 1; dayNo <= card->getDaysCount(); dayNo++ )
-{
-    /* set x2 coordinate */
-    if ( dayNo == 1 ) {
-        x2 = m_cellsWidth[1] / 2;
-    } else {
-        x2 = x2 + m_cellsWidth[dayNo-1] / 2 + m_cellsWidth[dayNo] / 2;
+        int y = yMin - ((( yLowLevel - m_config->temperatureRangeLow ) / 5 ) * h );
+        dc.SetPen( wxPen( m_config->colourTemperatureLevelLine, 3 ) );
+        dc.DrawLine( x0 + xLowLevelStart + 3, y0 + y, x0 + xLowLevelEnd - 3, y0 + y );
+        if ( xHighLevelEnd > 0 ) {
+            y = y - 4 * h;
+            dc.DrawLine( x0 + xLowLevelEnd + 3, y0 + y, x0 + xHighLevelEnd - 3, y0 + y );
+        }
     }
 
-    dayEntry *day = card->getDay( dayNo );
 
-    if ( tempTab[dayNo] > 0 ) {
-        /* set y2 coordinate */
-        y2 = yMin - ((( tempTab[dayNo] - m_config->temperatureRangeLow ) / 5 ) * h );
-
-        if ( day->getTemperatureDisturbances() ) {
-            dc.SetPen( wxPen( m_config->colourPointNormal ) );
-            dc.DrawLine( x0 + x2 - 3, y0 + y2 - 3, x0 + x2 + 4, y0 + y2 + 4 );
-            dc.DrawLine( x0 + x2 - 3, y0 + y2 + 3, x0 + x2 + 4, y0 + y2 - 4 );
+    /*drawing temperature graph */
+    for ( int dayNo = 1; dayNo <= card->getDaysCount(); dayNo++ ) {
+        /* set x2 coordinate */
+        if ( dayNo == 1 ) {
+            x2 = m_cellsWidth[1] / 2;
         } else {
-            /* set x1 && y1 coordinates (previous point) */
-            if ( lastDayNo > 0 ) {
-                /* drawing line between previous point and current point */
-                dc.SetPen( wxPen( m_config->colourTemperatureLine ) );
-                dc.DrawLine( x0 + x1, y0 + y1, x0 + x2, y0 + y2 );
-            }
-            lastDayNo = dayNo;
-            x1 = x2;
-            y1 = y2;
+            x2 = x2 + m_cellsWidth[dayNo-1] / 2 + m_cellsWidth[dayNo] / 2;
+        }
 
-            /* drawing current point */
-            if ( dayNo >= lowLevelStart && dayNo < highLevelStart ) {
-                dc.SetPen( wxPen( m_config->colourPointBefore ) );
-                dc.SetBrush( wxBrush( m_config->colourPointBefore ) );
-            } else if ( dayNo >= highLevelStart && dayNo <= highLevelEnd ) {
-                dc.SetPen( wxPen( m_config->colourPointAfter ) );
-                dc.SetBrush( wxBrush( m_config->colourPointAfter ) );
-            } else {
+        dayEntry *day = card->getDay( dayNo );
+
+        if ( tempTab[dayNo] > 0 ) {
+            /* set y2 coordinate */
+            y2 = yMin - ((( tempTab[dayNo] - m_config->temperatureRangeLow ) / 5 ) * h );
+
+            if ( day->getTemperatureDisturbances() ) {
                 dc.SetPen( wxPen( m_config->colourPointNormal ) );
-                dc.SetBrush( wxBrush( m_config->colourPointNormal ) );
+                dc.DrawLine( x0 + x2 - 3, y0 + y2 - 3, x0 + x2 + 4, y0 + y2 + 4 );
+                dc.DrawLine( x0 + x2 - 3, y0 + y2 + 3, x0 + x2 + 4, y0 + y2 - 4 );
+            } else {
+                /* set x1 && y1 coordinates (previous point) */
+                if ( lastDayNo > 0 ) {
+                    /* drawing line between previous point and current point */
+                    dc.SetPen( wxPen( m_config->colourTemperatureLine ) );
+                    dc.DrawLine( x0 + x1, y0 + y1, x0 + x2, y0 + y2 );
+                }
+                lastDayNo = dayNo;
+                x1 = x2;
+                y1 = y2;
+
+                /* drawing current point */
+                if ( dayNo >= lowLevelStart && dayNo < highLevelStart ) {
+                    dc.SetPen( wxPen( m_config->colourPointBefore ) );
+                    dc.SetBrush( wxBrush( m_config->colourPointBefore ) );
+                } else if ( dayNo >= highLevelStart && dayNo <= highLevelEnd ) {
+                    dc.SetPen( wxPen( m_config->colourPointAfter ) );
+                    dc.SetBrush( wxBrush( m_config->colourPointAfter ) );
+                } else {
+                    dc.SetPen( wxPen( m_config->colourPointNormal ) );
+                    dc.SetBrush( wxBrush( m_config->colourPointNormal ) );
+                }
+                dc.DrawCircle( x0 + x2, y0 + y2, 3 );
             }
-            dc.DrawCircle( x0 + x2, y0 + y2, 3 );
         }
     }
 }
+
+bool drawingClass::isPhaseChangeInNext3Days(cardEntry *card, int fromDay) {
+    int toDay = fromDay + 3;
+    if (toDay > card->getDaysCount()) toDay = card->getDaysCount();
+    for ( int dayNo = fromDay+1; dayNo <= toDay; dayNo++ ) {
+        if ( card->isResultFertilePhaseStart(dayNo) || card->isResultInfertilePhaseStart(dayNo) )
+            return true;
+    }
+    return false;
 }
 
 /*******************************************************************************
@@ -964,8 +1074,7 @@ for ( int dayNo = 1; dayNo <= card->getDaysCount(); dayNo++ )
 /**
  *
  */
-void drawingClass::drawCellBackground( wxDC &dc, int dayNo, int row, int x, int y, int w, int h )
-{
+void drawingClass::drawCellBackground( wxDC &dc, int dayNo, int row, int x, int y, int w, int h ) {
     setCellColour( dc, dayNo, row );
     dc.DrawRectangle( x, y, w, h );
 }
@@ -973,8 +1082,7 @@ void drawingClass::drawCellBackground( wxDC &dc, int dayNo, int row, int x, int 
 /**
  * align: 1 - left, 2 - center, 3 - right
  */
-void drawingClass::drawText( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int align, wxString text )
-{
+void drawingClass::drawText( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int align, wxString text ) {
     drawCellBackground( dc, dayNo, row, x, y, w, h );
     if ( ! text.IsEmpty() ) {
         dc.DrawLabel( _T( " " ) + text + _T( " " ), wxRect( x, y, w, h ), align | wxALIGN_CENTER_VERTICAL );
@@ -984,18 +1092,16 @@ void drawingClass::drawText( wxDC &dc, int dayNo, int row, int x, int y, int w, 
 /**
  *
  */
-void drawingClass::drawCrossOrSlash( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int data )
-{
+void drawingClass::drawCrossOrSlash( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int data ) {
     drawCellBackground( dc, dayNo, row, x, y, w, h );
+    dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
+
+    int x1 = x + w / 2;
+    int y1 = y + h / 2;
+
     if ( data == 1 ) {
-        int x1 = x + w / 2;
-        int y1 = y + h / 2;
-        dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
         dc.DrawLine( x1 - 3, y1 + 3, x1 + 4, y1 - 4 );
     } else if ( data == 2 ) {
-        int x1 = x + w / 2;
-        int y1 = y + h / 2;
-        dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
         dc.DrawLine( x1 - 3, y1 - 3, x1 + 4, y1 + 4 );
         dc.DrawLine( x1 - 3, y1 + 3, x1 + 4, y1 - 4 );
     }
@@ -1004,44 +1110,120 @@ void drawingClass::drawCrossOrSlash( wxDC &dc, int dayNo, int row, int x, int y,
 /**
  *
  */
-void drawingClass::drawHeart( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int data )
-{
-    wxString output = wxEmptyString;
-    for ( int i = 0; i < data; i++ ) {
-        output += m_config->coitusRecordCharacter;
+void drawingClass::drawSexualRelation( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, dayEntry * day ) {
+    drawCellBackground( dc, dayNo, row, x, y, w, h );
+
+    int y1 = y + h / 2;
+
+    if (day->getSexualRelationMorning()) {
+        // on the left
+        int x1 = x + w / 5;
+        drawHeart(dc, x1, y1);
     }
-    drawText( dc, dayNo, row, x, y, w, h, wxALIGN_CENTER, output );
+    if (day->getSexualRelationDay()) {
+        // in the center
+        int x1 = x + w / 2;
+        drawHeart(dc, x1, y1);
+    }
+    if (day->getSexualRelationEvening()) {
+        // on the right
+        int x1 = x + w / 5*4;
+        drawHeart(dc, x1, y1);
+    }
+
+    /*
+    #if defined(__UNIX__)
+        int y1 = y + h / 2 - 3;
+
+        if (day->getSexualRelationMorning()) {
+            // on the left
+            int x1 = x + w / 4 - 2;
+            dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+        }
+        if (day->getSexualRelationDay()) {
+            // in the center
+            int x1 = x + w / 2 - 2;
+            dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+        }
+        if (day->getSexualRelationEvening()) {
+            // on the right
+            int x1 = x + w / 4 * 3 - 2;
+            dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+        }
+
+    #else
+        setFontResultHeart( dc );
+        if (day->getSexualRelationMorning())
+            dc.DrawLabel( _T( " " ) + m_config->coitusRecordCharacter, wxRect( x, y, w, h ), wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL );
+        if (day->getSexualRelationDay())
+            dc.DrawLabel( m_config->coitusRecordCharacter, wxRect( x, y, w, h ), wxALIGN_CENTER | wxALIGN_CENTER_VERTICAL );
+        if (day->getSexualRelationEvening())
+            dc.DrawLabel(m_config->coitusRecordCharacter + _T( " " ), wxRect( x, y, w, h ), wxALIGN_RIGHT| wxALIGN_CENTER_VERTICAL );
+        setFontResultDefault( dc );
+    #endif
+    */
 }
 
 /**
  *
  */
-void drawingClass::drawVV( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int data )
-{
+void drawingClass::drawHeart( wxDC &dc, int x1, int y1 ) {
+    dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
+    dc.DrawLine( x1-3, y1,   x1-3, y1-2 );
+    dc.DrawLine( x1-2, y1+1, x1-2, y1-3 );
+    dc.DrawLine( x1-1, y1+2, x1-1, y1-3 );
+    dc.DrawLine( x1,   y1+3, x1,   y1-2 );
+    dc.DrawLine( x1+1, y1+2, x1+1, y1-3 );
+    dc.DrawLine( x1+2, y1+1, x1+2, y1-3 );
+    dc.DrawLine( x1+3, y1,   x1+3, y1-2 );
+}
+
+/**
+ *
+ */
+void drawingClass::drawVV( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int count ) {
     drawCellBackground( dc, dayNo, row, x, y, w, h );
-    if ( data == 1 || data == 2 ) {
+    if ( count > 0 ) {
         int x1 = x + w / 2;
         int y1 = y + h / 2;
-        if ( data == 2 )
+        if ( count > 1 )
             x1 = x1 - 3;
 
         dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
-        dc.DrawLine( x1 - 2, y1 - 3, x1, y1 + 3 );
-        dc.DrawLine( x1, y1 + 3, x1 + 3, y1 - 3 );
+        dc.DrawLine( x1 - 2, y1 - 2, x1, y1 + 2 );
+        dc.DrawLine( x1, y1 + 2, x1 + 3, y1 - 4 );
 
-        if ( data == 2 ) {
+        if ( count > 1 ) {
             x1 += 6;
-            dc.DrawLine( x1 - 2, y1 - 3, x1, y1 + 3 );
-            dc.DrawLine( x1, y1 + 3, x1 + 3, y1 - 3 );
+            dc.DrawLine( x1 - 2, y1 - 2, x1, y1 + 2 );
+            dc.DrawLine( x1, y1 + 2, x1 + 3, y1 - 4 );
         }
     }
+
+    /*
+    int y1 = y + h / 2 - 3;
+
+    drawCellBackground( dc, dayNo, row, x, y, w, h );
+    //dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
+    setCellColour(dc, dayNo, row);
+
+    if (count == 1) {
+        int x1 = x + w / 2 - 2;
+        dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+    }
+    if (count == 2) {
+        int x1 = x + w / 2 - 5;
+        dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+        x1 += 6;
+        dc.DrawCheckMark(wxRect( x1, y1, 5, 6 ));
+    }
+    */
 }
 
 /**
  *
  */
-void drawingClass::drawCervixOval( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int position, int dilation )
-{
+void drawingClass::drawCervixOval( wxDC &dc, int dayNo, int row, int x, int y, int w, int h, int position, int dilation ) {
     drawCellBackground( dc, dayNo, row, x, y, w, h );
     if ( position > 0 && dilation > 0 ) {
         int x1 = x + w / 2;
@@ -1061,8 +1243,7 @@ void drawingClass::drawCervixOval( wxDC &dc, int dayNo, int row, int x, int y, i
  * Note that the parameter 'm_config->windowTopHeight' is off-line - the result of this calculation
  * is only stored in the configuration file and will be used after restarting the application.
  */
-int drawingClass::setWindowTopHeight( wxDC &dc )
-{
+int drawingClass::setWindowTopHeight( wxDC &dc ) {
     wxString str = _( "Examplegjy" );
     wxCoord width, height;
     setFontHeadTopic( dc );
@@ -1074,8 +1255,7 @@ int drawingClass::setWindowTopHeight( wxDC &dc )
 /**
  *
  */
-void drawingClass::setWindowTopEntriesStartX( wxDC &dc )
-{
+void drawingClass::setWindowTopEntriesStartX( wxDC &dc ) {
     wxCoord w1, w2, h;
     int x; //, y;
     wxString str;
@@ -1090,8 +1270,9 @@ void drawingClass::setWindowTopEntriesStartX( wxDC &dc )
 
 
     cardNo = _T( "888 / 999" );
-    if ( m_printing )
+    if ( m_printing ) {
         cardNo = _T( "888 (33) / 999" );
+    }
     date = _( "2004, Pazdziernik" );
     name = _( "Genowefa Brzeczykowska" );
     tempCorrectionRectum = tempCorrectionMouth;
@@ -1103,10 +1284,11 @@ void drawingClass::setWindowTopEntriesStartX( wxDC &dc )
     dc.GetTextExtent( str, &w1, &h );
     str = _( "card" );
     dc.GetTextExtent( str, &w2, &h );
-    if ( w1 > w2 )
+    if ( w1 > w2 ) {
         m_windowTopEntriesStartX[0] = w1 + 30;
-    else
+    } else {
         m_windowTopEntriesStartX[0] = w2 + 30;
+    }
 
     /* name */
     setFontHeadValue( dc );
@@ -1138,26 +1320,25 @@ void drawingClass::setWindowTopEntriesStartX( wxDC &dc )
     str = _T( "Pazdziernik" );
     dc.GetTextExtent( str, &w2, &h );
     x = m_windowTopEntriesStartX[1] + w1 + w2 + 40;
-    if ( x > m_windowTopEntriesStartX[2] )
+    if ( x > m_windowTopEntriesStartX[2] ) {
         m_windowTopEntriesStartX[2] = x;
+    }
 
-
-    /* tempCorrectionRectum */
+    /* earliestFirstDayOfHighLevelTemperature */
     setFontHeadName( dc );
-    str = wxString::Format( _T( "%s: " ), string_placeMouth );
+    str = _("shortest from last 12 cycle: ");
     dc.GetTextExtent( str, &w1, &h );
     x = w1;
-    str = wxString::Format( _T( "%s: " ), string_placeRectum );
+    str = _("earliest high temp. from last 12 cycles: ");
     dc.GetTextExtent( str, &w1, &h );
-    x += w1;
-    str = wxString::Format( _T( "%s: " ), string_placeVagina );
-    dc.GetTextExtent( str, &w1, &h );
-    x += w1;
+    if (w1 > x) {
+        x = w1;
+    }
 
     setFontHeadValue( dc );
-    str = _T( "+0,2" );
+    str = _T( "33" );
     dc.GetTextExtent( str, &w1, &h );
-    x += 3 * w1 + 30;
+    x += w1 + 30;
 
     m_windowTopEntriesStartX[3] = m_windowTopEntriesStartX[2] + x;
 }
@@ -1167,24 +1348,27 @@ void drawingClass::setWindowTopEntriesStartX( wxDC &dc )
  * Note that the parameter 'm_config->widowLeftWidth' ('m_cellsWidth[0]' in this class) is off-line - the result of this calculation
  * is only stored in the configuration file and will be used after restarting the application.
  */
-int drawingClass::setHeaderWidth( wxDC &dc )
-{
+int drawingClass::setHeaderWidth( wxDC &dc ) {
     wxCoord width, height;
     int ret = 150;
 
     setFontResultHeader( dc );
-    dc.GetTextExtent( _( "temperature disturbances" ), &width, &height );
-    if ( width + 2 > ret )
-        ret = width + 2;
+    //dc.GetTextExtent( _( "temperature disturbances" ), &width, &height );
+    //if ( width + 2 > ret ) {
+    //    ret = width + 2;
+    //}
     dc.GetTextExtent( _( "additional temp. correction" ), &width, &height );
-    if ( width + 2 > ret )
+    if ( width + 2 > ret ) {
         ret = width + 2;
+    }
     dc.GetTextExtent( _( "mucus - feeling, experience" ), &width, &height );
-    if ( width + 2 > ret )
+    if ( width + 2 > ret ) {
         ret = width + 2;
+    }
     dc.GetTextExtent( _( "cervix - position, dilation" ), &width, &height );
-    if ( width + 2 > ret )
+    if ( width + 2 > ret ) {
         ret = width + 2;
+    }
 
 
 
@@ -1195,8 +1379,7 @@ int drawingClass::setHeaderWidth( wxDC &dc )
 /**
  *
  */
-int drawingClass::setCellHeight( wxDC &dc )
-{
+int drawingClass::setCellHeight( wxDC &dc ) {
     wxString str = _T( "Examplegjy" );
     wxCoord width, height;
     setFontResultHeader( dc );
@@ -1208,8 +1391,7 @@ int drawingClass::setCellHeight( wxDC &dc )
 /**
  *
  */
-void drawingClass::setCellsWidth( wxDC &dc, int cardNo )
-{
+void drawingClass::setCellsWidth( wxDC &dc, int cardNo ) {
     for ( int i = 1; i < MAXDAYSONCARD; i++ ) {
         m_cellsWidth[i] = MINCELLWIDTH;
     }
@@ -1224,8 +1406,7 @@ void drawingClass::setCellsWidth( wxDC &dc, int cardNo )
 /**
  *
  */
-void drawingClass::setCellWidth( wxDC &dc, int cardNo, int dayNo )
-{
+void drawingClass::setCellWidth( wxDC &dc, int cardNo, int dayNo ) {
     wxString str;
     wxCoord width, height;
 
@@ -1240,19 +1421,23 @@ void drawingClass::setCellWidth( wxDC &dc, int cardNo, int dayNo )
     /* dd.mm */
     str = day->getTemperatureMeasurementTime().Format( _T( "%H:%M" ) );
     dc.GetTextExtent( str, &width, &height );
-    if ( m_cellsWidth[dayNo] < width + 5 )
+    if ( m_cellsWidth[dayNo] < width + 5 ) {
         m_cellsWidth[dayNo] = width + 5;
+    }
 
     /* CoitusRecord */
+    /*
     setFontResultHeart( dc );
     str = wxEmptyString;
     for ( int i = 0; i < day->getCoitusRecord(); i++ ) {
         str += m_config->coitusRecordCharacter;
     }
     dc.GetTextExtent( str, &width, &height );
-    if ( m_cellsWidth[dayNo] < width + 5 )
+    if ( m_cellsWidth[dayNo] < width + 5 ) {
         m_cellsWidth[dayNo] = width + 5;
+    }
     setFontResultDefault( dc );
+    */
 
     /* TemperatureMeasurementPlace, if ot will be displayed */
     if ( day->getTemperatureMeasurementPlace() != m_cycleData->getCard( cardNo )->getTemperatureUsualMeasurementPlace() ) {
@@ -1275,22 +1460,25 @@ void drawingClass::setCellWidth( wxDC &dc, int cardNo, int dayNo )
         }
         }
         dc.GetTextExtent( str, &width, &height );
-        if ( m_cellsWidth[dayNo] < width + 5 )
+        if ( m_cellsWidth[dayNo] < width + 5 ) {
             m_cellsWidth[dayNo] = width + 5;
+        }
     }
 
     /* MucusAppearance */
     str = day->convertMucusAppearance( day->getMucusAppearance() );
     dc.GetTextExtent( str, &width, &height );
-    if ( m_cellsWidth[dayNo] < width + 5 )
+    if ( m_cellsWidth[dayNo] < width + 5 ) {
         m_cellsWidth[dayNo] = width + 5;
+    }
 
     /* AdditionalNotes */
     if ( ! day->getAdditionalNotes().IsEmpty() ) {
         str = day->getAdditionalNotes().Mid( 0, 5 ) + _T( ".." );
         dc.GetTextExtent( str, &width, &height );
-        if ( m_cellsWidth[dayNo] < width + 5 )
+        if ( m_cellsWidth[dayNo] < width + 5 ) {
             m_cellsWidth[dayNo] = width + 5;
+        }
     }
     if ( m_cellsWidth[dayNo] % 2 == 1 ) {
         m_cellsWidth[dayNo]++;
@@ -1304,10 +1492,10 @@ void drawingClass::setCellWidth( wxDC &dc, int cardNo, int dayNo )
 /**
  * Return calculated width of cell
  */
-int drawingClass::getCellWidth( int day )
-{
-    if ( day < 0 || day > MAXDAYSONCARD )
+int drawingClass::getCellWidth( int day ) {
+    if ( day < 0 || day > MAXDAYSONCARD ) {
         return -1;
+    }
 
     return m_cellsWidth[day];
 }
@@ -1315,8 +1503,7 @@ int drawingClass::getCellWidth( int day )
 /**
  * Return calculated height of cell
  */
-int drawingClass::getCellHeight()
-{
+int drawingClass::getCellHeight() {
     return m_cellHeight;
 }
 
@@ -1327,8 +1514,7 @@ int drawingClass::getCellHeight()
 /**
  * Set pen and brush colour of the selected cell.
  */
-void drawingClass::setCellColour( wxDC &dc, int x, int y )
-{
+void drawingClass::setCellColour( wxDC &dc, int x, int y ) {
     if ( !m_printing && x == m_cycleData->getActiveDay() ) {
         if ( y % 2 == 0 ) {
             dc.SetPen( wxPen( m_config->colourMarkedCell1 ) );
@@ -1359,8 +1545,7 @@ void drawingClass::setCellColour( wxDC &dc, int x, int y )
 /**
  * Set the font of the HeadTopic.
  */
-void drawingClass::setFontHeadTopic( wxDC &dc )
-{
+void drawingClass::setFontHeadTopic( wxDC &dc ) {
     dc.SetFont( m_config->fontHeadTopic );
     dc.SetTextForeground( m_config->fontHeadTopicColour );
     dc.SetBackground( m_config->colourBackground );
@@ -1370,8 +1555,7 @@ void drawingClass::setFontHeadTopic( wxDC &dc )
 /**
  * Set the font of the HeadName.
  */
-void drawingClass::setFontHeadName( wxDC &dc )
-{
+void drawingClass::setFontHeadName( wxDC &dc ) {
     dc.SetFont( m_config->fontHeadName );
     dc.SetTextForeground( m_config->fontHeadNameColour );
 }
@@ -1379,8 +1563,7 @@ void drawingClass::setFontHeadName( wxDC &dc )
 /**
  * Set the font of the HeadValue.
  */
-void drawingClass::setFontHeadValue( wxDC &dc )
-{
+void drawingClass::setFontHeadValue( wxDC &dc ) {
     dc.SetFont( m_config->fontHeadValue );
     dc.SetTextForeground( m_config->fontHeadValueColour );
 }
@@ -1388,8 +1571,7 @@ void drawingClass::setFontHeadValue( wxDC &dc )
 /**
  * Set the font of the header.
  */
-void drawingClass::setFontResultHeader( wxDC &dc )
-{
+void drawingClass::setFontResultHeader( wxDC &dc ) {
     dc.SetFont( m_config->fontResultHeader );
     dc.SetTextForeground( m_config->fontResultHeaderColour );
 }
@@ -1397,26 +1579,15 @@ void drawingClass::setFontResultHeader( wxDC &dc )
 /**
  * Set the delault font of the card.
  */
-void drawingClass::setFontResultDefault( wxDC &dc )
-{
+void drawingClass::setFontResultDefault( wxDC &dc ) {
     dc.SetFont( m_config->fontResultDefault );
     dc.SetTextForeground( m_config->fontResultDefaultColour );
 }
 
 /**
- * Set the font for the heart (coitusRecord).
- */
-void drawingClass::setFontResultHeart( wxDC &dc )
-{
-    dc.SetFont( m_config->fontResultHeart );
-    dc.SetTextForeground( m_config->fontResultHeartColour );
-}
-
-/**
  * Set the font for the results (mucus and cervix peaks).
  */
-void drawingClass::setFontResultResults( wxDC &dc )
-{
+void drawingClass::setFontResultResults( wxDC &dc ) {
     dc.SetFont( m_config->fontResultResults );
     dc.SetTextForeground( m_config->fontResultResultsColour );
 }
@@ -1424,8 +1595,7 @@ void drawingClass::setFontResultResults( wxDC &dc )
 /**
  * Set the font for the results (phases).
  */
-void drawingClass::setFontResultPhases( wxDC &dc )
-{
+void drawingClass::setFontResultPhases( wxDC &dc ) {
     dc.SetFont( m_config->fontResultPhases );
     dc.SetTextForeground( m_config->fontResultPhasesColour );
 }

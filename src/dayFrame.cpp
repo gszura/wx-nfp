@@ -38,11 +38,15 @@ const long dayFrame::ID_checkBoxMenstruation1 = wxNewId();
 const long dayFrame::ID_checkBoxMenstruation2 = wxNewId();
 const long dayFrame::ID_textCoitusRecordCounter = wxNewId();
 const long dayFrame::ID_changesMenstruation = wxNewId();
-const long dayFrame::ID_staticCoitusRecord = wxNewId();
-const long dayFrame::ID_textCoitusRecord = wxNewId();
-const long dayFrame::ID_buttonCoitusRecordMinus = wxNewId();
-const long dayFrame::ID_buttonCoitusRecordPlus = wxNewId();
-const long dayFrame::ID_changesCoitusRecord = wxNewId();
+const long dayFrame::ID_staticSexMorning = wxNewId();
+const long dayFrame::ID_checkBoxSexMorning = wxNewId();
+const long dayFrame::ID_changesSexMorning = wxNewId();
+const long dayFrame::ID_staticSexDay = wxNewId();
+const long dayFrame::ID_checkBoxSexDay = wxNewId();
+const long dayFrame::ID_changesSexDay = wxNewId();
+const long dayFrame::ID_staticSexEvening = wxNewId();
+const long dayFrame::ID_checkBoxSexEvening = wxNewId();
+const long dayFrame::ID_changesSexEvening = wxNewId();
 const long dayFrame::ID_checkBoxOtherDisturbances = wxNewId();
 const long dayFrame::ID_changesOtherDisturbances = wxNewId();
 const long dayFrame::ID_staticMucusFeeling = wxNewId();
@@ -131,7 +135,8 @@ const wxEventType wxEVT_DAY_DATA_MODIFIED_EVENT = wxNewEventType();
 /**
  *
  */
-dayFrame::dayFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleData, wxWindowID id,const wxPoint& pos,const wxSize& size) {
+dayFrame::dayFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleData, wxWindowID id,const wxPoint& pos,const wxSize& size)
+{
     m_parent = parent;
     m_config = config;
     m_cycleData = cycleData;
@@ -146,7 +151,8 @@ dayFrame::dayFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleD
 /**
  * Build GUI
  */
-void dayFrame::buildGui(wxWindow* parent) {
+void dayFrame::buildGui(wxWindow* parent)
+{
     //(*Initialize(dayFrame)
     wxBoxSizer* sizerMucus4;
     wxBoxSizer* sizerMain2;
@@ -177,13 +183,11 @@ void dayFrame::buildGui(wxWindow* parent) {
     wxFlexGridSizer* sizerGeneral1;
     wxBoxSizer* sizerHeader2;
     wxStaticBoxSizer* sizerOther;
-    wxBoxSizer* sizerCoitusRecord;
     wxStaticBoxSizer* sizerMucus;
     wxStaticBoxSizer* sizerCervix;
     wxBoxSizer* sizerData;
 
     Create(parent, wxID_ANY, _("NFP - edit day\'s data"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
-    SetClientSize(wxSize(479,510));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);
     panelMain = new wxPanel(this, ID_panelMain, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelMain"));
     sizerMain2 = new wxBoxSizer(wxVERTICAL);
@@ -193,7 +197,7 @@ void dayFrame::buildGui(wxWindow* parent) {
     sizerHeader3 = new wxFlexGridSizer(0, 4, 0, 0);
     sizerHeader3->AddGrowableCol(1);
     staticCardNo = new wxStaticText(panelMain, ID_staticCardNo, _("card number"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticCardNo"));
-    sizerHeader3->Add(staticCardNo, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(staticCardNo, 0, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     textCardNo = new wxStaticText(panelMain, ID_textCardNo, _("999"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_textCardNo"));
     textCardNo->SetForegroundColour(wxColour(0,0,128));
     wxFont textCardNoFont = wxSystemSettings::GetFont(wxSYS_DEFAULT_GUI_FONT);
@@ -201,13 +205,13 @@ void dayFrame::buildGui(wxWindow* parent) {
     textCardNoFont.SetPointSize((int)(textCardNoFont.GetPointSize() * 1.000000));
     textCardNoFont.SetWeight(wxBOLD);
     textCardNo->SetFont(textCardNoFont);
-    sizerHeader3->Add(textCardNo, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(textCardNo, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     space1 = new wxStaticText(panelMain, ID_space1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_space1"));
-    sizerHeader3->Add(space1, 0, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(space1, 0, wxTOP|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     space2 = new wxStaticText(panelMain, ID_space2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_space2"));
-    sizerHeader3->Add(space2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(space2, 0, wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticCycleDay = new wxStaticText(panelMain, ID_staticCycleDay, _("day of cycle"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticCycleDay"));
-    sizerHeader3->Add(staticCycleDay, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(staticCycleDay, 0, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     textCycleDay = new wxStaticText(panelMain, ID_textCycleDay, _("999"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_textCycleDay"));
     textCycleDay->SetMinSize(wxSize(-1,-1));
     textCycleDay->SetForegroundColour(wxColour(0,0,128));
@@ -216,17 +220,17 @@ void dayFrame::buildGui(wxWindow* parent) {
     textCycleDayFont.SetPointSize((int)(textCycleDayFont.GetPointSize() * 1.000000));
     textCycleDayFont.SetWeight(wxBOLD);
     textCycleDay->SetFont(textCycleDayFont);
-    sizerHeader3->Add(textCycleDay, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(textCycleDay, 1, wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     buttonPreviousDay = new wxButton(panelMain, ID_buttonPreviousDay, _("<"), wxDefaultPosition, wxSize(40,-1), 0, wxDefaultValidator, _T("ID_buttonPreviousDay"));
     buttonPreviousDay->SetToolTip(_("Go to previous day of the card"));
-    sizerHeader3->Add(buttonPreviousDay, 0, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(buttonPreviousDay, 0, wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     buttonNextDay = new wxButton(panelMain, ID_buttonNextDay, _(">"), wxDefaultPosition, wxSize(40,-1), 0, wxDefaultValidator, _T("ID_buttonNextDay"));
     buttonNextDay->SetToolTip(_("Go to next day of the card"));
-    sizerHeader3->Add(buttonNextDay, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerHeader3->Add(buttonNextDay, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerHeader2->Add(sizerHeader3, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerDate = new wxBoxSizer(wxHORIZONTAL);
     staticDate = new wxStaticText(panelMain, ID_staticDate, _("date"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticDate"));
-    sizerDate->Add(staticDate, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDate->Add(staticDate, 0, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     textDate = new wxStaticText(panelMain, ID_textDate, _("999"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_textDate"));
     textDate->SetForegroundColour(wxColour(0,0,128));
     wxFont textDateFont = wxSystemSettings::GetFont(wxSYS_DEFAULT_GUI_FONT);
@@ -234,7 +238,7 @@ void dayFrame::buildGui(wxWindow* parent) {
     textDateFont.SetPointSize((int)(textDateFont.GetPointSize() * 1.000000));
     textDateFont.SetWeight(wxBOLD);
     textDate->SetFont(textDateFont);
-    sizerDate->Add(textDate, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDate->Add(textDate, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     sizerHeader2->Add(sizerDate, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerHeader1->Add(sizerHeader2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerHeader4 = new wxBoxSizer(wxVERTICAL);
@@ -250,7 +254,7 @@ void dayFrame::buildGui(wxWindow* parent) {
     sizerHeader4->Add(staticCardLocked, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     sizerHeader1->Add(sizerHeader4, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerHeader->Add(sizerHeader1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerMain2->Add(sizerHeader, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMain2->Add(sizerHeader, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerData = new wxBoxSizer(wxHORIZONTAL);
     sizerDataLeft = new wxBoxSizer(wxVERTICAL);
     sizerBasic = new wxStaticBoxSizer(wxVERTICAL, panelMain, wxEmptyString);
@@ -274,19 +278,33 @@ void dayFrame::buildGui(wxWindow* parent) {
     changesMenstruation = new wxStaticText(panelMain, ID_changesMenstruation, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMenstruation"));
     changesMenstruation->SetForegroundColour(wxColour(255,0,0));
     sizerGeneral1->Add(changesMenstruation, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    staticCoitusRecord = new wxStaticText(panelMain, ID_staticCoitusRecord, _("coitus record"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticCoitusRecord"));
-    sizerGeneral1->Add(staticCoitusRecord, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCoitusRecord = new wxBoxSizer(wxHORIZONTAL);
-    textCoitusRecord = new wxTextCtrl(panelMain, ID_textCoitusRecord, wxEmptyString, wxDefaultPosition, wxSize(80,-1), wxTE_READONLY|wxTE_CENTRE|wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textCoitusRecord"));
-    sizerCoitusRecord->Add(textCoitusRecord, 1, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    buttonCoitusRecordMinus = new wxButton(panelMain, ID_buttonCoitusRecordMinus, _("-"), wxDefaultPosition, wxSize(25,-1), 0, wxDefaultValidator, _T("ID_buttonCoitusRecordMinus"));
-    sizerCoitusRecord->Add(buttonCoitusRecordMinus, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    buttonCoitusRecordPlus = new wxButton(panelMain, ID_buttonCoitusRecordPlus, _("+"), wxDefaultPosition, wxSize(25,-1), 0, wxDefaultValidator, _T("ID_buttonCoitusRecordPlus"));
-    sizerCoitusRecord->Add(buttonCoitusRecordPlus, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerGeneral1->Add(sizerCoitusRecord, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    changesCoitusRecord = new wxStaticText(panelMain, ID_changesCoitusRecord, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCoitusRecord"));
-    changesCoitusRecord->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral1->Add(changesCoitusRecord, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticSexMorning = new wxStaticText(panelMain, ID_staticSexMorning, _("sexual relation"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSexMorning"));
+    sizerGeneral1->Add(staticSexMorning, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxSexMorning = new wxCheckBox(panelMain, ID_checkBoxSexMorning, _("in the morning"), wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_checkBoxSexMorning"));
+    checkBoxSexMorning->SetValue(false);
+    checkBoxSexMorning->SetToolTip(_("Small bleeding"));
+    sizerGeneral1->Add(checkBoxSexMorning, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesSexMorning = new wxStaticText(panelMain, ID_changesSexMorning, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesSexMorning"));
+    changesSexMorning->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral1->Add(changesSexMorning, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticSexDay = new wxStaticText(panelMain, ID_staticSexDay, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSexDay"));
+    sizerGeneral1->Add(staticSexDay, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxSexDay = new wxCheckBox(panelMain, ID_checkBoxSexDay, _("during the day"), wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_checkBoxSexDay"));
+    checkBoxSexDay->SetValue(false);
+    checkBoxSexDay->SetToolTip(_("Small bleeding"));
+    sizerGeneral1->Add(checkBoxSexDay, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesSexDay = new wxStaticText(panelMain, ID_changesSexDay, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesSexDay"));
+    changesSexDay->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral1->Add(changesSexDay, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticSexEvening = new wxStaticText(panelMain, ID_staticSexEvening, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSexEvening"));
+    sizerGeneral1->Add(staticSexEvening, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxSexEvening = new wxCheckBox(panelMain, ID_checkBoxSexEvening, _("in the evening"), wxDefaultPosition, wxDefaultSize, wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_checkBoxSexEvening"));
+    checkBoxSexEvening->SetValue(false);
+    checkBoxSexEvening->SetToolTip(_("Small bleeding"));
+    sizerGeneral1->Add(checkBoxSexEvening, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesSexEvening = new wxStaticText(panelMain, ID_changesSexEvening, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesSexEvening"));
+    changesSexEvening->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral1->Add(changesSexEvening, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerBasic->Add(sizerGeneral1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
     checkBoxOtherDisturbances = new wxCheckBox(panelMain, ID_checkBoxOtherDisturbances, _("disturbances (other than temperature)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxOtherDisturbances"));
@@ -322,57 +340,57 @@ void dayFrame::buildGui(wxWindow* parent) {
     sizerMucus2 = new wxBoxSizer(wxVERTICAL);
     checkBoxMucusAppearanceOpaque = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceOpaque, _("o - opaque (the opposite of clear)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceOpaque"));
     checkBoxMucusAppearanceOpaque->SetValue(false);
-    sizerMucus2->Add(checkBoxMucusAppearanceOpaque, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus2->Add(checkBoxMucusAppearanceOpaque, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAppearanceWhite = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceWhite, _("w - white"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceWhite"));
     checkBoxMucusAppearanceWhite->SetValue(false);
-    sizerMucus2->Add(checkBoxMucusAppearanceWhite, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus2->Add(checkBoxMucusAppearanceWhite, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAppearanceYellowish = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceYellowish, _("y - yellowish"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceYellowish"));
     checkBoxMucusAppearanceYellowish->SetValue(false);
-    sizerMucus2->Add(checkBoxMucusAppearanceYellowish, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus2->Add(checkBoxMucusAppearanceYellowish, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAppearanceTacky = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceTacky, _("t - tacky (stretches up to 1 cm)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceTacky"));
     checkBoxMucusAppearanceTacky->SetValue(false);
-    sizerMucus2->Add(checkBoxMucusAppearanceTacky, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus2->Add(checkBoxMucusAppearanceTacky, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus->Add(sizerMucus2, 0, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus3 = new wxBoxSizer(wxVERTICAL);
     checkBoxMucusAppearanceClear = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceClear, _("c - clear (a more-fertile mucus)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceClear"));
     checkBoxMucusAppearanceClear->SetValue(false);
-    sizerMucus3->Add(checkBoxMucusAppearanceClear, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus3->Add(checkBoxMucusAppearanceClear, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAppearanceStretchy = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceStretchy, _("s - stretchy (stretches more than 1 cm)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceStretchy"));
     checkBoxMucusAppearanceStretchy->SetValue(false);
-    sizerMucus3->Add(checkBoxMucusAppearanceStretchy, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus3->Add(checkBoxMucusAppearanceStretchy, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus->Add(sizerMucus3, 0, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus4 = new wxBoxSizer(wxHORIZONTAL);
     checkBoxMucusAppearanceSeminalResidue = new wxCheckBox(panelMain, ID_checkBoxMucusAppearanceSeminalResidue, _("SR - seminal residue from marital relations"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAppearanceSeminalResidue"));
     checkBoxMucusAppearanceSeminalResidue->SetValue(false);
-    sizerMucus4->Add(checkBoxMucusAppearanceSeminalResidue, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus4->Add(checkBoxMucusAppearanceSeminalResidue, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus->Add(sizerMucus4, 0, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus5 = new wxFlexGridSizer(0, 4, 0, 0);
     sizerMucus5->AddGrowableCol(0);
     staticMucusAmount = new wxStaticText(panelMain, ID_staticMucusAmount, _("amount of mucus"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticMucusAmount"));
-    sizerMucus5->Add(staticMucusAmount, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(staticMucusAmount, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAmount1 = new wxCheckBox(panelMain, ID_checkBoxMucusAmount1, _("+"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAmount1"));
     checkBoxMucusAmount1->SetValue(false);
     checkBoxMucusAmount1->SetToolTip(_("Trace amount"));
-    sizerMucus5->Add(checkBoxMucusAmount1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxMucusAmount1, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAmount2 = new wxCheckBox(panelMain, ID_checkBoxMucusAmount2, _("++"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAmount2"));
     checkBoxMucusAmount2->SetValue(false);
     checkBoxMucusAmount2->SetToolTip(_("Typical amount"));
-    sizerMucus5->Add(checkBoxMucusAmount2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxMucusAmount2, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxMucusAmount3 = new wxCheckBox(panelMain, ID_checkBoxMucusAmount3, _("+++"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxMucusAmount3"));
     checkBoxMucusAmount3->SetValue(false);
     checkBoxMucusAmount3->SetToolTip(_("Huge amount"));
-    sizerMucus5->Add(checkBoxMucusAmount3, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxMucusAmount3, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticLengthOfStretch = new wxStaticText(panelMain, ID_staticLengthOfStretch, _("length of stretch in cm"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticLengthOfStretch"));
-    sizerMucus5->Add(staticLengthOfStretch, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(staticLengthOfStretch, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxLengthOfStretch1 = new wxCheckBox(panelMain, ID_checkBoxLengthOfStretch1, _("1"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxLengthOfStretch1"));
     checkBoxLengthOfStretch1->SetValue(false);
-    sizerMucus5->Add(checkBoxLengthOfStretch1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxLengthOfStretch1, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxLengthOfStretch2 = new wxCheckBox(panelMain, ID_checkBoxLengthOfStretch2, _("2"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxLengthOfStretch2"));
     checkBoxLengthOfStretch2->SetValue(false);
-    sizerMucus5->Add(checkBoxLengthOfStretch2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxLengthOfStretch2, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxLengthOfStretch3 = new wxCheckBox(panelMain, ID_checkBoxLengthOfStretch3, _("3 .."), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxLengthOfStretch3"));
     checkBoxLengthOfStretch3->SetValue(false);
-    sizerMucus5->Add(checkBoxLengthOfStretch3, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMucus5->Add(checkBoxLengthOfStretch3, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMucus->Add(sizerMucus5, 1, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerDataLeft->Add(sizerMucus, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerData->Add(sizerDataLeft, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
@@ -472,38 +490,38 @@ void dayFrame::buildGui(wxWindow* parent) {
     sizerOther1 = new wxFlexGridSizer(0, 4, 0, 0);
     sizerOther1->AddGrowableCol(0);
     staticOvulationPain = new wxStaticText(panelMain, ID_staticOvulationPain, _("ovulation pain"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticOvulationPain"));
-    sizerOther1->Add(staticOvulationPain, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(staticOvulationPain, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxOvulationPain1 = new wxCheckBox(panelMain, ID_checkBoxOvulationPain1, _("v"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxOvulationPain1"));
     checkBoxOvulationPain1->SetValue(false);
-    sizerOther1->Add(checkBoxOvulationPain1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxOvulationPain1, 0, wxTOP|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxOvulationPain2 = new wxCheckBox(panelMain, ID_checkBoxOvulationPain2, _("vv"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxOvulationPain2"));
     checkBoxOvulationPain2->SetValue(false);
-    sizerOther1->Add(checkBoxOvulationPain2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxOvulationPain2, 0, wxTOP|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesOvulationPain = new wxStaticText(panelMain, ID_changesOvulationPain, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesOvulationPain"));
     changesOvulationPain->SetForegroundColour(wxColour(255,0,0));
-    sizerOther1->Add(changesOvulationPain, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(changesOvulationPain, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticBreastsTension = new wxStaticText(panelMain, ID_staticBreastsTension, _("breasts tension"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBreastsTension"));
-    sizerOther1->Add(staticBreastsTension, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(staticBreastsTension, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxBreastsTension1 = new wxCheckBox(panelMain, ID_checkBoxBreastsTension1, _("v"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxBreastsTension1"));
     checkBoxBreastsTension1->SetValue(false);
-    sizerOther1->Add(checkBoxBreastsTension1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxBreastsTension1, 0, wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxBreastsTension2 = new wxCheckBox(panelMain, ID_checkBoxBreastsTension2, _("vv"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxBreastsTension2"));
     checkBoxBreastsTension2->SetValue(false);
-    sizerOther1->Add(checkBoxBreastsTension2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxBreastsTension2, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesBreastsTension = new wxStaticText(panelMain, ID_changesBreastsTension, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesBreastsTension"));
     changesBreastsTension->SetForegroundColour(wxColour(255,0,0));
-    sizerOther1->Add(changesBreastsTension, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(changesBreastsTension, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticSpotting = new wxStaticText(panelMain, ID_staticSpotting, _("spotting"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSpotting"));
-    sizerOther1->Add(staticSpotting, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(staticSpotting, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxSpotting1 = new wxCheckBox(panelMain, ID_checkBoxSpotting1, _("v"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxSpotting1"));
     checkBoxSpotting1->SetValue(false);
-    sizerOther1->Add(checkBoxSpotting1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxSpotting1, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxSpotting2 = new wxCheckBox(panelMain, ID_checkBoxSpotting2, _("vv"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxSpotting2"));
     checkBoxSpotting2->SetValue(false);
-    sizerOther1->Add(checkBoxSpotting2, 0, wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(checkBoxSpotting2, 0, wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesSpotting = new wxStaticText(panelMain, ID_changesSpotting, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesSpotting"));
     changesSpotting->SetForegroundColour(wxColour(255,0,0));
-    sizerOther1->Add(changesSpotting, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(changesSpotting, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerOther->Add(sizerOther1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerAdditionalNotes = new wxBoxSizer(wxHORIZONTAL);
     staticAdditionalNotes = new wxStaticText(panelMain, ID_staticAdditionalNotes, _("additional notes"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticAdditionalNotes"));
@@ -514,7 +532,6 @@ void dayFrame::buildGui(wxWindow* parent) {
     sizerOther->Add(sizerAdditionalNotes, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     textAdditionalNotes = new wxTextCtrl(panelMain, ID_textAdditionalNotes, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE|wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textAdditionalNotes"));
     textAdditionalNotes->SetMinSize(wxSize(200,40));
-    textAdditionalNotes->SetMaxSize(wxSize(400,60));
     sizerOther->Add(textAdditionalNotes, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerDataRight->Add(sizerOther, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerData->Add(sizerDataRight, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
@@ -529,14 +546,15 @@ void dayFrame::buildGui(wxWindow* parent) {
     staticSpace7 = new wxStaticText(panelMain, ID_staticSpace7, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSpace7"));
     sizerButtons->Add(staticSpace7, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     buttonClose = new wxButton(panelMain, ID_buttonClose, _("close"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonClose"));
-    buttonClose->SetToolTip(_("Close this window (and ask for saving unsaved changes)"));
+    buttonClose->SetToolTip(_("Close this window"));
     sizerButtons->Add(buttonClose, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerMain2->Add(sizerButtons, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerMain2->Add(sizerButtons, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelMain->SetSizer(sizerMain2);
     sizerMain2->Fit(panelMain);
     sizerMain2->SetSizeHints(panelMain);
     sizerMain1->Add(panelMain, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     SetSizer(sizerMain1);
+    sizerMain1->Fit(this);
     sizerMain1->SetSizeHints(this);
 
     Connect(ID_buttonPreviousDay,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dayFrame::buttonPreviousDayClick);
@@ -544,8 +562,9 @@ void dayFrame::buildGui(wxWindow* parent) {
     Connect(ID_buttonAddNewDay,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dayFrame::buttonAddNewDayClick);
     Connect(ID_checkBoxMenstruation1,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxMenstruation1Click);
     Connect(ID_checkBoxMenstruation2,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxMenstruation2Click);
-    Connect(ID_buttonCoitusRecordMinus,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dayFrame::buttonCoitusRecordMinusClick);
-    Connect(ID_buttonCoitusRecordPlus,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dayFrame::buttonCoitusRecordPlusClick);
+    Connect(ID_checkBoxSexMorning,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxSexMorningClick);
+    Connect(ID_checkBoxSexDay,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxSexDayClick);
+    Connect(ID_checkBoxSexEvening,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxSexEveningClick);
     Connect(ID_checkBoxOtherDisturbances,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxOtherDisturbancesClick);
     Connect(ID_comboBoxMucusFeeling,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dayFrame::comboBoxMucusFeelingUpdated);
     Connect(ID_checkBoxMucusAppearanceOpaque,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&dayFrame::checkBoxMucusAppearanceClick);
@@ -692,7 +711,8 @@ void dayFrame::buildGui(wxWindow* parent) {
 /**
  *
  */
-dayFrame::~dayFrame() {
+dayFrame::~dayFrame()
+{
     //(*Destroy(dayFrame)
     //*)
 }
@@ -704,15 +724,8 @@ dayFrame::~dayFrame() {
 /**
  * dayFrameClose
  */
-void dayFrame::dayFrameClose( wxCloseEvent& event ) {
-    if (m_config->useCoitusRecordCounter) {
-        wxString input = textCoitusRecord->GetValue();
-        input = input.Trim( true );
-        input = input.Trim( false );
-        if ( input.Length() > 0 )
-            m_cycleData->increaseCoitusRecordCounter( -1 * input.Length() );
-    }
-
+void dayFrame::dayFrameClose( wxCloseEvent& event )
+{
     if ( m_cycleData->getCard()->getCardLocked() || checkIfDataHasBeenChanged( true ) ) {
         Hide();
         m_parent->SetFocus();
@@ -722,7 +735,8 @@ void dayFrame::dayFrameClose( wxCloseEvent& event ) {
 /**
  * buttonSaveClick
  */
-void dayFrame::buttonSaveClick( wxCommandEvent& event ) {
+void dayFrame::buttonSaveClick( wxCommandEvent& event )
+{
     save();
     update();
     updateButtonsState();
@@ -731,7 +745,8 @@ void dayFrame::buttonSaveClick( wxCommandEvent& event ) {
 /**
  * buttonCancelClick
  */
-void dayFrame::buttonCancelClick( wxCommandEvent& event ) {
+void dayFrame::buttonCancelClick( wxCommandEvent& event )
+{
     update();
     updateButtonsState();
 }
@@ -739,15 +754,8 @@ void dayFrame::buttonCancelClick( wxCommandEvent& event ) {
 /**
  * buttonCloseClick
  */
-void dayFrame::buttonCloseClick( wxCommandEvent& event ) {
-    if (m_config->useCoitusRecordCounter) {
-        wxString input = textCoitusRecord->GetValue();
-        input = input.Trim( true );
-        input = input.Trim( false );
-        if ( input.Length() > 0 )
-            m_cycleData->increaseCoitusRecordCounter( -1 * input.Length() );
-    }
-
+void dayFrame::buttonCloseClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getCard()->getCardLocked() || checkIfDataHasBeenChanged( true ) ) {
         Hide();
         m_parent->SetFocus();
@@ -757,7 +765,8 @@ void dayFrame::buttonCloseClick( wxCommandEvent& event ) {
 /**
  * buttonPreviousDayClick
  */
-void dayFrame::buttonPreviousDayClick( wxCommandEvent& event ) {
+void dayFrame::buttonPreviousDayClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getCard()->getCardLocked() || checkIfDataHasBeenChanged( true ) ) {
         if ( m_cycleData->getActiveDay() > 1 ) {
             m_cycleData->setActiveDay( m_cycleData->getActiveDay() - 1 );
@@ -772,7 +781,8 @@ void dayFrame::buttonPreviousDayClick( wxCommandEvent& event ) {
 /**
  * buttonNextDayClick
  */
-void dayFrame::buttonNextDayClick( wxCommandEvent& event ) {
+void dayFrame::buttonNextDayClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getCard()->getCardLocked() || checkIfDataHasBeenChanged( true ) ) {
         if ( m_cycleData->getActiveDay() < m_cycleData->getDaysCount() ) {
             m_cycleData->setActiveDay( m_cycleData->getActiveDay() + 1 );
@@ -787,7 +797,8 @@ void dayFrame::buttonNextDayClick( wxCommandEvent& event ) {
 /**
  * buttonAddNewDayClick
  */
-void dayFrame::buttonAddNewDayClick( wxCommandEvent& event ) {
+void dayFrame::buttonAddNewDayClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getCard()->getCardLocked() || checkIfDataHasBeenChanged( true ) ) {
         if ( m_cycleData->addNewDay() > -1 ) {
             m_cycleData->setActiveDay( m_cycleData->getDaysCount() );
@@ -809,7 +820,8 @@ void dayFrame::buttonAddNewDayClick( wxCommandEvent& event ) {
 /**
  * checkBoxMenstruation1Click
  */
-void dayFrame::checkBoxMenstruation1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxMenstruation1Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxMenstruation1->GetValue() ) {
         checkBoxMenstruation2->SetValue( false );
@@ -832,7 +844,8 @@ void dayFrame::checkBoxMenstruation1Click( wxCommandEvent& event ) {
 /**
  * checkBoxMenstruation2Click
  */
-void dayFrame::checkBoxMenstruation2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxMenstruation2Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxMenstruation2->GetValue() ) {
         checkBoxMenstruation1->SetValue( false );
@@ -852,10 +865,72 @@ void dayFrame::checkBoxMenstruation2Click( wxCommandEvent& event ) {
     updateButtonsState();
 }
 
+/**
+ * checkBoxSexMorningClick
+ */
+void dayFrame::checkBoxSexMorningClick( wxCommandEvent& event )
+{
+    if ( m_cycleData->getDay()->getSexualRelationMorning() == checkBoxSexMorning->GetValue() ) {
+        if ( changesSexMorning->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            m_newSexualRelations--;
+            changesSexMorning->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesSexMorning->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            m_newSexualRelations++;
+            changesSexMorning->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxSexDayClick
+ */
+void dayFrame::checkBoxSexDayClick( wxCommandEvent& event )
+{
+    if ( m_cycleData->getDay()->getSexualRelationDay() == checkBoxSexDay->GetValue() ) {
+        if ( changesSexDay->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            m_newSexualRelations--;
+            changesSexDay->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesSexDay->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesSexDay->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxSexEveningClick
+ */
+void dayFrame::checkBoxSexEveningClick( wxCommandEvent& event )
+{
+    if ( m_cycleData->getDay()->getSexualRelationEvening() == checkBoxSexEvening->GetValue() ) {
+        if ( changesSexEvening->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            m_newSexualRelations--;
+            changesSexEvening->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesSexEvening->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            m_newSexualRelations++;
+            changesSexEvening->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
 
 /**
  * buttonCoitusRecordMinusClick
  */
+/*
 void dayFrame::buttonCoitusRecordMinusClick( wxCommandEvent& event ) {
     wxString input = textCoitusRecord->GetValue();
     input = input.Trim( true );
@@ -890,10 +965,12 @@ void dayFrame::buttonCoitusRecordMinusClick( wxCommandEvent& event ) {
         updateButtonsState();
     }
 }
+*/
 
 /**
  * buttonCoitusRecordPlusClick
  */
+/*
 void dayFrame::buttonCoitusRecordPlusClick( wxCommandEvent& event ) {
     wxString input = textCoitusRecord->GetValue();
     input = input.Trim( true );
@@ -921,11 +998,13 @@ void dayFrame::buttonCoitusRecordPlusClick( wxCommandEvent& event ) {
     }
     updateButtonsState();
 }
+*/
 
 /**
  * checkBoxOtherDisturbancesClick
  */
-void dayFrame::checkBoxOtherDisturbancesClick( wxCommandEvent& event ) {
+void dayFrame::checkBoxOtherDisturbancesClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getDay()->getOtherDisturbances() == checkBoxOtherDisturbances->GetValue() ) {
         if ( changesOtherDisturbances->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -943,7 +1022,8 @@ void dayFrame::checkBoxOtherDisturbancesClick( wxCommandEvent& event ) {
 /**
  * comboBoxMucusFeelingUpdated
  */
-void dayFrame::comboBoxMucusFeelingUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxMucusFeelingUpdated( wxCommandEvent& event )
+{
     int val = -1;
     if ( comboBoxMucusFeeling->GetValue().IsSameAs( string_mucusDry_long ) ) {
         val = MUCUS_DRY;
@@ -971,7 +1051,8 @@ void dayFrame::comboBoxMucusFeelingUpdated( wxCommandEvent& event ) {
 /**
  * checkBoxMucusAppearanceClick
  */
-void dayFrame::checkBoxMucusAppearanceClick( wxCommandEvent& event ) {
+void dayFrame::checkBoxMucusAppearanceClick( wxCommandEvent& event )
+{
     int val = calculateMucusAppearance();
     textMucusAppearance->SetValue( _T( " " ) + m_cycleData->getDay()->convertMucusAppearance( val ) );
 
@@ -992,7 +1073,8 @@ void dayFrame::checkBoxMucusAppearanceClick( wxCommandEvent& event ) {
 /**
  * checkBoxLengthOfStretch1Click
  */
-void dayFrame::checkBoxLengthOfStretch1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxLengthOfStretch1Click( wxCommandEvent& event )
+{
     if ( checkBoxLengthOfStretch1->GetValue() ) {
         checkBoxLengthOfStretch2->SetValue( false );
         checkBoxLengthOfStretch3->SetValue( false );
@@ -1003,7 +1085,8 @@ void dayFrame::checkBoxLengthOfStretch1Click( wxCommandEvent& event ) {
 /**
  * checkBoxLengthOfStretch2Click
  */
-void dayFrame::checkBoxLengthOfStretch2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxLengthOfStretch2Click( wxCommandEvent& event )
+{
     if ( checkBoxLengthOfStretch2->GetValue() ) {
         checkBoxLengthOfStretch1->SetValue( false );
         checkBoxLengthOfStretch3->SetValue( false );
@@ -1014,7 +1097,8 @@ void dayFrame::checkBoxLengthOfStretch2Click( wxCommandEvent& event ) {
 /**
  * checkBoxLengthOfStretch3Click
  */
-void dayFrame::checkBoxLengthOfStretch3Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxLengthOfStretch3Click( wxCommandEvent& event )
+{
     if ( checkBoxLengthOfStretch3->GetValue() ) {
         checkBoxLengthOfStretch1->SetValue( false );
         checkBoxLengthOfStretch2->SetValue( false );
@@ -1025,7 +1109,8 @@ void dayFrame::checkBoxLengthOfStretch3Click( wxCommandEvent& event ) {
 /**
  * checkBoxMucusAmount1Click
  */
-void dayFrame::checkBoxMucusAmount1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxMucusAmount1Click( wxCommandEvent& event )
+{
     if ( checkBoxMucusAmount1->GetValue() ) {
         checkBoxMucusAmount2->SetValue( false );
         checkBoxMucusAmount3->SetValue( false );
@@ -1036,7 +1121,8 @@ void dayFrame::checkBoxMucusAmount1Click( wxCommandEvent& event ) {
 /**
  * checkBoxMucusAmount2Click
  */
-void dayFrame::checkBoxMucusAmount2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxMucusAmount2Click( wxCommandEvent& event )
+{
     if ( checkBoxMucusAmount2->GetValue() ) {
         checkBoxMucusAmount1->SetValue( false );
         checkBoxMucusAmount3->SetValue( false );
@@ -1047,7 +1133,8 @@ void dayFrame::checkBoxMucusAmount2Click( wxCommandEvent& event ) {
 /**
  * checkBoxMucusAmount3Click
  */
-void dayFrame::checkBoxMucusAmount3Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxMucusAmount3Click( wxCommandEvent& event )
+{
     if ( checkBoxMucusAmount3->GetValue() ) {
         checkBoxMucusAmount1->SetValue( false );
         checkBoxMucusAmount2->SetValue( false );
@@ -1058,7 +1145,8 @@ void dayFrame::checkBoxMucusAmount3Click( wxCommandEvent& event ) {
 /**
  * comboBoxMeasuredTemperatureUpdated
  */
-void dayFrame::comboBoxMeasuredTemperatureUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxMeasuredTemperatureUpdated( wxCommandEvent& event )
+{
     int val = -1;
     if ( ! comboBoxMeasuredTemperature->GetValue().IsSameAs( m_none ) )
         val = m_util.strToTemperature( comboBoxMeasuredTemperature->GetValue() );
@@ -1081,7 +1169,8 @@ void dayFrame::comboBoxMeasuredTemperatureUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxMeasurementTimeUpdated
  */
-void dayFrame::comboBoxMeasurementTimeUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxMeasurementTimeUpdated( wxCommandEvent& event )
+{
     wxString tH = m_cycleData->getDay()->getTemperatureMeasurementTime().Format( _T( "%H" ) );
     wxString tM = m_cycleData->getDay()->getTemperatureMeasurementTime().Format( _T( "%M" ) );
     if ( m_cycleData->getDay()->getTemperatureMeasurementTime().GetHour() == 0 && m_cycleData->getDay()->getTemperatureMeasurementTime().GetMinute() == 0 ) {
@@ -1109,7 +1198,8 @@ void dayFrame::comboBoxMeasurementTimeUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxMeasurementPlaceUpdated
  */
-void dayFrame::comboBoxMeasurementPlaceUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxMeasurementPlaceUpdated( wxCommandEvent& event )
+{
     wxString mp = string_placeVagina;
     if ( m_cycleData->getDay()->getTemperatureMeasurementPlace() == PLACE_MOUTH ) {
         mp = string_placeMouth;
@@ -1141,7 +1231,8 @@ void dayFrame::comboBoxMeasurementPlaceUpdated( wxCommandEvent& event ) {
 /**
  * checkBoxTemperatureDisturbancesClick
  */
-void dayFrame::checkBoxTemperatureDisturbancesClick( wxCommandEvent& event ) {
+void dayFrame::checkBoxTemperatureDisturbancesClick( wxCommandEvent& event )
+{
     if ( m_cycleData->getDay()->getTemperatureDisturbances() == checkBoxTemperatureDisturbances->GetValue() ) {
         if ( changesTemperatureDisturbances->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1160,7 +1251,8 @@ void dayFrame::checkBoxTemperatureDisturbancesClick( wxCommandEvent& event ) {
 /**
  * comboBoxAdditionalTemperatureCorrectionUpdated
  */
-void dayFrame::comboBoxAdditionalTemperatureCorrectionUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxAdditionalTemperatureCorrectionUpdated( wxCommandEvent& event )
+{
     int val = m_util.strToTemperature( comboBoxAdditionalTemperatureCorrection->GetValue() );
     if ( m_cycleData->getDay()->getTemperatureAdditionalCorrection() == val ) {
         if ( changesAdditionalTemperatureCorrection->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1180,7 +1272,8 @@ void dayFrame::comboBoxAdditionalTemperatureCorrectionUpdated( wxCommandEvent& e
 /**
  * comboBoxCervixPositionUpdated
  */
-void dayFrame::comboBoxCervixPositionUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxCervixPositionUpdated( wxCommandEvent& event )
+{
     int val = -1;
     // cervix - position
     if ( comboBoxCervixPosition->GetValue().IsSameAs( string_cervixHigh_long ) ) {
@@ -1211,7 +1304,8 @@ void dayFrame::comboBoxCervixPositionUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxCervixDilationUpdated
  */
-void dayFrame::comboBoxCervixDilationUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxCervixDilationUpdated( wxCommandEvent& event )
+{
     int val = -1;
     //cervix - dilation
     if ( comboBoxCervixDilation->GetValue().IsSameAs( string_cervixOpen_long ) ) {
@@ -1238,7 +1332,8 @@ void dayFrame::comboBoxCervixDilationUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxCervixHardnessUpdated
  */
-void dayFrame::comboBoxCervixHardnessUpdated( wxCommandEvent& event ) {
+void dayFrame::comboBoxCervixHardnessUpdated( wxCommandEvent& event )
+{
     int val = -1;
     // cervix - hardness
     if ( comboBoxCervixHardness->GetValue().IsSameAs( string_cervixSoft_long ) ) {
@@ -1265,7 +1360,8 @@ void dayFrame::comboBoxCervixHardnessUpdated( wxCommandEvent& event ) {
 /**
  * checkBoxOvulationPain1Click
  */
-void dayFrame::checkBoxOvulationPain1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxOvulationPain1Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxOvulationPain1->GetValue() ) {
         checkBoxOvulationPain2->SetValue( false );
@@ -1288,7 +1384,8 @@ void dayFrame::checkBoxOvulationPain1Click( wxCommandEvent& event ) {
 /**
  * checkBoxOvulationPain2Click
  */
-void dayFrame::checkBoxOvulationPain2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxOvulationPain2Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxOvulationPain2->GetValue() ) {
         checkBoxOvulationPain1->SetValue( false );
@@ -1311,7 +1408,8 @@ void dayFrame::checkBoxOvulationPain2Click( wxCommandEvent& event ) {
 /**
  * checkBoxBreastsTension1Click
  */
-void dayFrame::checkBoxBreastsTension1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxBreastsTension1Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxBreastsTension1->GetValue() ) {
         checkBoxBreastsTension2->SetValue( false );
@@ -1334,7 +1432,8 @@ void dayFrame::checkBoxBreastsTension1Click( wxCommandEvent& event ) {
 /**
  * checkBoxBreastsTension2Click
  */
-void dayFrame::checkBoxBreastsTension2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxBreastsTension2Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxBreastsTension2->GetValue() ) {
         checkBoxBreastsTension1->SetValue( false );
@@ -1357,7 +1456,8 @@ void dayFrame::checkBoxBreastsTension2Click( wxCommandEvent& event ) {
 /**
  * checkBoxSpotting1Click
  */
-void dayFrame::checkBoxSpotting1Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxSpotting1Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxSpotting1->GetValue() ) {
         checkBoxSpotting2->SetValue( false );
@@ -1380,7 +1480,8 @@ void dayFrame::checkBoxSpotting1Click( wxCommandEvent& event ) {
 /**
  * checkBoxSpotting2Click
  */
-void dayFrame::checkBoxSpotting2Click( wxCommandEvent& event ) {
+void dayFrame::checkBoxSpotting2Click( wxCommandEvent& event )
+{
     int val = -1;
     if ( checkBoxSpotting2->GetValue() ) {
         checkBoxSpotting1->SetValue( false );
@@ -1403,7 +1504,8 @@ void dayFrame::checkBoxSpotting2Click( wxCommandEvent& event ) {
 /**
  * textAdditionalNotesUpdated
  */
-void dayFrame::textAdditionalNotesUpdated( wxCommandEvent& event ) {
+void dayFrame::textAdditionalNotesUpdated( wxCommandEvent& event )
+{
     if ( !m_textAdditionalNotesEventProcessing ) {
         m_textAdditionalNotesEventProcessing = true;
         wxString value = textAdditionalNotes->GetValue();
@@ -1438,7 +1540,8 @@ void dayFrame::textAdditionalNotesUpdated( wxCommandEvent& event ) {
 /**
  *
  */
-void dayFrame::updateMeasuredTemperatureList() {
+void dayFrame::updateMeasuredTemperatureList()
+{
     comboBoxMeasuredTemperature->Clear();
     comboBoxMeasuredTemperature->SetSelection( comboBoxMeasuredTemperature->Append(m_none) );
     for ( int i = 0; i < m_config->rowsCountTemp; i++ ) {
@@ -1459,7 +1562,8 @@ void dayFrame::updateMeasuredTemperatureList() {
 /**
  *
  */
-void dayFrame::setButtonsStyle() {
+void dayFrame::setButtonsStyle()
+{
     int flatButton = 0;
     if ( m_config->useFlatButtons )
         flatButton = wxNO_BORDER;
@@ -1468,8 +1572,6 @@ void dayFrame::setButtonsStyle() {
     buttonCancel->SetWindowStyle( flatButton );
     buttonClose->SetWindowStyle( flatButton );
     buttonAddNewDay->SetWindowStyle( flatButton );
-    buttonCoitusRecordMinus->SetWindowStyle( flatButton );
-    buttonCoitusRecordPlus->SetWindowStyle( flatButton );
     buttonNextDay->SetWindowStyle( flatButton );
     buttonPreviousDay->SetWindowStyle( flatButton );
 
@@ -1477,8 +1579,6 @@ void dayFrame::setButtonsStyle() {
     buttonCancel->Refresh();
     buttonClose->Refresh();
     buttonAddNewDay->Refresh();
-    buttonCoitusRecordMinus->Refresh();
-    buttonCoitusRecordPlus->Refresh();
     buttonNextDay->Refresh();
     buttonPreviousDay->Refresh();
 }
@@ -1486,10 +1586,14 @@ void dayFrame::setButtonsStyle() {
 /**
  * update data displayed in the frame.
  */
-void dayFrame::update() {
+void dayFrame::update()
+{
     m_changes = 0;
+    m_newSexualRelations = 0;
     changesMenstruation->SetLabel( wxEmptyString );
-    changesCoitusRecord->SetLabel( wxEmptyString );
+    changesSexMorning->SetLabel( wxEmptyString );
+    changesSexDay->SetLabel( wxEmptyString );
+    changesSexEvening->SetLabel( wxEmptyString );
     changesOtherDisturbances->SetLabel( wxEmptyString );
     changesMucusFeeling->SetLabel( wxEmptyString );
     changesMucusAppearance->SetLabel( wxEmptyString );
@@ -1514,52 +1618,24 @@ void dayFrame::update() {
         date.Add( wxDateSpan::Days( m_cycleData->getActiveDay() - 1 ) );
         textDate->SetLabel( date.Format( _T( "%A, %d %B %Y" ) ) );
 
-        if ( m_cycleData->getActiveDay() == 1 ) {
-            buttonPreviousDay->Enable( false );
-        } else {
-            buttonPreviousDay->Enable( true );
-        }
-        if ( m_cycleData->getActiveDay() == m_cycleData->getDaysCount() ) {
-            buttonNextDay->Enable( false );
-        } else {
-            buttonNextDay->Enable( true );
-        }
-
-        if ( m_cycleData->getActiveCard() == m_cycleData->getCardsCount() ) {
-            buttonAddNewDay->Enable( true );
-        } else {
-            buttonAddNewDay->Enable( false );
-        }
+        buttonPreviousDay->Enable( m_cycleData->getActiveDay() != 1 );
+        buttonNextDay->Enable( m_cycleData->getActiveDay() != m_cycleData->getDaysCount() );
+        buttonAddNewDay->Enable( m_cycleData->getActiveCard() == m_cycleData->getCardsCount() );
 
         cardEntry * card = m_cycleData->getCard();
         dayEntry * day = m_cycleData->getDay();
 
         // box basic
-        if ( day->getMenstruation() == 1 ) {
-            checkBoxMenstruation1->SetValue( true );
-            checkBoxMenstruation2->SetValue( false );
-        } else if ( day->getMenstruation() == 2 ) {
-            checkBoxMenstruation1->SetValue( false );
-            checkBoxMenstruation2->SetValue( true );
-        } else {
-            checkBoxMenstruation1->SetValue( false );
-            checkBoxMenstruation2->SetValue( false );
-        }
+        checkBoxMenstruation1->SetValue( day->getMenstruation() == 1 );
+        checkBoxMenstruation2->SetValue( day->getMenstruation() == 2 );
+        checkBoxSexMorning->SetValue( day->getSexualRelationMorning() );
+        checkBoxSexDay->SetValue( day->getSexualRelationDay() );
+        checkBoxSexEvening->SetValue( day->getSexualRelationEvening() );
 
-        wxString output = _T( " " );
-        for ( int i = 0; i < day->getCoitusRecord(); i++ ) {
-            output += m_config->coitusRecordCharacter;
-        }
-        textCoitusRecord->SetFont( m_config->fontResultHeart );
-        textCoitusRecord->SetValue( output );
         if (m_config->useCoitusRecordCounter)
             textCoitusRecordCounter->SetLabel( m_util.intToStr( m_cycleData->getCoitusRecordCounter() ) );
 
-        if ( day->getOtherDisturbances() ) {
-            checkBoxOtherDisturbances->SetValue( true );
-        } else {
-            checkBoxOtherDisturbances->SetValue( false );
-        }
+        checkBoxOtherDisturbances->SetValue( day->getOtherDisturbances() );
 
         // box mucus
         if ( day->getMucusFeelingExperience() == MUCUS_DRY ) {
@@ -1688,17 +1764,12 @@ void dayFrame::update() {
             comboBoxMeasurementPlace->SetValue( string_placeVagina );
         }
 
-        if ( day->getTemperatureDisturbances() ) {
-            checkBoxTemperatureDisturbances->SetValue( true );
-        } else {
-            checkBoxTemperatureDisturbances->SetValue( false );
-        }
+        checkBoxTemperatureDisturbances->SetValue( day->getTemperatureDisturbances() );
 
         wxString t = m_util.temperatureToStr( day->getTemperatureAdditionalCorrection(), true );
         if ( t.IsEmpty() )
             t = _T( "0" );
         comboBoxAdditionalTemperatureCorrection->SetValue( t );
-
         updateTemperatureAfterCorectionsValue();
 
         // box cervix
@@ -1740,38 +1811,12 @@ void dayFrame::update() {
         }
 
         // box other
-        if ( day->getOvulationPain() == 1 ) {
-            checkBoxOvulationPain1->SetValue( true );
-            checkBoxOvulationPain2->SetValue( false );
-        } else if ( day->getOvulationPain() == 2 ) {
-            checkBoxOvulationPain1->SetValue( false );
-            checkBoxOvulationPain2->SetValue( true );
-        } else {
-            checkBoxOvulationPain1->SetValue( false );
-            checkBoxOvulationPain2->SetValue( false );
-        }
-
-        if ( day->getBreastsTension() == 1 ) {
-            checkBoxBreastsTension1->SetValue( true );
-            checkBoxBreastsTension2->SetValue( false );
-        } else if ( day->getBreastsTension() == 2 ) {
-            checkBoxBreastsTension1->SetValue( false );
-            checkBoxBreastsTension2->SetValue( true );
-        } else {
-            checkBoxBreastsTension1->SetValue( false );
-            checkBoxBreastsTension2->SetValue( false );
-        }
-
-        if ( day->getSpotting() == 1 ) {
-            checkBoxSpotting1->SetValue( true );
-            checkBoxSpotting2->SetValue( false );
-        } else if ( day->getSpotting() == 2 ) {
-            checkBoxSpotting1->SetValue( false );
-            checkBoxSpotting2->SetValue( true );
-        } else {
-            checkBoxSpotting1->SetValue( false );
-            checkBoxSpotting2->SetValue( false );
-        }
+        checkBoxOvulationPain1->SetValue( day->getOvulationPain() == 1 );
+        checkBoxOvulationPain2->SetValue( day->getOvulationPain() == 2 );
+        checkBoxBreastsTension1->SetValue( day->getBreastsTension() == 1 );
+        checkBoxBreastsTension2->SetValue( day->getBreastsTension() == 2 );
+        checkBoxSpotting1->SetValue( day->getSpotting() == 1 );
+        checkBoxSpotting2->SetValue( day->getSpotting() == 2 );
 
         textAdditionalNotes->SetValue( day->getAdditionalNotes() );
         textAdditionalNotes->SetInsertionPointEnd();
@@ -1793,7 +1838,8 @@ void dayFrame::update() {
 /**
  * update value of the 'm_temperatureAfterCorections' variable and refresh the field.
  */
-void dayFrame::updateTemperatureAfterCorectionsValue() {
+void dayFrame::updateTemperatureAfterCorectionsValue()
+{
     // reading data from fields
     if ( comboBoxMeasuredTemperature->GetValue().IsSameAs( m_none ) ) {
         m_temperatureAfterCorections = -1;
@@ -1824,7 +1870,8 @@ void dayFrame::updateTemperatureAfterCorectionsValue() {
 /**
  * update the buttons state (buttonSave, buttonCancel).
  */
-void dayFrame::updateButtonsState() {
+void dayFrame::updateButtonsState()
+{
     if (m_cycleData->getCard()->getCardLocked() || m_changes == 0) {
         buttonSave->Enable( false );
         buttonCancel->Enable( false );
@@ -1848,7 +1895,8 @@ void dayFrame::updateButtonsState() {
 /**
  * ask to save chages.
  */
-bool dayFrame::checkIfDataHasBeenChanged( bool cancelAllowed ) {
+bool dayFrame::checkIfDataHasBeenChanged( bool cancelAllowed )
+{
     if ( !m_cycleData->getCard()->getCardLocked() && m_changes > 0 ) {
         if (m_config->autosaveChanges) {
             save();
@@ -1878,7 +1926,8 @@ bool dayFrame::checkIfDataHasBeenChanged( bool cancelAllowed ) {
 /**
  *
  */
-int dayFrame::calculateMucusAppearance() {
+int dayFrame::calculateMucusAppearance()
+{
     int tmp = 0;
     if ( checkBoxMucusAppearanceOpaque->GetValue() ) {
         tmp += MUCUS_OPAQUE;
@@ -1927,7 +1976,8 @@ int dayFrame::calculateMucusAppearance() {
 /**
  * save updated data to the m_cycleData object and refresh the view.
  */
-bool dayFrame::save() {
+bool dayFrame::save()
+{
     if ( m_changes > 0 ) {
         if ( m_cycleData->getActiveCard() > 0 && m_cycleData->getActiveDay() > 0 ) {
             //cardEntry * card = m_cycleData->getCard();
@@ -1942,15 +1992,13 @@ bool dayFrame::save() {
                 day->setMenstruation( -1 );
             }
 
-            wxString output = textCoitusRecord->GetValue();
-            output = output.Trim( true );
-            output = output.Trim( false );
-
-            if ( !output.IsEmpty() ) {
-                day->setCoitusRecord( output.Length() );
-            } else {
-                day->setCoitusRecord( -1 );
+            if (m_config->useCoitusRecordCounter) {
+                m_cycleData->increaseCoitusRecordCounter( m_newSexualRelations );
             }
+
+            day->setSexualRelationMorning( checkBoxSexMorning->GetValue() );
+            day->setSexualRelationDay( checkBoxSexDay->GetValue() );
+            day->setSexualRelationEvening( checkBoxSexEvening->GetValue() );
 
             day->setOtherDisturbances( checkBoxOtherDisturbances->GetValue() );
 
@@ -2070,7 +2118,7 @@ bool dayFrame::save() {
             changesAdditionalTemperatureCorrection->GetLabel().IsSameAs( _T( "*" ) )
        ) {
         if ( m_cycleData->getCard()->getResultTemperatureHighLevelStart() > 0 ) {
-            m_cycleData->setResultTemperaturesLevels( m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
+            m_cycleData->setResultTemperatureLevels( m_config, m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
             sendDataUpdateEvent( ACTIVE_DAY_UPDATE_WITH_RESULTS, _T( "refresh current day and following if the row size will change. Also refresh previous and next day where temperature had been measured. Also refresh days with low and high levels of temperatures." ) );
         } else {
             sendDataUpdateEvent( ACTIVE_DAY_UPDATE_WITH_TEMP, _T( "refresh current day and following if the row size will change. Also refresh previous and next day where temperature had been measured." ) );
@@ -2085,7 +2133,8 @@ bool dayFrame::save() {
 /**
  *
  */
-void dayFrame::sendDataUpdateEvent( int id, wxString message ) {
+void dayFrame::sendDataUpdateEvent( int id, wxString message )
+{
     wxCommandEvent event( wxEVT_DAY_DATA_MODIFIED_EVENT, DAY_EVENT );
     event.SetInt( id );
     event.SetString( message );

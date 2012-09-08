@@ -57,16 +57,6 @@ const long configFrame::ID_staticBreastAutocontrolInterval1 = wxNewId();
 const long configFrame::ID_spinCtrlBreastAutocontrolInterval = wxNewId();
 const long configFrame::ID_staticBreastAutocontrolInterval2 = wxNewId();
 const long configFrame::ID_changesBreastAutocontrolInterval = wxNewId();
-const long configFrame::ID_staticUnits = wxNewId();
-const long configFrame::ID_space7 = wxNewId();
-const long configFrame::ID_staticLengthUnit = wxNewId();
-const long configFrame::ID_comboBoxLengthUnit = wxNewId();
-const long configFrame::ID_changesLengthUnit = wxNewId();
-const long configFrame::ID_space8 = wxNewId();
-const long configFrame::ID_staticTemperatureUnit = wxNewId();
-const long configFrame::ID_comboBoxTemperatureUnit = wxNewId();
-const long configFrame::ID_changesTemperatureUnit = wxNewId();
-const long configFrame::ID_staticTemperatureRange = wxNewId();
 const long configFrame::ID_space9 = wxNewId();
 const long configFrame::ID_staticTemperatureRangeHigh = wxNewId();
 const long configFrame::ID_comboBoxTemperatureRangeHigh = wxNewId();
@@ -78,6 +68,56 @@ const long configFrame::ID_comboBoxTemperatureRangeLow = wxNewId();
 const long configFrame::ID_staticTemperatureCorF2 = wxNewId();
 const long configFrame::ID_changesTemperatureRangeLow = wxNewId();
 const long configFrame::ID_panelApplication = wxNewId();
+const long configFrame::ID_checkBoxAutoanalyzeCard = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCard = wxNewId();
+const long configFrame::ID_STATICTEXT10 = wxNewId();
+const long configFrame::ID_STATICTEXT17 = wxNewId();
+const long configFrame::ID_STATICTEXT18 = wxNewId();
+const long configFrame::ID_spinMaxAllowedNotMesuredLowLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT19 = wxNewId();
+const long configFrame::ID_STATICTEXT11 = wxNewId();
+const long configFrame::ID_changesMaxAllowedNotMesuredLowLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT12 = wxNewId();
+const long configFrame::ID_spinMaxIncludedNotMesuredLowLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT15 = wxNewId();
+const long configFrame::ID_changesMaxIncludedNotMesuredLowLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT8 = wxNewId();
+const long configFrame::ID_STATICTEXT9 = wxNewId();
+const long configFrame::ID_spinMaxAllowedNotMesuredHighLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT21 = wxNewId();
+const long configFrame::ID_changesMaxAllowedNotMesuredHighLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT23 = wxNewId();
+const long configFrame::ID_STATICTEXT24 = wxNewId();
+const long configFrame::ID_spinMaxIncludedNotMesuredHighLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT25 = wxNewId();
+const long configFrame::ID_changesMaxIncludedNotMesuredHighLevelDays = wxNewId();
+const long configFrame::ID_STATICTEXT27 = wxNewId();
+const long configFrame::ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak = wxNewId();
+const long configFrame::ID_changesIncludeNotMesuredDaysIfAfterMucusPeak = wxNewId();
+const long configFrame::ID_STATICTEXT3 = wxNewId();
+const long configFrame::ID_STATICTEXT5 = wxNewId();
+const long configFrame::ID_STATICTEXT2 = wxNewId();
+const long configFrame::ID_spinNumberOfHistoricalCyclesToUse = wxNewId();
+const long configFrame::ID_STATICTEXT4 = wxNewId();
+const long configFrame::ID_changesNumberOfHistoricalCyclesToUse = wxNewId();
+const long configFrame::ID_STATICTEXT1 = wxNewId();
+const long configFrame::ID_STATICTEXT6 = wxNewId();
+const long configFrame::ID_STATICTEXT22 = wxNewId();
+const long configFrame::ID_comboBoxAutoanalyzeCardPreferResult1 = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCardPreferResult1 = wxNewId();
+const long configFrame::ID_STATICTEXT26 = wxNewId();
+const long configFrame::ID_comboBoxAutoanalyzeCardPreferResult2 = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCardPreferResult2 = wxNewId();
+const long configFrame::ID_STATICTEXT28 = wxNewId();
+const long configFrame::ID_comboBoxAutoanalyzeCardPreferResult3 = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCardPreferResult3 = wxNewId();
+const long configFrame::ID_STATICTEXT29 = wxNewId();
+const long configFrame::ID_comboBoxAutoanalyzeCardPreferResult4 = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCardPreferResult4 = wxNewId();
+const long configFrame::ID_STATICTEXT30 = wxNewId();
+const long configFrame::ID_comboBoxAutoanalyzeCardPreferResult5 = wxNewId();
+const long configFrame::ID_changesAutoanalyzeCardPreferResult5 = wxNewId();
+const long configFrame::ID_PANEL1 = wxNewId();
 const long configFrame::ID_staticColours = wxNewId();
 const long configFrame::ID_buttonColourBackground = wxNewId();
 const long configFrame::ID_changesColourBackground = wxNewId();
@@ -115,14 +155,17 @@ const long configFrame::ID_buttonFontResultHeader = wxNewId();
 const long configFrame::ID_changesFontResultHeader = wxNewId();
 const long configFrame::ID_buttonFontResultDefault = wxNewId();
 const long configFrame::ID_changesFontResultDefault = wxNewId();
-const long configFrame::ID_staticFontResultHeart = wxNewId();
-const long configFrame::ID_buttonFontResultHeart = wxNewId();
-const long configFrame::ID_changesFontResultHeart = wxNewId();
 const long configFrame::ID_buttonFontResultResults = wxNewId();
 const long configFrame::ID_changesFontResultResults = wxNewId();
 const long configFrame::ID_buttonFontResultPhases = wxNewId();
 const long configFrame::ID_changesFontResultPhases = wxNewId();
 const long configFrame::ID_panelFonts = wxNewId();
+const long configFrame::ID_staticLengthUnit = wxNewId();
+const long configFrame::ID_comboBoxLengthUnit = wxNewId();
+const long configFrame::ID_changesLengthUnit = wxNewId();
+const long configFrame::ID_staticTemperatureUnit = wxNewId();
+const long configFrame::ID_comboBoxTemperatureUnit = wxNewId();
+const long configFrame::ID_changesTemperatureUnit = wxNewId();
 const long configFrame::ID_buttonSetDefaults = wxNewId();
 const long configFrame::ID_panelOther = wxNewId();
 const long configFrame::ID_notebook = wxNewId();
@@ -149,50 +192,68 @@ const wxEventType wxEVT_CONFIG_DATA_MODIFIED_EVENT = wxNewEventType();
 /**
  *
  */
-configFrame::configFrame(wxWindow* parent,configClass *config, wxWindowID id,const wxPoint& pos,const wxSize& size) {
+configFrame::configFrame(wxWindow* parent,configClass *config, size_t pageNo, wxWindowID id,const wxPoint& pos,const wxSize& size)
+{
     m_parent = parent;
     m_config = config;
 
     buildGui(parent);
 
     update();
+
+    notebook->ChangeSelection(pageNo);
 }
 
-void configFrame::buildGui(wxWindow* parent) {
+void configFrame::buildGui(wxWindow* parent)
+{
     //(*Initialize(configFrame)
+    wxBoxSizer* BoxSizer4;
+    wxStaticBoxSizer* StaticBoxSizer2;
     wxBoxSizer* sizerMain2;
+    wxBoxSizer* BoxSizer6;
     wxStaticBoxSizer* sizerFonts1;
     wxBoxSizer* sizerGeneral6;
-    wxBoxSizer* sizerFonts3;
+    wxBoxSizer* BoxSizer5;
+    wxBoxSizer* BoxSizer7;
+    wxBoxSizer* BoxSizer8;
     wxFlexGridSizer* sizerApplication2;
     wxFlexGridSizer* sizerGeneral5;
     wxBoxSizer* sizerMain1;
     wxFlexGridSizer* sizerApplication5;
+    wxFlexGridSizer* FlexGridSizer3;
     wxStaticBoxSizer* sizerOther1;
     wxBoxSizer* sizerGeneral;
+    wxStaticBoxSizer* sizerApplication7;
+    wxBoxSizer* BoxSizer2;
     wxBoxSizer* sizerOther;
     wxStaticBoxSizer* sizerGeneral2;
     wxFlexGridSizer* sizerGeneral4;
     wxFlexGridSizer* sizerFonts2;
-    wxFlexGridSizer* sizerApplication4;
+    wxStaticBoxSizer* StaticBoxSizer3;
     wxBoxSizer* sizerButtons;
     wxBoxSizer* sizerColours3;
+    wxFlexGridSizer* sizerOther2;
     wxBoxSizer* sizerColours;
     wxFlexGridSizer* sizerApplication3;
     wxFlexGridSizer* sizerColours4;
+    wxFlexGridSizer* sizerApplication6;
+    wxBoxSizer* BoxSizer1;
     wxBoxSizer* sizerGeneral7;
     wxStaticBoxSizer* sizerGeneral3;
     wxBoxSizer* sizerFonts;
     wxFlexGridSizer* sizerColours2;
     wxBoxSizer* sizerApplication;
+    wxStaticBoxSizer* StaticBoxSizer1;
+    wxFlexGridSizer* FlexGridSizer1;
     wxStaticBoxSizer* sizerColours1;
+    wxBoxSizer* BoxSizer3;
     wxStaticBoxSizer* sizerApplication1;
 
-    Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("NFP - settings"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);
     panelMain = new wxPanel(this, ID_panelMain, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelMain"));
     sizerMain2 = new wxBoxSizer(wxVERTICAL);
-    notebook = new wxNotebook(panelMain, ID_notebook, wxDefaultPosition, wxDefaultSize, 0, _T("ID_notebook"));
+    notebook = new wxNotebook(panelMain, ID_notebook, wxDefaultPosition, wxDefaultSize, wxNB_TOP, _T("ID_notebook"));
     panelGeneral = new wxPanel(notebook, ID_panelGeneral, wxPoint(64,35), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelGeneral"));
     sizerGeneral = new wxBoxSizer(wxVERTICAL);
     sizerGeneral2 = new wxStaticBoxSizer(wxHORIZONTAL, panelGeneral, wxEmptyString);
@@ -254,12 +315,12 @@ void configFrame::buildGui(wxWindow* parent) {
     changesUpdatesProxy->SetForegroundColour(wxColour(255,0,0));
     sizerGeneral5->Add(changesUpdatesProxy, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerGeneral3->Add(sizerGeneral5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerGeneral->Add(sizerGeneral3, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral->Add(sizerGeneral3, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelGeneral->SetSizer(sizerGeneral);
     sizerGeneral->Fit(panelGeneral);
     sizerGeneral->SetSizeHints(panelGeneral);
     panelApplication = new wxPanel(notebook, ID_panelApplication, wxPoint(71,10), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelApplication"));
-    sizerApplication = new wxBoxSizer(wxHORIZONTAL);
+    sizerApplication = new wxBoxSizer(wxVERTICAL);
     sizerApplication1 = new wxStaticBoxSizer(wxVERTICAL, panelApplication, wxEmptyString);
     sizerApplication2 = new wxFlexGridSizer(0, 2, 0, 0);
     sizerApplication2->AddGrowableCol(0);
@@ -300,76 +361,42 @@ void configFrame::buildGui(wxWindow* parent) {
     sizerApplication2->Add(changesBreastsAutocontrolReminder, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerApplication1->Add(sizerApplication2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerApplication3 = new wxFlexGridSizer(0, 5, 0, 0);
-    sizerApplication3->AddGrowableCol(1);
+    sizerApplication3->AddGrowableCol(0);
     space5 = new wxStaticText(panelApplication, ID_space5, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space5"));
     space5->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication3->Add(space5, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication3->Add(space5, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
     staticBreastsAutocontrolReminderDay1 = new wxStaticText(panelApplication, ID_staticBreastsAutocontrolReminderDay1, _("Remind at"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBreastsAutocontrolReminderDay1"));
     staticBreastsAutocontrolReminderDay1->SetToolTip(_("Set on which day of cycle the application should remind about breast self-control."));
-    sizerApplication3->Add(staticBreastsAutocontrolReminderDay1, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(staticBreastsAutocontrolReminderDay1, 0, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinCtrlBreastsAutocontrolReminderDay = new wxSpinCtrl(panelApplication, ID_spinCtrlBreastsAutocontrolReminderDay, _T("6"), wxDefaultPosition, wxSize(60,-1), 0, 1, 30, 6, _T("ID_spinCtrlBreastsAutocontrolReminderDay"));
     spinCtrlBreastsAutocontrolReminderDay->SetValue(_T("6"));
     spinCtrlBreastsAutocontrolReminderDay->SetToolTip(_("Set on which day of cycle the application should remind about breast self-control."));
-    sizerApplication3->Add(spinCtrlBreastsAutocontrolReminderDay, 0, wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(spinCtrlBreastsAutocontrolReminderDay, 0, wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     staticBreastsAutocontrolReminderDay2 = new wxStaticText(panelApplication, ID_staticBreastsAutocontrolReminderDay2, _("day of cycle"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBreastsAutocontrolReminderDay2"));
     staticBreastsAutocontrolReminderDay2->SetToolTip(_("Set on which day of cycle the application should remind about breast self-control."));
-    sizerApplication3->Add(staticBreastsAutocontrolReminderDay2, 0, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(staticBreastsAutocontrolReminderDay2, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     changesBreastsAutocontrolReminderDay = new wxStaticText(panelApplication, ID_changesBreastsAutocontrolReminderDay, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesBreastsAutocontrolReminderDay"));
     changesBreastsAutocontrolReminderDay->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication3->Add(changesBreastsAutocontrolReminderDay, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication3->Add(changesBreastsAutocontrolReminderDay, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
     space6 = new wxStaticText(panelApplication, ID_space6, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space6"));
     space6->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication3->Add(space6, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(space6, 0, wxBOTTOM|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     staticBreastAutocontrolInterval1 = new wxStaticText(panelApplication, ID_staticBreastAutocontrolInterval1, _("Remind every"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBreastAutocontrolInterval1"));
     staticBreastAutocontrolInterval1->SetToolTip(_("When the cycle is longer than reminder day defined above plus number of days defined here\nthen remind again about breast self-control.\nThis option is usefull during pregnancy and breast-feed time, when the cycle\'s \'length\' is 200 days or more ;-)"));
-    sizerApplication3->Add(staticBreastAutocontrolInterval1, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(staticBreastAutocontrolInterval1, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinCtrlBreastAutocontrolInterval = new wxSpinCtrl(panelApplication, ID_spinCtrlBreastAutocontrolInterval, _T("30"), wxDefaultPosition, wxSize(60,-1), 0, 10, 50, 30, _T("ID_spinCtrlBreastAutocontrolInterval"));
     spinCtrlBreastAutocontrolInterval->SetValue(_T("30"));
     spinCtrlBreastAutocontrolInterval->SetToolTip(_("When the cycle is longer than reminder day defined above plus number of days defined here\nthen remind again about breast self-control.\nThis option is usefull during pregnancy and breast-feed time, when the cycle\'s \'length\' is 200 days or more ;-)"));
-    sizerApplication3->Add(spinCtrlBreastAutocontrolInterval, 0, wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(spinCtrlBreastAutocontrolInterval, 0, wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     staticBreastAutocontrolInterval2 = new wxStaticText(panelApplication, ID_staticBreastAutocontrolInterval2, _("days"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBreastAutocontrolInterval2"));
     staticBreastAutocontrolInterval2->SetToolTip(_("When the cycle is longer than reminder day defined above plus number of days defined here\nthen remind again about breast self-control.\nThis option is usefull during pregnancy and breast-feed time, when the cycle\'s \'length\' is 200 days or more ;-)"));
-    sizerApplication3->Add(staticBreastAutocontrolInterval2, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(staticBreastAutocontrolInterval2, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     changesBreastAutocontrolInterval = new wxStaticText(panelApplication, ID_changesBreastAutocontrolInterval, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesBreastAutocontrolInterval"));
     changesBreastAutocontrolInterval->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication3->Add(changesBreastAutocontrolInterval, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication1->Add(sizerApplication3, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    staticUnits = new wxStaticText(panelApplication, ID_staticUnits, _("Units used in application:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticUnits"));
-    staticUnits->Disable();
-    sizerApplication1->Add(staticUnits, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication4 = new wxFlexGridSizer(0, 4, 0, 0);
-    sizerApplication4->AddGrowableCol(1);
-    space7 = new wxStaticText(panelApplication, ID_space7, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space7"));
-    space7->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication4->Add(space7, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    staticLengthUnit = new wxStaticText(panelApplication, ID_staticLengthUnit, _("Length unit"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticLengthUnit"));
-    staticLengthUnit->Disable();
-    staticLengthUnit->SetToolTip(_("Choose if you want to use centimiter or inch as a length unit."));
-    sizerApplication4->Add(staticLengthUnit, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    comboBoxLengthUnit = new wxComboBox(panelApplication, ID_comboBoxLengthUnit, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxLengthUnit"));
-    comboBoxLengthUnit->Disable();
-    comboBoxLengthUnit->SetToolTip(_("Choose if you want to use centimiter or inch as a length unit."));
-    sizerApplication4->Add(comboBoxLengthUnit, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesLengthUnit = new wxStaticText(panelApplication, ID_changesLengthUnit, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesLengthUnit"));
-    changesLengthUnit->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication4->Add(changesLengthUnit, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    space8 = new wxStaticText(panelApplication, ID_space8, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space8"));
-    space8->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication4->Add(space8, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    staticTemperatureUnit = new wxStaticText(panelApplication, ID_staticTemperatureUnit, _("Temperature unit"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemperatureUnit"));
-    staticTemperatureUnit->Disable();
-    staticTemperatureUnit->SetToolTip(_("Choose if you want to use Celsius or Fahrenheit as a temperature unit."));
-    sizerApplication4->Add(staticTemperatureUnit, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    comboBoxTemperatureUnit = new wxComboBox(panelApplication, ID_comboBoxTemperatureUnit, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxTemperatureUnit"));
-    comboBoxTemperatureUnit->Disable();
-    comboBoxTemperatureUnit->SetToolTip(_("Choose if you want to use Celsius or Fahrenheit as a temperature unit."));
-    sizerApplication4->Add(comboBoxTemperatureUnit, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesTemperatureUnit = new wxStaticText(panelApplication, ID_changesTemperatureUnit, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesTemperatureUnit"));
-    changesTemperatureUnit->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication4->Add(changesTemperatureUnit, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication1->Add(sizerApplication4, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    staticTemperatureRange = new wxStaticText(panelApplication, ID_staticTemperatureRange, _("Temperatures\' range on the chart:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemperatureRange"));
-    sizerApplication1->Add(staticTemperatureRange, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication3->Add(changesBreastAutocontrolInterval, 0, wxBOTTOM|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication1->Add(sizerApplication3, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication->Add(sizerApplication1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication7 = new wxStaticBoxSizer(wxHORIZONTAL, panelApplication, _("Temperatures\' range on the chart"));
     sizerApplication5 = new wxFlexGridSizer(0, 5, 0, 0);
     sizerApplication5->AddGrowableCol(1);
     space9 = new wxStaticText(panelApplication, ID_space9, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space9"));
@@ -377,7 +404,7 @@ void configFrame::buildGui(wxWindow* parent) {
     sizerApplication5->Add(space9, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     staticTemperatureRangeHigh = new wxStaticText(panelApplication, ID_staticTemperatureRangeHigh, _("High temperature"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemperatureRangeHigh"));
     staticTemperatureRangeHigh->SetToolTip(_("Define the high temperature of the chart.\nHighest temperature will be printed outside of the chart."));
-    sizerApplication5->Add(staticTemperatureRangeHigh, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication5->Add(staticTemperatureRangeHigh, 0, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     comboBoxTemperatureRangeHigh = new wxComboBox(panelApplication, ID_comboBoxTemperatureRangeHigh, wxEmptyString, wxDefaultPosition, wxSize(100,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxTemperatureRangeHigh"));
     comboBoxTemperatureRangeHigh->SetToolTip(_("Define the high temperature of the chart.\nHighest temperature will be printed outside of the chart."));
     sizerApplication5->Add(comboBoxTemperatureRangeHigh, 0, wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -391,7 +418,7 @@ void configFrame::buildGui(wxWindow* parent) {
     sizerApplication5->Add(space10, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticTemperatureRangeLow = new wxStaticText(panelApplication, ID_staticTemperatureRangeLow, _("Low temperature"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemperatureRangeLow"));
     staticTemperatureRangeLow->SetToolTip(_("Define the low temperature of the chart.\nLowest temperature will be printed outside of the chart."));
-    sizerApplication5->Add(staticTemperatureRangeLow, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication5->Add(staticTemperatureRangeLow, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     comboBoxTemperatureRangeLow = new wxComboBox(panelApplication, ID_comboBoxTemperatureRangeLow, wxEmptyString, wxDefaultPosition, wxSize(100,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxTemperatureRangeLow"));
     comboBoxTemperatureRangeLow->SetToolTip(_("Define the low temperature of the chart.\nLowest temperature will be printed outside of the chart."));
     sizerApplication5->Add(comboBoxTemperatureRangeLow, 0, wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -400,11 +427,159 @@ void configFrame::buildGui(wxWindow* parent) {
     changesTemperatureRangeLow = new wxStaticText(panelApplication, ID_changesTemperatureRangeLow, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesTemperatureRangeLow"));
     changesTemperatureRangeLow->SetForegroundColour(wxColour(255,0,0));
     sizerApplication5->Add(changesTemperatureRangeLow, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication1->Add(sizerApplication5, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerApplication->Add(sizerApplication1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication7->Add(sizerApplication5, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication->Add(sizerApplication7, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelApplication->SetSizer(sizerApplication);
     sizerApplication->Fit(panelApplication);
     sizerApplication->SetSizeHints(panelApplication);
+    PanelAnalysis = new wxPanel(notebook, ID_PANEL1, wxPoint(108,8), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+    StaticBoxSizer3 = new wxStaticBoxSizer(wxVERTICAL, PanelAnalysis, wxEmptyString);
+    BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
+    checkBoxAutoanalyzeCard = new wxCheckBox(PanelAnalysis, ID_checkBoxAutoanalyzeCard, _("Analyze card automatically after data changes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutoanalyzeCard"));
+    checkBoxAutoanalyzeCard->SetValue(false);
+    checkBoxAutoanalyzeCard->SetToolTip(_("Everytime after updating cycle\'s data, run auto-analysis"));
+    BoxSizer2->Add(checkBoxAutoanalyzeCard, 1, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutoanalyzeCard = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCard, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutoanalyzeCard"));
+    changesAutoanalyzeCard->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer2->Add(changesAutoanalyzeCard, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(BoxSizer2, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText8 = new wxStaticText(PanelAnalysis, ID_STATICTEXT10, _("What to do with days with disrupted or not measured\ntemperature while calculating low- and high levels:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
+    StaticBoxSizer3->Add(StaticText8, 0, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer3 = new wxFlexGridSizer(0, 5, 0, 0);
+    FlexGridSizer3->AddGrowableCol(1);
+    StaticText15 = new wxStaticText(PanelAnalysis, ID_STATICTEXT17, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT17"));
+    FlexGridSizer3->Add(StaticText15, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText16 = new wxStaticText(PanelAnalysis, ID_STATICTEXT18, _("- allow maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT18"));
+    FlexGridSizer3->Add(StaticText16, 0, wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    spinMaxAllowedNotMesuredLowLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxAllowedNotMesuredLowLevelDays, _T("3"), wxDefaultPosition, wxSize(60,-1), 0, 0, 10, 3, _T("ID_spinMaxAllowedNotMesuredLowLevelDays"));
+    spinMaxAllowedNotMesuredLowLevelDays->SetValue(_T("3"));
+    FlexGridSizer3->Add(spinMaxAllowedNotMesuredLowLevelDays, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText17 = new wxStaticText(PanelAnalysis, ID_STATICTEXT19, _("such days in low-level"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT19"));
+    FlexGridSizer3->Add(StaticText17, 1, wxTOP|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText9 = new wxStaticText(PanelAnalysis, ID_STATICTEXT11, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT11"));
+    FlexGridSizer3->Add(StaticText9, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesMaxAllowedNotMesuredLowLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxAllowedNotMesuredLowLevelDays, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_changesMaxAllowedNotMesuredLowLevelDays"));
+    changesMaxAllowedNotMesuredLowLevelDays->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer3->Add(changesMaxAllowedNotMesuredLowLevelDays, 0, wxTOP|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText10 = new wxStaticText(PanelAnalysis, ID_STATICTEXT12, _("- accept maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
+    FlexGridSizer3->Add(StaticText10, 0, wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    spinMaxIncludedNotMesuredLowLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxIncludedNotMesuredLowLevelDays, _T("2"), wxDefaultPosition, wxSize(60,-1), 0, 0, 5, 2, _T("ID_spinMaxIncludedNotMesuredLowLevelDays"));
+    spinMaxIncludedNotMesuredLowLevelDays->SetValue(_T("2"));
+    FlexGridSizer3->Add(spinMaxIncludedNotMesuredLowLevelDays, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText13 = new wxStaticText(PanelAnalysis, ID_STATICTEXT15, _("such days as low-level days"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT15"));
+    FlexGridSizer3->Add(StaticText13, 1, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesMaxIncludedNotMesuredLowLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxIncludedNotMesuredLowLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxIncludedNotMesuredLowLevelDays"));
+    changesMaxIncludedNotMesuredLowLevelDays->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer3->Add(changesMaxIncludedNotMesuredLowLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText6 = new wxStaticText(PanelAnalysis, ID_STATICTEXT8, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT8"));
+    FlexGridSizer3->Add(StaticText6, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText7 = new wxStaticText(PanelAnalysis, ID_STATICTEXT9, _("- allow maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
+    FlexGridSizer3->Add(StaticText7, 0, wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    spinMaxAllowedNotMesuredHighLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxAllowedNotMesuredHighLevelDays, _T("1"), wxDefaultPosition, wxSize(60,-1), 0, 0, 10, 1, _T("ID_spinMaxAllowedNotMesuredHighLevelDays"));
+    spinMaxAllowedNotMesuredHighLevelDays->SetValue(_T("1"));
+    FlexGridSizer3->Add(spinMaxAllowedNotMesuredHighLevelDays, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText19 = new wxStaticText(PanelAnalysis, ID_STATICTEXT21, _("such days in high-level"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT21"));
+    FlexGridSizer3->Add(StaticText19, 1, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesMaxAllowedNotMesuredHighLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxAllowedNotMesuredHighLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxAllowedNotMesuredHighLevelDays"));
+    changesMaxAllowedNotMesuredHighLevelDays->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer3->Add(changesMaxAllowedNotMesuredHighLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText21 = new wxStaticText(PanelAnalysis, ID_STATICTEXT23, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT23"));
+    FlexGridSizer3->Add(StaticText21, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText22 = new wxStaticText(PanelAnalysis, ID_STATICTEXT24, _("- accept maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT24"));
+    FlexGridSizer3->Add(StaticText22, 0, wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    spinMaxIncludedNotMesuredHighLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxIncludedNotMesuredHighLevelDays, _T("1"), wxDefaultPosition, wxSize(60,-1), 0, 0, 3, 1, _T("ID_spinMaxIncludedNotMesuredHighLevelDays"));
+    spinMaxIncludedNotMesuredHighLevelDays->SetValue(_T("1"));
+    FlexGridSizer3->Add(spinMaxIncludedNotMesuredHighLevelDays, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText23 = new wxStaticText(PanelAnalysis, ID_STATICTEXT25, _("such days as high-level days"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT25"));
+    FlexGridSizer3->Add(StaticText23, 1, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesMaxIncludedNotMesuredHighLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxIncludedNotMesuredHighLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxIncludedNotMesuredHighLevelDays"));
+    changesMaxIncludedNotMesuredHighLevelDays->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer3->Add(changesMaxIncludedNotMesuredHighLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(FlexGridSizer3, 0, wxTOP|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText25 = new wxStaticText(PanelAnalysis, ID_STATICTEXT27, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT27"));
+    BoxSizer4->Add(StaticText25, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxIncludeNotMesuredDaysIfAfterMucusPeak = new wxCheckBox(PanelAnalysis, ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak, _("only if 1st day of high level temp. is after mucus peak day"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak"));
+    checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->SetValue(true);
+    BoxSizer4->Add(checkBoxIncludeNotMesuredDaysIfAfterMucusPeak, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesIncludeNotMesuredDaysIfAfterMucusPeak = new wxStaticText(PanelAnalysis, ID_changesIncludeNotMesuredDaysIfAfterMucusPeak, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesIncludeNotMesuredDaysIfAfterMucusPeak"));
+    changesIncludeNotMesuredDaysIfAfterMucusPeak->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer4->Add(changesIncludeNotMesuredDaysIfAfterMucusPeak, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(BoxSizer4, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6 = new wxFlexGridSizer(0, 2, 0, 0);
+    sizerApplication6->AddGrowableCol(0);
+    staticAlalysis1 = new wxStaticText(PanelAnalysis, ID_STATICTEXT3, _("When calculating begining of the fertile phase:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
+    sizerApplication6->Add(staticAlalysis1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticAnalysis2 = new wxStaticText(PanelAnalysis, ID_STATICTEXT5, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_STATICTEXT5"));
+    sizerApplication6->Add(staticAnalysis2, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1 = new wxFlexGridSizer(0, 5, 0, 0);
+    FlexGridSizer1->AddGrowableCol(0);
+    StaticText2 = new wxStaticText(PanelAnalysis, ID_STATICTEXT2, _("- use historical data from last max"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
+    FlexGridSizer1->Add(StaticText2, 1, wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 10);
+    spinNumberOfHistoricalCyclesToUse = new wxSpinCtrl(PanelAnalysis, ID_spinNumberOfHistoricalCyclesToUse, _T("12"), wxDefaultPosition, wxSize(60,-1), 0, 6, 36, 12, _T("ID_spinNumberOfHistoricalCyclesToUse"));
+    spinNumberOfHistoricalCyclesToUse->SetValue(_T("12"));
+    FlexGridSizer1->Add(spinNumberOfHistoricalCyclesToUse, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText3 = new wxStaticText(PanelAnalysis, ID_STATICTEXT4, _("cycles"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
+    FlexGridSizer1->Add(StaticText3, 0, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(FlexGridSizer1, 1, wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesNumberOfHistoricalCyclesToUse = new wxStaticText(PanelAnalysis, ID_changesNumberOfHistoricalCyclesToUse, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesNumberOfHistoricalCyclesToUse"));
+    changesNumberOfHistoricalCyclesToUse->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesNumberOfHistoricalCyclesToUse, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    StaticText1 = new wxStaticText(PanelAnalysis, ID_STATICTEXT1, _("- sort calculated results in following order:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
+    sizerApplication6->Add(StaticText1, 1, wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 10);
+    StaticText4 = new wxStaticText(PanelAnalysis, ID_STATICTEXT6, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_STATICTEXT6"));
+    sizerApplication6->Add(StaticText4, 1, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText20 = new wxStaticText(PanelAnalysis, ID_STATICTEXT22, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT22"));
+    BoxSizer3->Add(StaticText20, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxAutoanalyzeCardPreferResult1 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult1"));
+    BoxSizer3->Add(comboBoxAutoanalyzeCardPreferResult1, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer3, 1, wxTOP|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutoanalyzeCardPreferResult1 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult1, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult1"));
+    changesAutoanalyzeCardPreferResult1->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesAutoanalyzeCardPreferResult1, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer5 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText24 = new wxStaticText(PanelAnalysis, ID_STATICTEXT26, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT26"));
+    BoxSizer5->Add(StaticText24, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxAutoanalyzeCardPreferResult2 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult2"));
+    BoxSizer5->Add(comboBoxAutoanalyzeCardPreferResult2, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer5, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    changesAutoanalyzeCardPreferResult2 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult2, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult2"));
+    changesAutoanalyzeCardPreferResult2->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesAutoanalyzeCardPreferResult2, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText26 = new wxStaticText(PanelAnalysis, ID_STATICTEXT28, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT28"));
+    BoxSizer6->Add(StaticText26, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxAutoanalyzeCardPreferResult3 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult3"));
+    BoxSizer6->Add(comboBoxAutoanalyzeCardPreferResult3, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer6, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    changesAutoanalyzeCardPreferResult3 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult3, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult3"));
+    changesAutoanalyzeCardPreferResult3->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesAutoanalyzeCardPreferResult3, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText27 = new wxStaticText(PanelAnalysis, ID_STATICTEXT29, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT29"));
+    BoxSizer7->Add(StaticText27, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxAutoanalyzeCardPreferResult4 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult4, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult4"));
+    BoxSizer7->Add(comboBoxAutoanalyzeCardPreferResult4, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer7, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    changesAutoanalyzeCardPreferResult4 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult4, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult4"));
+    changesAutoanalyzeCardPreferResult4->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesAutoanalyzeCardPreferResult4, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer8 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText28 = new wxStaticText(PanelAnalysis, ID_STATICTEXT30, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT30"));
+    BoxSizer8->Add(StaticText28, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxAutoanalyzeCardPreferResult5 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult5, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult5"));
+    BoxSizer8->Add(comboBoxAutoanalyzeCardPreferResult5, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer8, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
+    changesAutoanalyzeCardPreferResult5 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult5, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult5"));
+    changesAutoanalyzeCardPreferResult5->SetForegroundColour(wxColour(255,0,0));
+    sizerApplication6->Add(changesAutoanalyzeCardPreferResult5, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(sizerApplication6, 1, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(StaticBoxSizer3, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    PanelAnalysis->SetSizer(BoxSizer1);
+    BoxSizer1->Fit(PanelAnalysis);
+    BoxSizer1->SetSizeHints(PanelAnalysis);
     panelColours = new wxPanel(notebook, ID_panelColours, wxPoint(151,13), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelColours"));
     sizerColours = new wxBoxSizer(wxHORIZONTAL);
     sizerColours1 = new wxStaticBoxSizer(wxVERTICAL, panelColours, wxEmptyString);
@@ -547,16 +722,6 @@ void configFrame::buildGui(wxWindow* parent) {
     changesFontResultDefault = new wxStaticText(panelFonts, ID_changesFontResultDefault, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesFontResultDefault"));
     changesFontResultDefault->SetForegroundColour(wxColour(255,0,0));
     sizerFonts2->Add(changesFontResultDefault, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
-    sizerFonts3 = new wxBoxSizer(wxHORIZONTAL);
-    staticFontResultHeart = new wxStaticText(panelFonts, ID_staticFontResultHeart, _("Character in the \'coitus record\' row"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticFontResultHeart"));
-    sizerFonts3->Add(staticFontResultHeart, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 10);
-    buttonFontResultHeart = new wxButton(panelFonts, ID_buttonFontResultHeart, wxEmptyString, wxDefaultPosition, wxSize(-1,30), 0, wxDefaultValidator, _T("ID_buttonFontResultHeart"));
-    buttonFontResultHeart->SetToolTip(_("Set colour and size of the character used in the \'coitus record\' row."));
-    sizerFonts3->Add(buttonFontResultHeart, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerFonts2->Add(sizerFonts3, 1, wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
-    changesFontResultHeart = new wxStaticText(panelFonts, ID_changesFontResultHeart, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesFontResultHeart"));
-    changesFontResultHeart->SetForegroundColour(wxColour(255,0,0));
-    sizerFonts2->Add(changesFontResultHeart, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
     buttonFontResultResults = new wxButton(panelFonts, ID_buttonFontResultResults, _("Results\' rows in the chart"), wxDefaultPosition, wxSize(-1,30), 0, wxDefaultValidator, _T("ID_buttonFontResultResults"));
     buttonFontResultResults->SetToolTip(_("Set font and colour of charactes in results\' rows on the chart (mucus and cervix peaks)."));
     sizerFonts2->Add(buttonFontResultResults, 1, wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 2);
@@ -575,17 +740,47 @@ void configFrame::buildGui(wxWindow* parent) {
     sizerFonts->Fit(panelFonts);
     sizerFonts->SetSizeHints(panelFonts);
     panelOther = new wxPanel(notebook, ID_panelOther, wxPoint(108,8), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelOther"));
-    sizerOther = new wxBoxSizer(wxHORIZONTAL);
-    sizerOther1 = new wxStaticBoxSizer(wxHORIZONTAL, panelOther, wxEmptyString);
+    sizerOther = new wxBoxSizer(wxVERTICAL);
+    sizerOther1 = new wxStaticBoxSizer(wxVERTICAL, panelOther, _("Units used in application"));
+    sizerOther2 = new wxFlexGridSizer(0, 3, 0, 0);
+    sizerOther2->AddGrowableCol(1);
+    staticLengthUnit = new wxStaticText(panelOther, ID_staticLengthUnit, _("Length unit"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticLengthUnit"));
+    staticLengthUnit->Disable();
+    staticLengthUnit->SetToolTip(_("Choose if you want to use centimiter or inch as a length unit."));
+    sizerOther2->Add(staticLengthUnit, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxLengthUnit = new wxComboBox(panelOther, ID_comboBoxLengthUnit, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxLengthUnit"));
+    comboBoxLengthUnit->Disable();
+    comboBoxLengthUnit->SetToolTip(_("Choose if you want to use centimiter or inch as a length unit."));
+    sizerOther2->Add(comboBoxLengthUnit, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesLengthUnit = new wxStaticText(panelOther, ID_changesLengthUnit, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesLengthUnit"));
+    changesLengthUnit->SetForegroundColour(wxColour(255,0,0));
+    sizerOther2->Add(changesLengthUnit, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticTemperatureUnit = new wxStaticText(panelOther, ID_staticTemperatureUnit, _("Temperature unit"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemperatureUnit"));
+    staticTemperatureUnit->Disable();
+    staticTemperatureUnit->SetToolTip(_("Choose if you want to use Celsius or Fahrenheit as a temperature unit."));
+    sizerOther2->Add(staticTemperatureUnit, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxTemperatureUnit = new wxComboBox(panelOther, ID_comboBoxTemperatureUnit, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxTemperatureUnit"));
+    comboBoxTemperatureUnit->Disable();
+    comboBoxTemperatureUnit->SetToolTip(_("Choose if you want to use Celsius or Fahrenheit as a temperature unit."));
+    sizerOther2->Add(comboBoxTemperatureUnit, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesTemperatureUnit = new wxStaticText(panelOther, ID_changesTemperatureUnit, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesTemperatureUnit"));
+    changesTemperatureUnit->SetForegroundColour(wxColour(255,0,0));
+    sizerOther2->Add(changesTemperatureUnit, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther1->Add(sizerOther2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther->Add(sizerOther1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, panelOther, wxEmptyString);
+    sizerOther->Add(StaticBoxSizer2, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, panelOther, wxEmptyString);
     buttonSetDefaults = new wxButton(panelOther, ID_buttonSetDefaults, _("Restore defaults settings"), wxDefaultPosition, wxSize(-1,30), 0, wxDefaultValidator, _T("ID_buttonSetDefaults"));
     buttonSetDefaults->SetToolTip(_("Restore defaults settings of all application parameters,\n except application language."));
-    sizerOther1->Add(buttonSetDefaults, 1, wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL, 5);
-    sizerOther->Add(sizerOther1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer1->Add(buttonSetDefaults, 1, wxALL|wxEXPAND|wxALIGN_BOTTOM|wxALIGN_CENTER_HORIZONTAL, 5);
+    sizerOther->Add(StaticBoxSizer1, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelOther->SetSizer(sizerOther);
     sizerOther->Fit(panelOther);
     sizerOther->SetSizeHints(panelOther);
     notebook->AddPage(panelGeneral, _("General"), false);
     notebook->AddPage(panelApplication, _("Application"), false);
+    notebook->AddPage(PanelAnalysis, _("Analysis"), false);
     notebook->AddPage(panelColours, _("Colours"), false);
     notebook->AddPage(panelFonts, _("Fonts"), false);
     notebook->AddPage(panelOther, _("Other"), false);
@@ -623,10 +818,20 @@ void configFrame::buildGui(wxWindow* parent) {
     Connect(ID_checkBoxBreastsAutocontrolReminder,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxBreastsAutocontrolReminderClick);
     Connect(ID_spinCtrlBreastsAutocontrolReminderDay,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated);
     Connect(ID_spinCtrlBreastAutocontrolInterval,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinCtrlBreastAutocontrolIntervalUpdated);
-    Connect(ID_comboBoxLengthUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxLengthUnitUpdated);
-    Connect(ID_comboBoxTemperatureUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureUnitUpdated);
     Connect(ID_comboBoxTemperatureRangeHigh,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureRangeHighUpdated);
     Connect(ID_comboBoxTemperatureRangeLow,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureRangeLowUpdated);
+    Connect(ID_checkBoxAutoanalyzeCard,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutoanalyzeCardClick);
+    Connect(ID_spinMaxAllowedNotMesuredLowLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxAllowedNotMesuredLowLevelDaysChange);
+    Connect(ID_spinMaxIncludedNotMesuredLowLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxIncludedNotMesuredLowLevelDaysChange);
+    Connect(ID_spinMaxAllowedNotMesuredHighLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxAllowedNotMesuredHighLevelDaysChange);
+    Connect(ID_spinMaxIncludedNotMesuredHighLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxIncludedNotMesuredHighLevelDaysChange);
+    Connect(ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxIncludeNotMesuredDaysIfAfterMucusPeakClick);
+    Connect(ID_spinNumberOfHistoricalCyclesToUse,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinNumberOfHistoricalCyclesToUseChange);
+    Connect(ID_comboBoxAutoanalyzeCardPreferResult1,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::comboBoxAutoanalyzeCardPreferResult1TextUpdated);
+    Connect(ID_comboBoxAutoanalyzeCardPreferResult2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::comboBoxAutoanalyzeCardPreferResult2TextUpdated);
+    Connect(ID_comboBoxAutoanalyzeCardPreferResult3,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::comboBoxAutoanalyzeCardPreferResult3TextUpdated);
+    Connect(ID_comboBoxAutoanalyzeCardPreferResult4,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::comboBoxAutoanalyzeCardPreferResult4TextUpdated);
+    Connect(ID_comboBoxAutoanalyzeCardPreferResult5,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::comboBoxAutoanalyzeCardPreferResult5TextUpdated);
     Connect(ID_buttonColourBackground,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonColourBackgroundClick);
     Connect(ID_buttonColourCell11,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonColourCell11Click);
     Connect(ID_buttonColourCell21,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonColourCell21Click);
@@ -646,15 +851,21 @@ void configFrame::buildGui(wxWindow* parent) {
     Connect(ID_buttonFontHeadValue,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontHeadValueClick);
     Connect(ID_buttonFontResultHeader,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultHeaderClick);
     Connect(ID_buttonFontResultDefault,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultDefaultClick);
-    Connect(ID_buttonFontResultHeart,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultHeartClick);
     Connect(ID_buttonFontResultResults,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultResultsClick);
     Connect(ID_buttonFontResultPhases,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultPhasesClick);
+    Connect(ID_comboBoxLengthUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxLengthUnitUpdated);
+    Connect(ID_comboBoxTemperatureUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureUnitUpdated);
     Connect(ID_buttonSetDefaults,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonSetDefaultsClick);
     Connect(ID_buttonSave,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonSaveClick);
     Connect(ID_buttonCancel,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonCancelClick);
     Connect(ID_buttonOk,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonOkClick);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&configFrame::configFrameClose);
     //*)
+
+#if defined(__UNIX__)
+    notebook->SetWindowStyle(wxNB_LEFT);
+    notebook->Refresh();
+#endif
 
     m_fontDialog =  new wxFontDialog( this );
 
@@ -697,6 +908,37 @@ void configFrame::buildGui(wxWindow* parent) {
     comboBoxTemperatureUnit->SetSelection( comboBoxTemperatureUnit->Append(_("Celsius")) );
     comboBoxTemperatureUnit->Append(_("Fahrenheit"));
 
+    /** comboBoxes' results */
+    comboBoxAutoanalyzeCardPreferResult1->Append(RULE_2120_string);
+    comboBoxAutoanalyzeCardPreferResult1->Append(RULE_CLINICAL_string);
+    comboBoxAutoanalyzeCardPreferResult1->SetSelection( comboBoxAutoanalyzeCardPreferResult1->Append(RULE_DOERING_string) );
+    comboBoxAutoanalyzeCardPreferResult1->Append(RULE_CERVICAL_MUCUS_BASED_string);
+    comboBoxAutoanalyzeCardPreferResult1->Append(RULE_CERVICAL_POSITION_BASED_string);
+
+    comboBoxAutoanalyzeCardPreferResult2->Append(RULE_2120_string);
+    comboBoxAutoanalyzeCardPreferResult2->Append(RULE_CLINICAL_string);
+    comboBoxAutoanalyzeCardPreferResult2->Append(RULE_DOERING_string);
+    comboBoxAutoanalyzeCardPreferResult2->SetSelection( comboBoxAutoanalyzeCardPreferResult2->Append(RULE_CERVICAL_MUCUS_BASED_string) );
+    comboBoxAutoanalyzeCardPreferResult2->Append(RULE_CERVICAL_POSITION_BASED_string);
+
+    comboBoxAutoanalyzeCardPreferResult3->Append(RULE_2120_string);
+    comboBoxAutoanalyzeCardPreferResult3->Append(RULE_CLINICAL_string);
+    comboBoxAutoanalyzeCardPreferResult3->Append(RULE_DOERING_string);
+    comboBoxAutoanalyzeCardPreferResult3->Append(RULE_CERVICAL_MUCUS_BASED_string);
+    comboBoxAutoanalyzeCardPreferResult3->SetSelection( comboBoxAutoanalyzeCardPreferResult3->Append(RULE_CERVICAL_POSITION_BASED_string) );
+
+    comboBoxAutoanalyzeCardPreferResult4->Append(RULE_2120_string);
+    comboBoxAutoanalyzeCardPreferResult4->SetSelection( comboBoxAutoanalyzeCardPreferResult4->Append(RULE_CLINICAL_string) );
+    comboBoxAutoanalyzeCardPreferResult4->Append(RULE_DOERING_string);
+    comboBoxAutoanalyzeCardPreferResult4->Append(RULE_CERVICAL_MUCUS_BASED_string);
+    comboBoxAutoanalyzeCardPreferResult4->Append(RULE_CERVICAL_POSITION_BASED_string);
+
+    comboBoxAutoanalyzeCardPreferResult5->SetSelection( comboBoxAutoanalyzeCardPreferResult5->Append(RULE_2120_string) );
+    comboBoxAutoanalyzeCardPreferResult5->Append(RULE_CLINICAL_string);
+    comboBoxAutoanalyzeCardPreferResult5->Append(RULE_DOERING_string);
+    comboBoxAutoanalyzeCardPreferResult5->Append(RULE_CERVICAL_MUCUS_BASED_string);
+    comboBoxAutoanalyzeCardPreferResult5->Append(RULE_CERVICAL_POSITION_BASED_string);
+
     /****************************************************/
 #if defined(__WXMSW__)
     // set flat buttons on colors and fonts tabs.
@@ -738,8 +980,6 @@ void configFrame::buildGui(wxWindow* parent) {
     buttonFontResultHeader->Refresh();
     buttonFontResultDefault->SetWindowStyle( wxNO_BORDER );
     buttonFontResultDefault->Refresh();
-    buttonFontResultHeart->SetWindowStyle( wxNO_BORDER );
-    buttonFontResultHeart->Refresh();
     buttonFontResultResults->SetWindowStyle( wxNO_BORDER );
     buttonFontResultResults->Refresh();
     buttonFontResultPhases->SetWindowStyle( wxNO_BORDER );
@@ -778,7 +1018,8 @@ void configFrame::buildGui(wxWindow* parent) {
 /**
  *
  */
-configFrame::~configFrame() {
+configFrame::~configFrame()
+{
     //(*Destroy(configFrame)
     //*)
 }
@@ -788,14 +1029,16 @@ configFrame::~configFrame() {
 /**
  * configFrameClose
  */
-void configFrame::configFrameClose( wxCloseEvent& /*event*/ ) {
+void configFrame::configFrameClose( wxCloseEvent& /*event*/ )
+{
     Destroy();
 }
 
 /**
  * buttonOkClick
  */
-void configFrame::buttonOkClick( wxCommandEvent& event ) {
+void configFrame::buttonOkClick( wxCommandEvent& event )
+{
     save();
     EndModal( 1 );
 }
@@ -803,14 +1046,16 @@ void configFrame::buttonOkClick( wxCommandEvent& event ) {
 /**
  * buttonCancelClick
  */
-void configFrame::buttonCancelClick( wxCommandEvent& event ) {
+void configFrame::buttonCancelClick( wxCommandEvent& event )
+{
     EndModal( 0 );
 }
 
 /**
  * buttonSaveClick
  */
-void configFrame::buttonSaveClick( wxCommandEvent& event ) {
+void configFrame::buttonSaveClick( wxCommandEvent& event )
+{
     save();
 }
 
@@ -819,7 +1064,8 @@ void configFrame::buttonSaveClick( wxCommandEvent& event ) {
 /**
  * listBoxLanguageSelected
  */
-void configFrame::listBoxLanguageSelected( wxCommandEvent& event ) {
+void configFrame::listBoxLanguageSelected( wxCommandEvent& event )
+{
     if ( listBoxLanguage->GetSelection() != wxNOT_FOUND ) {
         if ( m_langIdentifiers[ listBoxLanguage->GetSelection()] == m_config->langId ) {
             if ( changesLanguage->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -839,7 +1085,8 @@ void configFrame::listBoxLanguageSelected( wxCommandEvent& event ) {
 /**
  * checkBoxRememberPositionClick
  */
-void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event ) {
+void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event )
+{
     if ( checkBoxRememberPosition->GetValue() == m_config->rememberPosition ) {
         if ( changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -857,7 +1104,8 @@ void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event ) {
 /**
  * checkBoxFlatButtonsClick
  */
-void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event ) {
+void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event )
+{
     if ( checkBoxFlatButtons->GetValue() == m_config->useFlatButtons ) {
         if ( changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -875,7 +1123,8 @@ void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event ) {
 /**
  * checkBoxCheckForUpdatesClick
  */
-void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event ) {
+void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event )
+{
     if ( checkBoxCheckForUpdates->GetValue() ) {
         staticUpdatesProxy->Enable( true );
         textUpdatesProxy->Enable( true );
@@ -902,7 +1151,8 @@ void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event ) {
 /**
  * textUpdatesProxyUpdated
  */
-void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event ) {
+void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event )
+{
     if ( textUpdatesProxy->GetValue().IsSameAs( m_config->updatesProxy ) ) {
         if ( changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -922,7 +1172,8 @@ void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event ) {
 /**
  * checkBoxOpenLastOpenedFileClick
  */
-void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event ) {
+void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event )
+{
     if ( checkBoxOpenLastOpenedFile->GetValue() == m_config->openLastOpenedFile ) {
         if ( changesOpenLastOpenedFile->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -940,7 +1191,8 @@ void configFrame::checkBoxOpenLastOpenedFileClick( wxCommandEvent& event ) {
 /**
  * checkBoxAutosaveChangesClick
  */
-void configFrame::checkBoxAutosaveChangesClick(wxCommandEvent& event) {
+void configFrame::checkBoxAutosaveChangesClick(wxCommandEvent& event)
+{
     if ( checkBoxAutosaveChanges->GetValue() == m_config->autosaveChanges ) {
         if ( changesAutosaveChanges->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -958,7 +1210,8 @@ void configFrame::checkBoxAutosaveChangesClick(wxCommandEvent& event) {
 /**
  * checkBoxAutosaveSetClick
  */
-void configFrame::checkBoxAutosaveSetClick(wxCommandEvent& event) {
+void configFrame::checkBoxAutosaveSetClick(wxCommandEvent& event)
+{
     if ( checkBoxAutosaveSet->GetValue() == m_config->autosaveSet) {
         if ( changesAutosaveSet->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -976,7 +1229,8 @@ void configFrame::checkBoxAutosaveSetClick(wxCommandEvent& event) {
 /**
  * checkBoxCheckForMissingDaysClick
  */
-void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event ) {
+void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event )
+{
     if ( checkBoxCheckForMissingDays->GetValue() == m_config->checkForMissingDays ) {
         if ( changesCheckForMissingDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -994,7 +1248,8 @@ void configFrame::checkBoxCheckForMissingDaysClick( wxCommandEvent& event ) {
 /**
  * checkBoxBreastsAutocontrolReminderClick
  */
-void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event ) {
+void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event )
+{
     if ( checkBoxBreastsAutocontrolReminder->GetValue() ) {
         spinCtrlBreastsAutocontrolReminderDay->Enable( true );
         spinCtrlBreastAutocontrolInterval->Enable( true );
@@ -1028,7 +1283,8 @@ void configFrame::checkBoxBreastsAutocontrolReminderClick( wxCommandEvent& event
 /**
  * spinCtrlBreastsAutocontrolReminderDayUpdated
  */
-void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& event ) {
+void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& event )
+{
     if ( !m_init ) {
         if ( spinCtrlBreastsAutocontrolReminderDay->GetValue() == m_config->breastSelfControlReminderDay ) {
             if ( changesBreastsAutocontrolReminderDay->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1048,7 +1304,8 @@ void configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated( wxSpinEvent& eve
 /**
  * spinCtrlBreastAutocontrolIntervalUpdated
  */
-void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event ) {
+void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event )
+{
     if ( !m_init ) {
         if ( spinCtrlBreastAutocontrolInterval->GetValue() == m_config->breastSelfControlInterval ) {
             if ( changesBreastAutocontrolInterval->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1068,7 +1325,8 @@ void configFrame::spinCtrlBreastAutocontrolIntervalUpdated( wxSpinEvent& event )
 /**
  * comboBoxLengthUnitUpdated
  */
-void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event ) {
+void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event )
+{
     // TODO - is it working in different languages????
     if ( comboBoxLengthUnit->GetValue().IsSameAs( _( "centimiter" ) ) && m_config->lengthInCentimeters ) {
         if ( changesLengthUnit->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -1087,7 +1345,8 @@ void configFrame::comboBoxLengthUnitUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTemperatureUnitUpdated
  */
-void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event ) {
+void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event )
+{
     // TODO - is it working in different languages????
     if ( comboBoxTemperatureUnit->GetValue().IsSameAs( _( "Celsius" ) ) ) {
         staticTemperatureCorF1->SetLabel( _T( "C" ) );
@@ -1137,7 +1396,8 @@ void configFrame::comboBoxTemperatureUnitUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTemperatureRangeHighUpdated
  */
-void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event ) {
+void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event )
+{
     if ( m_util.strToTemperature( comboBoxTemperatureRangeHigh->GetValue() ) == m_config->temperatureRangeHigh ) {
         if ( changesTemperatureRangeHigh->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1155,7 +1415,8 @@ void configFrame::comboBoxTemperatureRangeHighUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTemperatureRangeLowUpdated
  */
-void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event ) {
+void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event )
+{
     if ( m_util.strToTemperature( comboBoxTemperatureRangeLow->GetValue() ) == m_config->temperatureRangeLow ) {
         if ( changesTemperatureRangeLow->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1175,7 +1436,8 @@ void configFrame::comboBoxTemperatureRangeLowUpdated( wxCommandEvent& event ) {
 /**
  * buttonColourBackgroundClick
  */
-void configFrame::buttonColourBackgroundClick( wxCommandEvent& event ) {
+void configFrame::buttonColourBackgroundClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourBackground, _( "Background" ) );
     checkColourChanges( buttonColourBackground, m_config->colourBackground, changesColourBackground );
 }
@@ -1183,7 +1445,8 @@ void configFrame::buttonColourBackgroundClick( wxCommandEvent& event ) {
 /**
  * buttonColourCell11Click
  */
-void configFrame::buttonColourCell11Click( wxCommandEvent& event ) {
+void configFrame::buttonColourCell11Click( wxCommandEvent& event )
+{
     showColourDialog( buttonColourCell11, _( "Cell 1,1" ) );
     checkCellsColourChanges();
 }
@@ -1191,7 +1454,8 @@ void configFrame::buttonColourCell11Click( wxCommandEvent& event ) {
 /**
  * buttonColourCell12Click
  */
-void configFrame::buttonColourCell12Click( wxCommandEvent& event ) {
+void configFrame::buttonColourCell12Click( wxCommandEvent& event )
+{
 
     showColourDialog( buttonColourCell12, _( "Cell 1,2" ) );
     checkCellsColourChanges();
@@ -1200,7 +1464,8 @@ void configFrame::buttonColourCell12Click( wxCommandEvent& event ) {
 /**
  * buttonColourCell21Click
  */
-void configFrame::buttonColourCell21Click( wxCommandEvent& event ) {
+void configFrame::buttonColourCell21Click( wxCommandEvent& event )
+{
     showColourDialog( buttonColourCell21, _( "Cell 2,1" ) );
     checkCellsColourChanges();
 }
@@ -1208,7 +1473,8 @@ void configFrame::buttonColourCell21Click( wxCommandEvent& event ) {
 /**
  * buttonColourCell22Click
  */
-void configFrame::buttonColourCell22Click( wxCommandEvent& event ) {
+void configFrame::buttonColourCell22Click( wxCommandEvent& event )
+{
     showColourDialog( buttonColourCell22, _( "Cell 2,2" ) );
     checkCellsColourChanges();
 }
@@ -1216,7 +1482,8 @@ void configFrame::buttonColourCell22Click( wxCommandEvent& event ) {
 /**
  * buttonColourMarkedCell1Click
  */
-void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event ) {
+void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event )
+{
     showColourDialog( buttonColourMarkedCell1, _( "Active day's cell 1" ) );
     checkCellsColourChanges();
 }
@@ -1224,7 +1491,8 @@ void configFrame::buttonColourMarkedCell1Click( wxCommandEvent& event ) {
 /**
  * buttonColourMarkedCell2Click
  */
-void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event ) {
+void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event )
+{
     showColourDialog( buttonColourMarkedCell2, _( "Active day's cell 2" ) );
     checkCellsColourChanges();
 }
@@ -1232,7 +1500,8 @@ void configFrame::buttonColourMarkedCell2Click( wxCommandEvent& event ) {
 /**
  * buttonColourPointNormalClick
  */
-void configFrame::buttonColourPointNormalClick( wxCommandEvent& event ) {
+void configFrame::buttonColourPointNormalClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourPointNormal,  _( "Temperature point" ) );
     checkColourChanges( buttonColourPointNormal, m_config->colourPointNormal, changesColourPointNormal );
 }
@@ -1240,7 +1509,8 @@ void configFrame::buttonColourPointNormalClick( wxCommandEvent& event ) {
 /**
  * buttonColourPointBeforeClick
  */
-void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event ) {
+void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourPointBefore, _( "Low-level temperature point" ) );
     checkColourChanges( buttonColourPointBefore, m_config->colourPointBefore, changesColourPointBefore );
 }
@@ -1248,7 +1518,8 @@ void configFrame::buttonColourPointBeforeClick( wxCommandEvent& event ) {
 /**
  * buttonColourPointAfterClick
  */
-void configFrame::buttonColourPointAfterClick( wxCommandEvent& event ) {
+void configFrame::buttonColourPointAfterClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourPointAfter, _( "High-level temperature point" ) );
     checkColourChanges( buttonColourPointAfter, m_config->colourPointAfter, changesColourPointAfter );
 }
@@ -1256,7 +1527,8 @@ void configFrame::buttonColourPointAfterClick( wxCommandEvent& event ) {
 /**
  * buttonColourTemperatureLineClick
  */
-void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event ) {
+void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourTemperatureLine, _( "Temperatures line" ) );
     checkColourChanges( buttonColourTemperatureLine, m_config->colourTemperatureLine, changesColourTemperatureLine );
 }
@@ -1264,7 +1536,8 @@ void configFrame::buttonColourTemperatureLineClick( wxCommandEvent& event ) {
 /**
  * buttonColourTemperatureLevelLineClick
  */
-void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event ) {
+void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourTemperatureLevelLine, _( "Low- and high-level temperature line" ) );
     checkColourChanges( buttonColourTemperatureLevelLine, m_config->colourTemperatureLevelLine, changesColourTemperatureLevelLine );
 }
@@ -1272,7 +1545,8 @@ void configFrame::buttonColourTemperatureLevelLineClick( wxCommandEvent& event )
 /**
  * buttonColourPhaseLineClick
  */
-void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event ) {
+void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourPhaseLine, _( "Cycle's phases line" ) );
     checkColourChanges( buttonColourPhaseLine, m_config->colourPhaseLine, changesColourPhaseLine );
 }
@@ -1280,7 +1554,8 @@ void configFrame::buttonColourPhaseLineClick( wxCommandEvent& event ) {
 /**
  * buttonColourBordersClick
  */
-void configFrame::buttonColourBordersClick( wxCommandEvent& event ) {
+void configFrame::buttonColourBordersClick( wxCommandEvent& event )
+{
     showColourDialog( buttonColourBorders, _( "Borders" ) );
     checkColourChanges( buttonColourBorders, m_config->colourBorders, changesColourBorders );
 }
@@ -1290,88 +1565,326 @@ void configFrame::buttonColourBordersClick( wxCommandEvent& event ) {
 /**
  * buttonFontHeadTopicClick
  */
-void configFrame::buttonFontHeadTopicClick( wxCommandEvent& event ) {
+void configFrame::buttonFontHeadTopicClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontHeadTopic, m_config->fontHeadTopic, m_config->fontHeadTopicColour, changesFontHeadTopic, _( "Cycle observation card" ) );
 }
 
 /**
  * buttonFontHeadNameClick
  */
-void configFrame::buttonFontHeadNameClick( wxCommandEvent& event ) {
+void configFrame::buttonFontHeadNameClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontHeadName, m_config->fontHeadName, m_config->fontHeadNameColour, changesFontHeadName, _( "Name of the parameter in the header" ) );
 }
 
 /**
  * buttonFontHeadValueClick
  */
-void configFrame::buttonFontHeadValueClick( wxCommandEvent& event ) {
+void configFrame::buttonFontHeadValueClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontHeadValue, m_config->fontHeadValue, m_config->fontHeadValueColour, changesFontHeadValue, _( "Value of the parameter in the header" ) );
 }
 
 /**
  * buttonFontResultHeaderClick
  */
-void configFrame::buttonFontResultHeaderClick( wxCommandEvent& event ) {
+void configFrame::buttonFontResultHeaderClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontResultHeader, m_config->fontResultHeader, m_config->fontResultHeaderColour, changesFontResultHeader, _( "First column of the chart" ) );
 }
 
 /**
  * buttonFontResultDefaultClick
  */
-void configFrame::buttonFontResultDefaultClick( wxCommandEvent& event ) {
+void configFrame::buttonFontResultDefaultClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontResultDefault, m_config->fontResultDefault, m_config->fontResultDefaultColour, changesFontResultDefault, _( "Data in the chart" ) );
-}
-
-/**
- * buttonFontResultHeartClick
- */
-void configFrame::buttonFontResultHeartClick( wxCommandEvent& event ) {
-    long retL = wxGetNumberFromUser( _( "Choose the size of the character used in the 'coitus record' row:" ) , _T( "" ), _( "Size.." ), buttonFontResultHeart->GetFont().GetPointSize(), 5, 30, this );
-    if ( retL != -1 ) {
-        wxFont f = buttonFontResultHeart->GetFont();
-        f.SetPointSize( retL );
-        buttonFontResultHeart->SetFont( f );
-    }
-
-    wxColour newColour = wxGetColourFromUser( this, buttonFontResultHeart->GetForegroundColour(), _( "Choose color of the character used in the 'coitus record' row" ) );
-    if ( newColour.IsOk() ) {
-        buttonFontResultHeart->SetForegroundColour( newColour );
-    }
-
-    if ( areFontsTheSame( buttonFontResultHeart->GetFont(), m_config->fontResultHeart, buttonFontResultHeart->GetForegroundColour(), m_config->fontResultHeartColour ) ) {
-        if ( changesFontResultHeart->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes--;
-            changesFontResultHeart->SetLabel( _T( "" ) );
-        }
-    } else {
-        if ( !changesFontResultHeart->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes++;
-            changesFontResultHeart->SetLabel( _T( "*" ) );
-        }
-    }
-    updateButtonsState();
 }
 
 /**
  * buttonFontResultResultsClick
  */
-void configFrame::buttonFontResultResultsClick( wxCommandEvent& event ) {
+void configFrame::buttonFontResultResultsClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontResultResults, m_config->fontResultResults, m_config->fontResultResultsColour, changesFontResultResults, _( "Results' rows in the chart" ) );
 }
 
 /**
  * buttonFontResultPhasesClick
  */
-void configFrame::buttonFontResultPhasesClick( wxCommandEvent& event ) {
+void configFrame::buttonFontResultPhasesClick( wxCommandEvent& event )
+{
     showFontDialog( buttonFontResultPhases, m_config->fontResultPhases, m_config->fontResultPhasesColour, changesFontResultPhases, _( "Phase I/II/III" ) );
 }
 
 /******************************************************************************/
 
 /**
+ * checkBoxAutoanalyzeCardClick
+ */
+void configFrame::checkBoxAutoanalyzeCardClick(wxCommandEvent& event)
+{
+    if ( checkBoxAutoanalyzeCard->GetValue() == m_config->autoanalyzeCard) {
+        if ( changesAutoanalyzeCard->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCard->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCard->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCard->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * spinMaxAllowedNotMesuredLowLevelDaysChange
+ */
+void configFrame::spinMaxAllowedNotMesuredLowLevelDaysChange(wxSpinEvent& event)
+{
+    if ( spinMaxAllowedNotMesuredLowLevelDays->GetValue() == m_config->maxAllowedNotMesuredLowLevelDays ) {
+        if ( changesMaxAllowedNotMesuredLowLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesMaxAllowedNotMesuredLowLevelDays->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesMaxAllowedNotMesuredLowLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesMaxAllowedNotMesuredLowLevelDays->SetLabel( _T( "*" ) );
+        }
+    }
+    if ( spinMaxIncludedNotMesuredLowLevelDays->GetValue() > spinMaxAllowedNotMesuredLowLevelDays->GetValue() ) {
+        spinMaxIncludedNotMesuredLowLevelDays->SetValue(spinMaxAllowedNotMesuredLowLevelDays->GetValue());
+        spinMaxIncludedNotMesuredLowLevelDaysChange(event);
+    }
+    updateButtonsState();
+}
+
+/**
+ * spinMaxIncludedNotMesuredLowLevelDaysChange
+ */
+void configFrame::spinMaxIncludedNotMesuredLowLevelDaysChange(wxSpinEvent& event)
+{
+    if ( spinMaxIncludedNotMesuredLowLevelDays->GetValue() == m_config->maxIncludedNotMesuredLowLevelDays ) {
+        if ( changesMaxIncludedNotMesuredLowLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesMaxIncludedNotMesuredLowLevelDays->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesMaxIncludedNotMesuredLowLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesMaxIncludedNotMesuredLowLevelDays->SetLabel( _T( "*" ) );
+        }
+    }
+    if ( spinMaxIncludedNotMesuredLowLevelDays->GetValue() > spinMaxAllowedNotMesuredLowLevelDays->GetValue() ) {
+        spinMaxAllowedNotMesuredLowLevelDays->SetValue(spinMaxIncludedNotMesuredLowLevelDays->GetValue());
+        spinMaxAllowedNotMesuredLowLevelDaysChange(event);
+    }
+    updateButtonsState();
+}
+
+/**
+ * spinMaxAllowedNotMesuredHighLevelDaysChange
+ */
+void configFrame::spinMaxAllowedNotMesuredHighLevelDaysChange(wxSpinEvent& event)
+{
+    if ( spinMaxAllowedNotMesuredHighLevelDays->GetValue() == m_config->maxAllowedNotMesuredHighLevelDays ) {
+        if ( changesMaxAllowedNotMesuredHighLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesMaxAllowedNotMesuredHighLevelDays->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesMaxAllowedNotMesuredHighLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesMaxAllowedNotMesuredHighLevelDays->SetLabel( _T( "*" ) );
+        }
+    }
+    if ( spinMaxIncludedNotMesuredHighLevelDays->GetValue() > spinMaxAllowedNotMesuredHighLevelDays->GetValue() ) {
+        spinMaxIncludedNotMesuredHighLevelDays->SetValue(spinMaxAllowedNotMesuredHighLevelDays->GetValue());
+        spinMaxIncludedNotMesuredHighLevelDaysChange(event);
+    }
+    updateButtonsState();
+}
+
+/**
+ * spinMaxIncludedNotMesuredHighLevelDaysChange
+ */
+void configFrame::spinMaxIncludedNotMesuredHighLevelDaysChange(wxSpinEvent& event)
+{
+    if ( spinMaxIncludedNotMesuredHighLevelDays->GetValue() == m_config->maxIncludedNotMesuredHighLevelDays ) {
+        if ( changesMaxIncludedNotMesuredHighLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesMaxIncludedNotMesuredHighLevelDays->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesMaxIncludedNotMesuredHighLevelDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesMaxIncludedNotMesuredHighLevelDays->SetLabel( _T( "*" ) );
+        }
+    }
+    if ( spinMaxIncludedNotMesuredHighLevelDays->GetValue() > spinMaxAllowedNotMesuredHighLevelDays->GetValue() ) {
+        spinMaxAllowedNotMesuredHighLevelDays->SetValue(spinMaxIncludedNotMesuredHighLevelDays->GetValue());
+        spinMaxAllowedNotMesuredHighLevelDaysChange(event);
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxIncludeNotMesuredDaysIfAfterMucusPeakClick
+ */
+void configFrame::checkBoxIncludeNotMesuredDaysIfAfterMucusPeakClick(wxCommandEvent& event)
+{
+    if ( checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->GetValue() == m_config->includeNotMesuredDaysIfAfterMucusPeak) {
+        if ( changesIncludeNotMesuredDaysIfAfterMucusPeak->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesIncludeNotMesuredDaysIfAfterMucusPeak->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesIncludeNotMesuredDaysIfAfterMucusPeak->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesIncludeNotMesuredDaysIfAfterMucusPeak->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::spinNumberOfHistoricalCyclesToUseChange(wxSpinEvent& event)
+{
+    if ( spinNumberOfHistoricalCyclesToUse->GetValue() == m_config->numberOfHistoricalCyclesToUse ) {
+        if ( changesNumberOfHistoricalCyclesToUse->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesNumberOfHistoricalCyclesToUse->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesNumberOfHistoricalCyclesToUse->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesNumberOfHistoricalCyclesToUse->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::comboBoxAutoanalyzeCardPreferResult1TextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxAutoanalyzeCardPreferResult1->GetSelection() == m_config->autoanalyzeCardPreferResult1 -1 ) {
+        if ( changesAutoanalyzeCardPreferResult1->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCardPreferResult1->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCardPreferResult1->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCardPreferResult1->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::comboBoxAutoanalyzeCardPreferResult2TextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxAutoanalyzeCardPreferResult2->GetSelection() == m_config->autoanalyzeCardPreferResult2 -1 ) {
+        if ( changesAutoanalyzeCardPreferResult2->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCardPreferResult2->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCardPreferResult2->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCardPreferResult2->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::comboBoxAutoanalyzeCardPreferResult3TextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxAutoanalyzeCardPreferResult3->GetSelection() == m_config->autoanalyzeCardPreferResult3 -1 ) {
+        if ( changesAutoanalyzeCardPreferResult3->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCardPreferResult3->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCardPreferResult3->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCardPreferResult3->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::comboBoxAutoanalyzeCardPreferResult4TextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxAutoanalyzeCardPreferResult4->GetSelection() == m_config->autoanalyzeCardPreferResult4 -1 ) {
+        if ( changesAutoanalyzeCardPreferResult4->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCardPreferResult4->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCardPreferResult4->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCardPreferResult4->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+void configFrame::comboBoxAutoanalyzeCardPreferResult5TextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxAutoanalyzeCardPreferResult5->GetSelection() == m_config->autoanalyzeCardPreferResult5 -1 ) {
+        if ( changesAutoanalyzeCardPreferResult5->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesAutoanalyzeCardPreferResult5->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesAutoanalyzeCardPreferResult5->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesAutoanalyzeCardPreferResult5->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+
+/*
+    comboBoxAutoanalyzeCardPreferResult1->SetSelection(m_config->autoanalyzeCardPreferResult1-1);
+    comboBoxAutoanalyzeCardPreferResult2->SetSelection(m_config->autoanalyzeCardPreferResult2-1);
+    comboBoxAutoanalyzeCardPreferResult3->SetSelection(m_config->autoanalyzeCardPreferResult3-1);
+    comboBoxAutoanalyzeCardPreferResult4->SetSelection(m_config->autoanalyzeCardPreferResult4-1);
+    comboBoxAutoanalyzeCardPreferResult5->SetSelection(m_config->autoanalyzeCardPreferResult5-1);
+*/
+
+/**
+ * checkBoxAutoanalyzeCardPreferSafeResultClick
+ */
+/*
+void configFrame::checkBoxAutoanalyzeCardPreferSafeResultClick(wxCommandEvent& event)
+{
+   if ( checkBoxAutoanalyzeCardPreferSafeResult->GetValue() == m_config->autoanalyzeCardPreferSafeResult) {
+       if ( changesAutoanalyzeCardPreferSafeResult->GetLabel().IsSameAs( _T( "*" ) ) ) {
+           m_changes--;
+           changesAutoanalyzeCardPreferSafeResult->SetLabel( _T( "" ) );
+       }
+   } else {
+       if ( !changesAutoanalyzeCardPreferSafeResult->GetLabel().IsSameAs( _T( "*" ) ) ) {
+           m_changes++;
+           changesAutoanalyzeCardPreferSafeResult->SetLabel( _T( "*" ) );
+       }
+   }
+   updateButtonsState();
+}
+*/
+
+
+
+/******************************************************************************/
+
+/**
  * buttonSetDefaultsClick
  */
-void configFrame::buttonSetDefaultsClick( wxCommandEvent& event ) {
+void configFrame::buttonSetDefaultsClick( wxCommandEvent& event )
+{
     m_config->setDefaultParams();
 
 // Fonts update notification
@@ -1390,7 +1903,8 @@ void configFrame::buttonSetDefaultsClick( wxCommandEvent& event ) {
 /**
  *
  */
-void configFrame::setButtonsStyle() {
+void configFrame::setButtonsStyle()
+{
     int flatButton = 0;
     if ( m_config->useFlatButtons ) {
         flatButton = wxNO_BORDER;
@@ -1413,7 +1927,8 @@ void configFrame::setButtonsStyle() {
 /**
  * update
  */
-void configFrame::update() {
+void configFrame::update()
+{
     /*******************************/
     /** PAGE GENERAL */
 
@@ -1524,7 +2039,6 @@ void configFrame::update() {
     buttonFontHeadValue->SetFont( m_config->fontHeadValue );
     buttonFontResultHeader->SetFont( m_config->fontResultHeader );
     buttonFontResultDefault->SetFont( m_config->fontResultDefault );
-    buttonFontResultHeart->SetFont( m_config->fontResultHeart );
     buttonFontResultResults->SetFont( m_config->fontResultResults );
     buttonFontResultPhases->SetFont( m_config->fontResultPhases );
 
@@ -1533,7 +2047,6 @@ void configFrame::update() {
     buttonFontHeadValue->SetForegroundColour( m_config->fontHeadValueColour );
     buttonFontResultHeader->SetForegroundColour( m_config->fontResultHeaderColour );
     buttonFontResultDefault->SetForegroundColour( m_config->fontResultDefaultColour );
-    buttonFontResultHeart->SetForegroundColour( m_config->fontResultHeartColour );
     buttonFontResultResults->SetForegroundColour( m_config->fontResultResultsColour );
     buttonFontResultPhases->SetForegroundColour( m_config->fontResultPhasesColour );
 
@@ -1542,17 +2055,26 @@ void configFrame::update() {
     buttonFontHeadValue->SetBackgroundColour( m_config->colourBackground );
     buttonFontResultHeader->SetBackgroundColour( m_config->colourCell11 );
     buttonFontResultDefault->SetBackgroundColour( m_config->colourCell12 );
-    buttonFontResultHeart->SetBackgroundColour( m_config->colourCell21 );
     buttonFontResultResults->SetBackgroundColour( m_config->colourCell22 );
     buttonFontResultPhases->SetBackgroundColour( m_config->colourCell11 );
-
-    buttonFontResultHeart->SetLabel( m_config->coitusRecordCharacter );
 
     /*******************************/
     /** PAGE PRINTING */
 
     /*******************************/
     /** PAGE RESULTS */
+    checkBoxAutoanalyzeCard->SetValue( m_config->autoanalyzeCard );
+    spinMaxAllowedNotMesuredLowLevelDays->SetValue( m_config->maxAllowedNotMesuredLowLevelDays );
+    spinMaxIncludedNotMesuredLowLevelDays->SetValue( m_config->maxIncludedNotMesuredLowLevelDays );
+    spinMaxAllowedNotMesuredHighLevelDays->SetValue( m_config->maxAllowedNotMesuredHighLevelDays );
+    spinMaxIncludedNotMesuredHighLevelDays->SetValue( m_config->maxIncludedNotMesuredHighLevelDays );
+    checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->SetValue( m_config->includeNotMesuredDaysIfAfterMucusPeak );
+    spinNumberOfHistoricalCyclesToUse->SetValue( m_config->numberOfHistoricalCyclesToUse );
+    comboBoxAutoanalyzeCardPreferResult1->SetSelection(m_config->autoanalyzeCardPreferResult1-1);
+    comboBoxAutoanalyzeCardPreferResult2->SetSelection(m_config->autoanalyzeCardPreferResult2-1);
+    comboBoxAutoanalyzeCardPreferResult3->SetSelection(m_config->autoanalyzeCardPreferResult3-1);
+    comboBoxAutoanalyzeCardPreferResult4->SetSelection(m_config->autoanalyzeCardPreferResult4-1);
+    comboBoxAutoanalyzeCardPreferResult5->SetSelection(m_config->autoanalyzeCardPreferResult5-1);
 
     /*******************************/
     /** PAGE OTHER */
@@ -1590,9 +2112,20 @@ void configFrame::update() {
     changesFontHeadValue->SetLabel( _T( "" ) );
     changesFontResultHeader->SetLabel( _T( "" ) );
     changesFontResultDefault->SetLabel( _T( "" ) );
-    changesFontResultHeart->SetLabel( _T( "" ) );
     changesFontResultResults->SetLabel( _T( "" ) );
     changesFontResultPhases->SetLabel( _T( "" ) );
+    changesAutoanalyzeCard->SetLabel( _T( "" ) );
+    changesMaxAllowedNotMesuredLowLevelDays->SetLabel( _T( "" ) );
+    changesMaxIncludedNotMesuredLowLevelDays->SetLabel( _T( "" ) );
+    changesMaxAllowedNotMesuredHighLevelDays->SetLabel( _T( "" ) );
+    changesMaxIncludedNotMesuredHighLevelDays->SetLabel( _T( "" ) );
+    changesIncludeNotMesuredDaysIfAfterMucusPeak->SetLabel( _T( "" ) );
+    changesAutoanalyzeCardPreferResult1->SetLabel( _T( "" ) );
+    changesAutoanalyzeCardPreferResult2->SetLabel( _T( "" ) );
+    changesAutoanalyzeCardPreferResult3->SetLabel( _T( "" ) );
+    changesAutoanalyzeCardPreferResult4->SetLabel( _T( "" ) );
+    changesAutoanalyzeCardPreferResult5->SetLabel( _T( "" ) );
+    changesNumberOfHistoricalCyclesToUse->SetLabel( _T( "" ) );
 
     updateButtonsState();
 }
@@ -1600,7 +2133,8 @@ void configFrame::update() {
 /**
  * Open teh colourDialog and set the choosen colour as a background colour of the button.
  */
-void configFrame::showColourDialog( wxButton *button, wxString name ) {
+void configFrame::showColourDialog( wxButton *button, wxString name )
+{
     wxColour newColour = wxGetColourFromUser( this, button->GetBackgroundColour(), _( "Choose colour for:" ) + name );
     if ( newColour.IsOk() ) {
         setColour( button, newColour );
@@ -1610,7 +2144,8 @@ void configFrame::showColourDialog( wxButton *button, wxString name ) {
 /**
  * Set the colour as a background colour of the button. If the colour is "too dark" set the foreground colour of the button to white.
  */
-void configFrame::setColour( wxButton *button, wxColour newColour ) {
+void configFrame::setColour( wxButton *button, wxColour newColour )
+{
     button->SetBackgroundColour( newColour );
 
     if ( newColour.Red() < 180 && newColour.Green() < 180 && newColour.Blue() < 180 ) {
@@ -1623,7 +2158,8 @@ void configFrame::setColour( wxButton *button, wxColour newColour ) {
 /**
  * Check if the current colour of the button is different than currently active colour. If yes than enable the 'changes mark'. If not than disable the 'changes mark'.
  */
-void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxStaticText *changesMark ) {
+void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxStaticText *changesMark )
+{
     if ( button->GetBackgroundColour() == prevColour ) {
         if ( changesMark->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -1641,7 +2177,8 @@ void configFrame::checkColourChanges( wxButton *button, wxColour prevColour, wxS
 /**
  * Check if the current colour of at least one of the cells' buttons is different than currently active colour. If yes than enable the 'changes mark'. If not than disable the 'changes mark'.
  */
-void configFrame::checkCellsColourChanges() {
+void configFrame::checkCellsColourChanges()
+{
     if ( buttonColourCell11->GetBackgroundColour() == m_config->colourCell11 &&
             buttonColourCell12->GetBackgroundColour() == m_config->colourCell12 &&
             buttonColourCell21->GetBackgroundColour() == m_config->colourCell21 &&
@@ -1665,7 +2202,8 @@ void configFrame::checkCellsColourChanges() {
 /**
  * setFont
  */
-void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour prevColour, wxStaticText *changesMark, wxString name ) {
+void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour prevColour, wxStaticText *changesMark, wxString name )
+{
     m_fontData.SetInitialFont( button->GetFont() );
     m_fontData.SetColour( button->GetForegroundColour() );
 
@@ -1702,7 +2240,8 @@ void configFrame::showFontDialog( wxButton *button, wxFont prevFont, wxColour pr
 /**
  * update the buttons state (buttonSave, buttonCancel).
  */
-void configFrame::updateButtonsState() {
+void configFrame::updateButtonsState()
+{
     if ( m_changes == 0 ) {
         buttonSave->Enable( false );
     } else {
@@ -1713,7 +2252,8 @@ void configFrame::updateButtonsState() {
 /**
  * save
  */
-bool configFrame::save() {
+bool configFrame::save()
+{
     // check if proxy is defined correctly
     /*
     if ( m_config->checkForUpdates ) {
@@ -1827,7 +2367,6 @@ bool configFrame::save() {
     m_config->fontHeadValue          = buttonFontHeadValue->GetFont();
     m_config->fontResultHeader       = buttonFontResultHeader->GetFont();
     m_config->fontResultDefault      = buttonFontResultDefault->GetFont();
-    m_config->fontResultHeart        = buttonFontResultHeart->GetFont();
     m_config->fontResultResults      = buttonFontResultResults->GetFont();
     m_config->fontResultPhases       = buttonFontResultPhases->GetFont();
 
@@ -1836,7 +2375,6 @@ bool configFrame::save() {
     m_config->fontHeadValueColour     = buttonFontHeadValue->GetForegroundColour();
     m_config->fontResultHeaderColour  = buttonFontResultHeader->GetForegroundColour();
     m_config->fontResultDefaultColour = buttonFontResultDefault->GetForegroundColour();
-    m_config->fontResultHeartColour   = buttonFontResultHeart->GetForegroundColour();
     m_config->fontResultResultsColour = buttonFontResultResults->GetForegroundColour();
     m_config->fontResultPhasesColour  = buttonFontResultPhases->GetForegroundColour();
 
@@ -1844,7 +2382,19 @@ bool configFrame::save() {
     /** PAGE PRINTING */
 
     /*******************************/
-    /** PAGE RESULTS */
+    /** PAGE ANALYSIS */
+    m_config->autoanalyzeCard = checkBoxAutoanalyzeCard->GetValue();
+    m_config->maxAllowedNotMesuredLowLevelDays = spinMaxAllowedNotMesuredLowLevelDays->GetValue();
+    m_config->maxIncludedNotMesuredLowLevelDays = spinMaxIncludedNotMesuredLowLevelDays->GetValue();
+    m_config->maxAllowedNotMesuredHighLevelDays = spinMaxAllowedNotMesuredHighLevelDays->GetValue();
+    m_config->maxIncludedNotMesuredHighLevelDays = spinMaxIncludedNotMesuredHighLevelDays->GetValue();
+    m_config->includeNotMesuredDaysIfAfterMucusPeak = checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->GetValue();
+    m_config->autoanalyzeCardPreferResult1 = comboBoxAutoanalyzeCardPreferResult1->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult2 = comboBoxAutoanalyzeCardPreferResult2->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult3 = comboBoxAutoanalyzeCardPreferResult3->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult4 = comboBoxAutoanalyzeCardPreferResult4->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult5 = comboBoxAutoanalyzeCardPreferResult5->GetSelection()+1;
+    m_config->numberOfHistoricalCyclesToUse = spinNumberOfHistoricalCyclesToUse->GetValue();
 
     /*******************************/
     /** PAGE OTHER */
@@ -1885,7 +2435,8 @@ bool configFrame::save() {
 /**
  * areFontsTheSame
  */
-bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1, wxColour colour2 ) {
+bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1, wxColour colour2 )
+{
     if ( !areFontsTheSame( font1, font2 ) ) {
         return false;
     }
@@ -1900,7 +2451,8 @@ bool configFrame::areFontsTheSame( wxFont font1, wxFont font2, wxColour colour1,
 /**
  * areFontsTheSame
  */
-bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 ) {
+bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 )
+{
     if ( font1.GetPointSize() != font2.GetPointSize() ) {
         return false;
     }
@@ -1929,7 +2481,8 @@ bool configFrame::areFontsTheSame( wxFont font1, wxFont font2 ) {
 /**
  *
  */
-void configFrame::sendDataUpdateEvent( int id, wxString message ) {
+void configFrame::sendDataUpdateEvent( int id, wxString message )
+{
     wxCommandEvent event( wxEVT_CONFIG_DATA_MODIFIED_EVENT, CONFIG_EVENT );
     event.SetInt( id );
     event.SetString( message );

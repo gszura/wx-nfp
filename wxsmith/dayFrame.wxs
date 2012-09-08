@@ -2,7 +2,6 @@
 <wxsmith>
 	<object class="wxDialog" name="dayFrame">
 		<title>NFP - edit day&apos;s data</title>
-		<size>479,510</size>
 		<id_arg>0</id_arg>
 		<handler function="dayFrameClose" entry="EVT_CLOSE" />
 		<object class="wxBoxSizer" variable="sizerMain1" member="no">
@@ -25,7 +24,7 @@
 															<object class="wxStaticText" name="ID_staticCardNo" variable="staticCardNo" member="yes">
 																<label>card number</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -39,7 +38,7 @@
 																</font>
 																<style>wxALIGN_RIGHT</style>
 															</object>
-															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -47,21 +46,21 @@
 															<object class="wxStaticText" name="ID_space1" variable="space1" member="yes">
 																<label></label>
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_space2" variable="space2" member="yes">
 																<label></label>
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_staticCycleDay" variable="staticCycleDay" member="yes">
 																<label>day of cycle</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -76,7 +75,7 @@
 																<minsize>-1,-1</minsize>
 																<style>wxALIGN_RIGHT</style>
 															</object>
-															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -87,7 +86,7 @@
 																<tooltip>Go to previous day of the card</tooltip>
 																<handler function="buttonPreviousDayClick" entry="EVT_BUTTON" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -97,7 +96,7 @@
 																<tooltip>Go to next day of the card</tooltip>
 																<handler function="buttonNextDayClick" entry="EVT_BUTTON" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -109,7 +108,7 @@
 															<object class="wxStaticText" name="ID_staticDate" variable="staticDate" member="yes">
 																<label>date</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -123,7 +122,7 @@
 																</font>
 																<style>wxALIGN_RIGHT</style>
 															</object>
-															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -171,7 +170,7 @@
 									<option>1</option>
 								</object>
 							</object>
-							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 							<border>5</border>
 						</object>
 						<object class="sizeritem">
@@ -241,53 +240,86 @@
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
-															<object class="wxStaticText" name="ID_staticCoitusRecord" variable="staticCoitusRecord" member="yes">
-																<label>coitus record</label>
+															<object class="wxStaticText" name="ID_staticSexMorning" variable="staticSexMorning" member="yes">
+																<label>sexual relation</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxBoxSizer" variable="sizerCoitusRecord" member="no">
-																<object class="sizeritem">
-																	<object class="wxTextCtrl" name="ID_textCoitusRecord" variable="textCoitusRecord" member="yes">
-																		<size>80,-1</size>
-																		<style>wxTE_READONLY|wxTE_CENTRE|wxSIMPLE_BORDER</style>
-																	</object>
-																	<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																	<border>5</border>
-																	<option>1</option>
-																</object>
-																<object class="sizeritem">
-																	<object class="wxButton" name="ID_buttonCoitusRecordMinus" variable="buttonCoitusRecordMinus" member="yes">
-																		<label>-</label>
-																		<size>25,-1</size>
-																		<handler function="buttonCoitusRecordMinusClick" entry="EVT_BUTTON" />
-																	</object>
-																	<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																	<border>5</border>
-																</object>
-																<object class="sizeritem">
-																	<object class="wxButton" name="ID_buttonCoitusRecordPlus" variable="buttonCoitusRecordPlus" member="yes">
-																		<label>+</label>
-																		<size>25,-1</size>
-																		<handler function="buttonCoitusRecordPlusClick" entry="EVT_BUTTON" />
-																	</object>
-																	<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																	<border>5</border>
-																</object>
+															<object class="wxCheckBox" name="ID_checkBoxSexMorning" variable="checkBoxSexMorning" member="yes">
+																<label>in the morning</label>
+																<tooltip>Small bleeding</tooltip>
+																<style>wxSIMPLE_BORDER</style>
+																<handler function="checkBoxSexMorningClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
 														</object>
 														<object class="sizeritem">
-															<object class="wxStaticText" name="ID_changesCoitusRecord" variable="changesCoitusRecord" member="yes">
+															<object class="wxStaticText" name="ID_changesSexMorning" variable="changesSexMorning" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticSexDay" variable="staticSexDay" member="yes">
+																<label></label>
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxSexDay" variable="checkBoxSexDay" member="yes">
+																<label>during the day</label>
+																<tooltip>Small bleeding</tooltip>
+																<style>wxSIMPLE_BORDER</style>
+																<handler function="checkBoxSexDayClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesSexDay" variable="changesSexDay" member="yes">
 																<label></label>
 																<size>15,-1</size>
 																<fg>#FF0000</fg>
 																<style>wxALIGN_CENTRE</style>
 															</object>
 															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_staticSexEvening" variable="staticSexEvening" member="yes">
+																<label></label>
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxSexEvening" variable="checkBoxSexEvening" member="yes">
+																<label>in the evening</label>
+																<tooltip>Small bleeding</tooltip>
+																<style>wxSIMPLE_BORDER</style>
+																<handler function="checkBoxSexEveningClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesSexEvening" variable="changesSexEvening" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -398,7 +430,7 @@
 																<label>o - opaque (the opposite of clear)</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -406,7 +438,7 @@
 																<label>w - white</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -414,7 +446,7 @@
 																<label>y - yellowish</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -422,7 +454,7 @@
 																<label>t - tacky (stretches up to 1 cm)</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -437,7 +469,7 @@
 																<label>c - clear (a more-fertile mucus)</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -445,7 +477,7 @@
 																<label>s - stretchy (stretches more than 1 cm)</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -459,7 +491,7 @@
 																<label>SR - seminal residue from marital relations</label>
 																<handler function="checkBoxMucusAppearanceClick" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -474,7 +506,7 @@
 															<object class="wxStaticText" name="ID_staticMucusAmount" variable="staticMucusAmount" member="yes">
 																<label>amount of mucus</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -484,7 +516,7 @@
 																<tooltip>Trace amount</tooltip>
 																<handler function="checkBoxMucusAmount1Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -493,7 +525,7 @@
 																<tooltip>Typical amount</tooltip>
 																<handler function="checkBoxMucusAmount2Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -502,14 +534,14 @@
 																<tooltip>Huge amount</tooltip>
 																<handler function="checkBoxMucusAmount3Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_staticLengthOfStretch" variable="staticLengthOfStretch" member="yes">
 																<label>length of stretch in cm</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -518,7 +550,7 @@
 																<label>1</label>
 																<handler function="checkBoxLengthOfStretch1Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -526,7 +558,7 @@
 																<label>2</label>
 																<handler function="checkBoxLengthOfStretch2Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -534,7 +566,7 @@
 																<label>3 ..</label>
 																<handler function="checkBoxLengthOfStretch3Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -863,7 +895,7 @@
 															<object class="wxStaticText" name="ID_staticOvulationPain" variable="staticOvulationPain" member="yes">
 																<label>ovulation pain</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -872,7 +904,7 @@
 																<label>v</label>
 																<handler function="checkBoxOvulationPain1Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -880,7 +912,7 @@
 																<label>vv</label>
 																<handler function="checkBoxOvulationPain2Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -890,14 +922,14 @@
 																<fg>#FF0000</fg>
 																<style>wxALIGN_CENTRE</style>
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_staticBreastsTension" variable="staticBreastsTension" member="yes">
 																<label>breasts tension</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -906,7 +938,7 @@
 																<label>v</label>
 																<handler function="checkBoxBreastsTension1Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -914,7 +946,7 @@
 																<label>vv</label>
 																<handler function="checkBoxBreastsTension2Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -924,14 +956,14 @@
 																<fg>#FF0000</fg>
 																<style>wxALIGN_CENTRE</style>
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_staticSpotting" variable="staticSpotting" member="yes">
 																<label>spotting</label>
 															</object>
-															<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 															<option>1</option>
 														</object>
@@ -940,7 +972,7 @@
 																<label>v</label>
 																<handler function="checkBoxSpotting1Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -948,7 +980,7 @@
 																<label>vv</label>
 																<handler function="checkBoxSpotting2Click" entry="EVT_CHECKBOX" />
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
@@ -958,7 +990,7 @@
 																<fg>#FF0000</fg>
 																<style>wxALIGN_CENTRE</style>
 															</object>
-															<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 													</object>
@@ -990,7 +1022,6 @@
 												<object class="sizeritem">
 													<object class="wxTextCtrl" name="ID_textAdditionalNotes" variable="textAdditionalNotes" member="yes">
 														<minsize>200,40</minsize>
-														<maxsize>400,60</maxsize>
 														<style>wxTE_MULTILINE|wxSIMPLE_BORDER</style>
 														<handler function="textAdditionalNotesUpdated" entry="EVT_TEXT" />
 													</object>
@@ -1040,13 +1071,13 @@
 								<object class="sizeritem">
 									<object class="wxButton" name="ID_buttonClose" variable="buttonClose" member="yes">
 										<label>close</label>
-										<tooltip>Close this window (and ask for saving unsaved changes)</tooltip>
+										<tooltip>Close this window</tooltip>
 										<handler function="buttonCloseClick" entry="EVT_BUTTON" />
 									</object>
 									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								</object>
 							</object>
-							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 							<border>5</border>
 						</object>
 					</object>

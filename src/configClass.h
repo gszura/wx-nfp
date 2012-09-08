@@ -20,6 +20,19 @@
 #define MINCELLWIDTH   30
 #define MAXDAYSONCARD 500
 
+#define RULE_2120 1
+#define RULE_CLINICAL 2
+#define RULE_DOERING 3
+#define RULE_CERVICAL_MUCUS_BASED 4
+#define RULE_CERVICAL_POSITION_BASED 5
+
+#define RULE_2120_string _("21/20 days rule")
+#define RULE_CLINICAL_string _("clinical rule")
+#define RULE_DOERING_string _("Döring rule")
+#define RULE_CERVICAL_MUCUS_BASED_string _("cervical mucus based rule")
+#define RULE_CERVICAL_POSITION_BASED_string _("cervical mucus position rule")
+
+
 /******************************************************************************/
 
 /* GENERAL */
@@ -87,7 +100,6 @@
 #define CONF_ENTRY_fontResultHeader _T( "fontResultHeader" )
 #define CONF_ENTRY_fontResultDefault _T( "fontResultDefault" )
 #define CONF_ENTRY_fontResultResults _T( "fontResultResults" )
-#define CONF_ENTRY_fontResultHeart _T( "fontResultHeart" )
 #define CONF_ENTRY_fontResultPhases _T( "fontResultPhases" )
 #define CONF_ENTRY_fontHeadTopicColour _T( "fontHeadTopicColour" )
 #define CONF_ENTRY_fontHeadNameColour _T( "fontHeadNameColour" )
@@ -95,9 +107,7 @@
 #define CONF_ENTRY_fontResultHeaderColour _T( "fontResultHeaderColour" )
 #define CONF_ENTRY_fontResultDefaultColour _T( "fontResultDefaultColour" )
 #define CONF_ENTRY_fontResultResultsColour _T( "fontResultResultsColour" )
-#define CONF_ENTRY_fontResultHeartColour _T( "fontResultHeartColour" )
 #define CONF_ENTRY_fontResultPhasesColour _T( "fontResultPhasesColour" )
-#define CONF_ENTRY_coitusRecordCharacter _T("coitusRecordCharacter")
 #define CONF_ENTRY_EXT_POINTSIZE _T( ".pointSize" )
 #define CONF_ENTRY_EXT_FAMILY _T( ".family" )
 #define CONF_ENTRY_EXT_STYLE _T( ".style" )
@@ -105,6 +115,22 @@
 #define CONF_ENTRY_EXT_UNDERLINE _T( ".underline" )
 #define CONF_ENTRY_EXT_FACENAME _T( ".faceName" )
 #define CONF_ENTRY_EXT_ENCODING _T( ".encoding" )
+
+/* ANALYSIS */
+#define CONF_PATH_analysis _T( "/analysis/" )
+#define CONF_ENTRY_autoanalyzeCard _T( "autoanalyzeCard" )
+#define CONF_ENTRY_maxAllowedNotMesuredLowLevelDays _T( "maxAllowedNotMesuredLowLevelDays" )
+#define CONF_ENTRY_maxIncludedNotMesuredLowLevelDays _T( "maxIncludedNotMesuredLowLevelDays" )
+#define CONF_ENTRY_maxAllowedNotMesuredHighLevelDays _T( "maxAllowedNotMesuredHighLevelDays" )
+#define CONF_ENTRY_maxIncludedNotMesuredHighLevelDays _T( "maxIncludedNotMesuredHighLevelDays" )
+#define CONF_ENTRY_includeNotMesuredDaysIfAfterMucusPeak _T( "includeNotMesuredDaysIfAfterMucusPeak" )
+#define CONF_ENTRY_numberOfHistoricalCyclesToUse _T( "numberOfHistoricalCyclesToUse" )
+#define CONF_ENTRY_autoanalyzeCardPreferResult1 _T( "autoanalyzeCardPreferResult1" )
+#define CONF_ENTRY_autoanalyzeCardPreferResult2 _T( "autoanalyzeCardPreferResult2" )
+#define CONF_ENTRY_autoanalyzeCardPreferResult3 _T( "autoanalyzeCardPreferResult3" )
+#define CONF_ENTRY_autoanalyzeCardPreferResult4 _T( "autoanalyzeCardPreferResult4" )
+#define CONF_ENTRY_autoanalyzeCardPreferResult5 _T( "autoanalyzeCardPreferResult5" )
+
 
 /******************************************************************************/
 
@@ -118,7 +144,8 @@ WX_DECLARE_STRING_HASH_MAP( wxString, paramsHash );
 /**
  *
  */
-class configClass {
+class configClass
+{
     /** methods */
 public:
     configClass(wxString);
@@ -197,6 +224,22 @@ public:
     // day, when the reminder has been shown last time.
     wxDateTime breastSelfControlLastReminder;
 
+    // analyze card after each change
+    bool autoanalyzeCard;
+    // temperature graph
+    int maxAllowedNotMesuredLowLevelDays;
+    int maxIncludedNotMesuredLowLevelDays;
+    int maxAllowedNotMesuredHighLevelDays;
+    int maxIncludedNotMesuredHighLevelDays;
+    bool includeNotMesuredDaysIfAfterMucusPeak;
+    // calculating beginning of the fertile phase
+    int numberOfHistoricalCyclesToUse;
+    int autoanalyzeCardPreferResult1;
+    int autoanalyzeCardPreferResult2;
+    int autoanalyzeCardPreferResult3;
+    int autoanalyzeCardPreferResult4;
+    int autoanalyzeCardPreferResult5;
+
 
     bool lengthInCentimeters;
     bool temperatureInCelsius;
@@ -232,7 +275,6 @@ public:
     wxFont fontResultHeader;
     wxFont fontResultDefault;
     wxFont fontResultResults;
-    wxFont fontResultHeart;
     wxFont fontResultPhases;
 
     wxColour fontHeadTopicColour;
@@ -241,11 +283,7 @@ public:
     wxColour fontResultHeaderColour;
     wxColour fontResultDefaultColour;
     wxColour fontResultResultsColour;
-    wxColour fontResultHeartColour;
     wxColour fontResultPhasesColour;
-
-    wxChar coitusRecordCharacter;
-
 
     /**************************************************************************/
     // PARAMETERS NOT KEPT IN CONFIG FILE
@@ -275,7 +313,7 @@ public:
     // off-line - if changed then application has to be restarted
     int windowTopHeight;
 
-    static const int rowsCountAboveTemp = 7;
+    static const int rowsCountAboveTemp = 6;
     static const int rowsCountBelowTemp = 14;
     static const int rowNoCervixBelowTemp  = 7;
 

@@ -1,3 +1,6 @@
+#ifndef HEADER_E96D519BC4059816
+#define HEADER_E96D519BC4059816
+
 // ========================================================================
 // ========FILE: cycleData_declarations.h ===============================
 // ========================================================================
@@ -7,6 +10,16 @@
 //#include "wx_pch.h"
 
 // ========================================================================
+
+#define CYCLE_TYPE_NORMAL          1
+#define CYCLE_TYPE_PREGNANCY       2
+#define CYCLE_TYPE_AFTER_PREGNANCY 3
+#define CYCLE_TYPE_PERI_MENOPAUSE  4
+
+// basic infertile pattern (used in CYCLE_TYPE_AFTER_PREGNANCY)
+#define CYCLE_BIP_AUTO   0
+#define CYCLE_BIP_DRY    1
+#define CYCLE_BIP_MUCUS  2
 
 // measurement place
 #define PLACE_MOUTH             1
@@ -59,6 +72,22 @@
 
 // STRINGS
 
+// cycle type
+#define string_cycleTypeNormal  _( "normal" )
+#define string_cycleTypePregnancy  _( "pregnancy" )
+#define string_cycleTypeAfterPregnancy  _( "after pregnancy" )
+#define string_cycleTypePeriMenopause  _( "peri-menopause" )
+
+// basic infertile pattern (used in CYCLE_TYPE_AFTER_PREGNANCY)
+#define string_cycle_bip_auto  _( "auto calculate" )
+#define string_cycle_bip_dry  _( "dry" )
+#define string_cycle_bip_mucus  _( "mucus" )
+
+// sexual relations
+#define string_sexualRelationMorning _("sexual relation in the morning")
+#define string_sexualRelationDay _("sexual relation during the day")
+#define string_sexualRelationEvening _("sexual relation in the evening")
+
 // measurement place
 #define string_placeMouth  _( "mouth" )
 #define string_placeRectum  _( "rectum" )
@@ -104,6 +133,7 @@
 
 #define string_fertile_phase   _( "fertile\nphase" )
 #define string_infertile_phase _( "infertile\nphase" )
+#define string_luteal_phase _( "luteal phase" )
 
 
 // ========================================================================
@@ -111,3 +141,5 @@
 
 #endif
 
+
+#endif // header guard

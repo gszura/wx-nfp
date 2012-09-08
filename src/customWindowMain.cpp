@@ -151,15 +151,8 @@ void customWindowMain::OnPaint( wxPaintEvent &WXUNUSED( event ) ) {
         lastDay = m_cycleData->getDaysCount();
     }
 
-
-
-
     // draw card
-
     m_drawing->drawCard( dc, m_cycleData->getActiveCard(), firstDay, lastDay );
-
-
-
 }
 
 /******************************************************************************/
@@ -276,9 +269,8 @@ void customWindowMain::OnMouseMotion( wxMouseEvent &event ) {
 
         wxPoint pos = event.GetPosition();
 
-        if ( pos.x < 5 || pos.y <= 0 ) {
+        if ( pos.x < 3 || pos.y <= 0 ) {
             if ( m_notesWindow->IsShown() ) {
-
                 m_notesWindow->Hide();
             }
             markDayAndRow(dc, -1, -1);
@@ -337,10 +329,10 @@ void customWindowMain::OnMouseMotion( wxMouseEvent &event ) {
 
 void customWindowMain::markDayAndRow(wxDC &dc, int dayNo, int rowNo) {
     try {
-        if (m_prevMarkedDay != -1)
+        if (m_prevMarkedDay > 0)
             m_drawing->markDay( dc, m_cycleData->getActiveCard(), m_prevMarkedDay, false );
         m_prevMarkedDay = dayNo;
-        if (dayNo != -1)
+        if (dayNo > 0)
             m_drawing->markDay( dc, m_cycleData->getActiveCard(), dayNo, true );
 
         m_windowLeft->markRow(rowNo);
@@ -499,30 +491,21 @@ void customWindowMain::repaint_activeDayChanged() {
     } else {
         m_drawing->drawCard( dc, m_cycleData->getActiveCard(), m_cycleData->getActiveDay(), m_cycleData->getPrevActiveDay() );
     }
-
-
-
-
 }
 
 /**
  * Repaint days from choosen range.
  */
-void customWindowMain::repaint_daysUpdated( int dayNoFrom, int dayNoTo ) {
-
-
-
+void customWindowMain::repaint_daysUpdated( int dayNoFrom, int dayNoTo )
+{
     if ( m_cycleData == NULL ) {
-
         return;
     }
 
     if ( dayNoFrom < 1 ) {
-
         return;
     }
     if ( dayNoTo < 1 ) {
-
         return;
     }
 

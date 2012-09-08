@@ -46,6 +46,7 @@
 #include "updatesNotificationForm.h"
 #include "histogramsFrame.h"
 #include "cycleGraph.h"
+#include "notificationFrame.h"
 
 #undef nfpMainFrame_STYLE
 #define nfpMainFrame_STYLE wxCAPTION | wxRESIZE_BORDER | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxMAXIMIZE_BOX | wxCLOSE_BOX | wxCLIP_CHILDREN
@@ -69,12 +70,15 @@ public:
     wxMenu *menuCard;
     wxMenu *menuDay;
     wxMenu *menuResults;
+    wxMenu *menuResultsMarkDayAs;
     wxMenu *menuMoveDays;
     wxMenu *menuStats;
     wxMenu *menuHelp;
+    wxMenu *menuDayPopup;
 
     wxToolBar *toolBar;
     wxButton *buttonNewDay;
+    wxButton *buttonAnalyzeCycle;
 
     wxStatusBar *statusBar;
     wxScrollBar *scrollBarVertical;
@@ -92,8 +96,7 @@ public:
 
     /**************************************************************************/
 public:
-    enum
-    {
+    enum {
         ID_MNU_NFP = 1000,
         ID_MNU_NEW_SET,
         ID_MNU_OPEN_SET,
@@ -114,9 +117,14 @@ public:
         ID_MNU_SEPARATOR_21,
         ID_MNU_EDIT_CARD,
         ID_MNU_DELETE_CARD,
-        ID_MNU_LOCK_CARD,
+        ID_MNU_CARD_LOCKED,
+        ID_MNU_CARD_CORRUPTED,
         ID_MNU_SEPARATOR_22,
         ID_MNU_NEW_CARD,
+        ID_MNU_RESULTS_MARK_DAYS_AS,
+        ID_MNU_RESULTS_AUTOCALCULATE,
+        ID_MNU_RESULTS_AUTOCALCULATE_ON_CHANGE,
+        ID_MNU_RESULTS_CHANGE_SETTINGS,
         ID_MNU_DAY,
         ID_MNU_DAY_NO,
         ID_MNU_SEPARATOR_31,
@@ -134,7 +142,6 @@ public:
         ID_MNU_RESULTS_TEMPERATURE_RESET,
         ID_MNU_RESULTS_FERTILE_PHASE_START,
         ID_MNU_RESULTS_INFERTILE_PHASE_START,
-        ID_MNU_RESULTS_AUTOCALCULATE,
         ID_MNU_SEPARATOR_33,
         ID_MNU_MOVE_DAYS,
         ID_MNU_MOVE_DAYS_TO_PREV_CARD,
@@ -150,6 +157,7 @@ public:
 
         ID_STATUSBAR,
         ID_BUTTONNEWDAY,
+        ID_BUTTONANALYZECYCLE,
         ID_BUTTONNEXTCARD,
         ID_BUTTONPREVCARD,
         ID_TOOLBAR,
@@ -207,7 +215,8 @@ public:
     void MnuGoToCardClick(wxCommandEvent& event);
     void MnuEditCardClick(wxCommandEvent& event);
     void MnuDeleteCardClick(wxCommandEvent& event);
-    void MnuLockClick(wxCommandEvent& event);
+    void MnuCardLockedClick(wxCommandEvent& event);
+    void MnuCardCorruptedClick(wxCommandEvent& event);
     void MnuNewCardClick(wxCommandEvent& event);
 
     void MnuEditDayClick(wxCommandEvent& event);
@@ -226,6 +235,8 @@ public:
     void MnuResultsFertilePhaseStartClick(wxCommandEvent& event);
     void MnuResultsInfertilePhaseStartClick(wxCommandEvent& event);
     void MnuResultsAutocalculateClick(wxCommandEvent& event);
+    void MnuResultsAutocalculateOnChangeClick(wxCommandEvent& event);
+    void MnuResultsChangeAnalysisSettingsClick(wxCommandEvent& event);
 
     void MnuLengthOfCycleHist(wxCommandEvent& event);
     void MnuCycleHist(wxCommandEvent& event);
@@ -255,7 +266,7 @@ private:
     updatesNotificationForm *m_updatesNotificationFrame;
     bool m_doUpdateOnExit;
     wxString m_newAppSetupFile;
-    bool doCheckForMissingDays;
+    bool m_doCheckForMissingDays;
 
     // variables needed to monitor if the frame title needs to be updated.
     wxString m_dataFileNamePrev;
@@ -287,6 +298,7 @@ public:
 
 private:
     bool doModifyLockedCard();
+    void informUserAboutChangesInThisRelease();
 
 };
 

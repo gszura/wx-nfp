@@ -17,25 +17,27 @@
  */
 dayEntry::dayEntry()
 {
-     m_menstruation = -1;
-     m_coitusRecord = 0;
-     m_otherDisturbances = false;
-     m_temperatureDisturbances = false;
-     m_temperatureMeasuredValue = -1;
-     m_temperatureMeasurementTime = wxDateTime();
-     m_temperatureMeasurementTime.Set( 0, 0, 0, 0 );
-     m_temperatureMeasurementPlace = -1;
-     m_temperatureAdditionalCorrection = 0;
-     m_temperatureValueAfterCorrections = -1;
-     m_mucusFeelingExperience = -1;
-     m_mucusAppearance = 0;
-     m_cervixPosition = -1;
-     m_cervixDilation = -1;
-     m_cervixHardness = -1;
-     m_ovulationPain = -1;
-     m_breastsTension = -1;
-     m_spotting = -1;
-     m_additionalNotes = wxEmptyString;
+    m_menstruation = -1;
+    m_sexualRelationMorning = false;
+    m_sexualRelationDay = false;
+    m_sexualRelationEvening = false;
+    m_otherDisturbances = false;
+    m_temperatureDisturbances = false;
+    m_temperatureMeasuredValue = -1;
+    m_temperatureMeasurementTime = wxDateTime();
+    m_temperatureMeasurementTime.Set( 0, 0, 0, 0 );
+    m_temperatureMeasurementPlace = -1;
+    m_temperatureAdditionalCorrection = 0;
+    m_temperatureValueAfterCorrections = -1;
+    m_mucusFeelingExperience = -1;
+    m_mucusAppearance = 0;
+    m_cervixPosition = -1;
+    m_cervixDilation = -1;
+    m_cervixHardness = -1;
+    m_ovulationPain = -1;
+    m_breastsTension = -1;
+    m_spotting = -1;
+    m_additionalNotes = wxEmptyString;
 }
 
 /*******************************************************************************
@@ -47,17 +49,34 @@ dayEntry::dayEntry()
  */
 bool dayEntry::setMenstruation( int value )
 {
-     m_menstruation = value;
-     return true;
+    m_menstruation = value;
+    return true;
 }
+
 
 /**
  *
  */
-bool dayEntry::setCoitusRecord( int value )
+bool dayEntry::setSexualRelationMorning(bool value)
 {
-     m_coitusRecord = value;
-     return true;
+    m_sexualRelationMorning = value;
+    return true;
+}
+/**
+ *
+ */
+bool dayEntry::setSexualRelationDay(bool value)
+{
+    m_sexualRelationDay = value;
+    return true;
+}
+/**
+ *
+ */
+bool dayEntry::setSexualRelationEvening(bool value)
+{
+    m_sexualRelationEvening = value;
+    return true;
 }
 
 /**
@@ -65,8 +84,8 @@ bool dayEntry::setCoitusRecord( int value )
  */
 bool dayEntry::setOtherDisturbances( bool value )
 {
-     m_otherDisturbances = value;
-     return true;
+    m_otherDisturbances = value;
+    return true;
 }
 
 /**
@@ -74,8 +93,8 @@ bool dayEntry::setOtherDisturbances( bool value )
  */
 bool dayEntry::setTemperatureDisturbances( bool value )
 {
-     m_temperatureDisturbances = value;
-     return true;
+    m_temperatureDisturbances = value;
+    return true;
 }
 
 /**
@@ -83,8 +102,8 @@ bool dayEntry::setTemperatureDisturbances( bool value )
  */
 bool dayEntry::setTemperatureMeasuredValue( int value )
 {
-     m_temperatureMeasuredValue = value;
-     return true;
+    m_temperatureMeasuredValue = value;
+    return true;
 }
 
 /**
@@ -92,8 +111,8 @@ bool dayEntry::setTemperatureMeasuredValue( int value )
  */
 bool dayEntry::setTemperatureMeasurementTime( wxDateTime value )
 {
-     m_temperatureMeasurementTime = value;
-     return true;
+    m_temperatureMeasurementTime = value;
+    return true;
 }
 
 /**
@@ -101,8 +120,8 @@ bool dayEntry::setTemperatureMeasurementTime( wxDateTime value )
  */
 bool dayEntry::setTemperatureMeasurementPlace( int value )
 {
-     m_temperatureMeasurementPlace = value;
-     return true;
+    m_temperatureMeasurementPlace = value;
+    return true;
 }
 
 /**
@@ -110,8 +129,8 @@ bool dayEntry::setTemperatureMeasurementPlace( int value )
  */
 bool dayEntry::setTemperatureAdditionalCorrection( int value )
 {
-     m_temperatureAdditionalCorrection = value;
-     return true;
+    m_temperatureAdditionalCorrection = value;
+    return true;
 }
 
 /**
@@ -119,8 +138,8 @@ bool dayEntry::setTemperatureAdditionalCorrection( int value )
  */
 bool dayEntry::setTemperatureValueAfterCorrections( int value )
 {
-     m_temperatureValueAfterCorrections = value;
-     return true;
+    m_temperatureValueAfterCorrections = value;
+    return true;
 }
 
 /**
@@ -128,8 +147,8 @@ bool dayEntry::setTemperatureValueAfterCorrections( int value )
  */
 bool dayEntry::setMucusFeelingExperience( int value )
 {
-     m_mucusFeelingExperience = value;
-     return true;
+    m_mucusFeelingExperience = value;
+    return true;
 }
 
 /**
@@ -137,8 +156,8 @@ bool dayEntry::setMucusFeelingExperience( int value )
  */
 bool dayEntry::setMucusAppearance( int value )
 {
-     m_mucusAppearance = value;
-     return true;
+    m_mucusAppearance = value;
+    return true;
 }
 
 /**
@@ -146,8 +165,8 @@ bool dayEntry::setMucusAppearance( int value )
  */
 bool dayEntry::setCervixPosition( int value )
 {
-     m_cervixPosition = value;
-     return true;
+    m_cervixPosition = value;
+    return true;
 }
 
 /**
@@ -155,8 +174,8 @@ bool dayEntry::setCervixPosition( int value )
  */
 bool dayEntry::setCervixDilation( int value )
 {
-     m_cervixDilation = value;
-     return true;
+    m_cervixDilation = value;
+    return true;
 }
 
 /**
@@ -164,8 +183,8 @@ bool dayEntry::setCervixDilation( int value )
  */
 bool dayEntry::setCervixHardness( int value )
 {
-     m_cervixHardness = value;
-     return true;
+    m_cervixHardness = value;
+    return true;
 }
 
 /**
@@ -173,8 +192,8 @@ bool dayEntry::setCervixHardness( int value )
  */
 bool dayEntry::setOvulationPain( int value )
 {
-     m_ovulationPain = value;
-     return true;
+    m_ovulationPain = value;
+    return true;
 }
 
 /**
@@ -182,8 +201,8 @@ bool dayEntry::setOvulationPain( int value )
  */
 bool dayEntry::setBreastsTension( int value )
 {
-     m_breastsTension = value;
-     return true;
+    m_breastsTension = value;
+    return true;
 }
 
 /**
@@ -191,8 +210,8 @@ bool dayEntry::setBreastsTension( int value )
  */
 bool dayEntry::setSpotting( int value )
 {
-     m_spotting = value;
-     return true;
+    m_spotting = value;
+    return true;
 }
 
 /**
@@ -200,8 +219,8 @@ bool dayEntry::setSpotting( int value )
  */
 bool dayEntry::setAdditionalNotes( wxString value )
 {
-     m_additionalNotes = value;
-     return true;
+    m_additionalNotes = value;
+    return true;
 }
 
 /*******************************************************************************
@@ -213,15 +232,30 @@ bool dayEntry::setAdditionalNotes( wxString value )
  */
 int dayEntry::getMenstruation()
 {
-     return m_menstruation;
+    return m_menstruation;
 }
+
 
 /**
  *
  */
-int dayEntry::getCoitusRecord()
+bool dayEntry::getSexualRelationMorning()
 {
-     return m_coitusRecord;
+    return m_sexualRelationMorning;
+}
+/**
+ *
+ */
+bool dayEntry::getSexualRelationDay()
+{
+    return m_sexualRelationDay;
+}
+/**
+ *
+ */
+bool dayEntry::getSexualRelationEvening()
+{
+    return m_sexualRelationEvening;
 }
 
 /**
@@ -229,7 +263,7 @@ int dayEntry::getCoitusRecord()
  */
 bool dayEntry::getOtherDisturbances()
 {
-     return m_otherDisturbances;
+    return m_otherDisturbances;
 }
 
 /**
@@ -237,7 +271,7 @@ bool dayEntry::getOtherDisturbances()
  */
 bool dayEntry::getTemperatureDisturbances()
 {
-     return m_temperatureDisturbances;
+    return m_temperatureDisturbances;
 }
 
 /**
@@ -245,7 +279,7 @@ bool dayEntry::getTemperatureDisturbances()
  */
 int dayEntry::getTemperatureMeasuredValue()
 {
-     return m_temperatureMeasuredValue;
+    return m_temperatureMeasuredValue;
 }
 
 /**
@@ -253,7 +287,7 @@ int dayEntry::getTemperatureMeasuredValue()
  */
 wxDateTime dayEntry::getTemperatureMeasurementTime()
 {
-     return m_temperatureMeasurementTime;
+    return m_temperatureMeasurementTime;
 }
 
 /**
@@ -261,7 +295,7 @@ wxDateTime dayEntry::getTemperatureMeasurementTime()
  */
 int dayEntry::getTemperatureMeasurementPlace()
 {
-     return m_temperatureMeasurementPlace;
+    return m_temperatureMeasurementPlace;
 }
 
 /**
@@ -269,7 +303,7 @@ int dayEntry::getTemperatureMeasurementPlace()
  */
 int dayEntry::getTemperatureAdditionalCorrection()
 {
-     return m_temperatureAdditionalCorrection;
+    return m_temperatureAdditionalCorrection;
 }
 
 /**
@@ -277,7 +311,7 @@ int dayEntry::getTemperatureAdditionalCorrection()
  */
 int dayEntry::getTemperatureValueAfterCorrections()
 {
-     return m_temperatureValueAfterCorrections;
+    return m_temperatureValueAfterCorrections;
 }
 
 /**
@@ -285,7 +319,7 @@ int dayEntry::getTemperatureValueAfterCorrections()
  */
 int dayEntry::getMucusFeelingExperience()
 {
-     return m_mucusFeelingExperience;
+    return m_mucusFeelingExperience;
 }
 
 /**
@@ -293,7 +327,7 @@ int dayEntry::getMucusFeelingExperience()
  */
 int dayEntry::getMucusAppearance()
 {
-     return m_mucusAppearance;
+    return m_mucusAppearance;
 }
 
 /**
@@ -301,62 +335,62 @@ int dayEntry::getMucusAppearance()
  */
 wxString dayEntry::convertMucusAppearance( int input )
 {
-     wxString ret = _T( "" );
+    wxString ret = _T( "" );
 
-     if ( input >= MUCUS_LENGHTOFSTRETCH3 ) {
-          input -= MUCUS_LENGHTOFSTRETCH3;
-          ret = _T( " 3" ) + ret;
-     }
-     if ( input >= MUCUS_LENGHTOFSTRETCH2 ) {
-          input -= MUCUS_LENGHTOFSTRETCH2;
-          ret = _T( " 2" ) + ret;
-     }
-     if ( input >= MUCUS_LENGHTOFSTRETCH1 ) {
-          input -= MUCUS_LENGHTOFSTRETCH1;
-          ret = _T( " 1" ) + ret;
-     }
-     if ( input >= MUCUS_AMOUNT3 ) {
-          input -= MUCUS_AMOUNT3;
-          ret = _T( " +++" ) + ret;
-     }
-     if ( input >= MUCUS_AMOUNT2 ) {
-          input -= MUCUS_AMOUNT2;
-          ret = _T( " ++" ) + ret;
-     }
-     if ( input >= MUCUS_AMOUNT1 ) {
-          input -= MUCUS_AMOUNT1;
-          ret = _T( " +" ) + ret;
-     }
-     if ( input >= MUCUS_SEMINALRESIDUE ) {
-          input -= MUCUS_SEMINALRESIDUE;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceSeminalResidue, ret.c_str() );
-     }
-     if ( input >= MUCUS_STRETCHY ) {
-          input -= MUCUS_STRETCHY;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceStretchy, ret.c_str() );
-     }
-     if ( input >= MUCUS_CLEAR ) {
-          input -= MUCUS_CLEAR;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceClear, ret.c_str() );
-     }
-     if ( input >= MUCUS_TACKY ) {
-          input -= MUCUS_TACKY;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceTacky, ret.c_str() );
-     }
-     if ( input >= MUCUS_YELLOWISH ) {
-          input -= MUCUS_YELLOWISH;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceYellowish, ret.c_str() );
-     }
-     if ( input >= MUCUS_WHITE ) {
-          input -= MUCUS_WHITE;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceWhite, ret.c_str() );
-     }
-     if ( input >= MUCUS_OPAQUE ) {
-          input -= MUCUS_OPAQUE;
-          ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceOpaque, ret.c_str() );
-     }
+    if ( input >= MUCUS_LENGHTOFSTRETCH3 ) {
+        input -= MUCUS_LENGHTOFSTRETCH3;
+        ret = _T( " 3" ) + ret;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH2 ) {
+        input -= MUCUS_LENGHTOFSTRETCH2;
+        ret = _T( " 2" ) + ret;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH1 ) {
+        input -= MUCUS_LENGHTOFSTRETCH1;
+        ret = _T( " 1" ) + ret;
+    }
+    if ( input >= MUCUS_AMOUNT3 ) {
+        input -= MUCUS_AMOUNT3;
+        ret = _T( " +++" ) + ret;
+    }
+    if ( input >= MUCUS_AMOUNT2 ) {
+        input -= MUCUS_AMOUNT2;
+        ret = _T( " ++" ) + ret;
+    }
+    if ( input >= MUCUS_AMOUNT1 ) {
+        input -= MUCUS_AMOUNT1;
+        ret = _T( " +" ) + ret;
+    }
+    if ( input >= MUCUS_SEMINALRESIDUE ) {
+        input -= MUCUS_SEMINALRESIDUE;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceSeminalResidue, ret.c_str() );
+    }
+    if ( input >= MUCUS_STRETCHY ) {
+        input -= MUCUS_STRETCHY;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceStretchy, ret.c_str() );
+    }
+    if ( input >= MUCUS_CLEAR ) {
+        input -= MUCUS_CLEAR;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceClear, ret.c_str() );
+    }
+    if ( input >= MUCUS_TACKY ) {
+        input -= MUCUS_TACKY;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceTacky, ret.c_str() );
+    }
+    if ( input >= MUCUS_YELLOWISH ) {
+        input -= MUCUS_YELLOWISH;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceYellowish, ret.c_str() );
+    }
+    if ( input >= MUCUS_WHITE ) {
+        input -= MUCUS_WHITE;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceWhite, ret.c_str() );
+    }
+    if ( input >= MUCUS_OPAQUE ) {
+        input -= MUCUS_OPAQUE;
+        ret = wxString::Format( _T( " %s%s" ), string_mucusAppearanceOpaque, ret.c_str() );
+    }
 
-     return ret.Trim( false );
+    return ret.Trim( false );
 }
 
 /**
@@ -364,7 +398,7 @@ wxString dayEntry::convertMucusAppearance( int input )
  */
 int dayEntry::getCervixPosition()
 {
-     return m_cervixPosition;
+    return m_cervixPosition;
 }
 
 /**
@@ -372,7 +406,7 @@ int dayEntry::getCervixPosition()
  */
 int dayEntry::getCervixDilation()
 {
-     return m_cervixDilation;
+    return m_cervixDilation;
 }
 
 /**
@@ -380,7 +414,7 @@ int dayEntry::getCervixDilation()
  */
 int dayEntry::getCervixHardness()
 {
-     return m_cervixHardness;
+    return m_cervixHardness;
 }
 
 /**
@@ -388,7 +422,7 @@ int dayEntry::getCervixHardness()
  */
 int dayEntry::getOvulationPain()
 {
-     return m_ovulationPain;
+    return m_ovulationPain;
 }
 
 /**
@@ -396,7 +430,7 @@ int dayEntry::getOvulationPain()
  */
 int dayEntry::getBreastsTension()
 {
-     return m_breastsTension;
+    return m_breastsTension;
 }
 
 /**
@@ -404,7 +438,7 @@ int dayEntry::getBreastsTension()
  */
 int dayEntry::getSpotting()
 {
-     return m_spotting;
+    return m_spotting;
 }
 
 /**
@@ -412,7 +446,98 @@ int dayEntry::getSpotting()
  */
 wxString dayEntry::getAdditionalNotes()
 {
-     return m_additionalNotes;
+    return m_additionalNotes;
+}
+
+/******************************************************************************/
+
+/**
+ *
+ */
+bool dayEntry::isMucus()
+{
+    int input = getMucusAppearance();
+    if ( input >= MUCUS_LENGHTOFSTRETCH3 ) {
+        input -= MUCUS_LENGHTOFSTRETCH3;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH2 ) {
+        input -= MUCUS_LENGHTOFSTRETCH2;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH1 ) {
+        input -= MUCUS_LENGHTOFSTRETCH1;
+    }
+    if ( input >= MUCUS_AMOUNT3 ) {
+        input -= MUCUS_AMOUNT3;
+    }
+    if ( input >= MUCUS_AMOUNT2 ) {
+        input -= MUCUS_AMOUNT2;
+    }
+    if ( input >= MUCUS_AMOUNT1 ) {
+        input -= MUCUS_AMOUNT1;
+    }
+    if ( input >= MUCUS_SEMINALRESIDUE ) {
+        input -= MUCUS_SEMINALRESIDUE;
+    }
+    if ( input > 0 ) {
+        return true;
+    }
+
+    return (getMucusFeelingExperience() >= MUCUS_MOIST);
+    //return false;
+}
+
+/**
+ *
+ */
+bool dayEntry::isMucusMoreFertile()
+{
+    int input = getMucusAppearance();
+    if ( input >= MUCUS_LENGHTOFSTRETCH3 ) {
+        input -= MUCUS_LENGHTOFSTRETCH3;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH2 ) {
+        input -= MUCUS_LENGHTOFSTRETCH2;
+    }
+    if ( input >= MUCUS_LENGHTOFSTRETCH1 ) {
+        input -= MUCUS_LENGHTOFSTRETCH1;
+    }
+    if ( input >= MUCUS_AMOUNT3 ) {
+        input -= MUCUS_AMOUNT3;
+    }
+    if ( input >= MUCUS_AMOUNT2 ) {
+        input -= MUCUS_AMOUNT2;
+    }
+    if ( input >= MUCUS_AMOUNT1 ) {
+        input -= MUCUS_AMOUNT1;
+    }
+    if ( input >= MUCUS_SEMINALRESIDUE ) {
+        input -= MUCUS_SEMINALRESIDUE;
+    }
+    if ( input >= MUCUS_STRETCHY ) {
+        return true;
+    }
+    if ( input >= MUCUS_CLEAR ) {
+        return true;
+    }
+
+    return (getMucusFeelingExperience() >= MUCUS_WET);
+    //return (getMucusFeelingExperience() >= MUCUS_MOIST);
+}
+
+/**
+ *
+ */
+bool dayEntry::isCervixChange()
+{
+    return (getCervixDilation() > CERVIX_CLOSED || getCervixHardness() > CERVIX_FIRM || getCervixPosition() > CERVIX_LOW);
+}
+
+/**
+ *
+ */
+bool dayEntry::isSpotting()
+{
+    return (getSpotting() > 0);
 }
 
 

@@ -25,10 +25,13 @@ cycleDataClass::cycleDataClass( )
     m_activeDay = -1;
     m_prevActiveDay = -1;
     m_coitusRecordCounter = 0;
+    m_askUserToKeepResultsAlreadySetForOtherDays = true;
 
     // dane osobowe
     m_name = _( "your name" );
     m_birthdayDay = wxDateTime::Today();
+    m_shortestCycleDays = 0;
+    m_shortestCycleFromCycles = 12;
 }
 
 /**
@@ -36,8 +39,9 @@ cycleDataClass::cycleDataClass( )
  */
 void cycleDataClass::addErrorMessages( wxString e )
 {
-    if ( e.Length() > 0 )
-        m_errorMessages += _T( "\n- " ) + e;
+    if ( e.Length() > 0 ) {
+        m_errorMessages << _T( "\n- " ) << e;
+    }
 }
 
 /**
@@ -46,6 +50,53 @@ void cycleDataClass::addErrorMessages( wxString e )
 wxString cycleDataClass::getErrorMessages()
 {
     return m_errorMessages;
+}
+
+/**
+ *
+ */
+bool cycleDataClass::isSexualRelationDataConverted()
+{
+    return m_sexualRelationDataConverted;
+}
+/**
+ *
+ */
+wxString cycleDataClass::getSexualRelationDataConversionMessages2()
+{
+    return m_sexualRelationDataConversionMessages2;
+}
+
+/**
+ *
+ */
+wxString cycleDataClass::getSexualRelationDataConversionMessages3()
+{
+    return m_sexualRelationDataConversionMessages3;
+}
+
+/**
+ *
+ */
+wxString cycleDataClass::getSexualRelationDataConversionMessages4()
+{
+    return m_sexualRelationDataConversionMessages4;
+}
+
+/**
+ *
+ */
+bool cycleDataClass::isAskUserToKeepResultsAlreadySetForOtherDays()
+{
+    return m_askUserToKeepResultsAlreadySetForOtherDays;
+}
+
+/**
+ *
+ */
+void cycleDataClass::setAskUserToKeepResultsAlreadySetForOtherDays(bool value)
+{
+    m_askUserToKeepResultsAlreadySetForOtherDays = value;
 }
 
 /**
@@ -75,7 +126,7 @@ void cycleDataClass::setCoitusRecordCounter( int value )
 /**
  *
  */
-void cycleDataClass::increaseCoitusRecordCounter( int value )
+void cycleDataClass::increaseCoitusRecordCounter(int value)
 {
     m_coitusRecordCounter += value;
 }
@@ -155,16 +206,19 @@ int cycleDataClass::getPrevActiveDay()
  */
 bool cycleDataClass::createNewSet()
 {
-    if ( getCardsCount() > 0 )
+    if ( getCardsCount() > 0 ) {
         removeAll();
+    }
 
     m_coitusRecordCounter = 0;
 
-    if ( addNewCard() == -1 )
+    if ( addNewCard() == -1 ) {
         return false;
+    }
 
-    if ( addNewDay() == -1 )
+    if ( addNewDay() == -1 ) {
         return false;
+    }
 
     return true;
 }
@@ -206,6 +260,39 @@ bool cycleDataClass::setBirthdayDay( wxDateTime value )
 }
 
 /**
+*
+*/
+bool cycleDataClass::setShortestCycleDays(int value)
+{
+    m_shortestCycleDays = value;
+    return true;
+}
+
+/**
+*
+*/
+bool cycleDataClass::setShortestCycleFromCycles(int value)
+{
+    m_shortestCycleFromCycles = value;
+    return true;
+}
+
+/**
+*
+*/
+int cycleDataClass::getShortestCycleDays()
+{
+    return m_shortestCycleDays;
+}
+/**
+*
+*/
+int cycleDataClass::getShortestCycleFromCycles()
+{
+    return m_shortestCycleFromCycles;
+}
+
+/**
  *
  */
 wxString cycleDataClass::getName()
@@ -231,15 +318,17 @@ wxDateTime cycleDataClass::getBirthdayDay()
 int cycleDataClass::addNewCard()
 {
     int cardsCount = getCardsCount();
-    if ( cardsCount == 0 )
+    if ( cardsCount == 0 ) {
         m_cards[1] = new cardEntry();
-    else
+    } else {
         m_cards[cardsCount+1] = new cardEntry( m_cards[cardsCount] );
+    }
 
-    if ( getCardsCount() == cardsCount + 1 )
+    if ( getCardsCount() == cardsCount + 1 ) {
         return getCardsCount();
-    else
+    } else {
         return -1;
+    }
 }
 
 /**
@@ -263,8 +352,9 @@ bool cycleDataClass::removeLastCard()
  */
 bool cycleDataClass::removeAllCards()
 {
-    for ( int i = 1; i <= getCardsCount(); i++ )
+    for ( int i = 1; i <= getCardsCount(); i++ ) {
         m_cards[i]->removeAllDays();
+    }
 
     m_cards.clear();
 
@@ -292,7 +382,9 @@ cardEntry * cycleDataClass::getCard()
  */
 cardEntry * cycleDataClass::getCard( int cardNo )
 {
-    if ( m_cards.count( cardNo ) == 0 ) return NULL;
+    if ( m_cards.count( cardNo ) == 0 ) {
+        return NULL;
+    }
 
     return m_cards[cardNo];
 }
@@ -315,9 +407,14 @@ int cycleDataClass::addNewDay()
 int cycleDataClass::addNewDay( int cardNo )
 {
     if ( cardNo > 0 )
-        if ( m_cards[cardNo]->addNewDay( NULL ) ) return getDaysCount( cardNo );
-        else return -1;
-    else return -1;
+        if ( m_cards[cardNo]->addNewDay( NULL ) ) {
+            return getDaysCount( cardNo );
+        } else {
+            return -1;
+        }
+    else {
+        return -1;
+    }
 }
 
 /**
@@ -327,9 +424,14 @@ bool cycleDataClass::removeLastDay()
 {
     int cardNo = getCardsCount();
     if ( cardNo > 0 )
-        if ( m_cards[cardNo]->removeLastDay() ) return true;
-        else return false;
-    else return false;
+        if ( m_cards[cardNo]->removeLastDay() ) {
+            return true;
+        } else {
+            return false;
+        }
+    else {
+        return false;
+    }
 }
 
 /**
@@ -345,7 +447,9 @@ int cycleDataClass::getDaysCount()
  */
 int cycleDataClass::getDaysCount( int cardNo )
 {
-    if ( m_cards.count( cardNo ) == 0 ) return -1;
+    if ( m_cards.count( cardNo ) == 0 ) {
+        return -1;
+    }
 
     return m_cards[cardNo]->getDaysCount();
 }
@@ -371,7 +475,9 @@ dayEntry * cycleDataClass::getDay( int dayNo )
  */
 dayEntry * cycleDataClass::getDay( int cardNo, int dayNo )
 {
-    if ( m_cards.count( cardNo ) == 0 || ! m_cards[cardNo]->dayExist( dayNo ) ) return NULL;
+    if ( m_cards.count( cardNo ) == 0 || ! m_cards[cardNo]->dayExist( dayNo ) ) {
+        return NULL;
+    }
 
     return m_cards[cardNo]->getDay( dayNo );
 }
@@ -385,9 +491,6 @@ dayEntry * cycleDataClass::getDay( int cardNo, int dayNo )
  */
 bool cycleDataClass::readCardsDataFromFile( wxString fileName )
 {
-
-
-
     wxString input;
     wxString tmp, tmp2;
     int rest;
@@ -395,6 +498,10 @@ bool cycleDataClass::readCardsDataFromFile( wxString fileName )
     m_coitusRecordCounter = 0;
 
     m_errorMessages = wxEmptyString;
+    m_sexualRelationDataConverted = false;
+    m_sexualRelationDataConversionMessages2 = wxEmptyString;
+    m_sexualRelationDataConversionMessages3 = wxEmptyString;
+    m_sexualRelationDataConversionMessages4 = wxEmptyString;
 
     if ( !wxFileExists( fileName ) ) {
         addErrorMessages( wxString::Format( _( "File doesn't exist: %s" ), fileName.c_str() ) );
@@ -494,8 +601,13 @@ bool cycleDataClass::readPersonalData( wxString input )
     }
 
     if ( m_name.length() == 0 ) {
-
+        // TODO
     }
+
+    m_shortestCycleDays = readInt( input, _T( "shortestCycleDays" ) );
+    m_shortestCycleFromCycles = readInt( input, _T( "shortestCycleFromCycles" ) );
+    if (m_shortestCycleDays < 0) m_shortestCycleDays = 0;
+    if (m_shortestCycleFromCycles < 0) m_shortestCycleFromCycles = 0;
 
     return true;
 }
@@ -505,8 +617,6 @@ bool cycleDataClass::readPersonalData( wxString input )
  */
 bool cycleDataClass::readCard( wxString input )
 {
-
-
     int cardNo = addNewCard();
 
     if ( cardNo == -1 ) {
@@ -526,6 +636,8 @@ bool cycleDataClass::readCard( wxString input )
 
     // reading card data
     card->setFirstDayOfCycle( readDateTime( input, _T( "firstDay" ) ) );
+    card->setStoppedPills( readBool( input, _T( "stoppedPills" ) ) );
+    card->setCorruptedData( readBool( input, _T( "corruptedData" ) ) );
     card->setTemperatureUsualMeasurementTime( readDateTime( input, _T( "tempTime" ) ) );
     card->setTemperatureUsualMeasurementPlace( readInt( input, _T( "tempPlace" ) ) );
     if ( card->getTemperatureUsualMeasurementPlace() == -1 ) {
@@ -533,6 +645,13 @@ bool cycleDataClass::readCard( wxString input )
     }
     card->setCardLocked( readBool( input, _T( "locked" ) ) );
     card->setNotes( readString( input, _T( "notes" ) ) );
+    card->setCycleType( readInt( input, _T( "cycleType" ) ) );
+    if (card->getCycleType() == -1) {
+        card->setCycleType(CYCLE_TYPE_NORMAL);
+    } else if (card->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY) {
+        card->setBasicInfertilePattern( readInt( input, _T( "basicInfertilePattern" ) ) );
+    }
+
     card->setTemperatureCorrectionWhenMeasuredInMouth( readInt( input, _T( "correctionMouth" ) ) );
     if ( card->getTemperatureCorrectionWhenMeasuredInMouth() == -1 ) {
         card->setTemperatureCorrectionWhenMeasuredInMouth( 0 );
@@ -555,27 +674,28 @@ bool cycleDataClass::readCard( wxString input )
         card->setTemperatureCorrectionForMeasurementTimeSake( dataInt );
     }
 
-    card->setResultMucus1stDay( readHash( input, _T( "resultMucus1stDay" ) ) );
-    card->setResultMucus1stMoreFertileDay( readHash( input, _T( "resultMucus1stMoreFertileDay" ) ) );
-    card->setResultMucusPeak( readHash( input, _T( "resultMucusPeak" ) ) );
-    card->setResultCervix1stDay( readHash( input, _T( "resultCervix1stDay" ) ) );
-    card->setResultCervixPeak( readHash( input, _T( "resultCervixPeak" ) ) );
-    card->setResultTemperatureLowLevelValue( readInt( input, _T( "resultTemperatureLowLevelValue" ) ) );
-    card->setResultTemperatureLowLevelStart( readInt( input, _T( "resultTemperatureLowLevelStart" ) ) );
-    card->setResultTemperatureHighLevelStart( readInt( input, _T( "resultTemperatureHighLevelStart" ) ) );
-    card->setResultTemperatureHighLevelEnd( readInt( input, _T( "resultTemperatureHighLevelEnd" ) ) );
+    card->setResultMucus1stDay( readList( input, _T( "resultMucus1stDay" ) ), readList( input, _T( "resultMucus1stDayAuto" ) ) );
+    card->setResultMucus1stMoreFertileDay( readList( input, _T( "resultMucus1stMoreFertileDay" ) ), readList( input, _T( "resultMucus1stMoreFertileDayAuto" ) ) );
+    card->setResultMucusPeak( readList( input, _T( "resultMucusPeak" ) ), readList( input, _T( "resultMucusPeakAuto" ) ) );
+    card->setResultCervix1stDay( readList( input, _T( "resultCervix1stDay" ) ), readList( input, _T( "resultCervix1stDayAuto" ) ) );
+    card->setResultCervixPeak( readList( input, _T( "resultCervixPeak" ) ), readList( input, _T( "resultCervixPeakAuto" ) ) );
+    card->setResultsTemperature( readInt( input, _T( "resultTemperatureLowLevelStart" ) ),
+                                 readInt( input, _T( "resultTemperatureLowLevelValue" ) ),
+                                 readInt( input, _T( "resultTemperatureHighLevelStart" ) ),
+                                 readInt( input, _T( "resultTemperatureHighLevelEnd" ) ),
+                                 readBool( input, _T( "resultTemperatureLevelsAuto" ) )
+                               );
 
     // TODO DEPRECATED START
     if (readString(input, _T( "resultPhase2Start" )) != wxEmptyString) {
-        card->setResultFertilePhaseStart( readHash( input, _T( "resultPhase2Start" ) ) );
+        card->setResultFertilePhaseStart( readList( input, _T( "resultPhase2Start" ) ), readList( input, wxEmptyString ) );
     }
     if (readString(input, _T( "resultPhase3Start" )) != wxEmptyString) {
-        card->setResultInfertilePhaseStart( readHash( input, _T( "resultPhase3Start" ) ) );
+        card->setResultInfertilePhaseStart( readList( input, _T( "resultPhase3Start" ) ), readList( input, wxEmptyString ) );
     }
     // DEPRECATED END
-    card->setResultFertilePhaseStart( readHash( input, _T( "resultFertilePhaseStart" ) ) );
-    card->setResultInfertilePhaseStart( readHash( input, _T( "resultInfertilePhaseStart" ) ) );
-
+    card->setResultFertilePhaseStart( readList( input, _T( "resultFertilePhaseStart" ) ), readList( input, _T( "resultFertilePhaseStartAuto" ) ) );
+    card->setResultInfertilePhaseStart( readList( input, _T( "resultInfertilePhaseStart" ) ), readList( input, _T( "resultInfertilePhaseStartAuto" ) ) );
 
     // reading card's days data
     wxString tmp, tmp2;
@@ -618,7 +738,7 @@ bool cycleDataClass::readDay( wxString input, int cardNo )
     dayEntry * day = getDay( cardNo, dayNo );
     int dayNo1 = readInt( input, _T( "no" ) );
     if ( dayNo != dayNo1 ) {
-        addErrorMessages( wxString::Format( _( "Incorrect day number: %i, expected: %i, card" ), dayNo1, dayNo, cardNo ) );
+        addErrorMessages( wxString::Format( _( "Incorrect day number: %i, expected: %i (card %i)" ), dayNo1, dayNo, cardNo ) );
         return false;
     }
 
@@ -628,10 +748,37 @@ bool cycleDataClass::readDay( wxString input, int cardNo )
         day->setMenstruation( -1 );
     }
 
-    day->setCoitusRecord( readInt( input, _T( "coitus" ) ) );
-    if ( day->getCoitusRecord() > 0 ) {
-        m_coitusRecordCounter += day->getCoitusRecord();
+    day->setSexualRelationMorning( readBool( input, _T( "sexualRelationMorning" ) ) );
+    day->setSexualRelationDay( readBool( input, _T( "sexualRelationDay" ) ) );
+    day->setSexualRelationEvening( readBool( input, _T( "sexualRelationEvening" ) ) );
+    if ( day->getSexualRelationMorning() ) {
+        increaseCoitusRecordCounter();
     }
+    if ( day->getSexualRelationDay() ) {
+        increaseCoitusRecordCounter();
+    }
+    if ( day->getSexualRelationEvening() ) {
+        increaseCoitusRecordCounter();
+    }
+
+    // for backward compatibility
+    int coitusRecordCount = readInt( input, _T( "coitus" ) );
+    if ( coitusRecordCount > 0 ) {
+        day->setSexualRelationEvening(true);
+        m_sexualRelationDataConverted = true;
+    }
+    if ( coitusRecordCount > 1 ) {
+        day->setSexualRelationDay(true);
+        m_sexualRelationDataConversionMessages2 << wxString::Format( _( "card %i/ day %i, " ), cardNo, dayNo );
+    }
+    if ( coitusRecordCount > 2 ) {
+        day->setSexualRelationMorning(true);
+        m_sexualRelationDataConversionMessages3 << wxString::Format( _( "card %i/ day %i, " ), cardNo, dayNo );
+    }
+    if ( coitusRecordCount > 3 ) {
+        m_sexualRelationDataConversionMessages4 << wxString::Format( _( "\nthere are %i sexual relations reported for day %i on card %i - only 3 of them are converted and others are ignored." ), coitusRecordCount, dayNo, cardNo );
+    }
+    // for backward compatibility - end
 
     day->setOtherDisturbances( readBool( input, _T( "otherDisturbances" ) ) );
     day->setTemperatureDisturbances( readBool( input, _T( "tempDisturbances" ) ) );
@@ -683,11 +830,13 @@ wxString cycleDataClass::getSection( wxString input, wxString tag, int &rest )
 
     rest = 0;
 
-    if ( input.IsEmpty() )
+    if ( input.IsEmpty() ) {
         return wxEmptyString;
+    }
 
-    if ( tag.IsEmpty() )
+    if ( tag.IsEmpty() ) {
         return wxEmptyString;
+    }
 
     wxString t1 = _T( "<" ) + tag + _T( ">" );
 
@@ -695,13 +844,15 @@ wxString cycleDataClass::getSection( wxString input, wxString tag, int &rest )
 
     int s1 = input.Find( t1 );
 
-    if ( s1 == 0 )
+    if ( s1 == 0 ) {
         return wxEmptyString;
+    }
 
     int s2 = input.Find( t2 );
 
-    if ( s2 == 0 )
+    if ( s2 == 0 ) {
         return wxEmptyString;
+    }
 
     rest = s2 + t2.Length();
 
@@ -713,21 +864,16 @@ wxString cycleDataClass::getSection( wxString input, wxString tag, int &rest )
  */
 wxString cycleDataClass::readString( wxString input, wxString tag )
 {
-
     if ( input.IsEmpty() ) {
-        //
         return wxEmptyString;
     }
 
     if ( tag.IsEmpty() ) {
-        //
         return wxEmptyString;
     }
 
     wxString t1 = _T( "<" ) + tag + _T( ">" );
-
     wxString t2 = _T( "</" ) + tag + _T( ">" );
-
     int s1 = input.Find( t1 );
 
     if ( s1 < 0 ) {
@@ -786,14 +932,10 @@ int cycleDataClass::readInt( wxString input, wxString tag )
     wxString tmp = readString( input, tag );
 
     if ( tmp.IsEmpty() ) {
-        //
         return -1;
     }
 
     int ret = m_util.strToInt( tmp );
-
-    //
-
     return ret;
 }
 
@@ -832,7 +974,7 @@ wxDateTime cycleDataClass::readDateTime( wxString input, wxString tag )
 /**
  * Read results stored in the string "day,day,day,.." and save it in the hash table
  */
-intArray cycleDataClass::readHash( wxString input, wxString tag )
+intArray cycleDataClass::readList( wxString input, wxString tag )
 {
     wxString tmp = readString( input, tag );
 
@@ -873,6 +1015,8 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
     data += _T( " <personalData>" );
     data += getNode( _T( "name" ), m_name );
     data += getNodeDateTime( _T( "birthdayDay" ), m_birthdayDay, _T( "d" ) );
+    data += getNodeInt( _T( "shortestCycleDays" ), m_shortestCycleDays );
+    data += getNodeInt( _T( "shortestCycleFromCycles" ), m_shortestCycleFromCycles );
     data += _T( "</personalData>\n" );
 
 
@@ -887,29 +1031,51 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
         data += _T( "  <card>" );
         data += getNodeInt( _T( "no" ), i );
         data += getNodeDateTime( _T( "firstDay" ), card->getFirstDayOfCycle(), _T( "d" ) );
+        data += getNodeBool( _T( "stoppedPills" ), card->getStoppedPills() );
+        data += getNodeBool( _T( "corruptedData" ), card->getCorruptedData() );
         data += getNodeDateTime( _T( "tempTime" ), card->getTemperatureUsualMeasurementTime(), _T( "t" ) );
         data += getNodeInt( _T( "tempPlace" ), card->getTemperatureUsualMeasurementPlace() );
         data += getNodeBool( _T( "locked" ), card->getCardLocked() );
         data += getNode( _T( "notes" ), card->getNotes() );
-        if ( card->getTemperatureCorrectionWhenMeasuredInMouth() != 0 )
+        data += getNodeInt( _T( "cycleType" ), card->getCycleType() );
+        if (card->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY) {
+            data += getNodeInt( _T( "basicInfertilePattern" ), card->getBasicInfertilePattern() );
+        }
+
+
+        if ( card->getTemperatureCorrectionWhenMeasuredInMouth() != 0 ) {
             data += getNodeInt( _T( "correctionMouth" ), card->getTemperatureCorrectionWhenMeasuredInMouth() );
-        if ( card->getTemperatureCorrectionWhenMeasuredInVagina() != 0 )
+        }
+        if ( card->getTemperatureCorrectionWhenMeasuredInVagina() != 0 ) {
             data += getNodeInt( _T( "correctionVagina" ), card->getTemperatureCorrectionWhenMeasuredInVagina() );
-        if ( card->getTemperatureCorrectionWhenMeasuredInRectum() != 0 )
+        }
+        if ( card->getTemperatureCorrectionWhenMeasuredInRectum() != 0 ) {
             data += getNodeInt( _T( "correctionRectum" ), card->getTemperatureCorrectionWhenMeasuredInRectum() );
-        if ( card->getTemperatureCorrectionForMeasurementTimeSake() != 0 )
+        }
+        if ( card->getTemperatureCorrectionForMeasurementTimeSake() != 0 ) {
             data += getNodeInt( _T( "correctionTime" ), card->getTemperatureCorrectionForMeasurementTimeSake() );
-        data += getNodeHash( _T( "resultMucus1stDay" ), card->getResultMucus1stDay() );
-        data += getNodeHash( _T( "resultMucus1stMoreFertileDay" ), card->getResultMucus1stMoreFertileDay() );
-        data += getNodeHash( _T( "resultMucusPeak" ), card->getResultMucusPeak() );
-        data += getNodeHash( _T( "resultCervix1stDay" ), card->getResultCervix1stDay() );
-        data += getNodeHash( _T( "resultCervixPeak" ), card->getResultCervixPeak() );
+        }
+        data += getNodeList( _T( "resultMucus1stDay" ), card->getResultMucus1stDay() );
+        data += getNodeList( _T( "resultMucus1stMoreFertileDay" ), card->getResultMucus1stMoreFertileDay() );
+        data += getNodeList( _T( "resultMucusPeak" ), card->getResultMucusPeak() );
+        data += getNodeList( _T( "resultCervix1stDay" ), card->getResultCervix1stDay() );
+        data += getNodeList( _T( "resultCervixPeak" ), card->getResultCervixPeak() );
         data += getNodeInt( _T( "resultTemperatureLowLevelValue" ), card->getResultTemperatureLowLevelValue() );
         data += getNodeInt( _T( "resultTemperatureLowLevelStart" ), card->getResultTemperatureLowLevelStart() );
         data += getNodeInt( _T( "resultTemperatureHighLevelStart" ), card->getResultTemperatureHighLevelStart() );
         data += getNodeInt( _T( "resultTemperatureHighLevelEnd" ), card->getResultTemperatureHighLevelEnd() );
-        data += getNodeHash( _T( "resultFertilePhaseStart" ), card->getResultFertilePhaseStart() );
-        data += getNodeHash( _T( "resultInfertilePhaseStart" ), card->getResultInfertilePhaseStart() );
+        data += getNodeList( _T( "resultFertilePhaseStart" ), card->getResultFertilePhaseStart() );
+        data += getNodeList( _T( "resultInfertilePhaseStart" ), card->getResultInfertilePhaseStart() );
+
+        data += getNodeList( _T( "resultMucus1stDayAuto" ), card->getResultMucus1stDayAuto() );
+        data += getNodeList( _T( "resultMucus1stMoreFertileDayAuto" ), card->getResultMucus1stMoreFertileDayAuto() );
+        data += getNodeList( _T( "resultMucusPeakAuto" ), card->getResultMucusPeakAuto() );
+        data += getNodeList( _T( "resultCervix1stDayAuto" ), card->getResultCervix1stDayAuto() );
+        data += getNodeList( _T( "resultCervixPeakAuto" ), card->getResultCervixPeakAuto() );
+        data += getNodeBool( _T( "resultTemperatureLevelsAuto" ), card->isResultTemperatureLevelsAuto() );
+        data += getNodeList( _T( "resultFertilePhaseStartAuto" ), card->getResultFertilePhaseStartAuto() );
+        data += getNodeList( _T( "resultInfertilePhaseStartAuto" ), card->getResultInfertilePhaseStartAuto() );
+
         data += _T( "\n" );
         data += _T( "   <daysList>\n" );
 
@@ -919,15 +1085,17 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
             data += getNodeInt( _T( "no" ), k );
             data += getNodeInt( _T( "menstruation" ), day->getMenstruation() );
 
-            if ( day->getCoitusRecord() > 0 ) {
-                data += getNodeInt( _T( "coitus" ), day->getCoitusRecord() );
-            }
+            data += getNodeBool( _T( "sexualRelationMorning" ), day->getSexualRelationMorning() );
+            data += getNodeBool( _T( "sexualRelationDay" ), day->getSexualRelationDay() );
+            data += getNodeBool( _T( "sexualRelationEvening" ), day->getSexualRelationEvening() );
+
             data += getNodeBool( _T( "tempDisturbances" ), day->getTemperatureDisturbances() );
             data += getNodeBool( _T( "otherDisturbances" ), day->getOtherDisturbances() );
             data += getNodeInt( _T( "tempValue" ), day->getTemperatureMeasuredValue() );
             if ( day->getTemperatureMeasuredValue() > 0 ) {
-                if ( day->getTemperatureAdditionalCorrection() != 0 )
+                if ( day->getTemperatureAdditionalCorrection() != 0 ) {
                     data += getNodeInt( _T( "tempCorrection" ), day->getTemperatureAdditionalCorrection() );
+                }
                 wxString tmpT = day->getTemperatureMeasurementTime().Format( _T( "%H:%M" ) );
                 if ( !tmpT.IsSameAs( _T( "00:00" ) ) && !tmpT.IsSameAs( card->getTemperatureUsualMeasurementTime().Format( _T( "%H:%M" ) ) ) ) {
                     data += getNodeDateTime( _T( "tempTime" ), day->getTemperatureMeasurementTime(), _T( "t" ) );
@@ -939,8 +1107,9 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
             }
 
             data += getNodeInt( _T( "mucusFeeling" ), day->getMucusFeelingExperience() );
-            if ( day->getMucusAppearance() > 0 )
+            if ( day->getMucusAppearance() > 0 ) {
                 data += getNodeInt( _T( "mucusAppearance" ), day->getMucusAppearance() );
+            }
             data += getNodeInt( _T( "cervixPosition" ), day->getCervixPosition() );
             data += getNodeInt( _T( "cervixDilation" ), day->getCervixDilation() );
             data += getNodeInt( _T( "cervixHardness" ), day->getCervixHardness() );
@@ -967,14 +1136,16 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
         //wxString path = m_util.findPath( fileName );
 
         if ( !path.IsEmpty() ) {
-            if ( ! wxDirExists( path ) )
+            if ( ! wxDirExists( path ) ) {
                 wxFileName::Mkdir( path, 0755, wxPATH_MKDIR_FULL );
+            }
 
             path = path + wxFileName::GetPathSeparator() + _T( "backup" );
             backupFile = path + wxFileName::GetPathSeparator() + m_name;
 
-            if ( ! wxDirExists( path ) )
+            if ( ! wxDirExists( path ) ) {
                 wxFileName::Mkdir( path, 0755, wxPATH_MKDIR_FULL );
+            }
 
             backupFile = backupFile + _T( "_" ) + wxDateTime::Now().Format( _T( "%Y%m%d%H%M" ) ) + _T( "." ) + ext;
 
@@ -984,8 +1155,9 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
             wxSortedArrayString backupFilesArr;
             wxDir::GetAllFiles( path, &backupFilesArr, m_name + _T("_*"), wxDIR_FILES );
             if (backupFilesArr.GetCount() > 15)
-                for ( size_t i = 0; i < backupFilesArr.GetCount()-15; i++ )
+                for ( size_t i = 0; i < backupFilesArr.GetCount()-15; i++ ) {
                     wxRemoveFile( backupFilesArr[i] );
+                }
         }
     }
 
@@ -1060,14 +1232,17 @@ wxString cycleDataClass::getNodeBool( wxString m_name, bool value )
 /**
  *
  */
-wxString cycleDataClass::getNodeHash( wxString m_name, intArray array )
+wxString cycleDataClass::getNodeList( wxString m_name, intArray array )
 {
-    if ( array.IsEmpty() )
+    if ( array.IsEmpty() ) {
         return wxEmptyString;
+    }
 
     wxString ret = wxEmptyString;
     for (size_t i=0; i<array.GetCount(); i++) {
-        if (i>0) ret << _T(",");
+        if (i>0) {
+            ret << _T(",");
+        }
         ret << array[i];
     }
     return getNode( m_name, ret );
@@ -1233,8 +1408,9 @@ int cycleDataClass::calculateCorrectTemperatureValue( int cardNo, int dayNo )
  */
 int cycleDataClass::calculateCorrectTemperatureValue( int cardNo, int dayNo, bool newDayData, int value, wxDateTime time, int place, int addCorr )
 {
-    if ( cardNo < 1 || dayNo < 1 || dayNo > getDaysCount( cardNo ))
+    if ( cardNo < 1 || dayNo < 1 || dayNo > getDaysCount( cardNo )) {
         return -1;
+    }
 
     cardEntry *card = getCard( cardNo );
 
@@ -1290,12 +1466,13 @@ int cycleDataClass::calculateCorrectTemperatureValue( int cardNo, int dayNo, boo
     int dayTemp = 0;
 
     if ( measurementPlace > 0 && measurementPlace != cardMeasurementPlace ) {
-        if ( measurementPlace == PLACE_MOUTH )
+        if ( measurementPlace == PLACE_MOUTH ) {
             corectionPlace = cardCorrectionMouth;
-        else if ( measurementPlace == PLACE_VAGINA )
+        } else if ( measurementPlace == PLACE_VAGINA ) {
             corectionPlace = cardCorrectionVagina;
-        else if ( measurementPlace == PLACE_RECTUM )
+        } else if ( measurementPlace == PLACE_RECTUM ) {
             corectionPlace = cardCorrectionRectum;
+        }
     }
 
     if ( !measurementTime.IsSameAs( _T( "00:00" ) ) && !measurementTime.IsSameAs( cardMeasurementTime ) ) {
@@ -1308,97 +1485,15 @@ int cycleDataClass::calculateCorrectTemperatureValue( int cardNo, int dayNo, boo
 
     int tmp = dayTemp % 5;
 
-    if ( tmp < 3 )
+    if ( tmp < 3 ) {
         dayTemp -= tmp;
-    else
+    } else {
         dayTemp += 5 - tmp;
+    }
 
 
     return dayTemp;
 }
-
-
-
-
-
-/*
-
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-
-int cycleDataClass::find_poziom_nizszy_temperatur(int cardNr) {
-   try {
-      int ret = -1;
-      if (cardNr < 0 || cardNr >= cardsCount) return ret;
-      if (cardsTab == NULL || cardsTab[cardNr] == NULL) return ret;
-
-      for (int i=0; i<get_dlugosc_cyklu(cardNr); i++) {
-         if (get_wynik_typ_temperatury(cardNr, i) == temp_przedwzrostowa) {
-            int c = get_zmierzona_temperatura(cardNr, i, true);
-            if (ret < c) ret = c;
-         }
-      }
-      return ret;
-   } catch(Exception &E) {
-      return -1;
-   }
-}
-
-//---------------------------------------------------------------------------
-int cycleDataClass::find_first_temperature(int cardNr) {
-   try {
-      int ret = -1;
-      if (cardNr < 0 || cardNr >= cardsCount) return ret;
-      if (cardsTab == NULL || cardsTab[cardNr] == NULL) return ret;
-
-      for (int i=0; i<get_dlugosc_cyklu(cardNr); i++) {
-         if (get_wynik_typ_temperatury(cardNr, i) == temp_przedwzrostowa) {
-            return i;
-         }
-      }
-      return -1;
-   } catch(Exception &E) {
-      return -1;
-   }
-}
-
-//---------------------------------------------------------------------------
-int cycleDataClass::find_first_hight_temperature(int cardNr) {
-   try {
-      int ret = -1;
-      if (cardNr < 0 || cardNr >= cardsCount) return ret;
-      if (cardsTab == NULL || cardsTab[cardNr] == NULL) return ret;
-
-      for (int i=0; i<get_dlugosc_cyklu(cardNr); i++) {
-         if (get_wynik_typ_temperatury(cardNr, i) == temp_powzrostowa) {
-            return i;
-         }
-      }
-      return -1;
-   } catch(Exception &E) {
-      return -1;
-   }
-}
-
-//---------------------------------------------------------------------------
-int cycleDataClass::find_last_temperature(int cardNr) {
-   try {
-      int ret = -1;
-      if (cardNr < 0 || cardNr >= cardsCount) return ret;
-      if (cardsTab == NULL || cardsTab[cardNr] == NULL) return ret;
-
-      for (int i=get_dlugosc_cyklu(cardNr)-1; i>=0; i--) {
-         if (get_wynik_typ_temperatury(cardNr, i) == temp_powzrostowa) {
-            return i;
-         }
-      }
-      return -1;
-   } catch(Exception &E) {
-      return -1;
-   }
-}
-
-*/
 
 
 /*******************************************************************************

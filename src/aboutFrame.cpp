@@ -91,7 +91,7 @@ void aboutFrame::CreateGUIControls( void )
      staticHomeUrl->SetFont( wxFont( 8, wxSWISS, wxNORMAL, wxNORMAL, TRUE ) );
      WxBoxSizer3->Add( staticHomeUrl, 1, wxALIGN_LEFT | wxALL, 0 );
 
-     wxString version = wxString::Format( _( "version: %d.%d (build %d, %s-%s-%s)" ), AutoVersion::MAJOR, AutoVersion::MINOR, AutoVersion::BUILD, wxString(AutoVersion::YEAR, wxConvUTF8).c_str(), wxString(AutoVersion::MONTH, wxConvUTF8).c_str(), wxString(AutoVersion::DATE, wxConvUTF8).c_str() );
+     wxString version = wxString::Format( _( "version: %d.%d (build %d, %s-%s-%s)" ), AutoVersion::_MAJOR, AutoVersion::_MINOR, AutoVersion::_BUILD, wxString(AutoVersion::_YEAR, wxConvUTF8).c_str(), wxString(AutoVersion::_MONTH, wxConvUTF8).c_str(), wxString(AutoVersion::_DATE, wxConvUTF8).c_str() );
      staticAppVersion = new wxStaticText( WxPanel1, ID_STATIC_APP_VERSION, version, wxPoint( 115, 5 ), wxDefaultSize, wxALIGN_RIGHT, wxT( "staticAppVersion" ) );
      staticAppVersion->SetForegroundColour( wxColour( 128, 0, 0 ) );
      WxBoxSizer3->Add( staticAppVersion, 1, wxALIGN_RIGHT | wxALL, 0 );

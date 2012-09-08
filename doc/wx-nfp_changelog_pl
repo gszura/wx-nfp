@@ -1,9 +1,6 @@
 == todo
-* Automatically calculation of results
-* Protecting data file in cipher and password
-* Storing data file on the server, synchronizing changed files between server and application (it can be useful when you use more than one computer)
-* Printing under Linux
-* Add possibility to change the character of coitus record
+* Encryption of the data file, password protection
+* Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
 * Displaying phases in different colours
 * Quick help (pl)
 * Detailed help (pl)
@@ -11,17 +8,24 @@
 * Statistics
 * Sending cards via e-mail
 * Restoring previous versions from backup file
-* Fahrenheit as a temperature unit (low priority)
-* Inch as a length unit (low priority)
-* US date format  (low priority) (is it really needed..?)
+* Fahrenheit as a temperature unit (low priority - is it really needed..?)
+* Inch as a length unit (low priority - is it really needed..?)
+* US date format  (low priority - is it really needed..?)
 
 == known issues
-* Printing under Linux doesn't work
+* Drukowanie pod Linuxem nie działa.
 
-== 0.9 beta (build XXX, 2011-xx-xx)
-* New: Allow to define more than one result (mucus/cervix 1st day/peak day) - it will be used for irregular cycles, especially during breastfeeding and peri-menopause (see Billings ovulation method rules).
-* New: Renamed "Phase 1, 2, 3" to "fertile phrase" and "infertile phrase"; also allow to define more than one phrase of each type - reason the same as above.
-* New: Implemented saving automatically changes done for day, card, set.
+== 0.9 (build 1099, 2012-09-04)
+* New: Automatyczne wyznaczanie wyników.
+* New: Dodano możliwość zdefiniowania typu karty (normalna, ciąża, po ciąży, pre-menopauza)
+* New: Dla karty typu po ciąży i pre-menopauza można ustawić wyniki (pierwszy dzień śluzu, płodnego śluzu, szczyt śluzu, pierwszy dzień zmian szyjki, szczyt szyjki) dla kilku dni na jednej karcie. Funkcja ta jest użyteczna w przypadku cyklu poporodowego, kiedy utrzymuje się niepłodność związana z karmieniem piersią, ale juz pojawiają się sygnały powrotu płodności. W takim cyklu może być kilka(naście) okresów płodnych i niepłodnych w zależności od zaobserwowanych objawów śluzu i szyjki.
+* New: Zmiana nazw "Faza 1, 2, 3" to "Faza płodna" and "Faza niepłodna"; dla karty typu po ciąży i pre-menopauza można też zdefiniować więcej niż jedną fazę każdego typu - powód tej zmiany ten sam co powyżej.
+* New: Zaimplementowane automatyczne zapisywanie danych wpisanych do dnia i karty, oraz zapisywanie zestawu do pliku, np. przy zamykaniu okienka z danymi dnia zmiany są automatycznie zapisywane. Można zmienić w ustawieniach.
+* New: Dodano numerowanie dni fazy lutealnej.
+* Change: Zmieniono sposób zapisu danych o współżyciu - zamiast wpisywania 'ile razy', można teraz wpisać 'rano', 'w ciągu dnia', 'wieczorem'.
+* Change: Linia fazy niepłodności zaczyna sie w 3/4 szerokości dnia, by unaocznić, że faza niepłodności rozpoczyna się wieczorem danego dnia.
+* Fix: różne ;)
+
 
 == 0.9 beta (build 645, 2010-05-12)
 * New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.

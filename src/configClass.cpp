@@ -21,7 +21,8 @@
 /**
  *
  */
-configClass::configClass( wxString configFile ) {
+configClass::configClass( wxString configFile )
+{
     m_configFile = configFile;
     verticalDisplacement = 0;
     langId = -1;
@@ -40,7 +41,8 @@ configClass::configClass( wxString configFile ) {
 /**
  * odpalane przy starcie programu, oraz gdy wybrano przycisk "przywroc domyslne" w oknie konfiguracji.
  */
-void configClass::setDefaultParams() {
+void configClass::setDefaultParams()
+{
 
 
     // ogolne
@@ -80,6 +82,22 @@ void configClass::setDefaultParams() {
     breastSelfControlLastReminder = wxDateTime::Today();
     breastSelfControlLastReminder.Subtract( wxDateSpan::Days( breastSelfControlInterval + 1 ) );
 
+    // analyze card after each change
+    autoanalyzeCard = false;
+    // temperature graph
+    maxAllowedNotMesuredLowLevelDays = 3;
+    maxIncludedNotMesuredLowLevelDays = 2;
+    maxAllowedNotMesuredHighLevelDays = 1;
+    maxIncludedNotMesuredHighLevelDays = 1;
+    includeNotMesuredDaysIfAfterMucusPeak = true;
+    // calculating beginning of the fertile phase
+    numberOfHistoricalCyclesToUse = 12;
+    autoanalyzeCardPreferResult1 = RULE_DOERING;
+    autoanalyzeCardPreferResult2 = RULE_CERVICAL_MUCUS_BASED;
+    autoanalyzeCardPreferResult3 = RULE_CERVICAL_POSITION_BASED;
+    autoanalyzeCardPreferResult4 = RULE_CLINICAL;
+    autoanalyzeCardPreferResult5 = RULE_2120;
+
     lengthInCentimeters = true;
 
     // wykres
@@ -114,19 +132,7 @@ void configClass::setDefaultParams() {
     fontResultHeader = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false );
     fontResultDefault = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
     fontResultResults = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
-    fontResultHeart = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
     fontResultPhases = wxFont( 14, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
-
-    /*
-    fontHeadTopic = wxFont( 10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontHeadName = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontHeadValue = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontResultHeader = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontResultDefault = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontResultResults = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontResultHeart = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    fontResultPhases = wxFont( 14, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Sans" ), wxFONTENCODING_UTF8 );
-    */
 
 #else
     showColoursDialogForFonts = false;
@@ -136,30 +142,8 @@ void configClass::setDefaultParams() {
     fontResultHeader = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false );
     fontResultDefault = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
     fontResultResults = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
-    fontResultHeart = wxFont( 8, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Symbol" ) );
     fontResultPhases = wxFont( 14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false );
 
-    /*
-    fontHeadTopic = wxFont( 10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ) );
-    fontHeadName = wxFont( 8, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ) );
-    fontHeadValue = wxFont( 8, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ) );
-    fontResultHeader = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ) );
-    fontResultDefault = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ) );
-    fontResultResults = wxFont( 7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ) );
-    fontResultHeart = wxFont( 8, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Symbol" ) );
-    fontResultPhases = wxFont( 14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ) );
-    */
-
-    /*
-    fontHeadTopic = wxFont( 10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontHeadName = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontHeadValue = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontResultHeader = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontResultDefault = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontResultResults = wxFont( 7, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    fontResultHeart = wxFont( 8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Symbol" ), wxFONTENCODING_CP1250 );
-    fontResultPhases = wxFont( 14, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT( "Arial" ), wxFONTENCODING_CP1250 );
-    */
 #endif
 
     fontHeadTopicColour = wxColour( 128, 0, 0 );
@@ -168,14 +152,7 @@ void configClass::setDefaultParams() {
     fontResultHeaderColour = wxColour( 0, 0, 0 );
     fontResultDefaultColour = wxColour( 0, 0, 0 );
     fontResultResultsColour = wxColour( 255, 0, 255 );
-    fontResultHeartColour = wxColour( 0, 0, 0 );
     fontResultPhasesColour = wxColour( 0, 255, 0 );
-
-#if defined(__UNIX__)
-    coitusRecordCharacter = 0x56;
-#else
-    coitusRecordCharacter = 0xA9;
-#endif
 
     calculateParams();
 }
@@ -183,7 +160,8 @@ void configClass::setDefaultParams() {
 /**
  *
  */
-void configClass::calculateParams() {
+void configClass::calculateParams()
+{
     rowsCountTemp = ( temperatureRangeHigh - temperatureRangeLow ) / 5 + 1;
     rowsCount = rowsCountAboveTemp + rowsCountTemp + rowsCountBelowTemp;
     rowNoCervix = rowsCountAboveTemp + rowsCountTemp + rowNoCervixBelowTemp;
@@ -196,7 +174,8 @@ void configClass::calculateParams() {
 /**
  *
  */
-bool configClass::readParamsFromConfigFile() {
+bool configClass::readParamsFromConfigFile()
+{
     if (!wxFileExists(m_configFile)) {
         return false;
     }
@@ -308,7 +287,6 @@ bool configClass::readParamsFromConfigFile() {
     readParamsFont( config, CONF_ENTRY_fontResultHeader, fontResultHeader );
     readParamsFont( config, CONF_ENTRY_fontResultDefault, fontResultDefault );
     readParamsFont( config, CONF_ENTRY_fontResultResults, fontResultResults );
-    readParamsFont( config, CONF_ENTRY_fontResultHeart, fontResultHeart );
     readParamsFont( config, CONF_ENTRY_fontResultPhases, fontResultPhases );
     // fonts' colours
     readParamsColour( config, CONF_ENTRY_fontHeadTopicColour, fontHeadTopicColour );
@@ -317,16 +295,22 @@ bool configClass::readParamsFromConfigFile() {
     readParamsColour( config, CONF_ENTRY_fontResultHeaderColour, fontResultHeaderColour );
     readParamsColour( config, CONF_ENTRY_fontResultDefaultColour, fontResultDefaultColour );
     readParamsColour( config, CONF_ENTRY_fontResultResultsColour, fontResultResultsColour );
-    readParamsColour( config, CONF_ENTRY_fontResultHeartColour, fontResultHeartColour );
     readParamsColour( config, CONF_ENTRY_fontResultPhasesColour, fontResultPhasesColour );
-    // character used in 'coitus record; row
-    int coitusRecordCharacterInt = 0;
-    if ( config->Read( CONF_ENTRY_coitusRecordCharacter, &coitusRecordCharacterInt )
-       ) {
-        if ( coitusRecordCharacterInt > 0 ) {
-            coitusRecordCharacter = coitusRecordCharacterInt;
-        }
-    }
+
+    /* ANALYSIS */
+    config->SetPath( CONF_PATH_analysis );
+    config->Read( CONF_ENTRY_autoanalyzeCard, &autoanalyzeCard );
+    config->Read( CONF_ENTRY_maxAllowedNotMesuredLowLevelDays, &maxAllowedNotMesuredLowLevelDays );
+    config->Read( CONF_ENTRY_maxIncludedNotMesuredLowLevelDays, &maxIncludedNotMesuredLowLevelDays );
+    config->Read( CONF_ENTRY_maxAllowedNotMesuredHighLevelDays, &maxAllowedNotMesuredHighLevelDays );
+    config->Read( CONF_ENTRY_maxIncludedNotMesuredHighLevelDays, &maxIncludedNotMesuredHighLevelDays );
+    config->Read( CONF_ENTRY_includeNotMesuredDaysIfAfterMucusPeak, &includeNotMesuredDaysIfAfterMucusPeak );
+    config->Read( CONF_ENTRY_numberOfHistoricalCyclesToUse, &numberOfHistoricalCyclesToUse );
+    config->Read( CONF_ENTRY_autoanalyzeCardPreferResult1, &autoanalyzeCardPreferResult1 );
+    config->Read( CONF_ENTRY_autoanalyzeCardPreferResult2, &autoanalyzeCardPreferResult2 );
+    config->Read( CONF_ENTRY_autoanalyzeCardPreferResult3, &autoanalyzeCardPreferResult3 );
+    config->Read( CONF_ENTRY_autoanalyzeCardPreferResult4, &autoanalyzeCardPreferResult4 );
+    config->Read( CONF_ENTRY_autoanalyzeCardPreferResult5, &autoanalyzeCardPreferResult5 );
 
     calculateParams();
 
@@ -337,7 +321,8 @@ bool configClass::readParamsFromConfigFile() {
 /**
  *
  */
-bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColour &colour ) {
+bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColour &colour )
+{
     int red = -1, green = -1, blue = -1;
 
     if ( ! config->Read( name + CONF_ENTRY_EXT_RED, &red ) ) {
@@ -361,7 +346,8 @@ bool configClass::readParamsColour( wxConfigBase *config, wxString name, wxColou
 /**
  *
  */
-bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &font ) {
+bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &font )
+{
     int      pointSize = -1;
     int      family    = -1;
     int      style     = -1;
@@ -401,7 +387,8 @@ bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &f
 /**
  * Support for previous version of config file..
  */
-bool configClass::readParamsFromOldVersionOfConfigFile(wxString input) {
+bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
+{
     // parse the configuration entries and put it to the 'params' hash map
     paramsHash params;
     wxString entry, name, value;
@@ -523,7 +510,6 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input) {
     readFont( params, _T("fontResultHeader"),             fontResultHeader );
     readFont( params, _T("fontResultDefault"),            fontResultDefault );
     readFont( params, _T("fontResultResults"),            fontResultResults );
-    readFont( params, _T("fontResultHeart"),              fontResultHeart );
     readFont( params, _T("fontResultPhases"),             fontResultPhases );
     // fonts' colours
     readColour( params, _T("fontHeadTopicColour"),        fontHeadTopicColour );
@@ -532,7 +518,6 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input) {
     readColour( params, _T("fontResultHeaderColour"),     fontResultHeaderColour );
     readColour( params, _T("fontResultDefaultColour"),    fontResultDefaultColour );
     readColour( params, _T("fontResultResultsColour"),    fontResultResultsColour );
-    readColour( params, _T("fontResultHeartColour"),      fontResultHeartColour );
     readColour( params, _T("fontResultPhasesColour"),     fontResultPhasesColour );
 
     calculateParams();
@@ -544,7 +529,8 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input) {
 /**
  *
  */
-void configClass::readString(paramsHash params, wxString name, wxString &paramToSet ) {
+void configClass::readString(paramsHash params, wxString name, wxString &paramToSet )
+{
     if ( ! params[name].IsEmpty() ) {
         paramToSet = params[name];
     }
@@ -553,7 +539,8 @@ void configClass::readString(paramsHash params, wxString name, wxString &paramTo
 /**
  *
  */
-void configClass::readInt(paramsHash params, wxString name, int &paramToSet ) {
+void configClass::readInt(paramsHash params, wxString name, int &paramToSet )
+{
     if ( ! params[name].IsEmpty() ) {
         paramToSet = m_util.strToInt(params[name]);
     }
@@ -562,7 +549,8 @@ void configClass::readInt(paramsHash params, wxString name, int &paramToSet ) {
 /**
  *
  */
-void configClass::readBool(paramsHash params, wxString name, bool &paramToSet ) {
+void configClass::readBool(paramsHash params, wxString name, bool &paramToSet )
+{
     if ( ! params[name].IsEmpty() ) {
         paramToSet = m_util.strToBool(params[name]);
     }
@@ -571,7 +559,8 @@ void configClass::readBool(paramsHash params, wxString name, bool &paramToSet ) 
 /**
  *
  */
-void configClass::readColour(paramsHash params, wxString name, wxColour &paramToSet ) {
+void configClass::readColour(paramsHash params, wxString name, wxColour &paramToSet )
+{
     int red = -1, green = -1, blue = -1;
 
     if ( ! params[name + _T(".red")].IsEmpty() )  red = m_util.strToInt( params[name + _T(".red")] );
@@ -586,7 +575,8 @@ void configClass::readColour(paramsHash params, wxString name, wxColour &paramTo
 /**
  *
  */
-void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet) {
+void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet)
+{
     int      pointSize = -1;
     int      family    = -1;
     int      style     = -1;
@@ -621,7 +611,8 @@ void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet)
 /**
  *
  */
-bool configClass::saveParamsToConfigFile() {
+bool configClass::saveParamsToConfigFile()
+{
     wxConfigBase * config = new wxFileConfig( wxEmptyString, wxEmptyString, m_configFile );
 
     /* GENERAL */
@@ -705,7 +696,6 @@ bool configClass::saveParamsToConfigFile() {
     saveParamFont( config, CONF_ENTRY_fontResultHeader,             fontResultHeader );
     saveParamFont( config, CONF_ENTRY_fontResultDefault,            fontResultDefault );
     saveParamFont( config, CONF_ENTRY_fontResultResults,            fontResultResults );
-    saveParamFont( config, CONF_ENTRY_fontResultHeart,              fontResultHeart );
     saveParamFont( config, CONF_ENTRY_fontResultPhases,             fontResultPhases );
     // fonts' colours
     saveParamColour( config, CONF_ENTRY_fontHeadTopicColour,        fontHeadTopicColour );
@@ -714,10 +704,22 @@ bool configClass::saveParamsToConfigFile() {
     saveParamColour( config, CONF_ENTRY_fontResultHeaderColour,     fontResultHeaderColour );
     saveParamColour( config, CONF_ENTRY_fontResultDefaultColour,    fontResultDefaultColour );
     saveParamColour( config, CONF_ENTRY_fontResultResultsColour,    fontResultResultsColour );
-    saveParamColour( config, CONF_ENTRY_fontResultHeartColour,      fontResultHeartColour );
     saveParamColour( config, CONF_ENTRY_fontResultPhasesColour,     fontResultPhasesColour );
-    // character used in 'coitus record' row
-    config->Write( CONF_ENTRY_coitusRecordCharacter,                static_cast<int>( coitusRecordCharacter ) );
+
+    /* ANALYSIS */
+    config->SetPath( CONF_PATH_analysis );
+    config->Write( CONF_ENTRY_autoanalyzeCard,                       autoanalyzeCard );
+    config->Write( CONF_ENTRY_maxAllowedNotMesuredLowLevelDays,      maxAllowedNotMesuredLowLevelDays );
+    config->Write( CONF_ENTRY_maxIncludedNotMesuredLowLevelDays,     maxIncludedNotMesuredLowLevelDays );
+    config->Write( CONF_ENTRY_maxAllowedNotMesuredHighLevelDays,     maxAllowedNotMesuredHighLevelDays );
+    config->Write( CONF_ENTRY_maxIncludedNotMesuredHighLevelDays,    maxIncludedNotMesuredHighLevelDays );
+    config->Write( CONF_ENTRY_includeNotMesuredDaysIfAfterMucusPeak, includeNotMesuredDaysIfAfterMucusPeak );
+    config->Write( CONF_ENTRY_numberOfHistoricalCyclesToUse,         numberOfHistoricalCyclesToUse );
+    config->Write( CONF_ENTRY_autoanalyzeCardPreferResult1,          autoanalyzeCardPreferResult1 );
+    config->Write( CONF_ENTRY_autoanalyzeCardPreferResult2,          autoanalyzeCardPreferResult2 );
+    config->Write( CONF_ENTRY_autoanalyzeCardPreferResult3,          autoanalyzeCardPreferResult3 );
+    config->Write( CONF_ENTRY_autoanalyzeCardPreferResult4,          autoanalyzeCardPreferResult4 );
+    config->Write( CONF_ENTRY_autoanalyzeCardPreferResult5,          autoanalyzeCardPreferResult5 );
 
     config->Flush();
     delete config;
@@ -727,7 +729,8 @@ bool configClass::saveParamsToConfigFile() {
 /**
  *
  */
-bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour input ) {
+bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour input )
+{
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_RED ), input.Red() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_GREEN ), input.Green() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_BLUE ), input.Blue() );
@@ -737,7 +740,8 @@ bool configClass::saveParamColour( wxConfigBase *config, wxString name, wxColour
 /**
  *
  */
-bool configClass::saveParamFont( wxConfigBase *config, wxString name, wxFont input ) {
+bool configClass::saveParamFont( wxConfigBase *config, wxString name, wxFont input )
+{
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_POINTSIZE ), input.GetPointSize() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_FAMILY ), (long)input.GetFamily() );
     config->Write( wxString::Format( _T( "%s%s" ), name.c_str(), CONF_ENTRY_EXT_STYLE ), (long)input.GetStyle() );

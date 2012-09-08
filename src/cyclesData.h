@@ -1,3 +1,6 @@
+#ifndef HEADER_459386AF70D44F07
+#define HEADER_459386AF70D44F07
+
 /*******************************************************************************
 //
 // Name:        cycleDataClass.h
@@ -15,7 +18,10 @@
 #include "dayEntry.h"
 #include "cardEntry.h"
 #include "cyclesData_declarations.h"
+#include "configClass.h"
 #include "utilClass.h"
+
+#define NO_RESULTS _T( "NO_RESULTS" )
 
 /*******************************************************************************
 ********************************************************************************
@@ -29,8 +35,20 @@ class cycleDataClass
 {
 
 private:
+    // temporary
+    wxString m_sexualRelationDataConversionMessages2;
+    wxString m_sexualRelationDataConversionMessages3;
+    wxString m_sexualRelationDataConversionMessages4;
+    bool m_sexualRelationDataConverted;
+
+    bool m_askUserToKeepResultsAlreadySetForOtherDays;
+
     wxString m_name;
     wxDateTime m_birthdayDay;
+
+    int m_shortestCycleDays;
+    int m_shortestCycleFromCycles;
+
 
     // keys of the hash table: [1...]
     cardEntryHash m_cards;
@@ -59,12 +77,19 @@ public:
 
     void addErrorMessages( wxString );
     wxString getErrorMessages();
+    bool isSexualRelationDataConverted();
+    wxString getSexualRelationDataConversionMessages2();
+    wxString getSexualRelationDataConversionMessages3();
+    wxString getSexualRelationDataConversionMessages4();
+
+    bool isAskUserToKeepResultsAlreadySetForOtherDays();
+    void setAskUserToKeepResultsAlreadySetForOtherDays(bool);
 
     void setCardModified( bool );
     bool getCardModified();
 
     void setCoitusRecordCounter( int );
-    void increaseCoitusRecordCounter( int );
+    void increaseCoitusRecordCounter(int value = 1);
     int getCoitusRecordCounter();
 
     /**************************************************************************/
@@ -82,9 +107,13 @@ public:
 public:
     bool setName( wxString );
     bool setBirthdayDay( wxDateTime );
+    bool setShortestCycleDays(int);
+    bool setShortestCycleFromCycles(int);
 
     wxString getName();
     wxDateTime getBirthdayDay();
+    int getShortestCycleDays();
+    int getShortestCycleFromCycles();
 
     /**************************************************************************/
     /** CARDS */
@@ -118,7 +147,11 @@ public:
     /** READING AND STORING CYCLES DATA */
 public:
     // reading cycles data
-    bool   readCardsDataFromFile( wxString );
+    bool readCardsDataFromFile( wxString );
+    int getNumberOfHistoricalCyclesUsedToCalculateShortestCycle( int, configClass* );
+    int getNumberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature( int, configClass* );
+    int getNumberOfDaysOfShortestCycle( int, configClass* );
+    int getEarliestFirstDayOfHighLevelTemperature( int, configClass* );
 
 private:
     bool       readPersonalData( wxString );
@@ -129,7 +162,7 @@ private:
     bool       readBool( wxString, wxString );
     int        readInt( wxString, wxString );
     wxDateTime readDateTime( wxString, wxString );
-    intArray   readHash( wxString, wxString );
+    intArray   readList( wxString, wxString );
 
 public:
     // storing cycles data
@@ -140,7 +173,7 @@ private:
     wxString   getNodeInt( wxString, int );
     wxString   getNodeDateTime( wxString, wxDateTime, wxString );
     wxString   getNodeBool( wxString, bool );
-    wxString   getNodeHash( wxString, intArray );
+    wxString   getNodeList( wxString, intArray );
 
 
     /**************************************************************************/
@@ -151,37 +184,7 @@ public:
 
 
     /**************************************************************************/
-    /** RESULTS */
-
 public:
-    bool checkSettingResultsBasicStaff(int cardNo, int dayNo);
-
-    /** DEFINING RESULTS MANUALLY */
-private:
-    int askForRemovingOtherResults();
-public:
-    int * setResultMucus1stDay( int cardNo = -1, int dayNo = -1 );
-    int * setResultMucus1stMoreFertileDay( int cardNo = -1, int dayNo = -1 );
-    int * setResultMucusPeak( int cardNo = -1, int dayNo = -1 );
-    int * setResultCervix1stDay( int cardNo = -1, int dayNo = -1 );
-    int * setResultCervixPeak( int cardNo = -1, int dayNo = -1 );
-    int * setResultTemperaturesLevels( int cardNo = -1, int dayNo = -1, bool resetIfExists = true );
-    int * resetResultTemperaturesLevels(int cardNo = -1);
-    int * setResultFertilePhaseStart( int cardNo = -1, int dayNo = -1 );
-    int * setResultInfertilePhaseStart( int cardNo = -1, int dayNo = -1 );
-
-    /** DEFINING RESULTS MANUALLY */
-    int * calculateResultsAutomatically( int cardNo = -1 );
-    int * calculateResultMucus1stDay( int );
-    int * calculateResultMucus1stMoreFertileDay( int );
-    int * calculateResultMucusPeak( int );
-    int * calculateResultCervix1stDay( int );
-    int * calculateResultCervixPeak( int );
-    int * calculateResultTemperaturesLevels( int );
-    int * calculateResultFertilePhaseStart( int );
-    int * calculateResultInfertilePhaseStart( int );
-
-    /**************************************************************************/
     int calculateCorrectTemperatureValue( int, wxDateTime, int, int );
     int calculateCorrectTemperatureValue();
     int calculateCorrectTemperatureValue( int );
@@ -190,44 +193,52 @@ public:
 private:
     int calculateCorrectTemperatureValue( int, int, bool, int, wxDateTime, int, int );
 
-    /*
+    /**************************************************************************/
+    /** RESULTS */
 
-    // -----------------------
-    // FUNKCJE DO OBLICZANIA WYNIKU
+public:
+    bool checkSettingResultsBasicStaff(int cardNo, int dayNo);
 
-    public:
-       // sprawdzenie, czy dany dzien moze byc zaznaczony jako dzien "specjalny"
-       bool checkTheDayPossibility_1_sluz(int, int, bool);
-       bool checkTheDayPossibility_1_sluz_plodny(int, int, bool);
-       bool checkTheDayPossibility_sluz_szczyt(int, int, bool);
-       bool checkTheDayPossibility_1_szyjka(int, int, bool);
-       bool checkTheDayPossibility_szyjka_szczyt(int, int, bool);
-       bool checkTheDayPossibility_temperatura(int, int, bool);
+    /** DEFINING RESULTS MANUALLY */
+private:
+    int askToKeepResultsAlreadySetForOtherDays(int);
+public:
+    int * setResultMucus1stDay( int cardNo = -1, int dayNo = -1 );
+    int * setResultMucus1stMoreFertileDay( int cardNo = -1, int dayNo = -1 );
+    int * setResultMucusPeak( int cardNo = -1, int dayNo = -1 );
+    int * setResultCervix1stDay( int cardNo = -1, int dayNo = -1 );
+    int * setResultCervixPeak( int cardNo = -1, int dayNo = -1 );
+    int * setResultTemperatureLevels( configClass*, int cardNo = -1, int dayNo = -1, bool resetIfExists = true );
+    int * resetResultTemperatureLevels(int cardNo = -1);
+    int * setResultFertilePhaseStart( int cardNo = -1, int dayNo = -1 );
+    int * setResultInfertilePhaseStart( int cardNo = -1, int dayNo = -1 );
 
-       int find_poziom_nizszy_temperatur(int);
-       int find_first_temperature(int);
-       int find_first_hight_temperature(int);
-       int find_last_temperature(int);
-    */
-
-// -----------------------
-// FUNKCJE POMOCNICZE
-//
-
-    /*
-    public:
-       bool correctDates();
-       wxString convertTemperature(int, bool);
-       int countWspolzycieTotal();
-    */
-
-
-
-
-
-
-
-
+    /** DEFINING RESULTS MANUALLY */
+    bool calculateResultsAutomatically( int, configClass* );
+    bool removePreviouslySetResults(cardEntry*);
+    bool calculateResultsAutomaticallyOnChange( int, configClass* );
+private:
+    bool calculateResultMucus1stDay( cardEntry*, int );
+    bool calculateResultMucus1stMoreFertileDay( cardEntry*, int );
+    bool calculateResultMucusPeak( cardEntry*, int );
+    bool calculateResultCervix1stDay( cardEntry*, int );
+    bool calculateResultCervixPeak( cardEntry*, int );
+    bool calculateResultTemperatureLevels( cardEntry*, int, configClass* );
+    int * calculateTemperatureLevels( cardEntry*, int, int, configClass*, bool );
+    int getDayTemp( cardEntry*, int );
+    bool are7measuredTemperatures( cardEntry* );
+    bool wasMucusPeakBeforeDay(cardEntry*, int);
+    bool calculateResultFertilePhaseStart( cardEntry*, int, configClass* );
+    int getFirstDayOfFertilePhaseStartAccordingTo2120DaysRule( int, configClass* );
+    int getFirstDayOfFertilePhaseStartAccordingToClinicalRule( int, configClass* );
+    int getFirstDayOfFertilePhaseStartAccordingToDoeringRule( cardEntry*, int, configClass* );
+    int getFirstDayOfFertilePhaseStartAccordingToCervicalMucusBasedRule( cardEntry*, int, configClass* );
+    int getFirstDayOfFertilePhaseStartAccordingToCervicalPositionBasedRule( cardEntry*, int );
+    bool calculateResultInfertilePhaseStart( cardEntry*, int );
+    bool calculateResultPhasesInAfterPregnancyCycle( cardEntry*, int, configClass* );
+    bool isBasicInfertilePatternWithMucus(cardEntry*);
+    bool wasMoreFertileMucusFor5DaysInPreviousCycles( int, configClass* );
+    bool isCardFromLast3AfterStoppedPills(int);
 };
 
 /*******************************************************************************
@@ -236,3 +247,5 @@ private:
 
 #endif
 
+
+#endif // header guard

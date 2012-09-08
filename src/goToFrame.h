@@ -11,15 +11,15 @@
 #define GOTOFRAME_H
 
 //(*Headers(goToFrame)
-#include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/datectrl.h>
 #include <wx/spinctrl.h>
-#include <wx/radiobut.h>
-#include <wx/panel.h>
-#include <wx/dateevt.h>
-#include <wx/button.h>
 #include <wx/dialog.h>
+#include <wx/sizer.h>
+#include <wx/datectrl.h>
+#include <wx/button.h>
+#include <wx/radiobut.h>
+#include <wx/dateevt.h>
+#include <wx/panel.h>
+#include <wx/stattext.h>
 //*)
 
 /******************************************************************************/
@@ -46,20 +46,20 @@ public:
 
      //(*Declarations(goToFrame)
      wxDatePickerCtrl* datePickerDate;
+     wxStaticText* staticDay;
      wxPanel* panel1;
-     wxButton* buttonCancel;
-     wxStaticText* staticVaildDates;
      wxButton* buttonGoTo;
      wxStaticText* space1;
-     wxRadioButton* radioButtonCardNumber;
-     wxStaticText* staticDay;
-     wxStaticText* textCard;
-     wxStaticText* staticDate;
-     wxRadioButton* radioButtonDate;
-     wxStaticText* textDate;
-     wxSpinCtrl* spinCardNumber;
+     wxStaticText* staticVaildDates;
      wxStaticText* staticCard;
+     wxRadioButton* radioButtonDate;
+     wxSpinCtrl* spinCardNumber;
+     wxStaticText* staticDate;
+     wxButton* buttonCancel;
+     wxStaticText* textCard;
+     wxRadioButton* radioButtonCardNumber;
      wxStaticText* textDay;
+     wxStaticText* textDate;
      //*)
 
 protected:

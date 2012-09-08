@@ -14,7 +14,7 @@ charts. You can store here all your observations and interpret them.
 More information can be found on-line (currently mostly in polish, sorry for that ;)
 http://npr.szura.net
 
-wx-npf is copyright (c) 2007-2011 by Grzegorz Szura.
+wx-npf is copyright (c) 2007-2012 by Grzegorz Szura.
 
 
 Contents of this README:
@@ -76,7 +76,6 @@ To compile on Linux and other Unix systems, simply execute these commands:
 To see compile-time options you can set, you can type:
   ./configure --help
 
-
 M$ WINDOWS:
 The easiest way is to use Code::Blocks to compile the application:
   http://www.codeblocks.org/
@@ -88,5 +87,24 @@ The installer has been created using Inno Setup (and ISTool):
   http://www.istool.org/
 
 The project file is located in the win_installer folder.
+
 --------------------------------------------------------------------------------
 
+For developers:
+If you change the Makefile.am, run:
+  automake
+  ./configure
+  make
+  sudo make install
+
+If you change the configure.ac, or Makefile.in.in in po folder, run:
+  autoheader
+  aclocal
+  automake
+  autoconf
+  ./configure
+  make
+  sudo make install
+
+
+--------------------------------------------------------------------------------

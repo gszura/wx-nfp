@@ -27,6 +27,13 @@ const long cardFrame::ID_changesCardNo = wxNewId();
 const long cardFrame::ID_static1stDayOfCycle = wxNewId();
 const long cardFrame::ID_datePicker1stDayOfCycle = wxNewId();
 const long cardFrame::ID_changes1stDayOfCycle = wxNewId();
+const long cardFrame::ID_cycleType = wxNewId();
+const long cardFrame::ID_comboBoxCycleType = wxNewId();
+const long cardFrame::ID_changesCycleType = wxNewId();
+const long cardFrame::ID_STATICTEXT3 = wxNewId();
+const long cardFrame::ID_staticBasicInfertilePattern = wxNewId();
+const long cardFrame::ID_comboBoxBasicInfertilePattern = wxNewId();
+const long cardFrame::ID_changesBasicInfertilePattern = wxNewId();
 const long cardFrame::ID_staticTemp = wxNewId();
 const long cardFrame::ID_staticSpace1 = wxNewId();
 const long cardFrame::ID_staticTempTime = wxNewId();
@@ -54,15 +61,27 @@ const long cardFrame::ID_staticSpace6 = wxNewId();
 const long cardFrame::ID_staticTempCorrectionTime = wxNewId();
 const long cardFrame::ID_comboBoxTempCorrectionTime = wxNewId();
 const long cardFrame::ID_changesTempCorrectionTime = wxNewId();
+const long cardFrame::ID_textNotes = wxNewId();
+const long cardFrame::ID_checkBoxStoppedPills = wxNewId();
+const long cardFrame::ID_changesStoppedPills = wxNewId();
+const long cardFrame::ID_checkBoxCorrupedData = wxNewId();
+const long cardFrame::ID_changesCorruptedData = wxNewId();
 const long cardFrame::ID_staticNotes = wxNewId();
 const long cardFrame::ID_changesNotes = wxNewId();
-const long cardFrame::ID_textNotes = wxNewId();
 const long cardFrame::ID_staticName = wxNewId();
 const long cardFrame::ID_textName = wxNewId();
 const long cardFrame::ID_changesName = wxNewId();
 const long cardFrame::ID_staticBirthdayDay = wxNewId();
 const long cardFrame::ID_datePickerBirthdayDay = wxNewId();
 const long cardFrame::ID_changesBirthdayDay = wxNewId();
+const long cardFrame::ID_staticPrevCycle1 = wxNewId();
+const long cardFrame::ID_spinShortestCycleFromCycles = wxNewId();
+const long cardFrame::ID_staticPrevCycle2 = wxNewId();
+const long cardFrame::ID_changesShortestCycleFromCycles = wxNewId();
+const long cardFrame::ID_staticPreCycle3 = wxNewId();
+const long cardFrame::ID_spinShortestCycleDays = wxNewId();
+const long cardFrame::ID_staticPrevCycle4 = wxNewId();
+const long cardFrame::ID_changesShortestCycleDays = wxNewId();
 const long cardFrame::ID_buttonSave = wxNewId();
 const long cardFrame::ID_buttonCancel = wxNewId();
 const long cardFrame::ID_staticSpace7 = wxNewId();
@@ -86,7 +105,8 @@ const wxEventType wxEVT_CARD_DATA_MODIFIED_EVENT = wxNewEventType();
 /**
  *
  */
-cardFrame::cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleData, wxWindowID id) {
+cardFrame::cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleData, wxWindowID id)
+{
     m_parent = parent;
     m_config = config;
     m_cycleData = cycleData;
@@ -99,25 +119,34 @@ cardFrame::cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycl
 /**
  * Build GUI
  */
-void cardFrame::buildGui(wxWindow* parent) {
+void cardFrame::buildGui(wxWindow* parent)
+{
     //(*Initialize(cardFrame)
     wxBoxSizer* sizerMain2;
     wxFlexGridSizer* sizerTempCorrection;
-    wxBoxSizer* sizerCardNotes;
     wxBoxSizer* sizerMain1;
-    wxStaticBoxSizer* sizerCard;
+    wxFlexGridSizer* sizerPrevCycles2;
+    wxBoxSizer* sizerDataRight;
+    wxBoxSizer* sizerCardNotes1;
     wxFlexGridSizer* sizerTemp;
+    wxStaticBoxSizer* sizerCardNotes;
     wxFlexGridSizer* sizerCardNo;
     wxBoxSizer* sizerButtons;
+    wxBoxSizer* BoxSizer1;
+    wxStaticBoxSizer* sizerPrevCycles;
+    wxFlexGridSizer* FlexGridSizer1;
+    wxStaticBoxSizer* sizerDataLeft;
     wxStaticBoxSizer* sizerCommon;
     wxFlexGridSizer* sizerCommon2;
+    wxBoxSizer* sizerData;
     wxBoxSizer* sizerTempTime;
 
     Create(parent, wxID_ANY, _("NFP - edit card\'s data"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);
     panelMain = new wxPanel(this, ID_panelMain, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelMain"));
     sizerMain2 = new wxBoxSizer(wxVERTICAL);
-    sizerCard = new wxStaticBoxSizer(wxVERTICAL, panelMain, _("data specific for current card"));
+    sizerData = new wxBoxSizer(wxHORIZONTAL);
+    sizerDataLeft = new wxStaticBoxSizer(wxVERTICAL, panelMain, _("data specific for current card"));
     sizerCardNo = new wxFlexGridSizer(0, 3, 0, 0);
     sizerCardNo->AddGrowableCol(0);
     staticCardNo = new wxStaticText(panelMain, ID_staticCardNo, _("card number"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticCardNo"));
@@ -136,16 +165,39 @@ void cardFrame::buildGui(wxWindow* parent) {
     sizerCardNo->Add(changesCardNo, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     static1stDayOfCycle = new wxStaticText(panelMain, ID_static1stDayOfCycle, _("first day of the cycle"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_static1stDayOfCycle"));
     static1stDayOfCycle->SetToolTip(_("First day of the cycle can be set for the first card only and only if there is only one card in the set"));
-    sizerCardNo->Add(static1stDayOfCycle, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNo->Add(static1stDayOfCycle, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     datePicker1stDayOfCycle = new wxDatePickerCtrl(panelMain, ID_datePicker1stDayOfCycle, wxDefaultDateTime, wxDefaultPosition, wxSize(120,-1), wxDP_DROPDOWN|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_datePicker1stDayOfCycle"));
     datePicker1stDayOfCycle->SetToolTip(_("First day of the cycle can be set for the first card only and only if there is only one card in the set"));
-    sizerCardNo->Add(datePicker1stDayOfCycle, 1, wxALL|wxEXPAND|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNo->Add(datePicker1stDayOfCycle, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changes1stDayOfCycle = new wxStaticText(panelMain, ID_changes1stDayOfCycle, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changes1stDayOfCycle"));
     changes1stDayOfCycle->SetForegroundColour(wxColour(255,0,0));
-    sizerCardNo->Add(changes1stDayOfCycle, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCard->Add(sizerCardNo, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNo->Add(changes1stDayOfCycle, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticCycleType = new wxStaticText(panelMain, ID_cycleType, _("cycle type"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_cycleType"));
+    staticCycleType->SetToolTip(_("First day of the cycle can be set for the first card only and only if there is only one card in the set"));
+    sizerCardNo->Add(staticCycleType, 1, wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxCycleType = new wxComboBox(panelMain, ID_comboBoxCycleType, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxCycleType"));
+    comboBoxCycleType->SetToolTip(_("Usual place, when you will measure temperature in this cycle"));
+    sizerCardNo->Add(comboBoxCycleType, 0, wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesCycleType = new wxStaticText(panelMain, ID_changesCycleType, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCycleType"));
+    changesCycleType->SetForegroundColour(wxColour(255,0,0));
+    sizerCardNo->Add(changesCycleType, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText3 = new wxStaticText(panelMain, ID_STATICTEXT3, wxEmptyString, wxDefaultPosition, wxSize(20,-1), 0, _T("ID_STATICTEXT3"));
+    StaticText3->SetToolTip(_("First day of the cycle can be set for the first card only and only if there is only one card in the set"));
+    BoxSizer1->Add(StaticText3, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticBasicInfertilePattern = new wxStaticText(panelMain, ID_staticBasicInfertilePattern, _("basic infertile pattern"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticBasicInfertilePattern"));
+    staticBasicInfertilePattern->SetToolTip(_("First day of the cycle can be set for the first card only and only if there is only one card in the set"));
+    BoxSizer1->Add(staticBasicInfertilePattern, 1, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNo->Add(BoxSizer1, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    comboBoxBasicInfertilePattern = new wxComboBox(panelMain, ID_comboBoxBasicInfertilePattern, wxEmptyString, wxDefaultPosition, wxSize(120,-1), 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxBasicInfertilePattern"));
+    comboBoxBasicInfertilePattern->SetToolTip(_("Usual place, when you will measure temperature in this cycle"));
+    sizerCardNo->Add(comboBoxBasicInfertilePattern, 0, wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesBasicInfertilePattern = new wxStaticText(panelMain, ID_changesBasicInfertilePattern, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesBasicInfertilePattern"));
+    changesBasicInfertilePattern->SetForegroundColour(wxColour(255,0,0));
+    sizerCardNo->Add(changesBasicInfertilePattern, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataLeft->Add(sizerCardNo, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticTemp = new wxStaticText(panelMain, ID_staticTemp, _("temperature measurement:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTemp"));
-    sizerCard->Add(staticTemp, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataLeft->Add(staticTemp, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     sizerTemp = new wxFlexGridSizer(0, 4, 0, 0);
     sizerTemp->AddGrowableCol(1);
     staticSpace1 = new wxStaticText(panelMain, ID_staticSpace1, wxEmptyString, wxDefaultPosition, wxSize(5,-1), 0, _T("ID_staticSpace1"));
@@ -175,9 +227,9 @@ void cardFrame::buildGui(wxWindow* parent) {
     changesTempPlace = new wxStaticText(panelMain, ID_changesTempPlace, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesTempPlace"));
     changesTempPlace->SetForegroundColour(wxColour(255,0,0));
     sizerTemp->Add(changesTempPlace, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCard->Add(sizerTemp, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataLeft->Add(sizerTemp, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticTempCorrection = new wxStaticText(panelMain, ID_staticTempCorrection, _("temperature correction when measured:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticTempCorrection"));
-    sizerCard->Add(staticTempCorrection, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataLeft->Add(staticTempCorrection, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     sizerTempCorrection = new wxFlexGridSizer(0, 4, 0, 0);
     sizerTempCorrection->AddGrowableCol(1);
     staticSpace3 = new wxStaticText(panelMain, ID_staticSpace3, wxEmptyString, wxDefaultPosition, wxSize(5,-1), 0, _T("ID_staticSpace3"));
@@ -224,28 +276,47 @@ void cardFrame::buildGui(wxWindow* parent) {
     changesTempCorrectionTime = new wxStaticText(panelMain, ID_changesTempCorrectionTime, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesTempCorrectionTime"));
     changesTempCorrectionTime->SetForegroundColour(wxColour(255,0,0));
     sizerTempCorrection->Add(changesTempCorrectionTime, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCard->Add(sizerTempCorrection, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCardNotes = new wxBoxSizer(wxHORIZONTAL);
-    staticNotes = new wxStaticText(panelMain, ID_staticNotes, _("notes:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticNotes"));
-    staticNotes->SetToolTip(_("Type notes common for this cycle"));
-    sizerCardNotes->Add(staticNotes, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    changesNotes = new wxStaticText(panelMain, ID_changesNotes, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesNotes"));
-    changesNotes->SetForegroundColour(wxColour(255,0,0));
-    sizerCardNotes->Add(changesNotes, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCard->Add(sizerCardNotes, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerDataLeft->Add(sizerTempCorrection, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerData->Add(sizerDataLeft, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataRight = new wxBoxSizer(wxVERTICAL);
+    sizerCardNotes = new wxStaticBoxSizer(wxVERTICAL, panelMain, _("notes for current card"));
     textNotes = new wxTextCtrl(panelMain, ID_textNotes, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE|wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textNotes"));
     textNotes->SetMinSize(wxSize(180,40));
-    textNotes->SetMaxSize(wxSize(400,60));
     textNotes->SetToolTip(_("Type notes common for this cycle"));
-    sizerCard->Add(textNotes, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerMain2->Add(sizerCard, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNotes->Add(textNotes, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1 = new wxFlexGridSizer(0, 2, 0, 0);
+    FlexGridSizer1->AddGrowableCol(0);
+    checkBoxStoppedPills = new wxCheckBox(panelMain, ID_checkBoxStoppedPills, _("I just stopped using birth control pills"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxStoppedPills"));
+    checkBoxStoppedPills->SetValue(false);
+    checkBoxStoppedPills->SetToolTip(_("Check this checkbox if this is the first cycle after stopping using birth control pills\nThis information is used to calculate the beginning of the infertile phase"));
+    FlexGridSizer1->Add(checkBoxStoppedPills, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesStoppedPills = new wxStaticText(panelMain, ID_changesStoppedPills, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesStoppedPills"));
+    changesStoppedPills->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer1->Add(changesStoppedPills, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxCorruptedData = new wxCheckBox(panelMain, ID_checkBoxCorrupedData, _("data in this cycle are corrupted or incomplete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxCorrupedData"));
+    checkBoxCorruptedData->SetValue(false);
+    checkBoxCorruptedData->SetToolTip(_("That means that data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles"));
+    FlexGridSizer1->Add(checkBoxCorruptedData, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesCorruptedData = new wxStaticText(panelMain, ID_changesCorruptedData, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCorruptedData"));
+    changesCorruptedData->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer1->Add(changesCorruptedData, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNotes->Add(FlexGridSizer1, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNotes1 = new wxBoxSizer(wxHORIZONTAL);
+    staticNotes = new wxStaticText(panelMain, ID_staticNotes, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticNotes"));
+    staticNotes->SetToolTip(_("Type notes common for this cycle"));
+    sizerCardNotes1->Add(staticNotes, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesNotes = new wxStaticText(panelMain, ID_changesNotes, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesNotes"));
+    changesNotes->SetForegroundColour(wxColour(255,0,0));
+    sizerCardNotes1->Add(changesNotes, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNotes->Add(sizerCardNotes1, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataRight->Add(sizerCardNotes, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerCommon = new wxStaticBoxSizer(wxHORIZONTAL, panelMain, _("data common for all cards"));
     sizerCommon2 = new wxFlexGridSizer(0, 3, 0, 0);
     sizerCommon2->AddGrowableCol(0);
     staticName = new wxStaticText(panelMain, ID_staticName, _("name"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticName"));
     staticName->SetToolTip(_("Type your name"));
     sizerCommon2->Add(staticName, 1, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    textName = new wxTextCtrl(panelMain, ID_textName, wxEmptyString, wxDefaultPosition, wxSize(120,-1), wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textName"));
+    textName = new wxTextCtrl(panelMain, ID_textName, wxEmptyString, wxDefaultPosition, wxSize(150,-1), wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textName"));
     textName->SetToolTip(_("Type your name"));
     sizerCommon2->Add(textName, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesName = new wxStaticText(panelMain, ID_changesName, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesName"));
@@ -261,18 +332,50 @@ void cardFrame::buildGui(wxWindow* parent) {
     changesBirthdayDay->SetForegroundColour(wxColour(255,0,0));
     sizerCommon2->Add(changesBirthdayDay, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerCommon->Add(sizerCommon2, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerMain2->Add(sizerCommon, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerDataRight->Add(sizerCommon, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles = new wxStaticBoxSizer(wxVERTICAL, panelMain, _("historical cycles"));
+    sizerPrevCycles2 = new wxFlexGridSizer(0, 4, 0, 0);
+    staticPrevCycle1 = new wxStaticText(panelMain, ID_staticPrevCycle1, _("shortest cycle from last"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPrevCycle1"));
+    staticPrevCycle1->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
+    sizerPrevCycles2->Add(staticPrevCycle1, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    spinShortestCycleFromCycles = new wxSpinCtrl(panelMain, ID_spinShortestCycleFromCycles, _T("12"), wxDefaultPosition, wxSize(70,-1), wxSIMPLE_BORDER, 6, 24, 12, _T("ID_spinShortestCycleFromCycles"));
+    spinShortestCycleFromCycles->SetValue(_T("12"));
+    spinShortestCycleFromCycles->SetToolTip(_("Max 24 months, 12 is usually enough."));
+    sizerPrevCycles2->Add(spinShortestCycleFromCycles, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticPrevCycle2 = new wxStaticText(panelMain, ID_staticPrevCycle2, _("cycles"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPrevCycle2"));
+    staticPrevCycle2->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
+    sizerPrevCycles2->Add(staticPrevCycle2, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesShortestCycleFromCycles = new wxStaticText(panelMain, ID_changesShortestCycleFromCycles, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesShortestCycleFromCycles"));
+    changesShortestCycleFromCycles->SetForegroundColour(wxColour(255,0,0));
+    sizerPrevCycles2->Add(changesShortestCycleFromCycles, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticPrevCycle3 = new wxStaticText(panelMain, ID_staticPreCycle3, _("was"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_staticPreCycle3"));
+    staticPrevCycle3->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
+    sizerPrevCycles2->Add(staticPrevCycle3, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    spinShortestCycleDays = new wxSpinCtrl(panelMain, ID_spinShortestCycleDays, _T("0"), wxDefaultPosition, wxSize(70,-1), wxSIMPLE_BORDER, 0, 70, 0, _T("ID_spinShortestCycleDays"));
+    spinShortestCycleDays->SetValue(_T("0"));
+    spinShortestCycleDays->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
+    sizerPrevCycles2->Add(spinShortestCycleDays, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    staticPrevCycle4 = new wxStaticText(panelMain, ID_staticPrevCycle4, _("days"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPrevCycle4"));
+    staticPrevCycle4->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
+    sizerPrevCycles2->Add(staticPrevCycle4, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    changesShortestCycleDays = new wxStaticText(panelMain, ID_changesShortestCycleDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesShortestCycleDays"));
+    changesShortestCycleDays->SetForegroundColour(wxColour(255,0,0));
+    sizerPrevCycles2->Add(changesShortestCycleDays, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles->Add(sizerPrevCycles2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerDataRight->Add(sizerPrevCycles, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerData->Add(sizerDataRight, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerMain2->Add(sizerData, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerButtons = new wxBoxSizer(wxHORIZONTAL);
     buttonSave = new wxButton(panelMain, ID_buttonSave, _("save changes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonSave"));
     buttonSave->SetToolTip(_("Save changes without closing this window"));
-    sizerButtons->Add(buttonSave, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerButtons->Add(buttonSave, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     buttonCancel = new wxButton(panelMain, ID_buttonCancel, _("cancel changes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonCancel"));
     buttonCancel->SetToolTip(_("Close this window without saving changes"));
     sizerButtons->Add(buttonCancel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     staticSpace7 = new wxStaticText(panelMain, ID_staticSpace7, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticSpace7"));
     sizerButtons->Add(staticSpace7, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     buttonClose = new wxButton(panelMain, ID_buttonClose, _("close"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonClose"));
-    buttonClose->SetToolTip(_("Close this window (and ask for saving unsaved changes)"));
+    buttonClose->SetToolTip(_("Close this window"));
     sizerButtons->Add(buttonClose, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerMain2->Add(sizerButtons, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelMain->SetSizer(sizerMain2);
@@ -284,6 +387,8 @@ void cardFrame::buildGui(wxWindow* parent) {
     sizerMain1->SetSizeHints(this);
 
     Connect(ID_datePicker1stDayOfCycle,wxEVT_DATE_CHANGED,(wxObjectEventFunction)&cardFrame::datePicker1stDayOfCycleDateChanged);
+    Connect(ID_comboBoxCycleType,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxCycleTypeUpdated);
+    Connect(ID_comboBoxBasicInfertilePattern,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxBasicInfertilePatternTextUpdated);
     Connect(ID_comboBoxTempTimeHour,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxTempTimeUpdated);
     Connect(ID_comboBoxTempTimeMinute,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxTempTimeUpdated);
     Connect(ID_comboBoxTempPlace,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxTempPlaceUpdated);
@@ -292,8 +397,12 @@ void cardFrame::buildGui(wxWindow* parent) {
     Connect(ID_comboBoxTempCorrectionRectum,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxTempCorrectionRectumUpdated);
     Connect(ID_comboBoxTempCorrectionTime,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::comboBoxTempCorrectionTimeUpdated);
     Connect(ID_textNotes,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::textNotesUpdated);
+    Connect(ID_checkBoxStoppedPills,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&cardFrame::checkBoxStoppedPillsClick);
+    Connect(ID_checkBoxCorrupedData,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&cardFrame::checkBoxCorruptedDataClick);
     Connect(ID_textName,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&cardFrame::textNameUpdated);
     Connect(ID_datePickerBirthdayDay,wxEVT_DATE_CHANGED,(wxObjectEventFunction)&cardFrame::datePickerBirthdayDayDateChanged);
+    Connect(ID_spinShortestCycleFromCycles,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&cardFrame::spinShortestCycleFromCyclesChanged);
+    Connect(ID_spinShortestCycleDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&cardFrame::spinShortestCycleDaysChanged);
     Connect(ID_buttonSave,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&cardFrame::buttonSaveClick);
     Connect(ID_buttonCancel,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&cardFrame::buttonCancelClick);
     Connect(ID_buttonClose,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&cardFrame::buttonCloseClick);
@@ -303,6 +412,16 @@ void cardFrame::buildGui(wxWindow* parent) {
 
     /****************************************************/
     /** comboBoxes' data */
+
+    comboBoxCycleType->SetSelection( comboBoxCycleType->Append(string_cycleTypeNormal) );
+    comboBoxCycleType->Append(string_cycleTypePregnancy);
+    comboBoxCycleType->Append(string_cycleTypeAfterPregnancy);
+    comboBoxCycleType->Append(string_cycleTypePeriMenopause);
+
+    comboBoxBasicInfertilePattern->SetSelection( comboBoxBasicInfertilePattern->Append(string_cycle_bip_auto) );
+    comboBoxBasicInfertilePattern->Append(string_cycle_bip_dry);
+    comboBoxBasicInfertilePattern->Append(string_cycle_bip_mucus);
+
     comboBoxTempTimeHour->Append(_T("0"));
     comboBoxTempTimeHour->Append(_T("1"));
     comboBoxTempTimeHour->Append(_T("2"));
@@ -475,7 +594,8 @@ void cardFrame::buildGui(wxWindow* parent) {
 /**
  *
  */
-cardFrame::~cardFrame() {
+cardFrame::~cardFrame()
+{
     //(*Destroy(cardFrame)
     //*)
 }
@@ -487,7 +607,8 @@ cardFrame::~cardFrame() {
 /**
  * cardFrameClose
  */
-void cardFrame::cardFrameClose( wxCloseEvent& event ) {
+void cardFrame::cardFrameClose( wxCloseEvent& event )
+{
     if ( checkIfCanExit( true ) ) {
         Hide();
         m_parent->SetFocus();
@@ -497,7 +618,8 @@ void cardFrame::cardFrameClose( wxCloseEvent& event ) {
 /**
  * buttonSaveClick
  */
-void cardFrame::buttonSaveClick( wxCommandEvent& event ) {
+void cardFrame::buttonSaveClick( wxCommandEvent& event )
+{
     save();
     update();
     updateButtonsState();
@@ -506,7 +628,8 @@ void cardFrame::buttonSaveClick( wxCommandEvent& event ) {
 /**
  * buttonCancelClick
  */
-void cardFrame::buttonCancelClick( wxCommandEvent& event ) {
+void cardFrame::buttonCancelClick( wxCommandEvent& event )
+{
     update();
     updateButtonsState();
 }
@@ -514,7 +637,8 @@ void cardFrame::buttonCancelClick( wxCommandEvent& event ) {
 /**
  * buttonCloseClick
  */
-void cardFrame::buttonCloseClick( wxCommandEvent& event ) {
+void cardFrame::buttonCloseClick( wxCommandEvent& event )
+{
     if ( checkIfCanExit( true ) ) {
         Hide();
         m_parent->SetFocus();
@@ -524,7 +648,8 @@ void cardFrame::buttonCloseClick( wxCommandEvent& event ) {
 /**
  * cardFrameKeyDown
  */
-void cardFrame::cardFrameKeyDown( wxKeyEvent& event ) {
+void cardFrame::cardFrameKeyDown( wxKeyEvent& event )
+{
     if ( event.GetKeyCode() == WXK_ESCAPE ) {
         if ( checkIfCanExit( true ) ) {
             Hide();
@@ -541,7 +666,8 @@ void cardFrame::cardFrameKeyDown( wxKeyEvent& event ) {
 /**
  * datePicker1stDayOfCycleDateChanged
  */
-void cardFrame::datePicker1stDayOfCycleDateChanged( wxDateEvent& event ) {
+void cardFrame::datePicker1stDayOfCycleDateChanged( wxDateEvent& event )
+{
     if ( datePicker1stDayOfCycle->GetValue().IsSameDate( m_cycleData->getCard()->getFirstDayOfCycle() ) ) {
         if ( changes1stDayOfCycle->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -558,9 +684,90 @@ void cardFrame::datePicker1stDayOfCycleDateChanged( wxDateEvent& event ) {
 }
 
 /**
+ * comboBoxCycleTypeUpdated
+ */
+void cardFrame::comboBoxCycleTypeUpdated( wxCommandEvent& event )
+{
+    if ( comboBoxCycleType->GetSelection() == m_cycleData->getCard()->getCycleType() - 1 ) {
+        if ( changesCycleType->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesCycleType->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesCycleType->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesCycleType->SetLabel( _T( "*" ) );
+        }
+    }
+
+    if ( comboBoxCycleType->GetSelection() ==  CYCLE_TYPE_AFTER_PREGNANCY - 1 ) {
+        comboBoxBasicInfertilePattern->Enable();
+        staticBasicInfertilePattern->Enable();
+    } else {
+        comboBoxBasicInfertilePattern->Disable();
+        staticBasicInfertilePattern->Disable();
+    }
+
+    updateButtonsState();
+}
+
+void cardFrame::comboBoxBasicInfertilePatternTextUpdated(wxCommandEvent& event)
+{
+    if ( comboBoxBasicInfertilePattern->GetSelection() == m_cycleData->getCard()->getBasicInfertilePattern() ) {
+        if ( changesBasicInfertilePattern->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesBasicInfertilePattern->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesBasicInfertilePattern->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesBasicInfertilePattern->SetLabel( _T( "*" ) );
+        }
+    }
+
+    updateButtonsState();
+}
+
+
+void cardFrame::checkBoxStoppedPillsClick(wxCommandEvent& event)
+{
+    if ( checkBoxStoppedPills->GetValue() == m_cycleData->getCard()->getStoppedPills() ) {
+        if ( changesStoppedPills->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesStoppedPills->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesStoppedPills->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesStoppedPills->SetLabel( _T( "*" ) );
+        }
+    }
+
+    updateButtonsState();
+}
+
+void cardFrame::checkBoxCorruptedDataClick(wxCommandEvent& event)
+{
+    if ( checkBoxCorruptedData->GetValue() == m_cycleData->getCard()->getCorruptedData() ) {
+        if ( changesCorruptedData->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesCorruptedData->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesCorruptedData->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesCorruptedData->SetLabel( _T( "*" ) );
+        }
+    }
+
+    updateButtonsState();
+}
+
+/**
  * comboBoxTempTimeUpdated
  */
-void cardFrame::comboBoxTempTimeUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempTimeUpdated( wxCommandEvent& event )
+{
     // insert your code here
     int m = m_cycleData->getCard()->getTemperatureUsualMeasurementTime().GetMinute();
     wxString minute = m_util.intToStr( m );
@@ -588,7 +795,8 @@ void cardFrame::comboBoxTempTimeUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTempPlaceUpdated
  */
-void cardFrame::comboBoxTempPlaceUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempPlaceUpdated( wxCommandEvent& event )
+{
     int place;
 
     if ( comboBoxTempPlace->GetValue().IsSameAs( string_placeMouth ) ) {
@@ -626,7 +834,8 @@ void cardFrame::comboBoxTempPlaceUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTempCorrectionMouthUpdated
  */
-void cardFrame::comboBoxTempCorrectionMouthUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempCorrectionMouthUpdated( wxCommandEvent& event )
+{
     if ( comboBoxTempCorrectionMouth->GetValue().IsSameAs( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionWhenMeasuredInMouth(), true, true ) ) ) {
         if ( changesTempCorrectionMouth->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -645,7 +854,8 @@ void cardFrame::comboBoxTempCorrectionMouthUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTempCorrectionVaginaUpdated
  */
-void cardFrame::comboBoxTempCorrectionVaginaUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempCorrectionVaginaUpdated( wxCommandEvent& event )
+{
     if ( comboBoxTempCorrectionVagina->GetValue().IsSameAs( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionWhenMeasuredInVagina(), true, true ) ) ) {
         if ( changesTempCorrectionVagina->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -664,7 +874,8 @@ void cardFrame::comboBoxTempCorrectionVaginaUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTempCorrectionRectumUpdated
  */
-void cardFrame::comboBoxTempCorrectionRectumUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempCorrectionRectumUpdated( wxCommandEvent& event )
+{
     if ( comboBoxTempCorrectionRectum->GetValue().IsSameAs( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionWhenMeasuredInRectum(), true, true ) ) ) {
         if ( changesTempCorrectionRectum->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -683,7 +894,8 @@ void cardFrame::comboBoxTempCorrectionRectumUpdated( wxCommandEvent& event ) {
 /**
  * comboBoxTempCorrectionTimeUpdated
  */
-void cardFrame::comboBoxTempCorrectionTimeUpdated( wxCommandEvent& event ) {
+void cardFrame::comboBoxTempCorrectionTimeUpdated( wxCommandEvent& event )
+{
     // TODO
     if ( comboBoxTempCorrectionTime->GetValue().IsSameAs( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionForMeasurementTimeSake(), true, true ) ) ) {
         if ( changesTempCorrectionTime->GetLabel().IsSameAs( _T( "*" ) ) ) {
@@ -703,7 +915,8 @@ void cardFrame::comboBoxTempCorrectionTimeUpdated( wxCommandEvent& event ) {
 /**
  * textNotesUpdated
  */
-void cardFrame::textNotesUpdated( wxCommandEvent& event ) {
+void cardFrame::textNotesUpdated( wxCommandEvent& event )
+{
     if ( !m_notesEventProcessing ) {
         m_notesEventProcessing = true;
 
@@ -737,7 +950,8 @@ void cardFrame::textNotesUpdated( wxCommandEvent& event ) {
 /**
  * textNameUpdated
  */
-void cardFrame::textNameUpdated( wxCommandEvent& event ) {
+void cardFrame::textNameUpdated( wxCommandEvent& event )
+{
     if ( textName->GetValue().IsSameAs( m_cycleData->getName() ) ) {
         if ( changesName->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -756,7 +970,8 @@ void cardFrame::textNameUpdated( wxCommandEvent& event ) {
 /**
  * datePickerBirthdayDayDateChanged
  */
-void cardFrame::datePickerBirthdayDayDateChanged( wxDateEvent& event ) {
+void cardFrame::datePickerBirthdayDayDateChanged( wxDateEvent& event )
+{
     if ( datePickerBirthdayDay->GetValue().IsSameDate( m_cycleData->getBirthdayDay() ) ) {
         if ( changesBirthdayDay->GetLabel().IsSameAs( _T( "*" ) ) ) {
             m_changes--;
@@ -772,6 +987,41 @@ void cardFrame::datePickerBirthdayDayDateChanged( wxDateEvent& event ) {
     updateButtonsState();
 }
 
+void cardFrame::spinShortestCycleDaysChanged(wxSpinEvent& event)
+{
+    if ( spinShortestCycleDays->GetValue() == m_cycleData->getShortestCycleDays() ) {
+        if ( changesShortestCycleDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesShortestCycleDays->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesShortestCycleDays->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesShortestCycleDays->SetLabel( _T( "*" ) );
+        }
+    }
+
+    updateButtonsState();
+}
+
+void cardFrame::spinShortestCycleFromCyclesChanged(wxSpinEvent& event)
+{
+    if ( spinShortestCycleFromCycles->GetValue() == m_cycleData->getShortestCycleFromCycles() ) {
+        if ( changesShortestCycleFromCycles->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesShortestCycleFromCycles->SetLabel( wxEmptyString );
+        }
+    } else {
+        if ( !changesShortestCycleFromCycles->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesShortestCycleFromCycles->SetLabel( _T( "*" ) );
+        }
+    }
+
+    updateButtonsState();
+}
+
+
 /*******************************************************************************
 ********************************************************************************
 *******************************************************************************/
@@ -779,7 +1029,8 @@ void cardFrame::datePickerBirthdayDayDateChanged( wxDateEvent& event ) {
 /**
  *
  */
-void cardFrame::setButtonsStyle() {
+void cardFrame::setButtonsStyle()
+{
     int flatButton = 0;
 
     if ( m_config->useFlatButtons )
@@ -797,7 +1048,8 @@ void cardFrame::setButtonsStyle() {
 /**
  * update data displayed in the frame.
  */
-void cardFrame::update() {
+void cardFrame::update()
+{
     // TODO - put ASSERTS here
     if ( m_cycleData->getActiveCard() == 0 ) {
 
@@ -821,6 +1073,51 @@ void cardFrame::update() {
             datePicker1stDayOfCycle->Enable( false );
         }
 
+        switch ( m_cycleData->getCard()->getCycleType() ) {
+        case CYCLE_TYPE_PREGNANCY: {
+            comboBoxCycleType->SetValue( string_cycleTypePregnancy );
+            break;
+        }
+        case CYCLE_TYPE_AFTER_PREGNANCY: {
+            comboBoxCycleType->SetValue( string_cycleTypeAfterPregnancy );
+            break;
+        }
+        case CYCLE_TYPE_PERI_MENOPAUSE: {
+            comboBoxCycleType->SetValue( string_cycleTypePeriMenopause );
+            break;
+        }
+        default: {
+            comboBoxCycleType->SetValue( string_cycleTypeNormal );
+            break;
+        }
+        }
+
+        if ( m_cycleData->getCard()->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY ) {
+            comboBoxBasicInfertilePattern->Enable();
+            staticBasicInfertilePattern->Enable();
+
+            switch ( m_cycleData->getCard()->getBasicInfertilePattern() ) {
+            case CYCLE_BIP_DRY: {
+                comboBoxBasicInfertilePattern->SetValue( string_cycle_bip_dry );
+                break;
+            }
+            case CYCLE_BIP_MUCUS: {
+                comboBoxBasicInfertilePattern->SetValue( string_cycle_bip_mucus );
+                break;
+            }
+            default: {
+                comboBoxBasicInfertilePattern->SetValue( string_cycle_bip_auto );
+                break;
+            }
+            }
+        } else {
+            comboBoxBasicInfertilePattern->Disable();
+            staticBasicInfertilePattern->Disable();
+        }
+
+        checkBoxStoppedPills->SetValue(m_cycleData->getCard()->getStoppedPills());
+        checkBoxCorruptedData->SetValue(m_cycleData->getCard()->getCorruptedData());
+
         wxString tH = m_cycleData->getCard()->getTemperatureUsualMeasurementTime().Format( _T( "%H" ) );
 
         if ( tH.StartsWith( _T( "0" ) ) )
@@ -833,8 +1130,7 @@ void cardFrame::update() {
         comboBoxTempCorrectionRectum->SetValue( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionWhenMeasuredInRectum(), true, true ) );
         comboBoxTempCorrectionTime->SetValue( m_util.temperatureToStr( m_cycleData->getCard()->getTemperatureCorrectionForMeasurementTimeSake(), true, true ) );
 
-        int dataInt = m_cycleData->getCard()->getTemperatureUsualMeasurementPlace();
-        switch ( dataInt ) {
+        switch ( m_cycleData->getCard()->getTemperatureUsualMeasurementPlace() ) {
         case PLACE_MOUTH: {
             comboBoxTempPlace->SetValue( string_placeMouth );
             comboBoxTempCorrectionMouth->Enable( false );
@@ -863,6 +1159,8 @@ void cardFrame::update() {
         textNotes->SetInsertionPointEnd();
 
         if ( m_cycleData->getCard()->getCardLocked() ) {
+            comboBoxCycleType->Enable( false );
+            checkBoxStoppedPills->Enable( false );
             comboBoxTempTimeHour->Enable( false );
             comboBoxTempTimeMinute->Enable( false );
             comboBoxTempPlace->Enable( false );
@@ -872,6 +1170,8 @@ void cardFrame::update() {
             comboBoxTempCorrectionTime->Enable( false );
             textNotes->Enable( false );
         } else {
+            comboBoxCycleType->Enable( true );
+            checkBoxStoppedPills->Enable( true );
             comboBoxTempTimeHour->Enable( true );
             comboBoxTempTimeMinute->Enable( true );
             comboBoxTempPlace->Enable( true );
@@ -894,6 +1194,8 @@ void cardFrame::update() {
         textNotes->SetValue( wxEmptyString ) ;
 
         datePicker1stDayOfCycle->Enable( false );
+        comboBoxCycleType->Enable( false );
+        checkBoxStoppedPills->Enable( false );
         comboBoxTempTimeHour->Enable( false );
         comboBoxTempTimeMinute->Enable( false );
         comboBoxTempPlace->Enable( false );
@@ -903,6 +1205,9 @@ void cardFrame::update() {
         comboBoxTempCorrectionTime->Enable( false );
         textNotes->Enable( false );
     }
+
+    spinShortestCycleDays->SetValue(m_cycleData->getShortestCycleDays());
+    spinShortestCycleFromCycles->SetValue(m_cycleData->getShortestCycleFromCycles());
 
     textName->SetValue( m_cycleData->getName() );
 
@@ -915,6 +1220,10 @@ void cardFrame::update() {
 
     m_changes = 0;
     changes1stDayOfCycle->SetLabel( wxEmptyString );
+    changesCycleType->SetLabel( wxEmptyString );
+    changesBasicInfertilePattern->SetLabel( wxEmptyString );
+    changesStoppedPills->SetLabel( wxEmptyString );
+    changesCorruptedData->SetLabel( wxEmptyString );
     changesTempTime->SetLabel( wxEmptyString );
     changesTempPlace->SetLabel( wxEmptyString );
     changesTempCorrectionMouth->SetLabel( wxEmptyString );
@@ -924,6 +1233,8 @@ void cardFrame::update() {
     changesNotes->SetLabel( wxEmptyString );
     changesName->SetLabel( wxEmptyString );
     changesBirthdayDay->SetLabel( wxEmptyString );
+    changesShortestCycleFromCycles->SetLabel( wxEmptyString );
+    changesShortestCycleDays->SetLabel( wxEmptyString );
 
     updateButtonsState();
 }
@@ -931,7 +1242,8 @@ void cardFrame::update() {
 /**
  * update values of temperatureCorrectedValue for each day in active card.
  */
-void cardFrame::updateTemperatureCorrectedValues() {
+void cardFrame::updateTemperatureCorrectedValues()
+{
     for ( int i = 1; i <= m_cycleData->getDaysCount(); i++ ) {
         m_cycleData->getDay( i )->setTemperatureValueAfterCorrections( m_cycleData->calculateCorrectTemperatureValue( i ) );
     }
@@ -940,7 +1252,8 @@ void cardFrame::updateTemperatureCorrectedValues() {
 /**
  * update the buttons state (buttonSave, buttonCancel).
  */
-void cardFrame::updateButtonsState() {
+void cardFrame::updateButtonsState()
+{
     if ( m_changes == 0 ) {
         buttonSave->Enable( false );
         buttonCancel->Enable( false );
@@ -953,7 +1266,8 @@ void cardFrame::updateButtonsState() {
 /**
  * ask to save chages and next check if value of the 'name' is not empty - if it's empty then do not let to exit the window.
  */
-bool cardFrame::checkIfCanExit( bool cancelAllowed ) {
+bool cardFrame::checkIfCanExit( bool cancelAllowed )
+{
     if ( m_changes > 0 ) {
         if (m_config->autosaveChanges) {
             save();
@@ -987,7 +1301,8 @@ bool cardFrame::checkIfCanExit( bool cancelAllowed ) {
 /**
  * save updated data to the m_cycleData object and refresh the view.
  */
-bool cardFrame::save() {
+bool cardFrame::save()
+{
     if ( m_changes > 0 ) {
         // TODO - put ASSERTS here
         if ( m_cycleData->getActiveCard() == 0 ) {
@@ -1004,6 +1319,34 @@ bool cardFrame::save() {
 
         if ( m_cycleData->getActiveCard() > 0 && m_cycleData->getCardsCount() > 0 && m_cycleData->getCard() != NULL ) {
             m_cycleData->getCard()->setFirstDayOfCycle( datePicker1stDayOfCycle->GetValue() );
+
+            if ( comboBoxCycleType->GetValue().IsSameAs( string_cycleTypePregnancy) ) {
+                m_cycleData->getCard()->setCycleType( CYCLE_TYPE_PREGNANCY );
+            } else if ( comboBoxCycleType->GetValue().IsSameAs( string_cycleTypeAfterPregnancy) ) {
+                m_cycleData->getCard()->setCycleType( CYCLE_TYPE_AFTER_PREGNANCY );
+            } else if ( comboBoxCycleType->GetValue().IsSameAs( string_cycleTypePeriMenopause) ) {
+                m_cycleData->getCard()->setCycleType( CYCLE_TYPE_PERI_MENOPAUSE );
+            } else {
+                m_cycleData->getCard()->setCycleType( CYCLE_TYPE_NORMAL );
+            }
+
+
+            if ( m_cycleData->getCard()->getCycleType() == CYCLE_TYPE_AFTER_PREGNANCY ) {
+
+                if ( comboBoxBasicInfertilePattern->GetValue().IsSameAs( string_cycle_bip_dry) ) {
+                    m_cycleData->getCard()->setBasicInfertilePattern( CYCLE_BIP_DRY );
+                } else if ( comboBoxBasicInfertilePattern->GetValue().IsSameAs( string_cycle_bip_mucus) ) {
+                    m_cycleData->getCard()->setBasicInfertilePattern( CYCLE_BIP_MUCUS );
+                } else {
+                    m_cycleData->getCard()->setBasicInfertilePattern( CYCLE_BIP_AUTO );
+                }
+            } else {
+                m_cycleData->getCard()->setBasicInfertilePattern( CYCLE_BIP_AUTO );
+            }
+
+            m_cycleData->getCard()->setStoppedPills( checkBoxStoppedPills->GetValue() );
+            m_cycleData->getCard()->setCorruptedData( checkBoxCorruptedData->GetValue() );
+
             m_cycleData->getCard()->setTemperatureUsualMeasurementTime( wxDateTime( m_util.strToInt( comboBoxTempTimeHour->GetValue() ), m_util.strToInt( comboBoxTempTimeMinute->GetValue() ), 0, 0 ) );
             m_cycleData->getCard()->setTemperatureCorrectionWhenMeasuredInMouth( m_util.strToTemperature( comboBoxTempCorrectionMouth->GetValue() ) );
             m_cycleData->getCard()->setTemperatureCorrectionWhenMeasuredInVagina( m_util.strToTemperature( comboBoxTempCorrectionVagina->GetValue() ) );
@@ -1024,6 +1367,9 @@ bool cardFrame::save() {
         m_cycleData->setName( textName->GetValue() );
         m_cycleData->setBirthdayDay( datePickerBirthdayDay->GetValue() );
 
+        m_cycleData->setShortestCycleDays(spinShortestCycleDays->GetValue());
+        m_cycleData->setShortestCycleFromCycles(spinShortestCycleFromCycles->GetValue());
+
         // TODO - put ASSERTS here
         if ( m_cycleData->getName().length() == 0 ) {
 
@@ -1041,7 +1387,7 @@ bool cardFrame::save() {
         updateTemperatureCorrectedValues();
 
         if ( m_cycleData->getCard()->getResultTemperatureHighLevelStart() > 0 ) {
-            m_cycleData->setResultTemperaturesLevels( m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
+            m_cycleData->setResultTemperatureLevels( m_config, m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
 
         }
         sendDataUpdateEvent( ACTIVE_CARD_UPDATE_WITH_TEMP, _T( "refresh current card - temperature related data have been changed." ) );
@@ -1052,7 +1398,7 @@ bool cardFrame::save() {
         updateTemperatureCorrectedValues();
 
         if ( m_cycleData->getCard()->getResultTemperatureHighLevelStart() > 0 ) {
-            m_cycleData->setResultTemperaturesLevels( m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
+            m_cycleData->setResultTemperatureLevels( m_config, m_cycleData->getActiveCard() , m_cycleData->getCard()->getResultTemperatureHighLevelStart(), false );
         }
 
         sendDataUpdateEvent( ACTIVE_CARD_UPDATE_WITH_PLACES, _T( "refresh current card - temperature measuring placed data have been changed." ) );
@@ -1066,7 +1412,8 @@ bool cardFrame::save() {
 /**
  *
  */
-void cardFrame::sendDataUpdateEvent( int id, wxString message ) {
+void cardFrame::sendDataUpdateEvent( int id, wxString message )
+{
     wxCommandEvent event( wxEVT_CARD_DATA_MODIFIED_EVENT, CARD_EVENT );
     event.SetInt( id );
     event.SetString( message );
@@ -1076,3 +1423,4 @@ void cardFrame::sendDataUpdateEvent( int id, wxString message ) {
 /*******************************************************************************
 ********************************************************************************
 *******************************************************************************/
+

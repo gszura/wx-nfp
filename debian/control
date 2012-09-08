@@ -2,7 +2,7 @@ Source: wx-nfp
 Section: Utilities
 Priority: optional
 Maintainer: Grzegorz Szura <grzegorz@szura.net>
-Standards-Version: 3.8.3
+Standards-Version: 3.9.3
 Build-Depends: libwxgtk2.8-dev, wx-common, cdbs, debhelper (>= 7)
 Homepage: http://npr.szura.net
 

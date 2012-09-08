@@ -3,10 +3,10 @@ Name: en; MessagesFile: compiler:Default.isl; LicenseFile: wx-nfp_licence_en.txt
 Name: pl; MessagesFile: compiler:Languages\Polish.isl; LicenseFile: wx-nfp_licence_pl.txt
 
 [Setup]
-OutputBaseFilename=wx-nfp_setup_0.8.xxx
+OutputBaseFilename=wx-nfp_setup_0.9.xxx
 AppName=wx-nfp
-AppVerName=wx-nfp 0.8
-AppVersion=0.8
+AppVerName=wx-nfp 0.9
+AppVersion=0.9
 AppPublisher=Grzegorz Szura
 AppPublisherURL=http://npr.szura.net/
 DefaultDirName={pf}\wx-nfp
@@ -51,24 +51,20 @@ Name: {app}\doc\html\img; Flags: uninsalwaysuninstall
 Name: {app}\po; Flags: uninsalwaysuninstall
 
 [Icons]
-Name: {group}\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Run wx-nfp application; IconIndex: 0; Languages: en
-Name: {group}\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Uruchom aplikacje wx-nfp; IconIndex: 0; Languages: pl
-Name: {group}\Webpage; Filename: http://npr.szura.net/?l=en; Comment: Go to home page of the wx-nfp application; Languages: en
-Name: {group}\Strona domowa; Filename: http://npr.szura.net/?l=pl; Comment: Otwórz strone domowa aplikacji wx-nfp; Languages: pl
-Name: {group}\Uninstall wx-nfp; Filename: {uninstallexe}; Comment: Uninstall wx-nfp application; Languages: en
-Name: {group}\Odinstaluj wx-nfp; Filename: {uninstallexe}; Comment: Odinstaluj aplikacje wx-nfp; Languages: pl
-Name: {userdesktop}\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Run wx-nfp application; IconIndex: 0; Languages: en; Tasks: desktopicon
-Name: {userdesktop}\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Uruchom aplikacje wx-nfp; IconIndex: 0; Languages: pl; Tasks: desktopicon
-Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Run wx-nfp application; IconIndex: 0; Languages: en; Tasks: quicklaunchicon
-Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\wx-nfp; Filename: {app}\wx-nfp.exe; WorkingDir: {app}; Comment: Uruchom aplikacje wx-nfp; IconIndex: 0; Languages: pl; Tasks: quicklaunchicon
+Name: "{group}\wx-nfp"; Filename: "{app}\wx-nfp.exe"; WorkingDir: "{app}"; Comment: "Run wx-nfp application"; Languages: en
+Name: "{group}\wx-nfp"; Filename: "{app}\wx-nfp.exe"; WorkingDir: "{app}"; Comment: "Uruchom aplikacje wx-nfp"; Languages: pl
+Name: "{group}\Webpage"; Filename: "http://npr.szura.net/?l=en"; Comment: "Go to home page of the wx-nfp application"; Languages: en
+Name: "{group}\Strona domowa"; Filename: "http://npr.szura.net/?l=pl"; Comment: "Otwórz strone domowa aplikacji wx-nfp"; Languages: pl
+Name: "{group}\Uninstall wx-nfp"; Filename: "{uninstallexe}"; Comment: "Uninstall wx-nfp application"; Languages: en
+Name: "{group}\Odinstaluj wx-nfp"; Filename: "{uninstallexe}"; Comment: "Odinstaluj aplikacje wx-nfp"; Languages: pl
+Name: "{commondesktop}\wx-nfp"; Filename: "{app}\wx-nfp.exe"; WorkingDir: "{app}"; Comment: "Run wx-nfp application"; Tasks: desktopicon; Languages: en
+Name: "{commondesktop}\wx-nfp"; Filename: "{app}\wx-nfp.exe"; WorkingDir: "{app}"; Comment: "Uruchom aplikacje wx-nfp"; Tasks: desktopicon; Languages: pl
 
 [Run]
 
 [Tasks]
 Name: desktopicon; Description: Create a desktop icon; GroupDescription: Additional icons:; Languages: en
 Name: desktopicon; Description: Utwórz skrót na pulpicie; GroupDescription: Dodatkowe skróty:; Languages: pl
-Name: quicklaunchicon; Description: Create a Quick Launch icon; GroupDescription: Additional icons:; Languages: en
-Name: quicklaunchicon; Description: Utwórz skrót na pasku szybkiego wyboru; GroupDescription: Dodatkowe skróty:; Languages: pl
 
 [Registry]
 Root: HKCR; Subkey: .nfpdata; Flags: createvalueifdoesntexist uninsdeletekey; Tasks: ; Languages: 

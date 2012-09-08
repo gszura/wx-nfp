@@ -10,6 +10,7 @@
 						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
 							<object class="wxNotebook" name="ID_notebook" variable="notebook" member="yes">
+								<style>wxNB_LEFT</style>
 								<object class="notebookpage">
 									<object class="wxPanel" name="ID_panelGeneral" variable="panelGeneral" member="yes">
 										<pos>64,35</pos>
@@ -198,6 +199,7 @@
 												</object>
 												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
+												<option>1</option>
 											</object>
 										</object>
 									</object>
@@ -207,6 +209,7 @@
 									<object class="wxPanel" name="ID_panelApplication" variable="panelApplication" member="yes">
 										<pos>71,10</pos>
 										<object class="wxBoxSizer" variable="sizerApplication" member="no">
+											<orient>wxVERTICAL</orient>
 											<object class="sizeritem">
 												<object class="wxStaticBoxSizer" variable="sizerApplication1" member="no">
 													<orient>wxVERTICAL</orient>
@@ -320,7 +323,7 @@
 													<object class="sizeritem">
 														<object class="wxFlexGridSizer" variable="sizerApplication3" member="no">
 															<cols>5</cols>
-															<growablecols>1</growablecols>
+															<growablecols>0</growablecols>
 															<object class="sizeritem">
 																<object class="wxStaticText" name="ID_space5" variable="space5" member="yes">
 																	<label></label>
@@ -328,7 +331,7 @@
 																	<fg>#FF0000</fg>
 																	<style>wxALIGN_CENTRE</style>
 																</object>
-																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															</object>
 															<object class="sizeritem">
 																<object class="wxStaticText" name="ID_staticBreastsAutocontrolReminderDay1" variable="staticBreastsAutocontrolReminderDay1" member="yes">
@@ -337,7 +340,6 @@
 																</object>
 																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
-																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxSpinCtrl" name="ID_spinCtrlBreastsAutocontrolReminderDay" variable="spinCtrlBreastsAutocontrolReminderDay" member="yes">
@@ -348,7 +350,7 @@
 																	<tooltip>Set on which day of cycle the application should remind about breast self-control.</tooltip>
 																	<handler function="spinCtrlBreastsAutocontrolReminderDayUpdated" entry="EVT_SPINCTRL" />
 																</object>
-																<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
 															</object>
 															<object class="sizeritem">
@@ -358,6 +360,7 @@
 																</object>
 																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
+																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxStaticText" name="ID_changesBreastsAutocontrolReminderDay" variable="changesBreastsAutocontrolReminderDay" member="yes">
@@ -366,7 +369,7 @@
 																	<fg>#FF0000</fg>
 																	<style>wxALIGN_CENTRE</style>
 																</object>
-																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 															</object>
 															<object class="sizeritem">
 																<object class="wxStaticText" name="ID_space6" variable="space6" member="yes">
@@ -375,7 +378,7 @@
 																	<fg>#FF0000</fg>
 																	<style>wxALIGN_CENTRE</style>
 																</object>
-																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxBOTTOM|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
 															</object>
 															<object class="sizeritem">
@@ -385,7 +388,6 @@
 																</object>
 																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
-																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxSpinCtrl" name="ID_spinCtrlBreastAutocontrolInterval" variable="spinCtrlBreastAutocontrolInterval" member="yes">
@@ -396,7 +398,7 @@
 																	<tooltip>When the cycle is longer than reminder day defined above plus number of days defined here&#x0A;then remind again about breast self-control.&#x0A;This option is usefull during pregnancy and breast-feed time, when the cycle&apos;s &apos;length&apos; is 200 days or more ;-)</tooltip>
 																	<handler function="spinCtrlBreastAutocontrolIntervalUpdated" entry="EVT_SPINCTRL" />
 																</object>
-																<flag>wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
 															</object>
 															<object class="sizeritem">
@@ -406,6 +408,7 @@
 																</object>
 																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
+																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxStaticText" name="ID_changesBreastAutocontrolInterval" variable="changesBreastAutocontrolInterval" member="yes">
@@ -414,114 +417,19 @@
 																	<fg>#FF0000</fg>
 																	<style>wxALIGN_CENTRE</style>
 																</object>
-																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<flag>wxBOTTOM|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
 															</object>
 														</object>
-														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 													</object>
-													<object class="sizeritem">
-														<object class="wxStaticText" name="ID_staticUnits" variable="staticUnits" member="yes">
-															<label>Units used in application:</label>
-															<enabled>0</enabled>
-														</object>
-														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-														<border>5</border>
-													</object>
-													<object class="sizeritem">
-														<object class="wxFlexGridSizer" variable="sizerApplication4" member="no">
-															<cols>4</cols>
-															<growablecols>1</growablecols>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_space7" variable="space7" member="yes">
-																	<label></label>
-																	<size>25,-1</size>
-																	<fg>#FF0000</fg>
-																	<style>wxALIGN_CENTRE</style>
-																</object>
-																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_staticLengthUnit" variable="staticLengthUnit" member="yes">
-																	<label>Length unit</label>
-																	<enabled>0</enabled>
-																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
-																</object>
-																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-																<option>1</option>
-															</object>
-															<object class="sizeritem">
-																<object class="wxComboBox" name="ID_comboBoxLengthUnit" variable="comboBoxLengthUnit" member="yes">
-																	<size>120,-1</size>
-																	<enabled>0</enabled>
-																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
-																	<style>wxCB_READONLY</style>
-																	<handler function="comboBoxLengthUnitUpdated" entry="EVT_COMBOBOX" />
-																</object>
-																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_changesLengthUnit" variable="changesLengthUnit" member="yes">
-																	<label></label>
-																	<size>15,-1</size>
-																	<fg>#FF0000</fg>
-																	<style>wxALIGN_CENTRE</style>
-																</object>
-																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_space8" variable="space8" member="yes">
-																	<label></label>
-																	<size>25,-1</size>
-																	<fg>#FF0000</fg>
-																	<style>wxALIGN_CENTRE</style>
-																</object>
-																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_staticTemperatureUnit" variable="staticTemperatureUnit" member="yes">
-																	<label>Temperature unit</label>
-																	<enabled>0</enabled>
-																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
-																</object>
-																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-																<option>1</option>
-															</object>
-															<object class="sizeritem">
-																<object class="wxComboBox" name="ID_comboBoxTemperatureUnit" variable="comboBoxTemperatureUnit" member="yes">
-																	<size>120,-1</size>
-																	<enabled>0</enabled>
-																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
-																	<style>wxCB_READONLY</style>
-																	<handler function="comboBoxTemperatureUnitUpdated" entry="EVT_COMBOBOX" />
-																</object>
-																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_changesTemperatureUnit" variable="changesTemperatureUnit" member="yes">
-																	<label></label>
-																	<size>15,-1</size>
-																	<fg>#FF0000</fg>
-																	<style>wxALIGN_CENTRE</style>
-																</object>
-																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>5</border>
-															</object>
-														</object>
-														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-													</object>
-													<object class="sizeritem">
-														<object class="wxStaticText" name="ID_staticTemperatureRange" variable="staticTemperatureRange" member="yes">
-															<label>Temperatures&apos; range on the chart:</label>
-														</object>
-														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-														<border>5</border>
-													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerApplication7" member="no">
+													<label>Temperatures&apos; range on the chart</label>
 													<object class="sizeritem">
 														<object class="wxFlexGridSizer" variable="sizerApplication5" member="no">
 															<cols>5</cols>
@@ -542,7 +450,6 @@
 																</object>
 																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
-																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxComboBox" name="ID_comboBoxTemperatureRangeHigh" variable="comboBoxTemperatureRangeHigh" member="yes">
@@ -587,7 +494,6 @@
 																</object>
 																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 																<border>5</border>
-																<option>1</option>
 															</object>
 															<object class="sizeritem">
 																<object class="wxComboBox" name="ID_comboBoxTemperatureRangeLow" variable="comboBoxTemperatureRangeLow" member="yes">
@@ -1035,39 +941,6 @@
 																<border>2</border>
 															</object>
 															<object class="sizeritem">
-																<object class="wxBoxSizer" variable="sizerFonts3" member="no">
-																	<object class="sizeritem">
-																		<object class="wxStaticText" name="ID_staticFontResultHeart" variable="staticFontResultHeart" member="yes">
-																			<label>Character in the &apos;coitus record&apos; row</label>
-																		</object>
-																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																		<border>10</border>
-																		<option>1</option>
-																	</object>
-																	<object class="sizeritem">
-																		<object class="wxButton" name="ID_buttonFontResultHeart" variable="buttonFontResultHeart" member="yes">
-																			<size>-1,30</size>
-																			<tooltip>Set colour and size of the character used in the &apos;coitus record&apos; row.</tooltip>
-																			<handler function="buttonFontResultHeartClick" entry="EVT_BUTTON" />
-																		</object>
-																		<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																	</object>
-																</object>
-																<flag>wxTOP|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>2</border>
-																<option>1</option>
-															</object>
-															<object class="sizeritem">
-																<object class="wxStaticText" name="ID_changesFontResultHeart" variable="changesFontResultHeart" member="yes">
-																	<label></label>
-																	<size>15,-1</size>
-																	<fg>#FF0000</fg>
-																	<style>wxALIGN_CENTRE</style>
-																</object>
-																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-																<border>2</border>
-															</object>
-															<object class="sizeritem">
 																<object class="wxButton" name="ID_buttonFontResultResults" variable="buttonFontResultResults" member="yes">
 																	<label>Results&apos; rows in the chart</label>
 																	<size>-1,30</size>
@@ -1124,19 +997,512 @@
 									<label>Fonts</label>
 								</object>
 								<object class="notebookpage">
-									<object class="wxPanel" name="ID_panelOther" variable="panelOther" member="yes">
+									<object class="wxPanel" name="ID_PANEL1" variable="PanelAnalysis" member="yes">
 										<pos>108,8</pos>
-										<object class="wxBoxSizer" variable="sizerOther" member="no">
+										<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+											<orient>wxVERTICAL</orient>
 											<object class="sizeritem">
-												<object class="wxStaticBoxSizer" variable="sizerOther1" member="no">
+												<object class="wxStaticBoxSizer" variable="StaticBoxSizer3" member="no">
+													<orient>wxVERTICAL</orient>
 													<object class="sizeritem">
-														<object class="wxButton" name="ID_buttonSetDefaults" variable="buttonSetDefaults" member="yes">
-															<label>Restore defaults settings</label>
-															<size>-1,30</size>
-															<tooltip>Restore defaults settings of all application parameters,&#x0A; except application language.</tooltip>
-															<handler function="buttonSetDefaultsClick" entry="EVT_BUTTON" />
+														<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxAutoanalyzeCard" variable="checkBoxAutoanalyzeCard" member="yes">
+																	<label>Analyze card automatically after data changes</label>
+																	<tooltip>Everytime after updating cycle&apos;s data, run auto-analysis</tooltip>
+																	<handler function="checkBoxAutoanalyzeCardClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCard" variable="changesAutoanalyzeCard" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
 														</object>
-														<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+														<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxStaticText" name="ID_STATICTEXT10" variable="StaticText8" member="yes">
+															<label>What to do with days with disrupted or not measured&#x0A;temperature while calculating low- and high levels:</label>
+														</object>
+														<flag>wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="FlexGridSizer3" member="no">
+															<cols>5</cols>
+															<growablecols>1</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT17" variable="StaticText15" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT18" variable="StaticText16" member="yes">
+																	<label>Allow maximum </label>
+																</object>
+																<flag>wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinMaxAllowedNotMesuredLowLevelDays" variable="spinMaxAllowedNotMesuredLowLevelDays" member="yes">
+																	<value>3</value>
+																	<max>10</max>
+																	<size>60,-1</size>
+																	<handler function="spinMaxAllowedNotMesuredLowLevelDaysChange" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT19" variable="StaticText17" member="yes">
+																	<label>low-level</label>
+																</object>
+																<flag>wxTOP|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT11" variable="StaticText9" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesMaxAllowedNotMesuredLowLevelDays" variable="changesMaxAllowedNotMesuredLowLevelDays" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT12" variable="StaticText10" member="yes">
+																	<label>Accept maximum </label>
+																</object>
+																<flag>wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinMaxIncludedNotMesuredLowLevelDays" variable="spinMaxIncludedNotMesuredLowLevelDays" member="yes">
+																	<value>2</value>
+																	<max>5</max>
+																	<size>60,-1</size>
+																	<handler function="spinMaxIncludedNotMesuredLowLevelDaysChange" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT15" variable="StaticText13" member="yes">
+																	<label>as low-level days</label>
+																</object>
+																<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesMaxIncludedNotMesuredLowLevelDays" variable="changesMaxIncludedNotMesuredLowLevelDays" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT8" variable="StaticText6" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT9" variable="StaticText7" member="yes">
+																	<label>Allow maximum </label>
+																</object>
+																<flag>wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinMaxAllowedNotMesuredHighLevelDays" variable="spinMaxAllowedNotMesuredHighLevelDays" member="yes">
+																	<value>1</value>
+																	<max>10</max>
+																	<size>60,-1</size>
+																	<handler function="spinMaxAllowedNotMesuredHighLevelDaysChange" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT21" variable="StaticText19" member="yes">
+																	<label>high-level</label>
+																</object>
+																<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesMaxAllowedNotMesuredHighLevelDays" variable="changesMaxAllowedNotMesuredHighLevelDays" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT23" variable="StaticText21" member="yes">
+																	<label></label>
+																	<size>25,-1</size>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT24" variable="StaticText22" member="yes">
+																	<label>Accept maximum </label>
+																</object>
+																<flag>wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxSpinCtrl" name="ID_spinMaxIncludedNotMesuredHighLevelDays" variable="spinMaxIncludedNotMesuredHighLevelDays" member="yes">
+																	<value>1</value>
+																	<max>3</max>
+																	<size>60,-1</size>
+																	<handler function="spinMaxIncludedNotMesuredHighLevelDaysChange" entry="EVT_SPINCTRL" />
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT25" variable="StaticText23" member="yes">
+																	<label>as low-level days</label>
+																</object>
+																<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesMaxIncludedNotMesuredHighLevelDays" variable="changesMaxIncludedNotMesuredHighLevelDays" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxTOP|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+													</object>
+													<object class="sizeritem">
+														<object class="wxBoxSizer" variable="BoxSizer4" member="no">
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT27" variable="StaticText25" member="yes">
+																	<label></label>
+																	<size>40,-1</size>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxCheckBox" name="ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak" variable="checkBoxIncludeNotMesuredDaysIfAfterMucusPeak" member="yes">
+																	<label>but only if first day of high level&#x0A;temperature is after mucus peak day</label>
+																	<checked>1</checked>
+																	<handler function="checkBoxIncludeNotMesuredDaysIfAfterMucusPeakClick" entry="EVT_CHECKBOX" />
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesIncludeNotMesuredDaysIfAfterMucusPeak" variable="changesIncludeNotMesuredDaysIfAfterMucusPeak" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerApplication6" member="no">
+															<cols>2</cols>
+															<growablecols>0</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT3" variable="staticAlalysis1" member="yes">
+																	<label>To calculate begining of the fertile phase:</label>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT5" variable="staticAnalysis2" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
+																	<cols>5</cols>
+																	<growablecols>0</growablecols>
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+																			<label>Use historical data from last max</label>
+																		</object>
+																		<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxSpinCtrl" name="ID_spinNumberOfHistoricalCyclesToUse" variable="spinNumberOfHistoricalCyclesToUse" member="yes">
+																			<value>12</value>
+																			<min>6</min>
+																			<max>36</max>
+																			<size>60,-1</size>
+																			<handler function="spinNumberOfHistoricalCyclesToUseChange" entry="EVT_SPINCTRL" />
+																		</object>
+																		<flag>wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT4" variable="StaticText3" member="yes">
+																			<label>cycles</label>
+																		</object>
+																		<flag>wxBOTTOM|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesNumberOfHistoricalCyclesToUse" variable="changesNumberOfHistoricalCyclesToUse" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+																	<label>Use calculated results in following order:</label>
+																</object>
+																<flag>wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>10</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText4" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																</object>
+																<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="BoxSizer3" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT22" variable="StaticText20" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxComboBox" name="ID_comboBoxAutoanalyzeCardPreferResult1" variable="comboBoxAutoanalyzeCardPreferResult1" member="yes">
+																			<style>wxCB_READONLY</style>
+																			<handler function="comboBoxAutoanalyzeCardPreferResult1TextUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCardPreferResult1" variable="changesAutoanalyzeCardPreferResult1" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="BoxSizer5" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT26" variable="StaticText24" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxComboBox" name="ID_comboBoxAutoanalyzeCardPreferResult2" variable="comboBoxAutoanalyzeCardPreferResult2" member="yes">
+																			<style>wxCB_READONLY</style>
+																			<handler function="comboBoxAutoanalyzeCardPreferResult2TextUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCardPreferResult2" variable="changesAutoanalyzeCardPreferResult2" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																</object>
+																<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="BoxSizer6" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT28" variable="StaticText26" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxComboBox" name="ID_comboBoxAutoanalyzeCardPreferResult3" variable="comboBoxAutoanalyzeCardPreferResult3" member="yes">
+																			<style>wxCB_READONLY</style>
+																			<handler function="comboBoxAutoanalyzeCardPreferResult3TextUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCardPreferResult3" variable="changesAutoanalyzeCardPreferResult3" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																</object>
+																<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="BoxSizer7" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT29" variable="StaticText27" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxComboBox" name="ID_comboBoxAutoanalyzeCardPreferResult4" variable="comboBoxAutoanalyzeCardPreferResult4" member="yes">
+																			<style>wxCB_READONLY</style>
+																			<handler function="comboBoxAutoanalyzeCardPreferResult4TextUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCardPreferResult4" variable="changesAutoanalyzeCardPreferResult4" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxBoxSizer" variable="BoxSizer8" member="no">
+																	<object class="sizeritem">
+																		<object class="wxStaticText" name="ID_STATICTEXT30" variable="StaticText28" member="yes">
+																			<label></label>
+																			<size>25,-1</size>
+																			<style>wxALIGN_CENTRE</style>
+																		</object>
+																		<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																	</object>
+																	<object class="sizeritem">
+																		<object class="wxComboBox" name="ID_comboBoxAutoanalyzeCardPreferResult5" variable="comboBoxAutoanalyzeCardPreferResult5" member="yes">
+																			<style>wxCB_READONLY</style>
+																			<handler function="comboBoxAutoanalyzeCardPreferResult5TextUpdated" entry="EVT_TEXT" />
+																		</object>
+																		<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																		<border>5</border>
+																		<option>1</option>
+																	</object>
+																</object>
+																<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesAutoanalyzeCardPreferResult5" variable="changesAutoanalyzeCardPreferResult5" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																</object>
+																<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 														<border>5</border>
 														<option>1</option>
 													</object>
@@ -1144,6 +1510,115 @@
 												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
 												<option>1</option>
+											</object>
+										</object>
+									</object>
+									<label>Analysis</label>
+								</object>
+								<object class="notebookpage">
+									<object class="wxPanel" name="ID_panelOther" variable="panelOther" member="yes">
+										<pos>108,8</pos>
+										<object class="wxBoxSizer" variable="sizerOther" member="no">
+											<orient>wxVERTICAL</orient>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="sizerOther1" member="no">
+													<label>Units used in application</label>
+													<orient>wxVERTICAL</orient>
+													<object class="sizeritem">
+														<object class="wxFlexGridSizer" variable="sizerOther2" member="no">
+															<cols>3</cols>
+															<growablecols>1</growablecols>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticLengthUnit" variable="staticLengthUnit" member="yes">
+																	<label>Length unit</label>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxLengthUnit" variable="comboBoxLengthUnit" member="yes">
+																	<size>120,-1</size>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use centimiter or inch as a length unit.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxLengthUnitUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesLengthUnit" variable="changesLengthUnit" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_staticTemperatureUnit" variable="staticTemperatureUnit" member="yes">
+																	<label>Temperature unit</label>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+																<option>1</option>
+															</object>
+															<object class="sizeritem">
+																<object class="wxComboBox" name="ID_comboBoxTemperatureUnit" variable="comboBoxTemperatureUnit" member="yes">
+																	<size>120,-1</size>
+																	<enabled>0</enabled>
+																	<tooltip>Choose if you want to use Celsius or Fahrenheit as a temperature unit.</tooltip>
+																	<style>wxCB_READONLY</style>
+																	<handler function="comboBoxTemperatureUnitUpdated" entry="EVT_COMBOBOX" />
+																</object>
+																<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+															<object class="sizeritem">
+																<object class="wxStaticText" name="ID_changesTemperatureUnit" variable="changesTemperatureUnit" member="yes">
+																	<label></label>
+																	<size>15,-1</size>
+																	<fg>#FF0000</fg>
+																	<style>wxALIGN_CENTRE</style>
+																</object>
+																<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+																<border>5</border>
+															</object>
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+														<border>5</border>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="StaticBoxSizer2" member="no" />
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticBoxSizer" variable="StaticBoxSizer1" member="no">
+													<object class="sizeritem">
+														<object class="wxButton" name="ID_buttonSetDefaults" variable="buttonSetDefaults" member="yes">
+															<label>Restore defaults settings</label>
+															<size>-1,30</size>
+															<tooltip>Restore defaults settings of all application parameters,&#x0A; except application language.</tooltip>
+															<handler function="buttonSetDefaultsClick" entry="EVT_BUTTON" />
+														</object>
+														<flag>wxALL|wxEXPAND|wxALIGN_BOTTOM|wxALIGN_CENTER_HORIZONTAL</flag>
+														<border>5</border>
+														<option>1</option>
+													</object>
+												</object>
+												<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
 											</object>
 										</object>
 									</object>

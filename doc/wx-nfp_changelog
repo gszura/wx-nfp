@@ -1,9 +1,6 @@
 == todo
-* Automatically calculation of results
-* Protecting data file in cipher and password
-* Storing data file on the server, synchronizing changed files between server and application (it can be useful when you use more than one computer)
-* Printing under Linux
-* Add possibility to change the character of coitus record
+* Encryption of the data file, password protection
+* Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
 * Displaying phases in different colours
 * Quick help (pl)
 * Detailed help (pl)
@@ -11,17 +8,23 @@
 * Statistics
 * Sending cards via e-mail
 * Restoring previous versions from backup file
-* Fahrenheit as a temperature unit (low priority)
-* Inch as a length unit (low priority)
-* US date format  (low priority) (is it really needed..?)
+* Fahrenheit as a temperature unit (low priority - is it really needed..?)
+* Inch as a length unit (low priority - is it really needed..?)
+* US date format  (low priority - is it really needed..?)
 
 == known issues
 * Printing under Linux doesn't work
 
-== 0.9 beta (build XXX, 2011-xx-xx)
-* New: Allow to define more than one result (mucus/cervix 1st day/peak day) - it will be used for irregular cycles, especially during breastfeeding and peri-menopause (see Billings ovulation method rules).
+== 0.9 (build 1099, 2012-09-04)
+* New: Automatic interpretation of cycle data has been implemented.
+* New: Added possibility to set the cycle type (normal, pregnancy, after-pregnancy and peri-menopause)
+* New: Allow to define more than one result (mucus/cervix 1st day/peak day) for after-pregnancy and peri-menopause cycles (see Billings ovulation method rules).
 * New: Renamed "Phase 1, 2, 3" to "fertile phrase" and "infertile phrase"; also allow to define more than one phrase of each type - reason the same as above.
-* New: Implemented saving automatically changes done for day, card, set.
+* New: Implemented automatically saving of changes done for day, card, set.
+* New: Added luteal phase counter.
+* Change: The way how sexual relations are stored has been changed.
+* Change: The line of the infertile phrase starts in 3/4 of the day's width, to show that the infertile phrase starts in the evening that day.
+* Fix: many ;)
 
 == 0.9 beta (build 645, 2010-05-12)
 * New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.

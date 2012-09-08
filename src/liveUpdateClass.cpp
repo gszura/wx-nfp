@@ -137,7 +137,7 @@ bool liveUpdateClass::checkUpdateAvailability() {
     wxString availableVersionStr = content.Mid( 0, t );
     wxString setupFilePath = content.Mid( t + 1 );
 
-    int installedVersion = m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::MAJOR) ) * 100000 + m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::MINOR) ) * 10000 + m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::BUILD) );
+    int installedVersion = m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::_MAJOR) ) * 100000 + m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::_MINOR) ) * 10000 + m_util.strToInt( wxString::Format( _T( "%d" ), AutoVersion::_BUILD) );
     int availableVersion = 0;
     wxString tmp;
 

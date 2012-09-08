@@ -2,13 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-27 21:58+0300\n"
+"POT-Creation-Date: 2012-09-07 10:26+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Grzegorz Szura <grzegorz@szura.net>\n"
 "Language-Team:  <grzegorz@szura.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -16,8 +17,8 @@ msgstr ""
 
 #: src/aboutFrame.cpp:74
 #: src/aboutFrame.cpp:119
-#: src/nfpMainFrame.cpp:391
-#: src/nfpMainFrame.cpp:640
+#: src/nfpMainFrame.cpp:421
+#: src/nfpMainFrame.cpp:702
 msgid "Natural Family Planing"
 msgstr "Naturalne Planowanie Rodziny"
 
@@ -35,165 +36,236 @@ msgid "check for updates..."
 msgstr "sprawdź aktualizacje..."
 
 #: src/aboutFrame.cpp:110
-#: src/nfpMainFrame.cpp:350
+#: src/nfpMainFrame.cpp:371
 msgid "Check if there is a new version of the application to download.."
 msgstr "Sprawdź czy jest dostępna do pobrania nowa wersja programu.."
 
 #: src/aboutFrame.cpp:112
-#: src/cardFrame.cpp:274
-#: src/dayFrame.cpp:531
+#: src/cardFrame.cpp:377
+#: src/dayFrame.cpp:548
 msgid "close"
 msgstr "zamknij"
 
-#: src/cardFrame.cpp:116
+#: src/cardFrame.cpp:144
 msgid "NFP - edit card's data"
 msgstr "NPR - edycja danych karty"
 
-#: src/cardFrame.cpp:120
+#: src/cardFrame.cpp:149
 msgid "data specific for current card"
 msgstr "dane specyficzne dla aktualnej karty"
 
-#: src/cardFrame.cpp:123
-#: src/dayFrame.cpp:195
-#: src/drawingClass.cpp:1126
+#: src/cardFrame.cpp:152
+#: src/dayFrame.cpp:199
+#: src/drawingClass.cpp:1308
 msgid "card number"
 msgstr "numer karty"
 
-#: src/cardFrame.cpp:124
-#: src/cardFrame.cpp:132
+#: src/cardFrame.cpp:153
+#: src/cardFrame.cpp:161
 msgid "The card number is set automatically"
 msgstr "Numer karty jest ustawiany automatycznie"
 
-#: src/cardFrame.cpp:137
+#: src/cardFrame.cpp:166
 msgid "first day of the cycle"
 msgstr "pierwszy dzień cyklu"
 
-#: src/cardFrame.cpp:138
-#: src/cardFrame.cpp:141
+#: src/cardFrame.cpp:167
+#: src/cardFrame.cpp:170
+#: src/cardFrame.cpp:176
+#: src/cardFrame.cpp:186
+#: src/cardFrame.cpp:189
 msgid "First day of the cycle can be set for the first card only and only if there is only one card in the set"
 msgstr "Pierwszy dzień cyklu można określić tylko dla pierwszej karty i tylko jak jest tylko jedna karta w zestawie, dla następnych kart jest ona ustawiana automatycznie"
 
-#: src/cardFrame.cpp:147
-msgid "temperature measurement:"
-msgstr "pomiar temperatury:"
+#: src/cardFrame.cpp:175
+msgid "cycle type"
+msgstr "typ okresu"
 
-#: src/cardFrame.cpp:153
-msgid "usual time"
-msgstr "zwykła godzina pomiaru"
-
-#: src/cardFrame.cpp:154
-#: src/cardFrame.cpp:158
-#: src/cardFrame.cpp:161
-msgid "Usual time, when you will measure temperature in this cycle"
-msgstr "Godzina, o której zwykle będziesz mierzyć temperaturę w tym cyklu"
-
-#: src/cardFrame.cpp:169
-msgid "usual place"
-msgstr "zwykłe miejsce mierzenia"
-
-#: src/cardFrame.cpp:170
-#: src/cardFrame.cpp:173
+#: src/cardFrame.cpp:179
+#: src/cardFrame.cpp:193
+#: src/cardFrame.cpp:222
+#: src/cardFrame.cpp:225
 msgid "Usual place, when you will measure temperature in this cycle"
 msgstr "Miejsce, w którym zwykle będziesz mierzyć temperaturę w tym cyklu"
 
-#: src/cardFrame.cpp:179
+#: src/cardFrame.cpp:188
+msgid "basic infertile pattern"
+msgstr "podstawowy model niepłodności"
+
+#: src/cardFrame.cpp:199
+msgid "temperature measurement:"
+msgstr "pomiar temperatury:"
+
+#: src/cardFrame.cpp:205
+msgid "usual time"
+msgstr "zwykła godzina pomiaru"
+
+#: src/cardFrame.cpp:206
+#: src/cardFrame.cpp:210
+#: src/cardFrame.cpp:213
+msgid "Usual time, when you will measure temperature in this cycle"
+msgstr "Godzina, o której zwykle będziesz mierzyć temperaturę w tym cyklu"
+
+#: src/cardFrame.cpp:221
+msgid "usual place"
+msgstr "zwykłe miejsce mierzenia"
+
+#: src/cardFrame.cpp:231
 msgid "temperature correction when measured:"
 msgstr "korekta temperatury gdy mierzona:"
 
-#: src/cardFrame.cpp:185
+#: src/cardFrame.cpp:237
 msgid "in mouth"
 msgstr "w ustach"
 
-#: src/cardFrame.cpp:186
-#: src/cardFrame.cpp:189
+#: src/cardFrame.cpp:238
+#: src/cardFrame.cpp:241
 msgid "How the temperature should be corected, when it will be measured in mouth"
 msgstr "O ile stopni skorygować temperaturę, jeżeli w jakimś dniu będzie mierzona w ustach"
 
-#: src/cardFrame.cpp:196
+#: src/cardFrame.cpp:248
 msgid "in vagina"
 msgstr "w pochwie"
 
-#: src/cardFrame.cpp:197
-#: src/cardFrame.cpp:200
+#: src/cardFrame.cpp:249
+#: src/cardFrame.cpp:252
 msgid "How the temperature should be corected, when it will be measured in vagina"
 msgstr "O ile stopni skorygować temperaturę, jeżeli w jakimś dniu będzie mierzona w pochwie"
 
-#: src/cardFrame.cpp:207
+#: src/cardFrame.cpp:259
 msgid "in rectum"
 msgstr "w odbycie"
 
-#: src/cardFrame.cpp:208
-#: src/cardFrame.cpp:211
+#: src/cardFrame.cpp:260
+#: src/cardFrame.cpp:263
 msgid "How the temperature should be corected, when it will be measured in rectum"
 msgstr "O ile stopni skorygować temperaturę, jeżeli w jakimś dniu będzie mierzona w odbycie"
 
-#: src/cardFrame.cpp:218
+#: src/cardFrame.cpp:270
 msgid "at different time as usual"
 msgstr "o innej godzinie niż zwykle"
 
-#: src/cardFrame.cpp:219
-#: src/cardFrame.cpp:222
+#: src/cardFrame.cpp:271
+#: src/cardFrame.cpp:274
 msgid "How the temperature should be corected, when it will be measured 60 minutes later than usual"
 msgstr "O ile stopni skorygować temperaturę, jeżeli w jakimś dniu będzie mierzona 60 minut poźniej niz zwykle"
 
-#: src/cardFrame.cpp:229
-msgid "notes:"
-msgstr "uwagi:"
+#: src/cardFrame.cpp:282
+msgid "notes for current card"
+msgstr "uwagi dla aktualnej karty"
 
-#: src/cardFrame.cpp:230
-#: src/cardFrame.cpp:239
+#: src/cardFrame.cpp:285
+#: src/cardFrame.cpp:306
 msgid "Type notes common for this cycle"
 msgstr "Uwagi dotyczące całej karty"
 
-#: src/cardFrame.cpp:242
+#: src/cardFrame.cpp:289
+msgid "I just stopped using birth control pills"
+msgstr "właśnie odstawiłam pigułki antykoncepcyjne"
+
+#: src/cardFrame.cpp:291
+msgid ""
+"Check this checkbox if this is the first cycle after stopping using birth control pills\n"
+"This information is used to calculate the beginning of the infertile phase"
+msgstr ""
+"Zaznacz, jeżeli w tym cyklu odstawiłaś pigułki antykoncepcyjne\n"
+"Ta informacja jest używana przy obliczaniu początku fazy niepłodności"
+
+#: src/cardFrame.cpp:296
+msgid "data in this cycle are corrupted or incomplete"
+msgstr "dane w tym cyklu są niepoprawne / niepełne"
+
+#: src/cardFrame.cpp:298
+msgid "That means that data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles"
+msgstr ""
+"Jeżeli zaznaczysz ten checkbox, informacje z tego cyklu nie będą używane\n"
+"przy obliczaniu początku płodnej fazy w następnych cyklach"
+
+#: src/cardFrame.cpp:313
 msgid "data common for all cards"
 msgstr "dane wspólne dla wszystkich kart"
 
-#: src/cardFrame.cpp:245
+#: src/cardFrame.cpp:316
 msgid "name"
 msgstr "imię"
 
-#: src/cardFrame.cpp:246
-#: src/cardFrame.cpp:249
+#: src/cardFrame.cpp:317
+#: src/cardFrame.cpp:320
 msgid "Type your name"
 msgstr "Podaj swoje imię"
 
-#: src/cardFrame.cpp:254
+#: src/cardFrame.cpp:325
 msgid "day of birth"
 msgstr "data urodzenia"
 
-#: src/cardFrame.cpp:255
-#: src/cardFrame.cpp:258
+#: src/cardFrame.cpp:326
+#: src/cardFrame.cpp:329
 msgid "Provide your birthday day. This information is used to calculate your age displayed on the cycles' card."
 msgstr "Podaj datę urodzenia"
 
-#: src/cardFrame.cpp:266
-#: src/dayFrame.cpp:523
+#: src/cardFrame.cpp:336
+msgid "historical cycles"
+msgstr "historia cykli"
+
+#: src/cardFrame.cpp:338
+msgid "shortest cycle from last"
+msgstr "najkrótszy cykl z ostanich"
+
+#: src/cardFrame.cpp:339
+#: src/cardFrame.cpp:346
+#: src/cardFrame.cpp:352
+#: src/cardFrame.cpp:356
+#: src/cardFrame.cpp:359
+msgid "Record here what was the length of the shortest cycle from the period BEFORE you start using this application"
+msgstr "Wpisz tu długość najkrótszego cyklu z okresu ZANIM zaczęłaś prowadzić obserwacje w tym programie"
+
+#: src/cardFrame.cpp:343
+msgid "Max 24 months, 12 is usually enough."
+msgstr "Max 24 m-ce, zwykle historia z 12 m-cy jest wystarczająca."
+
+#: src/cardFrame.cpp:345
+#: src/configFrame.cpp:523
+#: src/histogramsFrame.cpp:62
+msgid "cycles"
+msgstr "okresów"
+
+#: src/cardFrame.cpp:351
+msgid "was"
+msgstr "miał długość"
+
+#: src/cardFrame.cpp:358
+#: src/configFrame.cpp:391
+#: src/histogramsFrame.cpp:60
+msgid "days"
+msgstr "dni"
+
+#: src/cardFrame.cpp:369
+#: src/dayFrame.cpp:540
 msgid "save changes"
 msgstr "zapisz"
 
-#: src/cardFrame.cpp:267
-#: src/dayFrame.cpp:524
+#: src/cardFrame.cpp:370
+#: src/dayFrame.cpp:541
 msgid "Save changes without closing this window"
 msgstr "Zapisz zmienione dane karty ale nie zapykaj tego okna"
 
-#: src/cardFrame.cpp:269
-#: src/dayFrame.cpp:526
+#: src/cardFrame.cpp:372
+#: src/dayFrame.cpp:543
 msgid "cancel changes"
 msgstr "anuluj zmiany"
 
-#: src/cardFrame.cpp:270
-#: src/dayFrame.cpp:527
+#: src/cardFrame.cpp:373
+#: src/dayFrame.cpp:544
 msgid "Close this window without saving changes"
 msgstr "Zamknij okno nie zapisując zmian danych karty"
 
-#: src/cardFrame.cpp:275
-#: src/dayFrame.cpp:532
-msgid "Close this window (and ask for saving unsaved changes)"
-msgstr "Zamknij okno (zapytaj o zapisanie zmienionych danych karty)"
+#: src/cardFrame.cpp:378
+#: src/dayFrame.cpp:549
+msgid "Close this window"
+msgstr "Zamknij to okno"
 
-#: src/cardFrame.cpp:966
-#: src/cardFrame.cpp:968
+#: src/cardFrame.cpp:1280
+#: src/cardFrame.cpp:1282
 msgid ""
 "Save card's data changes? \n"
 "Note: Not saved data will be lost!"
@@ -201,51 +273,74 @@ msgstr ""
 "Czy zatwierdzić modyfikacje danych karty?\n"
 "Uwaga: Nie zatwierdzone dane zostaną utracone!"
 
-#: src/cardFrame.cpp:966
-#: src/cardFrame.cpp:968
-#: src/dayFrame.cpp:1860
-#: src/dayFrame.cpp:1862
-#: src/nfpMainFrame.cpp:424
-#: src/nfpMainFrame.cpp:429
-#: src/nfpMainFrame.cpp:1074
-#: src/nfpMainFrame.cpp:1330
-#: src/nfpMainFrame.cpp:1606
-#: src/nfpMainFrame.cpp:1608
-#: src/nfpMainFrame.cpp:1851
+#: src/cardFrame.cpp:1280
+#: src/cardFrame.cpp:1282
+#: src/dayFrame.cpp:1908
+#: src/dayFrame.cpp:1910
+#: src/nfpMainFrame.cpp:455
+#: src/nfpMainFrame.cpp:460
+#: src/nfpMainFrame.cpp:1187
+#: src/nfpMainFrame.cpp:1799
+#: src/nfpMainFrame.cpp:1801
+#: src/nfpMainFrame.cpp:2053
 #: src/translationHelper.cpp:154
 #: src/translationHelper.cpp:165
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: src/configFrame.cpp:201
+#: src/configClass.h:29
+msgid "21/20 days rule"
+msgstr "reguła 20/21 dni"
+
+#: src/configClass.h:30
+msgid "clinical rule"
+msgstr "reguła kliniczna"
+
+#: src/configClass.h:31
+msgid "Döring rule"
+msgstr "Reguła Döringa"
+
+#: src/configClass.h:32
+msgid "cervical mucus based rule"
+msgstr "reguła śluzowa"
+
+#: src/configClass.h:33
+msgid "cervical mucus position rule"
+msgstr "reguła szyjki macicy"
+
+#: src/configFrame.cpp:252
+msgid "NFP - settings"
+msgstr "NPR - ustawienia"
+
+#: src/configFrame.cpp:262
 msgid "Choose application language:"
 msgstr "Wybierz język aplikacji:"
 
-#: src/configFrame.cpp:207
+#: src/configFrame.cpp:268
 msgid "Select new language of the application."
 msgstr "Wybierz język aplikacji."
 
-#: src/configFrame.cpp:214
+#: src/configFrame.cpp:275
 msgid "Remember windows positions and sizes"
 msgstr "Zapamiętaj wielkość i położenie okien"
 
-#: src/configFrame.cpp:216
+#: src/configFrame.cpp:277
 msgid "Remember application's windows and dialogs positions and sizes."
 msgstr "Zapamiętaj wielkość i położenie okien."
 
-#: src/configFrame.cpp:221
+#: src/configFrame.cpp:282
 msgid "Use flat buttons"
 msgstr "Użyj płaskich przycisków"
 
-#: src/configFrame.cpp:223
+#: src/configFrame.cpp:284
 msgid "Choose if all buttons in the application should be flat or standard ones."
 msgstr "Wybierz, czy wszystkie przyciski w programie maja być płaskie czy zwykłe"
 
-#: src/configFrame.cpp:228
+#: src/configFrame.cpp:289
 msgid "Check for application updates"
 msgstr "Sprawdzaj dostępność nowej wersji programu"
 
-#: src/configFrame.cpp:230
+#: src/configFrame.cpp:291
 msgid ""
 "If set the application checks for new version every time when it is starting.\n"
 "The only data which are sent is the information if you are using Windows or Linux operating system."
@@ -254,11 +349,11 @@ msgstr ""
 "Jedyne dane, jakie będą wysyłane w trakcie tej operacji\n"
 "to wersja systemu operacyjnego: Windows albo Linux."
 
-#: src/configFrame.cpp:239
+#: src/configFrame.cpp:300
 msgid "Proxy server address:"
 msgstr "Adres serwera proxy:"
 
-#: src/configFrame.cpp:250
+#: src/configFrame.cpp:311
 msgid ""
 "If you are using the proxy server to comunicate with the Internet\n"
 "then write here the addess of it in the format 'hostname:port' or 'hostname'\n"
@@ -270,35 +365,35 @@ msgstr ""
 "(w drugim przypadku zostanie użyty domyślny port proxy '8080')\n"
 "przykład: 1.2.3:8088"
 
-#: src/configFrame.cpp:266
+#: src/configFrame.cpp:327
 msgid "Open the last opened cards' set"
 msgstr "Otwórz ostatnio otwarty zbiór kart"
 
-#: src/configFrame.cpp:268
+#: src/configFrame.cpp:329
 msgid "Open the last opened cards' set when application starts."
 msgstr "Otwórz ostatnio otwarty zbiór kart."
 
-#: src/configFrame.cpp:273
+#: src/configFrame.cpp:334
 msgid "Save automatically changes in days / cards"
 msgstr "Zapisz automatycznie zmiany w dniu / na karcie"
 
-#: src/configFrame.cpp:275
+#: src/configFrame.cpp:336
 msgid "Save automatically changes while editing days and cards"
 msgstr "Zapisz automatycznie zmiany podczas edycji danych dnia i karty"
 
-#: src/configFrame.cpp:280
+#: src/configFrame.cpp:341
 msgid "Save automatically card set"
 msgstr "Zapisz zestaw automatycznie"
 
-#: src/configFrame.cpp:282
+#: src/configFrame.cpp:343
 msgid "Save automatically changes in card set while exiting the application or closing the card set"
 msgstr "Zapisz zestaw kart automatycznie w momencie zamykania programu lub zamykania zestawu kart"
 
-#: src/configFrame.cpp:287
+#: src/configFrame.cpp:348
 msgid "Check for missing days"
 msgstr "Dodaj brakujące dni"
 
-#: src/configFrame.cpp:289
+#: src/configFrame.cpp:350
 msgid ""
 "When the cards' set is loaded check if the last card contains all days including today,\n"
 "if not then propose adding missing ones."
@@ -306,11 +401,11 @@ msgstr ""
 "Kiedy zestaw kart zostanie otworzony, sprawdź czy ostatnia karta zawiera wszystkie dni do dnia dzisiejszego.\n"
 "Jeżeli nie to zaproponuj dodanie brakujących dni."
 
-#: src/configFrame.cpp:294
+#: src/configFrame.cpp:355
 msgid "Enable the breasts self-control reminder"
 msgstr "Przypominaj o samokontroli piersi."
 
-#: src/configFrame.cpp:296
+#: src/configFrame.cpp:357
 msgid ""
 "The breast self-control should be performed monthly.\n"
 "When you enable this function, application can reminds you about it."
@@ -318,29 +413,29 @@ msgstr ""
 "Samokontrola piersi powinna być przeprowadzana regularnie przynajmniej raz w miesiącu.\n"
 "Jeżeli włączysz tę funkcję, wtedy aplikacja będzie ci o tym przypominała."
 
-#: src/configFrame.cpp:307
+#: src/configFrame.cpp:368
 msgid "Remind at"
 msgstr "Przypominaj w"
 
-#: src/configFrame.cpp:308
-#: src/configFrame.cpp:312
-#: src/configFrame.cpp:315
+#: src/configFrame.cpp:369
+#: src/configFrame.cpp:373
+#: src/configFrame.cpp:376
 msgid "Set on which day of cycle the application should remind about breast self-control."
 msgstr "W którym dniu cyklu program powinien przypomnieć o samokontroli piersi."
 
-#: src/configFrame.cpp:314
-#: src/dayFrame.cpp:209
-#: src/drawingClass.cpp:382
+#: src/configFrame.cpp:375
+#: src/dayFrame.cpp:213
+#: src/drawingClass.cpp:418
 msgid "day of cycle"
 msgstr "dzień cyklu"
 
-#: src/configFrame.cpp:323
+#: src/configFrame.cpp:384
 msgid "Remind every"
 msgstr "Przypominaj co"
 
-#: src/configFrame.cpp:324
-#: src/configFrame.cpp:328
-#: src/configFrame.cpp:331
+#: src/configFrame.cpp:385
+#: src/configFrame.cpp:389
+#: src/configFrame.cpp:392
 msgid ""
 "When the cycle is longer than reminder day defined above plus number of days defined here\n"
 "then remind again about breast self-control.\n"
@@ -349,43 +444,16 @@ msgstr ""
 "Zdefiniuj, co ile dni program powinien przypomnieć o samokontroli piersi.\n"
 "Opcja ta jest użyteczna podczas ciąży oraz w okresie karmienia piersią kiedy cykle trwają 200-300 dni ;-)"
 
-#: src/configFrame.cpp:330
-#: src/histogramsFrame.cpp:60
-msgid "days"
-msgstr "dni"
+#: src/configFrame.cpp:399
+msgid "Temperatures' range on the chart"
+msgstr "Zakres temperatur rysowany na wykresie"
 
-#: src/configFrame.cpp:337
-msgid "Units used in application:"
-msgstr "Używane jednoski:"
-
-#: src/configFrame.cpp:345
-msgid "Length unit"
-msgstr "Jednostka miary"
-
-#: src/configFrame.cpp:347
-#: src/configFrame.cpp:351
-msgid "Choose if you want to use centimiter or inch as a length unit."
-msgstr "Wybierz czy program ma używać cemtymetrów czy cali jako jednostki miary."
-
-#: src/configFrame.cpp:359
-msgid "Temperature unit"
-msgstr "Jednostka temperatury"
-
-#: src/configFrame.cpp:361
-#: src/configFrame.cpp:365
-msgid "Choose if you want to use Celsius or Fahrenheit as a temperature unit."
-msgstr "Wybierz czy program ma używać stopni Celcjusza czy Fahrenheita jako jednostki temperatury."
-
-#: src/configFrame.cpp:371
-msgid "Temperatures' range on the chart:"
-msgstr "Zakres temperatur rysowany na wykresie:"
-
-#: src/configFrame.cpp:378
+#: src/configFrame.cpp:405
 msgid "High temperature"
 msgstr "Górna granica"
 
-#: src/configFrame.cpp:379
-#: src/configFrame.cpp:382
+#: src/configFrame.cpp:406
+#: src/configFrame.cpp:409
 msgid ""
 "Define the high temperature of the chart.\n"
 "Highest temperature will be printed outside of the chart."
@@ -393,12 +461,12 @@ msgstr ""
 "Ustaw górną granicę wykresu temperatury.\n"
 "Wyższe temepratury będą narysowane poza wykresem."
 
-#: src/configFrame.cpp:392
+#: src/configFrame.cpp:419
 msgid "Low temperature"
 msgstr "Dolna granica"
 
-#: src/configFrame.cpp:393
-#: src/configFrame.cpp:396
+#: src/configFrame.cpp:420
+#: src/configFrame.cpp:423
 msgid ""
 "Define the low temperature of the chart.\n"
 "Lowest temperature will be printed outside of the chart."
@@ -406,22 +474,80 @@ msgstr ""
 "Ustaw dolną granicę wykresu temperatury.\n"
 "Niższe temepratury będą narysowane poza wykresem."
 
-#: src/configFrame.cpp:411
-#: src/configFrame.cpp:1604
-#: src/configFrame.cpp:1682
+#: src/configFrame.cpp:439
+msgid "Analyze card automatically after data changes"
+msgstr "Analizuj kartę automatycznie po zmianie danych"
+
+#: src/configFrame.cpp:441
+msgid "Everytime after updating cycle's data, run auto-analysis"
+msgstr "Analizu automatycznie dane cyklu za każdym razem, gdy zostaną one zmienione"
+
+#: src/configFrame.cpp:447
+msgid ""
+"What to do with days with disrupted or not measured\n"
+"temperature while calculating low- and high levels:"
+msgstr ""
+"Jak traktować dni z zakłóconą lub nie zmierzoną temperaturą\n"
+"przy obliczaniu niskiego i wysokiego poziomu temperatur:"
+
+#: src/configFrame.cpp:453
+#: src/configFrame.cpp:477
+msgid "- allow maximum "
+msgstr "- zezwól na maksymalnie"
+
+#: src/configFrame.cpp:458
+msgid "such days in low-level"
+msgstr "takich dni niskich temperatur"
+
+#: src/configFrame.cpp:465
+#: src/configFrame.cpp:489
+msgid "- accept maximum "
+msgstr "- uznaj maksymalnie"
+
+#: src/configFrame.cpp:470
+msgid "such days as low-level days"
+msgstr "takich dni jako dni niskich temp."
+
+#: src/configFrame.cpp:482
+msgid "such days in high-level"
+msgstr "takich dni wyższych temp."
+
+#: src/configFrame.cpp:494
+msgid "such days as high-level days"
+msgstr "takich dni jako dni wyższych temp."
+
+#: src/configFrame.cpp:503
+msgid "only if 1st day of high level temp. is after mucus peak day"
+msgstr "ale tylko jeżeli 1-sza z wyższych temp. jest po dniu szytu śluzu"
+
+#: src/configFrame.cpp:512
+msgid "When calculating begining of the fertile phase:"
+msgstr "Przy obliczaniu początku okresu płodnego:"
+
+#: src/configFrame.cpp:518
+msgid "- use historical data from last max"
+msgstr "- użyj danych historycznych z ostanich max"
+
+#: src/configFrame.cpp:529
+msgid "- sort calculated results in following order:"
+msgstr "- obliczone wyniki sortuj w następującej koleności:"
+
+#: src/configFrame.cpp:586
+#: src/configFrame.cpp:2138
+#: src/configFrame.cpp:2220
 msgid "Choose colour for:"
 msgstr "Ustaw kolor następujących elementów:"
 
-#: src/configFrame.cpp:424
-#: src/configFrame.cpp:1179
+#: src/configFrame.cpp:599
+#: src/configFrame.cpp:1441
 msgid "Background"
 msgstr "Tło"
 
-#: src/configFrame.cpp:425
+#: src/configFrame.cpp:600
 msgid "Define the colour of the chart's background."
 msgstr "Ustaw kolor tła."
 
-#: src/configFrame.cpp:431
+#: src/configFrame.cpp:606
 msgid ""
 "Cells colours of 'normal' days\n"
 "and currently active day"
@@ -429,172 +555,186 @@ msgstr ""
 "Kolory komórek 'normalnych' dni\n"
 "oraz aktywnego dnia"
 
-#: src/configFrame.cpp:436
+#: src/configFrame.cpp:611
 msgid "Define the colour of the chart's cell 1,1 (odd column, odd row)."
 msgstr "Ustaw kolor komórek 1,1 (nieparzysta kolumna, nieparzysty wiersz)."
 
-#: src/configFrame.cpp:439
+#: src/configFrame.cpp:614
 msgid "Define the colour of the chart's cell 2,1 (even column, odd row)."
 msgstr "Ustaw kolor komórek 2,1 (parzysta kolumna, nieparzysty wiersz)."
 
-#: src/configFrame.cpp:442
+#: src/configFrame.cpp:617
 msgid "Define the colour of the selected cell of the chart, odd row."
 msgstr "Ustaw kolor komórki zaznaczonego dnia, nieparzysty wiersz."
 
-#: src/configFrame.cpp:445
+#: src/configFrame.cpp:620
 msgid "Define the colour of the chart's cell 1,2 (odd column, even row)."
 msgstr "Ustaw kolor komórek 1,2 (nieparzysta kolumna, parzysty wiersz)."
 
-#: src/configFrame.cpp:448
+#: src/configFrame.cpp:623
 msgid "Define the colour of the chart's cell 2,2 (even column, even row)."
 msgstr "Ustaw kolorr komórek 2,2 (parzysta kolumna, parzysty wiersz)."
 
-#: src/configFrame.cpp:451
+#: src/configFrame.cpp:626
 msgid "Define the colour of the selected cell of the chart, even row."
 msgstr "Ustaw kolor komórki zaznaczonego dnia, parzysty wiersz."
 
-#: src/configFrame.cpp:458
-#: src/configFrame.cpp:1236
+#: src/configFrame.cpp:633
+#: src/configFrame.cpp:1505
 msgid "Temperature point"
 msgstr "Punkt temperatury"
 
-#: src/configFrame.cpp:459
+#: src/configFrame.cpp:634
 msgid "Define the colour of the temperature point."
 msgstr "Ustaw kolor punktu temperatury."
 
-#: src/configFrame.cpp:464
-#: src/configFrame.cpp:1244
+#: src/configFrame.cpp:639
+#: src/configFrame.cpp:1514
 msgid "Low-level temperature point"
 msgstr "Punkt temperatury niższego poziomu"
 
-#: src/configFrame.cpp:465
+#: src/configFrame.cpp:640
 msgid "Define the colour of the low-level temperature point."
 msgstr "Punkt temperatury niższego poziomu."
 
-#: src/configFrame.cpp:470
-#: src/configFrame.cpp:1252
+#: src/configFrame.cpp:645
+#: src/configFrame.cpp:1523
 msgid "High-level temperature point"
 msgstr "Punkt temperatury wyższego poziomu"
 
-#: src/configFrame.cpp:471
+#: src/configFrame.cpp:646
 msgid "Define the colour of the high-level temperature point."
 msgstr "Punkt temperatury wyższego poziomu."
 
-#: src/configFrame.cpp:476
-#: src/configFrame.cpp:1260
+#: src/configFrame.cpp:651
+#: src/configFrame.cpp:1532
 msgid "Temperatures line"
 msgstr "Linia temperatury"
 
-#: src/configFrame.cpp:477
+#: src/configFrame.cpp:652
 msgid "Define the colour of the temperatures lines."
 msgstr "Ustaw kolor linii łączącej pynkty temperatury."
 
-#: src/configFrame.cpp:482
-#: src/configFrame.cpp:1268
+#: src/configFrame.cpp:657
+#: src/configFrame.cpp:1541
 msgid "Low- and high-level temperature line"
 msgstr "Linie niższego i wyższego poziomu temperatur"
 
-#: src/configFrame.cpp:483
+#: src/configFrame.cpp:658
 msgid "Define the colour of the low- and high-level temperature lines."
 msgstr "Ustaw kolor linii niższego i wyższego poziomu temperatur."
 
-#: src/configFrame.cpp:488
-#: src/configFrame.cpp:1276
+#: src/configFrame.cpp:663
+#: src/configFrame.cpp:1550
 msgid "Cycle's phases line"
 msgstr "Linia fazy cyklu"
 
-#: src/configFrame.cpp:489
+#: src/configFrame.cpp:664
 msgid "Define the colour of the cycle's phases lines."
 msgstr "Ustaw kolor lini oddzielającej linie faz cyklu."
 
-#: src/configFrame.cpp:494
-#: src/configFrame.cpp:1284
+#: src/configFrame.cpp:669
+#: src/configFrame.cpp:1559
 msgid "Borders"
 msgstr "Linie ramki"
 
-#: src/configFrame.cpp:495
+#: src/configFrame.cpp:670
 msgid "Define the colour of the chart's borders."
 msgstr "Ustaw kolor ramek na wykresie."
 
-#: src/configFrame.cpp:508
+#: src/configFrame.cpp:683
 msgid "Choose fonts for:"
 msgstr "Ustaw czcionki następujących elementów:"
 
-#: src/configFrame.cpp:520
-#: src/configFrame.cpp:1294
+#: src/configFrame.cpp:695
+#: src/configFrame.cpp:1570
 msgid "Cycle observation card"
 msgstr "Karta obserwacji cyklu"
 
-#: src/configFrame.cpp:521
+#: src/configFrame.cpp:696
 msgid "Set font and colour of the string 'Cycle observation card' visible in the left-top corner of the window."
 msgstr "Ustaw kolor i czcionkę dla napisu 'Karta obserwacji cyklu' w lewym-górnym rogu okna."
 
-#: src/configFrame.cpp:526
-#: src/configFrame.cpp:1301
+#: src/configFrame.cpp:701
+#: src/configFrame.cpp:1578
 msgid "Name of the parameter in the header"
 msgstr "Nazwy parametrów w nagłówku"
 
-#: src/configFrame.cpp:527
+#: src/configFrame.cpp:702
 msgid "Set font and colour of parameters' names in the header."
 msgstr "Ustaw kolor i czcionkę dla nazw parametrów w nagłówku."
 
-#: src/configFrame.cpp:532
-#: src/configFrame.cpp:1308
+#: src/configFrame.cpp:707
+#: src/configFrame.cpp:1586
 msgid "Value of the parameter in the header"
 msgstr "Wartości parametrów w nagłówku"
 
-#: src/configFrame.cpp:533
+#: src/configFrame.cpp:708
 msgid "Set font and colour of parameters' values in the header."
 msgstr "Ustaw kolor i czcionkę dla wartości parametrów w nagłówku."
 
-#: src/configFrame.cpp:538
-#: src/configFrame.cpp:1315
+#: src/configFrame.cpp:713
+#: src/configFrame.cpp:1594
 msgid "First column of the chart"
 msgstr "Pierwsza kolumna wykresu"
 
-#: src/configFrame.cpp:539
+#: src/configFrame.cpp:714
 msgid "Set font and colour used in the first column of the chart (headers' column)."
 msgstr "Ustaw kolor i czcionkę dla dla pierwszej kolumny wykresu."
 
-#: src/configFrame.cpp:544
-#: src/configFrame.cpp:1322
+#: src/configFrame.cpp:719
+#: src/configFrame.cpp:1602
 msgid "Data in the chart"
 msgstr "Dane na wykresie"
 
-#: src/configFrame.cpp:545
+#: src/configFrame.cpp:720
 msgid "Set font and colour used to present the data on the chart."
 msgstr "Ustaw kolor i czcionkę danych prezentowanych na wykresie."
 
-#: src/configFrame.cpp:551
-msgid "Character in the 'coitus record' row"
-msgstr "Znak w wierszu 'współżycie'"
-
-#: src/configFrame.cpp:554
-msgid "Set colour and size of the character used in the 'coitus record' row."
-msgstr "Ustaw kolor i rozmiar znaku w wierszu 'współżycie'."
-
-#: src/configFrame.cpp:560
-#: src/configFrame.cpp:1359
+#: src/configFrame.cpp:725
+#: src/configFrame.cpp:1610
 msgid "Results' rows in the chart"
 msgstr "Wiersze wyników"
 
-#: src/configFrame.cpp:561
+#: src/configFrame.cpp:726
 msgid "Set font and colour of charactes in results' rows on the chart (mucus and cervix peaks)."
 msgstr "Ustaw kolor i czcionkę dla wierszy wyników (obserwacji śluzu i szyjki)."
 
-#: src/configFrame.cpp:566
+#: src/configFrame.cpp:731
 msgid "Fertile / Unfertile Phase"
 msgstr "Faza płodna / niepłodna"
 
-#: src/configFrame.cpp:567
+#: src/configFrame.cpp:732
 msgid "Set font and colour of strings 'Fertile / Unfertile Phase'."
 msgstr "Ustaw kolor i czcionkę dla napisów 'Faza Płodna / Niepłodna'."
 
-#: src/configFrame.cpp:580
+#: src/configFrame.cpp:744
+msgid "Units used in application"
+msgstr "Używane jednoski"
+
+#: src/configFrame.cpp:747
+msgid "Length unit"
+msgstr "Jednostka miary"
+
+#: src/configFrame.cpp:749
+#: src/configFrame.cpp:753
+msgid "Choose if you want to use centimiter or inch as a length unit."
+msgstr "Wybierz czy program ma używać cemtymetrów czy cali jako jednostki miary."
+
+#: src/configFrame.cpp:758
+msgid "Temperature unit"
+msgstr "Jednostka temperatury"
+
+#: src/configFrame.cpp:760
+#: src/configFrame.cpp:764
+msgid "Choose if you want to use Celsius or Fahrenheit as a temperature unit."
+msgstr "Wybierz czy program ma używać stopni Celcjusza czy Fahrenheita jako jednostki temperatury."
+
+#: src/configFrame.cpp:774
 msgid "Restore defaults settings"
 msgstr "Przywróć ustawienia domyślne"
 
-#: src/configFrame.cpp:581
+#: src/configFrame.cpp:775
 msgid ""
 "Restore defaults settings of all application parameters,\n"
 " except application language."
@@ -602,130 +742,123 @@ msgstr ""
 "Przywróć ustawienia domyślne wszystkich parametrów programu,\n"
 "z wyjątkiem języka programu."
 
-#: src/configFrame.cpp:587
+#: src/configFrame.cpp:781
 msgid "General"
 msgstr "Ogólne"
 
-#: src/configFrame.cpp:588
+#: src/configFrame.cpp:782
 msgid "Application"
 msgstr "Program"
 
-#: src/configFrame.cpp:589
+#: src/configFrame.cpp:783
+#: src/nfpMainFrame.cpp:331
+msgid "Analysis"
+msgstr "Analiza"
+
+#: src/configFrame.cpp:784
 msgid "Colours"
 msgstr "Kolory"
 
-#: src/configFrame.cpp:590
+#: src/configFrame.cpp:785
 msgid "Fonts"
 msgstr "Czcionki"
 
-#: src/configFrame.cpp:591
+#: src/configFrame.cpp:786
 msgid "Other"
 msgstr "Inne"
 
-#: src/configFrame.cpp:594
+#: src/configFrame.cpp:789
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/configFrame.cpp:595
+#: src/configFrame.cpp:790
 msgid "Save and apply changes without closing this window"
 msgstr "Zastosuj zmiany ale nie zamukaj okna konfiguracji"
 
-#: src/configFrame.cpp:597
+#: src/configFrame.cpp:792
 #: src/goToFrame.cpp:172
 #: src/printFrame.cpp:123
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/configFrame.cpp:598
+#: src/configFrame.cpp:793
 msgid "Discard changes and close this window"
 msgstr "Zamknij okno konfiguracji bez zapisywania zmian"
 
-#: src/configFrame.cpp:602
+#: src/configFrame.cpp:797
 #: src/printFrame.cpp:120
 msgid "OK"
 msgstr "OK"
 
-#: src/configFrame.cpp:603
+#: src/configFrame.cpp:798
 msgid "Save and apply changes and close this window"
 msgstr "Zatwierdź zmiany i zamknij okno konfiguracji"
 
-#: src/configFrame.cpp:695
-#: src/configFrame.cpp:1073
-#: src/configFrame.cpp:1471
-#: src/configFrame.cpp:1775
+#: src/configFrame.cpp:906
+#: src/configFrame.cpp:1331
+#: src/configFrame.cpp:1986
+#: src/configFrame.cpp:2315
 msgid "centimiter"
 msgstr "centymetr"
 
-#: src/configFrame.cpp:696
-#: src/configFrame.cpp:1473
+#: src/configFrame.cpp:907
+#: src/configFrame.cpp:1988
 msgid "inch"
 msgstr "cal"
 
-#: src/configFrame.cpp:697
-#: src/configFrame.cpp:1092
-#: src/configFrame.cpp:1122
-#: src/configFrame.cpp:1477
-#: src/configFrame.cpp:1781
+#: src/configFrame.cpp:908
+#: src/configFrame.cpp:1351
+#: src/configFrame.cpp:1381
+#: src/configFrame.cpp:1992
+#: src/configFrame.cpp:2321
 msgid "Celsius"
 msgstr "Celcjusz"
 
-#: src/configFrame.cpp:698
-#: src/configFrame.cpp:1481
+#: src/configFrame.cpp:909
+#: src/configFrame.cpp:1996
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
-#: src/configFrame.cpp:1187
+#: src/configFrame.cpp:1450
 msgid "Cell 1,1"
 msgstr "kolor komórki 1,1"
 
-#: src/configFrame.cpp:1196
+#: src/configFrame.cpp:1460
 msgid "Cell 1,2"
 msgstr "kolor komórki 1,2"
 
-#: src/configFrame.cpp:1204
+#: src/configFrame.cpp:1469
 msgid "Cell 2,1"
 msgstr "kolor komórki 2,1"
 
-#: src/configFrame.cpp:1212
+#: src/configFrame.cpp:1478
 msgid "Cell 2,2"
 msgstr "kolor komórki 2,2"
 
-#: src/configFrame.cpp:1220
+#: src/configFrame.cpp:1487
 msgid "Active day's cell 1"
 msgstr "Aktywny dzień - komórka 1"
 
-#: src/configFrame.cpp:1228
+#: src/configFrame.cpp:1496
 msgid "Active day's cell 2"
 msgstr "Aktywny dzień - komórka 2"
 
-#: src/configFrame.cpp:1329
-msgid "Choose the size of the character used in the 'coitus record' row:"
-msgstr "Wybierz rozmiar znaku w wierszu 'współżycie':"
-
-#: src/configFrame.cpp:1329
-msgid "Size.."
-msgstr "Rozmiar.."
-
-#: src/configFrame.cpp:1336
-msgid "Choose color of the character used in the 'coitus record' row"
-msgstr "Wybierz kolor znaku w wierszu 'współżycie'"
-
-#: src/configFrame.cpp:1366
+#: src/configFrame.cpp:1618
 msgid "Phase I/II/III"
 msgstr "Napisy 'Faza I/II/III'"
 
-#: src/configFrame.cpp:1877
+#: src/configFrame.cpp:2427
 msgid "You must restart the application to change the language of the application."
 msgstr "Musisz zrestartowac aplikację by zmienić język aplikacji."
 
-#: src/configFrame.cpp:1877
-#: src/configFrame.cpp:1880
-#: src/nfpMainFrame.cpp:418
-#: src/nfpMainFrame.cpp:456
+#: src/configFrame.cpp:2427
+#: src/configFrame.cpp:2430
+#: src/nfpMainFrame.cpp:449
+#: src/nfpMainFrame.cpp:488
 msgid "Notification"
 msgstr "Informacja"
 
-#: src/configFrame.cpp:1880
+#: src/configFrame.cpp:2430
 msgid ""
 "Application fonts have been changed.\n"
 "It's recommended to restart the application to have data correctly displayed."
@@ -747,119 +880,114 @@ msgid "Description of abbreviations used on cycles' card:"
 msgstr "Objaśnienie skrótów użytych na karcie"
 
 #: src/customPrintout.cpp:345
-#: src/drawingClass.cpp:327
-#: src/drawingClass.cpp:1182
+#: src/drawingClass.cpp:362
+#: src/drawingClass.cpp:1364
 msgid "mucus - feeling, experience"
 msgstr "śluz - odczucia, doznania"
 
 #: src/customPrintout.cpp:358
-#: src/drawingClass.cpp:330
+#: src/drawingClass.cpp:365
 msgid "mucus - appearance"
 msgstr "śluz - wygląd"
 
 #: src/customPrintout.cpp:360
-#: src/dayFrame.cpp:323
+#: src/dayFrame.cpp:341
 msgid "o - opaque (the opposite of clear)"
 msgstr "n - nieprzejrzysty, grudkowaty"
 
 #: src/customPrintout.cpp:362
-#: src/dayFrame.cpp:326
+#: src/dayFrame.cpp:344
 msgid "w - white"
 msgstr "b - biały"
 
 #: src/customPrintout.cpp:364
-#: src/dayFrame.cpp:329
+#: src/dayFrame.cpp:347
 msgid "y - yellowish"
 msgstr "ż - żółty"
 
 #: src/customPrintout.cpp:367
-#: src/dayFrame.cpp:332
+#: src/dayFrame.cpp:350
 msgid "t - tacky (stretches up to 1 cm)"
 msgstr "l - lepki, kleisty (rozciąga się mniej niż 1cm)"
 
 #: src/customPrintout.cpp:369
-#: src/dayFrame.cpp:337
+#: src/dayFrame.cpp:355
 msgid "c - clear (a more-fertile mucus)"
 msgstr "p - przejrzysty"
 
 #: src/customPrintout.cpp:372
-#: src/dayFrame.cpp:340
+#: src/dayFrame.cpp:358
 msgid "s - stretchy (stretches more than 1 cm)"
 msgstr "r - rozciągliwy (rozciąga się ponad 1cm)"
 
 #: src/customPrintout.cpp:374
-#: src/dayFrame.cpp:345
+#: src/dayFrame.cpp:363
 msgid "SR - seminal residue from marital relations"
 msgstr "PN - pozostałość nasienia"
 
 #: src/customPrintout.cpp:376
-#: src/dayFrame.cpp:351
+#: src/dayFrame.cpp:369
 msgid "amount of mucus"
 msgstr "ilość śluzu"
 
 #: src/customPrintout.cpp:379
-#: src/dayFrame.cpp:365
+#: src/dayFrame.cpp:383
 msgid "length of stretch in cm"
 msgstr "rozciągliwość w cm"
 
 #: src/customPrintout.cpp:384
-#: src/drawingClass.cpp:333
+#: src/drawingClass.cpp:368
 msgid "mucus - peak"
 msgstr "śluz - szczyt"
 
 #: src/customPrintout.cpp:386
-#: src/nfpMainFrame.cpp:309
 msgid "First day of mucus apperance"
 msgstr "Pierwszy dzień występienia śluzu"
 
 #: src/customPrintout.cpp:388
-#: src/nfpMainFrame.cpp:310
 msgid "First day of more fertile mucus apperance"
 msgstr "Pierwszy dzień wystąpienia śluzu bardziej płodnego"
 
 #: src/customPrintout.cpp:390
-#: src/nfpMainFrame.cpp:311
 msgid "Mucus peak day"
 msgstr "Dzień szczytu śluzu"
 
 #: src/customPrintout.cpp:395
-#: src/drawingClass.cpp:336
-#: src/drawingClass.cpp:1185
+#: src/drawingClass.cpp:371
+#: src/drawingClass.cpp:1368
 msgid "cervix - position, dilation"
 msgstr "szyjka - pozycja, rozwarcie"
 
 #: src/customPrintout.cpp:397
-#: src/dayFrame.cpp:444
+#: src/dayFrame.cpp:462
 msgid "position"
 msgstr "pozycja"
 
 #: src/customPrintout.cpp:409
-#: src/dayFrame.cpp:453
+#: src/dayFrame.cpp:471
 msgid "dilation"
 msgstr "rozwarcie"
 
 #: src/customPrintout.cpp:420
-#: src/dayFrame.cpp:462
+#: src/dayFrame.cpp:480
 msgid "hardness"
 msgstr "twardość"
 
 #: src/customPrintout.cpp:431
-#: src/drawingClass.cpp:342
+#: src/drawingClass.cpp:377
 msgid "cervix - peak"
 msgstr "szyjka - twardość"
 
 #: src/customPrintout.cpp:433
-#: src/nfpMainFrame.cpp:313
 msgid "First day of cervix changes"
 msgstr "Pierwszy dzień zmiany szyjki"
 
 #: src/customPrintout.cpp:435
-#: src/nfpMainFrame.cpp:314
 msgid "Cervix peak day"
 msgstr "Dzień szczytu szyjki"
 
 #: src/cycleGraph.cpp:18
-#: src/nfpMainFrame.cpp:338
+#: src/nfpMainFrame.cpp:359
 msgid "Temperature in cycles"
 msgstr "Temperatury w cyklu"
 
@@ -872,7 +1000,7 @@ msgid " times"
 msgstr " razy"
 
 #: src/cycleGraph.cpp:128
-#: src/dayFrame.cpp:383
+#: src/dayFrame.cpp:401
 msgid "temperature"
 msgstr "temperatura"
 
@@ -880,122 +1008,387 @@ msgstr "temperatura"
 msgid "day"
 msgstr "dzień"
 
-#: src/cyclesData.cpp:30
+#: src/cyclesData.cpp:31
 msgid "your name"
 msgstr "twoje imię"
 
-#: src/cyclesData.cpp:400
+#: src/cyclesData.cpp:507
 #, c-format
 msgid "File doesn't exist: %s"
 msgstr "Plik nie istnieje: %s"
 
-#: src/cyclesData.cpp:406
-#: src/cyclesData.cpp:998
+#: src/cyclesData.cpp:513
+#: src/cyclesData.cpp:1170
 #, c-format
 msgid "Cannot open file: %s"
 msgstr "Nie mogę otworzyć pliku: %s"
 
-#: src/cyclesData.cpp:413
-#: src/cyclesData.cpp:436
-#: src/cyclesData.cpp:449
+#: src/cyclesData.cpp:520
+#: src/cyclesData.cpp:543
+#: src/cyclesData.cpp:556
 #, c-format
 msgid "File is not the data file of the NFP application: %s"
 msgstr "Plik nie jest plikiem danych programu NPR: %s"
 
-#: src/cyclesData.cpp:420
+#: src/cyclesData.cpp:527
 #, c-format
 msgid "Cannot read file: %s"
 msgstr "Wystąpił problem z czytaniem pliku: %s"
 
-#: src/cyclesData.cpp:428
+#: src/cyclesData.cpp:535
 #, c-format
 msgid "File is empty: %s"
 msgstr "Plik jest pusty: %s"
 
-#: src/cyclesData.cpp:513
-#: src/nfpMainFrame.cpp:1119
+#: src/cyclesData.cpp:623
+#: src/nfpMainFrame.cpp:1262
 msgid "Error occured while adding new card"
 msgstr "Błąd przy dodawaniu nowej karty do zestawu"
 
-#: src/cyclesData.cpp:523
+#: src/cyclesData.cpp:633
 #, c-format
 msgid "Incorrect card number: %i, expected: %i"
 msgstr "Niepoprawny numer karty: %i, spodziewany: %i"
 
-#: src/cyclesData.cpp:614
-#: src/dayFrame.cpp:800
-#: src/nfpMainFrame.cpp:747
-#: src/nfpMainFrame.cpp:1112
-#: src/nfpMainFrame.cpp:1763
+#: src/cyclesData.cpp:734
+#: src/dayFrame.cpp:811
+#: src/nfpMainFrame.cpp:813
+#: src/nfpMainFrame.cpp:1255
+#: src/nfpMainFrame.cpp:1961
 msgid "Error occured while adding new day"
 msgstr "Błąd przy dodawaniu nowego dnia do karty"
 
-#: src/cyclesData.cpp:621
+#: src/cyclesData.cpp:741
 #, c-format
-msgid "Incorrect day number: %i, expected: %i, card"
-msgstr "Niepoprawny numer dnia: %i, spodziewany: %i"
+msgid "Incorrect day number: %i, expected: %i (card %i)"
+msgstr "Niepoprawny numer dnia: %i, spodziewany: %i (card %i)"
 
-#: src/cyclesData.cpp:864
+#: src/cyclesData.cpp:772
+#: src/cyclesData.cpp:776
+#, c-format
+msgid "card %i/ day %i, "
+msgstr "karta %i/ dzień %i, "
+
+#: src/cyclesData.cpp:779
+#, c-format
+msgid ""
+"\n"
+"there are %i sexual relations reported for day %i on card %i - only 3 of them are converted and others are ignored."
+msgstr ""
+"\n"
+"%i współżyć zaraportowano w dniu %i na karcie %i - tylko 3 z nich przekonwertowano do nowego formatu, reszta niestety nie zostanie zapamiętana."
+
+#: src/cyclesData.cpp:1006
 #, c-format
 msgid "Incorrect file name: %s"
 msgstr "Niepoprawna nazwa pliku: %s"
 
-#: src/cyclesData_results.cpp:41
+#: src/cyclesData_declarations.h:76
+msgid "normal"
+msgstr "normalny"
+
+#: src/cyclesData_declarations.h:77
+msgid "pregnancy"
+msgstr "ciąza"
+
+#: src/cyclesData_declarations.h:78
+msgid "after pregnancy"
+msgstr "po ciąży"
+
+#: src/cyclesData_declarations.h:79
+msgid "peri-menopause"
+msgstr "pre-menopauza"
+
+#: src/cyclesData_declarations.h:82
+msgid "auto calculate"
+msgstr "wyznacz automatycznie"
+
+#: src/cyclesData_declarations.h:83
+#: src/cyclesData_declarations.h:96
+#: src/cyclesData_declarations.h:115
+msgid "dry"
+msgstr "sucho"
+
+#: src/cyclesData_declarations.h:84
+msgid "mucus"
+msgstr "śluz"
+
+#: src/cyclesData_declarations.h:87
+msgid "sexual relation in the morning"
+msgstr "współżycie rano"
+
+#: src/cyclesData_declarations.h:88
+msgid "sexual relation during the day"
+msgstr "współżycie w ciągni dnia"
+
+#: src/cyclesData_declarations.h:89
+msgid "sexual relation in the evening"
+msgstr "współżycie wieczorem"
+
+#: src/cyclesData_declarations.h:92
+msgid "mouth"
+msgstr "usta"
+
+#: src/cyclesData_declarations.h:93
+msgid "rectum"
+msgstr "odbyt"
+
+#: src/cyclesData_declarations.h:94
+msgid "vagina"
+msgstr "pochwa"
+
+#: src/cyclesData_declarations.h:97
+#: src/cyclesData_declarations.h:116
+msgid "moist"
+msgstr "wilgotno"
+
+#: src/cyclesData_declarations.h:98
+#: src/cyclesData_declarations.h:117
+msgid "wet"
+msgstr "mokro"
+
+#: src/cyclesData_declarations.h:99
+msgid "slip."
+msgstr "śl"
+
+#: src/cyclesData_declarations.h:101
+msgid "o"
+msgstr "n"
+
+#: src/cyclesData_declarations.h:102
+msgid "w"
+msgstr "b"
+
+#: src/cyclesData_declarations.h:103
+msgid "y"
+msgstr "ż"
+
+#: src/cyclesData_declarations.h:104
+msgid "t"
+msgstr "l"
+
+#: src/cyclesData_declarations.h:105
+msgid "c"
+msgstr "p"
+
+#: src/cyclesData_declarations.h:106
+msgid "s"
+msgstr "r"
+
+#: src/cyclesData_declarations.h:107
+msgid "SR"
+msgstr "PN"
+
+#: src/cyclesData_declarations.h:109
+#: src/cyclesData_declarations.h:130
+msgid "soft"
+msgstr "miękka"
+
+#: src/cyclesData_declarations.h:110
+msgid "rf"
+msgstr "tm"
+
+#: src/cyclesData_declarations.h:111
+#: src/cyclesData_declarations.h:132
+msgid "firm"
+msgstr "twarda"
+
+#: src/cyclesData_declarations.h:112
+msgid "P"
+msgstr "S"
+
+#: src/cyclesData_declarations.h:118
+msgid "slippery"
+msgstr "ślisko"
+
+#: src/cyclesData_declarations.h:120
+msgid "high"
+msgstr "uniesiona"
+
+#: src/cyclesData_declarations.h:121
+msgid "above middle"
+msgstr "trochę uniesiona"
+
+#: src/cyclesData_declarations.h:122
+msgid "in middle"
+msgstr "na środku"
+
+#: src/cyclesData_declarations.h:123
+msgid "below middle"
+msgstr "trochę opuszczona"
+
+#: src/cyclesData_declarations.h:124
+msgid "low"
+msgstr "opuszczona"
+
+#: src/cyclesData_declarations.h:126
+msgid "open"
+msgstr "otwarta"
+
+#: src/cyclesData_declarations.h:127
+msgid "half-open"
+msgstr "pół-otwarta"
+
+#: src/cyclesData_declarations.h:128
+msgid "closed"
+msgstr "zamknięta"
+
+#: src/cyclesData_declarations.h:131
+msgid "rather firm"
+msgstr "twarda-miękka"
+
+#: src/cyclesData_declarations.h:134
+msgid ""
+"fertile\n"
+"phase"
+msgstr ""
+"faza\n"
+"płodna"
+
+#: src/cyclesData_declarations.h:135
+msgid ""
+"infertile\n"
+"phase"
+msgstr ""
+"faza\n"
+"niepłodna"
+
+#: src/cyclesData_declarations.h:136
+msgid "luteal phase"
+msgstr "faza lutealna"
+
+#: src/cyclesData_results.cpp:52
 msgid ""
 "The result you want to set is already defined on the card.\n"
-"Do you want me to remove this result from other days?\n"
+"Do you want me to keep this result and set the same for selected day?\n"
 "Choose:\n"
-"- 'Yes' to remove this result from other days on the card and set it only for this day.\n"
-"- 'No' to set it the result also for this day without removing result from other days.\n"
+"- 'Yes' to set it the result also for this day without removing result from other days.\n"
+"- 'No' to remove this result from other days on the card and set it only for this day.\n"
 "- 'Cancel' to exit without touching anything to let you check the situation"
 msgstr ""
 "Wynik, który chcesz ustawić, jest już zdefiniowany dla tej karty.\n"
-"Chcesz abym usunął ten wynik z innych dni?\n"
+"Chcesz abym zostawił wyniki ustawione dla innych dni i ustawił następny dla wybranego dnia?\n"
 "Wybierz:\n"
-"- 'Tak' aby usunąć ten wynik z innych dni na karcie i ustawić tylko dla wybranego dnia.\n"
-"- 'Nie' aby ustawić wynik dla wybranego dnia nie usuwając wyniku z innych dni karty.\n"
+"- 'Tak' aby ustawić wynik dla wybranego dnia nie usuwając wyniku z innych dni karty.\n"
+"- 'Nie'  aby usunąć ten wynik z innych dni na karcie i ustawić tylko dla wybranego dnia.\n"
 "- 'Anukuj' aby nic nie zmieniać w tym momencie."
 
-#: src/cyclesData_results.cpp:42
+#: src/cyclesData_results.cpp:53
+msgid "Keep already defined results?"
+msgstr "Zachowaj już wyznaczone wyniki?"
+
+#: src/cyclesData_results.cpp:632
+msgid ""
+"Before the card can be analyzed automatically, previously defined results must be removed.\n"
+"Do you want me to continue?\n"
+"Choose:\n"
+"- 'Yes' to remove previously defined results and analyze the card automatically.\n"
+"- 'No' to cancel the operation without changing anything"
+msgstr ""
+"Aby wyznaczyć automatycznie wyniki, poprzednio ustawione wyniki muszą zostać usunięte.\n"
+"Czy mam kontynuowac?\n"
+"Wybierz:\n"
+"- \"Tak' aby usunąć poprzednio ustawione wyniki i wyznaczyć je na nowo automatycznie- 'Nie' aby anulować operację i nic nie zmieniać"
+
+#: src/cyclesData_results.cpp:633
 msgid "What should I do?"
 msgstr "Co mam zrobić?"
 
-#: src/dayFrame.cpp:185
+#: src/cyclesData_results.cpp:964
+#, c-format
+msgid "- Cannot calculate low level value of temperatures - days %i-%i doesn't have measured temperature - exit\n"
+msgstr "- Nie mogę wyznaczyć poziomu niskich temperatur - dla dni %i-%i nie została zmierzona temperatura.\n"
+
+#: src/cyclesData_results.cpp:1000
+#, c-format
+msgid "- Day %i pointed by you as a first day of high level temperature doesn't have measured temperature. I hope that you know what are you doing ;)\n"
+msgstr "- Dla dnia %i wskazanego jako 1-szy dzień wzrostu temperatury nie ma zmierzpnej temperatury. Mam nadzieję, że wiesz co robisz ;)\n"
+
+#: src/cyclesData_results.cpp:1103
+msgid ""
+"\n"
+"- On first card we don't calculate beginning of fertile phase. Fertile phase starts at first day of the cycle."
+msgstr ""
+"\n"
+"- Dla pierwszej obserwowanej karty faza płodna zaczyna się od pierwszego dnia."
+
+#: src/cyclesData_results.cpp:1107
+#, c-format
+msgid ""
+"\n"
+"- There are only %i cards recorded and no information about the length of historical cycles, so beginning of fertile phase cannot be calculated.\n"
+"Please add this information in the 'edit card' dialog."
+msgstr ""
+"\n"
+"- Jak na razie zapisano %i kart w programie i nie wprowadzono informacji i historycznych cyklach, więc poczatek fazy płodnej nie może zostać obliczony automatycznie.\n"
+"Dodaj brakującą informację o historycznych cyklach w oknie 'ustawienia karty'."
+
+#: src/cyclesData_results.cpp:1126
+msgid ""
+"\n"
+"Calculated beginning of fertile phase:"
+msgstr ""
+"\n"
+"Obliczony początek fazy płodnej:"
+
+#: src/cyclesData_results.cpp:1128
+#: src/cyclesData_results.cpp:1130
+#: src/cyclesData_results.cpp:1132
+#: src/cyclesData_results.cpp:1134
+#: src/cyclesData_results.cpp:1136
+#, c-format
+msgid ""
+"\n"
+"   - day %i (according to %s)"
+msgstr ""
+"\n"
+"   - dzień %i (zgodnie z %s)"
+
+#: src/cyclesData_results.cpp:1139
+#, c-format
+msgid ""
+"\n"
+"- choosing day %i as a result (according to settings)"
+msgstr ""
+"\n"
+"- jako wynik wybrano dzień %i (zgodnie z ustawieniami)"
+
+#: src/dayFrame.cpp:190
 msgid "NFP - edit day's data"
 msgstr "NPR - edycja danych karty"
 
-#: src/dayFrame.cpp:197
-#: src/dayFrame.cpp:211
-#: src/dayFrame.cpp:230
+#: src/dayFrame.cpp:201
+#: src/dayFrame.cpp:215
+#: src/dayFrame.cpp:234
 msgid "999"
 msgstr "999"
 
-#: src/dayFrame.cpp:220
+#: src/dayFrame.cpp:224
 msgid "<"
 msgstr "<"
 
-#: src/dayFrame.cpp:221
+#: src/dayFrame.cpp:225
 msgid "Go to previous day of the card"
 msgstr "Przejdź do poprzedniego dnia"
 
-#: src/dayFrame.cpp:223
+#: src/dayFrame.cpp:227
 msgid ">"
 msgstr ">"
 
-#: src/dayFrame.cpp:224
+#: src/dayFrame.cpp:228
 msgid "Go to next day of the card"
 msgstr "Przejdź do następnego dnia"
 
-#: src/dayFrame.cpp:228
-#: src/drawingClass.cpp:1135
+#: src/dayFrame.cpp:232
+#: src/drawingClass.cpp:1317
 msgid "date"
 msgstr "data"
 
-#: src/dayFrame.cpp:241
+#: src/dayFrame.cpp:245
 msgid "add new day"
 msgstr "dodaj nowy dzień"
 
-#: src/dayFrame.cpp:243
+#: src/dayFrame.cpp:247
 msgid ""
 "Card is locked!\n"
 "Data are protected against any changes."
@@ -1003,198 +1396,207 @@ msgstr ""
 "Karta jest zablokowana!\n"
 "Zmiana danych jest niemożliwa."
 
-#: src/dayFrame.cpp:259
-#: src/drawingClass.cpp:250
+#: src/dayFrame.cpp:263
+#: src/drawingClass.cpp:282
 msgid "menstruation"
 msgstr "miesiączka"
 
-#: src/dayFrame.cpp:262
+#: src/dayFrame.cpp:266
 msgid "/"
 msgstr "/"
 
-#: src/dayFrame.cpp:264
+#: src/dayFrame.cpp:268
+#: src/dayFrame.cpp:285
+#: src/dayFrame.cpp:294
+#: src/dayFrame.cpp:303
 msgid "Small bleeding"
 msgstr "Małe krwawienie"
 
-#: src/dayFrame.cpp:266
+#: src/dayFrame.cpp:270
 msgid "X"
 msgstr "X"
 
-#: src/dayFrame.cpp:268
+#: src/dayFrame.cpp:272
 msgid "Heavy bleeding"
 msgstr "Obfite krwawienie"
 
-#: src/dayFrame.cpp:277
-#: src/drawingClass.cpp:253
-msgid "coitus record"
+#: src/dayFrame.cpp:281
+msgid "sexual relation"
 msgstr "współżycie"
 
-#: src/dayFrame.cpp:282
-msgid "-"
-msgstr "-"
-
-#: src/dayFrame.cpp:284
-#: src/dayFrame.cpp:353
-msgid "+"
-msgstr "+"
+#: src/dayFrame.cpp:283
+msgid "in the morning"
+msgstr "rano"
 
 #: src/dayFrame.cpp:292
+msgid "during the day"
+msgstr "w ciągu dnia"
+
+#: src/dayFrame.cpp:301
+msgid "in the evening"
+msgstr "wieczorem"
+
+#: src/dayFrame.cpp:310
 msgid "disturbances (other than temperature)"
 msgstr "zakłócenia (inne niż temperatury)"
 
-#: src/dayFrame.cpp:300
+#: src/dayFrame.cpp:318
 msgid "mucus observation"
 msgstr "badanie śluzu"
 
-#: src/dayFrame.cpp:303
+#: src/dayFrame.cpp:321
 msgid "feeling, experience"
 msgstr "odczucia, doznania"
 
-#: src/dayFrame.cpp:304
-#: src/dayFrame.cpp:307
+#: src/dayFrame.cpp:322
+#: src/dayFrame.cpp:325
 msgid "External observation"
 msgstr "Obserwacje zewnętrzne"
 
-#: src/dayFrame.cpp:312
+#: src/dayFrame.cpp:330
 msgid "appearance"
 msgstr "wygląd"
 
-#: src/dayFrame.cpp:313
-#: src/dayFrame.cpp:316
+#: src/dayFrame.cpp:331
+#: src/dayFrame.cpp:334
 msgid "Internal observation"
 msgstr "Obserwacje wewnętrzne"
 
-#: src/dayFrame.cpp:355
+#: src/dayFrame.cpp:371
+msgid "+"
+msgstr "+"
+
+#: src/dayFrame.cpp:373
 msgid "Trace amount"
 msgstr "Śladowa ilość śluzu"
 
-#: src/dayFrame.cpp:357
+#: src/dayFrame.cpp:375
 msgid "++"
 msgstr "++"
 
-#: src/dayFrame.cpp:359
+#: src/dayFrame.cpp:377
 msgid "Typical amount"
 msgstr "Normalna ilość śluzu"
 
-#: src/dayFrame.cpp:361
+#: src/dayFrame.cpp:379
 msgid "+++"
 msgstr "+++"
 
-#: src/dayFrame.cpp:363
+#: src/dayFrame.cpp:381
 msgid "Huge amount"
 msgstr "Duża ilość śluzu"
 
-#: src/dayFrame.cpp:367
+#: src/dayFrame.cpp:385
 #: src/goToFrame.cpp:138
 #: src/goToFrame.cpp:148
 msgid "1"
 msgstr "1"
 
-#: src/dayFrame.cpp:370
+#: src/dayFrame.cpp:388
 msgid "2"
 msgstr "2"
 
-#: src/dayFrame.cpp:373
+#: src/dayFrame.cpp:391
 msgid "3 .."
 msgstr "3 .."
 
-#: src/dayFrame.cpp:380
+#: src/dayFrame.cpp:398
 msgid "temperature measurement"
 msgstr "pomiar temperatury"
 
-#: src/dayFrame.cpp:390
-#: src/drawingClass.cpp:318
+#: src/dayFrame.cpp:408
+#: src/drawingClass.cpp:353
 msgid "measurement time"
 msgstr "czas pomiaru"
 
-#: src/dayFrame.cpp:401
-#: src/drawingClass.cpp:321
+#: src/dayFrame.cpp:419
+#: src/drawingClass.cpp:356
 msgid "measurement place"
 msgstr "miejsce mierzenia"
 
-#: src/dayFrame.cpp:410
+#: src/dayFrame.cpp:428
 msgid "temperature measurement disturbances"
 msgstr "zakłócenia pomiaru temperatury"
 
-#: src/dayFrame.cpp:412
+#: src/dayFrame.cpp:430
 msgid "Disturbed temperature measurement is ignored on the temperature graph and during calculating peak values"
 msgstr "Temperatura, której pomiar był zakłócony zostanie pominięta przy rysowaniu wykresu oraz przy obliczaniu dni szczytu"
 
-#: src/dayFrame.cpp:420
+#: src/dayFrame.cpp:438
 msgid "additional correction"
 msgstr "dodatkowa korekta"
 
-#: src/dayFrame.cpp:427
+#: src/dayFrame.cpp:445
 msgid "temperature after corrections"
 msgstr "temperatura po korektach"
 
-#: src/dayFrame.cpp:441
+#: src/dayFrame.cpp:459
 msgid "cervix observation"
 msgstr "badanie szyjki"
 
-#: src/dayFrame.cpp:445
-#: src/dayFrame.cpp:448
+#: src/dayFrame.cpp:463
+#: src/dayFrame.cpp:466
 msgid "If you set the position of the cervix, please set also dilation"
 msgstr "Jeżeli pozycja szyjki została zdefiniowana, ustaw też rozwarcie"
 
-#: src/dayFrame.cpp:454
-#: src/dayFrame.cpp:457
+#: src/dayFrame.cpp:472
+#: src/dayFrame.cpp:475
 msgid "If you set the dilation of the cervix, please set also position"
 msgstr "Jeżeli rozwarcie szyjki zostało zdefiniowane, ustaw też pozycję"
 
-#: src/dayFrame.cpp:474
-#: src/drawingClass.cpp:345
+#: src/dayFrame.cpp:492
+#: src/drawingClass.cpp:380
 msgid "ovulation pain"
 msgstr "ból owulacyjny"
 
-#: src/dayFrame.cpp:476
-#: src/dayFrame.cpp:487
-#: src/dayFrame.cpp:498
+#: src/dayFrame.cpp:494
+#: src/dayFrame.cpp:505
+#: src/dayFrame.cpp:516
 msgid "v"
 msgstr "v"
 
-#: src/dayFrame.cpp:479
-#: src/dayFrame.cpp:490
-#: src/dayFrame.cpp:501
+#: src/dayFrame.cpp:497
+#: src/dayFrame.cpp:508
+#: src/dayFrame.cpp:519
 msgid "vv"
 msgstr "vv"
 
-#: src/dayFrame.cpp:485
-#: src/drawingClass.cpp:348
+#: src/dayFrame.cpp:503
+#: src/drawingClass.cpp:383
 msgid "breasts tension"
 msgstr "napięcie w piersiach"
 
-#: src/dayFrame.cpp:496
-#: src/drawingClass.cpp:351
+#: src/dayFrame.cpp:514
+#: src/drawingClass.cpp:386
 msgid "spotting"
 msgstr "krwawienie"
 
-#: src/dayFrame.cpp:509
-#: src/drawingClass.cpp:354
+#: src/dayFrame.cpp:527
+#: src/drawingClass.cpp:389
 msgid "additional notes"
 msgstr "dodatkowe uwagi"
 
-#: src/dayFrame.cpp:800
+#: src/dayFrame.cpp:811
 #: src/liveUpdateClass.cpp:123
-#: src/nfpMainFrame.cpp:140
-#: src/nfpMainFrame.cpp:469
-#: src/nfpMainFrame.cpp:479
-#: src/nfpMainFrame.cpp:590
-#: src/nfpMainFrame.cpp:747
-#: src/nfpMainFrame.cpp:900
-#: src/nfpMainFrame.cpp:950
-#: src/nfpMainFrame.cpp:952
-#: src/nfpMainFrame.cpp:1112
-#: src/nfpMainFrame.cpp:1119
-#: src/nfpMainFrame.cpp:1355
-#: src/nfpMainFrame.cpp:1384
-#: src/nfpMainFrame.cpp:1666
-#: src/nfpMainFrame.cpp:1763
+#: src/nfpMainFrame.cpp:144
+#: src/nfpMainFrame.cpp:502
+#: src/nfpMainFrame.cpp:512
+#: src/nfpMainFrame.cpp:648
+#: src/nfpMainFrame.cpp:813
+#: src/nfpMainFrame.cpp:1000
+#: src/nfpMainFrame.cpp:1053
+#: src/nfpMainFrame.cpp:1055
+#: src/nfpMainFrame.cpp:1255
+#: src/nfpMainFrame.cpp:1262
+#: src/nfpMainFrame.cpp:1340
+#: src/nfpMainFrame.cpp:1370
+#: src/nfpMainFrame.cpp:1860
+#: src/nfpMainFrame.cpp:1961
 msgid "Error"
 msgstr "Błąd"
 
-#: src/dayFrame.cpp:1860
-#: src/dayFrame.cpp:1862
+#: src/dayFrame.cpp:1908
+#: src/dayFrame.cpp:1910
 msgid ""
 "Do you want to save day's data changes? \n"
 "Note: Not saved data will be lost!"
@@ -1202,118 +1604,127 @@ msgstr ""
 "Czy zatwierdzić modyfikacje danych dnia?\n"
 "Uwaga: Nie zatwierdzone dane zostaną utracone!"
 
-#: src/drawingClass.cpp:103
-#: src/drawingClass.cpp:1102
+#: src/drawingClass.cpp:139
+#: src/drawingClass.cpp:1283
 msgid "Cycle observation"
 msgstr "Karta obserwacji"
 
-#: src/drawingClass.cpp:107
-#: src/drawingClass.cpp:1104
+#: src/drawingClass.cpp:143
+#: src/drawingClass.cpp:1285
 msgid "card"
 msgstr "cyklu"
 
-#: src/drawingClass.cpp:118
+#: src/drawingClass.cpp:154
 msgid "age: "
 msgstr "wiek: "
 
-#: src/drawingClass.cpp:128
+#: src/drawingClass.cpp:164
 msgid "card number: "
 msgstr "numer karty: "
 
-#: src/drawingClass.cpp:138
+#: src/drawingClass.cpp:182
 msgid "date: "
 msgstr "data: "
 
-#: src/drawingClass.cpp:148
-msgid "temp. correction when measured in:"
-msgstr "korekta temperatury, gdy mierzona:"
+#: src/drawingClass.cpp:192
+#, c-format
+msgid "shortest from last %i cycles: "
+msgstr "najkrótszy z ostanich %i cykli: "
 
-#: src/drawingClass.cpp:153
-msgid "mouth: "
-msgstr "w ustach: "
+#: src/drawingClass.cpp:201
+#, c-format
+msgid "earliest high temp. from last %i cycles: "
+msgstr "najwcześn. wyższa temp. z ostatnich %i cykli: "
 
-#: src/drawingClass.cpp:164
-msgid "rectum: "
-msgstr "w odbycie: "
+#: src/drawingClass.cpp:213
+msgid "card locked / cycle data corrupted or incomplete"
+msgstr "edycja karty zablokowana / dane na karcie są niekompletne albo niepoprawne"
 
-#: src/drawingClass.cpp:175
-msgid "vagina: "
-msgstr "w pochwie: "
-
-#: src/drawingClass.cpp:188
+#: src/drawingClass.cpp:215
 msgid "card locked"
 msgstr "karta zablokowana"
 
-#: src/drawingClass.cpp:256
+#: src/drawingClass.cpp:217
+msgid "cycle data corrupted or incomplete"
+msgstr "dane na karcie są niekompletne albo niepoprawne"
+
+#: src/drawingClass.cpp:285
+msgid "coitus record"
+msgstr "współżycie"
+
+#: src/drawingClass.cpp:288
 msgid "day of week"
 msgstr "dzień tygodnia"
 
-#: src/drawingClass.cpp:259
+#: src/drawingClass.cpp:291
 msgid "day of month"
 msgstr "dzień miesiąca"
 
-#: src/drawingClass.cpp:262
+#: src/drawingClass.cpp:294
 msgid "other disturbances"
 msgstr "zakłócenia inne"
 
-#: src/drawingClass.cpp:265
-#: src/drawingClass.cpp:1176
-msgid "temperature disturbances"
-msgstr "zakłócenia temperatury"
-
-#: src/drawingClass.cpp:287
-#: src/drawingClass.cpp:288
+#: src/drawingClass.cpp:320
+#: src/drawingClass.cpp:321
 msgid "chart"
 msgstr "wykres"
 
-#: src/drawingClass.cpp:291
-#: src/drawingClass.cpp:302
+#: src/drawingClass.cpp:324
+#: src/drawingClass.cpp:337
 msgid "usual"
 msgstr "zwykła"
 
-#: src/drawingClass.cpp:293
-#: src/drawingClass.cpp:303
+#: src/drawingClass.cpp:326
+#: src/drawingClass.cpp:338
 msgid "time of"
 msgstr "godzina"
 
-#: src/drawingClass.cpp:296
-#: src/drawingClass.cpp:304
-#: src/drawingClass.cpp:310
+#: src/drawingClass.cpp:330
+#: src/drawingClass.cpp:339
+#: src/drawingClass.cpp:345
 msgid "measurement"
 msgstr "pomiaru"
 
-#: src/drawingClass.cpp:309
+#: src/drawingClass.cpp:344
 msgid "place of"
 msgstr "miejsce"
 
-#: src/drawingClass.cpp:315
+#: src/drawingClass.cpp:350
 msgid "measured temperature"
 msgstr "zmierzona temperatura"
 
-#: src/drawingClass.cpp:324
-#: src/drawingClass.cpp:1179
+#: src/drawingClass.cpp:359
+#: src/drawingClass.cpp:1360
 msgid "additional temp. correction"
 msgstr "dodatkowa korekta temp."
 
-#: src/drawingClass.cpp:339
+#: src/drawingClass.cpp:374
 msgid "cervix - hardness"
 msgstr "szyjka - twardość"
 
-#: src/drawingClass.cpp:1066
+#: src/drawingClass.cpp:1247
 msgid "Examplegjy"
 msgstr "Examplegjy"
 
-#: src/drawingClass.cpp:1095
+#: src/drawingClass.cpp:1276
 msgid "2004, Pazdziernik"
 msgstr "2004, Pazdziernik"
 
-#: src/drawingClass.cpp:1096
+#: src/drawingClass.cpp:1277
 msgid "Genowefa Brzeczykowska"
 msgstr "Genowefa Brzeczykowska"
 
-#: src/drawingClass.cpp:1120
+#: src/drawingClass.cpp:1302
 msgid "age"
 msgstr "wiek"
+
+#: src/drawingClass.cpp:1329
+msgid "shortest from last 12 cycle: "
+msgstr "najkrótszy z ostanich 12 cykli: "
+
+#: src/drawingClass.cpp:1332
+msgid "earliest high temp. from last 12 cycles: "
+msgstr "najwcześn. wyższa temp. z ostatnich 12 cykli: "
 
 #: src/goToFrame.cpp:84
 #: src/goToFrame.cpp:132
@@ -1378,13 +1789,9 @@ msgid "Cancel operation and close this window"
 msgstr "Anuluj operację i zamknij okno"
 
 #: src/histogramsFrame.cpp:20
-#: src/nfpMainFrame.cpp:337
+#: src/nfpMainFrame.cpp:358
 msgid "Length of cycles"
 msgstr "Długość cyklu"
-
-#: src/histogramsFrame.cpp:62
-msgid "cycles"
-msgstr "okresy"
 
 #: src/liveUpdateClass.cpp:109
 #: src/liveUpdateClass.cpp:211
@@ -1412,295 +1819,344 @@ msgstr "Server zwrócił niepoprawne dane - nie mogę znaleźć znaku '.' w wart
 msgid "Cannot save file to disk: '%s'"
 msgstr "Nie mogę zapisać pliku na dysk: '%s'"
 
-#: src/nfpMainFrame.cpp:140
+#: src/nfpMainFrame.cpp:144
 msgid "Error occured while reading data from file:\n"
 msgstr "Wystąpił błąd przy czytaniu danych z pliku:\n"
 
-#: src/nfpMainFrame.cpp:247
+#: src/nfpMainFrame.cpp:254
 msgid "new day"
 msgstr "nowy dzień"
 
-#: src/nfpMainFrame.cpp:263
-msgid "NFP"
-msgstr "NPR"
-
-#: src/nfpMainFrame.cpp:265
-msgid "New cards' set\tCtrl+N"
-msgstr "Nowy zestaw\tCtrl+N"
-
-#: src/nfpMainFrame.cpp:265
-msgid "Create new set of cycles' cards"
-msgstr "Utwórz nowy zestaw"
-
-#: src/nfpMainFrame.cpp:266
-msgid "Open cards' set\tCtrl+O"
-msgstr "Otwórz zestaw\tCtrl+O"
-
-#: src/nfpMainFrame.cpp:266
-msgid "Open existing set of cycles' cards from file"
-msgstr "Otwórz istniejący zestaw"
-
-#: src/nfpMainFrame.cpp:267
-msgid "Save cards' set\tCtrl+S"
-msgstr "Zapisz zestaw\tCtrl+S"
-
-#: src/nfpMainFrame.cpp:267
-msgid "Save changes in currently opened file"
-msgstr "Zapisz zmiany dokonane w otwartym aktualnie zestawie"
-
-#: src/nfpMainFrame.cpp:268
-msgid "Save cards' set as...\tCtrl+Shift+S"
-msgstr "Zapisz zestaw jako...\tCtrl+Shift+S"
-
-#: src/nfpMainFrame.cpp:268
-msgid "Save set of cycles' cards in new file"
-msgstr "Zapisz zestaw w nowym pliku"
-
-#: src/nfpMainFrame.cpp:270
-msgid "Print\tCtrl+P"
-msgstr "Drukuj\tCtrl+P"
-
-#: src/nfpMainFrame.cpp:270
-msgid "Print cards"
-msgstr "Drukuj wybrane karty"
-
-#: src/nfpMainFrame.cpp:275
-msgid "Preferences\tF2"
-msgstr "Ustawienia programu\tF2"
-
-#: src/nfpMainFrame.cpp:275
-msgid "Change the application preferences"
-msgstr "Zmień parametry programu"
-
-#: src/nfpMainFrame.cpp:277
-msgid "Exit\tAlt+F4"
-msgstr "Zakończ\tAlt+F4"
-
-#: src/nfpMainFrame.cpp:277
-msgid "Close the application"
-msgstr "Zamknij program"
-
-#: src/nfpMainFrame.cpp:282
-msgid "Card"
-msgstr "Karta"
-
-#: src/nfpMainFrame.cpp:284
-msgid "Previous card\tCtrl+Left"
-msgstr "Poprzednia karta\tCtrl+Left"
-
-#: src/nfpMainFrame.cpp:284
-msgid "Go to the previous card"
-msgstr "Przejdź do poprzedniej karty"
-
-#: src/nfpMainFrame.cpp:285
-msgid "Next card\tCtrl+Right"
-msgstr "Następna karta\tCtrl+Right"
-
-#: src/nfpMainFrame.cpp:285
-msgid "Go to the next card"
-msgstr "Przejdź do następnej karty"
-
-#: src/nfpMainFrame.cpp:286
-msgid "Go to card..\tCtrl+G"
-msgstr "Idź do karty..\tCtrl+G"
-
-#: src/nfpMainFrame.cpp:286
-msgid "Go to the card with choosen number or based on date"
-msgstr "Przejdź do karty o wybranym numerze lub na podstawie podanej daty"
-
-#: src/nfpMainFrame.cpp:288
-msgid "Edit card's data"
-msgstr "Edytuj dane karty"
-
-#: src/nfpMainFrame.cpp:289
-msgid "Remove card"
-msgstr "Usuń kartę"
-
-#: src/nfpMainFrame.cpp:289
-msgid "Remove card. It is possible to remove only the last card from the set"
-msgstr "Usuń aktualną kartę. Można usunąć tylko ostatnią kartę z zestawu"
-
-#: src/nfpMainFrame.cpp:290
-#: src/nfpMainFrame.cpp:1589
-msgid "Lock card\tCtrl+L"
-msgstr "Zablokuj edycję karty\tCtrl+L"
-
-#: src/nfpMainFrame.cpp:290
-#: src/nfpMainFrame.cpp:1590
-msgid "Lock card. This option protects card's data against accidental changes"
-msgstr "Zablokuj edycję karty. Opcja ta chroni dane poprzednich kart przed przypadkowymi zmianami"
-
-#: src/nfpMainFrame.cpp:292
-msgid "New card\tCtrl+C"
-msgstr "Nowa karta\tCtrl+C"
-
-#: src/nfpMainFrame.cpp:292
-msgid "Add new card - new cycle begun"
-msgstr "Dodaj nową kartę - nowy cykl się rozpoczął"
-
-#: src/nfpMainFrame.cpp:297
-#: src/nfpMainFrame.cpp:771
-msgid "Day"
-msgstr "Dzień"
-
-#: src/nfpMainFrame.cpp:299
-msgid "Day XX"
-msgstr "Dzień XX"
-
-#: src/nfpMainFrame.cpp:302
-msgid "Edit day's data"
-msgstr "Edytuj dane z dnia"
-
-#: src/nfpMainFrame.cpp:303
-msgid "Remove day"
-msgstr "Usuń dzień"
-
-#: src/nfpMainFrame.cpp:303
-msgid "Remove day. It is possible to remove only the last day from the last card from the set"
-msgstr "Można usunąć tylko ostatni dzień z ostatniej karty z zestawu"
-
-#: src/nfpMainFrame.cpp:307
-msgid "Results"
-msgstr "Wyniki"
-
-#: src/nfpMainFrame.cpp:309
-msgid "Mark this day as a first day of mucus apperance"
-msgstr "Zaznacz ten dzień jako pierwszy dzień występienia śluzu"
-
-#: src/nfpMainFrame.cpp:310
-msgid "Mark this day as a first day of more fertile mucus apperance"
-msgstr "Zaznacz ten dzień jako pierwszy dzień wystąpienia śluzu bardziej płodnego"
-
-#: src/nfpMainFrame.cpp:311
-msgid "Mark this day as a mucus peak day"
-msgstr "Zaznacz ten dzień jako pierwszy dzień występienia śluzu"
-
-#: src/nfpMainFrame.cpp:313
-msgid "Mark this day as a first day of cervix changes"
-msgstr "Zaznacz ten dzień jako pierwszy dzień zmiany szyjki"
-
-#: src/nfpMainFrame.cpp:314
-msgid "Mark this day as a cervix peak day"
-msgstr "Zaznacz ten dzień jao dzień szczytu szyjki"
-
-#: src/nfpMainFrame.cpp:316
-msgid "First day of high temperature level"
-msgstr "Pierwszy dzień wzrostu temperatury"
-
-#: src/nfpMainFrame.cpp:316
-msgid "Mark this day as a first day of high temperature level"
-msgstr "Zaznacz ten dzień jako pierwszy dzień wzrostu temperatury"
-
-#: src/nfpMainFrame.cpp:317
-msgid "Reset temperature result"
-msgstr "Usuń wyznaczony wynik temperatury"
-
-#: src/nfpMainFrame.cpp:319
-msgid "First day of fertile phase"
-msgstr "Pierwszy dzień fazy płodnej"
-
-#: src/nfpMainFrame.cpp:319
-msgid "Mark this day as a first day of the fertile phase"
-msgstr "Zaznacz ten dzień jako pierwszy dzień płodnej fazy cyklu"
-
-#: src/nfpMainFrame.cpp:320
-msgid "First day of infertile phase"
-msgstr "Pierwszy dzień fazy niepłodnej"
-
-#: src/nfpMainFrame.cpp:320
-msgid "Mark this day as a first day of the infertile phase (pre- or post-ovulatory infertility)"
-msgstr "Zaznacz ten dzień jako pierwszy dzień niepłodnej fazy cyklu (przed- lub poowulacyjnej fazy niepłodności)"
-
-#: src/nfpMainFrame.cpp:322
-msgid "Calculate automatically"
-msgstr "Wyznacz wyniki automatycznie"
-
-#: src/nfpMainFrame.cpp:322
-msgid "Calculate results automatically"
-msgstr "Wyznacz wyniki automatycznie"
-
-#: src/nfpMainFrame.cpp:325
-msgid "Move days"
-msgstr "Przenieś dni"
-
-#: src/nfpMainFrame.cpp:327
-msgid "Move days to the previous card"
-msgstr "Przenieś dni do poprzedniej karty"
-
-#: src/nfpMainFrame.cpp:327
-msgid "Move the currently selected day and preceding ones to the next card"
-msgstr "Przenieś aktualnie zaznaczony dzień i wszystkie poprzedzające dni do poprzedniej karty"
-
-#: src/nfpMainFrame.cpp:328
-msgid "Move days to the next card"
-msgstr "Przenieś dni do następnej karty"
-
-#: src/nfpMainFrame.cpp:328
-msgid "Move the currently selected day and following ones to the next card. Create next card if it doesn't exist"
-msgstr "Przenieś aktualnie zaznaczony dzień i wszystkie następujące dni do poprzedniej karty. Utwórz następna karta jeśli nie iestnieje"
-
-#: src/nfpMainFrame.cpp:331
-msgid "New day\tCtrl+D"
-msgstr "Nowy dzień\tCtrl+D"
-
-#: src/nfpMainFrame.cpp:331
+#: src/nfpMainFrame.cpp:255
+#: src/nfpMainFrame.cpp:326
 msgid "Add new day to the card"
 msgstr "Dodaj nowy dzień do karty. Nowy dzień można dodać tylko do ostatniej karty z zestawu"
 
+#: src/nfpMainFrame.cpp:259
+msgid "analyze cycle"
+msgstr "analizuj cykl"
+
+#: src/nfpMainFrame.cpp:260
+#: src/nfpMainFrame.cpp:348
+msgid "Analyze cycle data and calculate results"
+msgstr "Analizuj dane karty i wyznacz wyniki"
+
+#: src/nfpMainFrame.cpp:276
+msgid "NFP"
+msgstr "NPR"
+
+#: src/nfpMainFrame.cpp:278
+msgid "New cards' set\tCtrl+N"
+msgstr "Nowy zestaw\tCtrl+N"
+
+#: src/nfpMainFrame.cpp:278
+msgid "Create new set of cycles' cards"
+msgstr "Utwórz nowy zestaw"
+
+#: src/nfpMainFrame.cpp:279
+msgid "Open cards' set\tCtrl+O"
+msgstr "Otwórz zestaw\tCtrl+O"
+
+#: src/nfpMainFrame.cpp:279
+msgid "Open existing set of cycles' cards from file"
+msgstr "Otwórz istniejący zestaw"
+
+#: src/nfpMainFrame.cpp:280
+msgid "Save cards' set\tCtrl+S"
+msgstr "Zapisz zestaw\tCtrl+S"
+
+#: src/nfpMainFrame.cpp:280
+msgid "Save changes in currently opened file"
+msgstr "Zapisz zmiany dokonane w otwartym aktualnie zestawie"
+
+#: src/nfpMainFrame.cpp:281
+msgid "Save cards' set as...\tCtrl+Shift+S"
+msgstr "Zapisz zestaw jako...\tCtrl+Shift+S"
+
+#: src/nfpMainFrame.cpp:281
+msgid "Save set of cycles' cards in new file"
+msgstr "Zapisz zestaw w nowym pliku"
+
+#: src/nfpMainFrame.cpp:283
+msgid "Print\tCtrl+P"
+msgstr "Drukuj\tCtrl+P"
+
+#: src/nfpMainFrame.cpp:283
+msgid "Print cards"
+msgstr "Drukuj wybrane karty"
+
+#: src/nfpMainFrame.cpp:288
+msgid "Preferences\tF2"
+msgstr "Ustawienia programu\tF2"
+
+#: src/nfpMainFrame.cpp:288
+msgid "Change the application preferences"
+msgstr "Zmień parametry programu"
+
+#: src/nfpMainFrame.cpp:290
+msgid "Exit\tAlt+F4"
+msgstr "Zakończ\tAlt+F4"
+
+#: src/nfpMainFrame.cpp:290
+msgid "Close the application"
+msgstr "Zamknij program"
+
+#: src/nfpMainFrame.cpp:295
+msgid "Card"
+msgstr "Karta"
+
+#: src/nfpMainFrame.cpp:297
+msgid "Previous card\tCtrl+Left"
+msgstr "Poprzednia karta\tCtrl+Left"
+
+#: src/nfpMainFrame.cpp:297
+msgid "Go to the previous card"
+msgstr "Przejdź do poprzedniej karty"
+
+#: src/nfpMainFrame.cpp:298
+msgid "Next card\tCtrl+Right"
+msgstr "Następna karta\tCtrl+Right"
+
+#: src/nfpMainFrame.cpp:298
+msgid "Go to the next card"
+msgstr "Przejdź do następnej karty"
+
+#: src/nfpMainFrame.cpp:299
+msgid "Go to card..\tCtrl+G"
+msgstr "Idź do karty..\tCtrl+G"
+
+#: src/nfpMainFrame.cpp:299
+msgid "Go to the card with choosen number or based on date"
+msgstr "Przejdź do karty o wybranym numerze lub na podstawie podanej daty"
+
+#: src/nfpMainFrame.cpp:301
+msgid "Edit card's data"
+msgstr "Edytuj dane karty"
+
+#: src/nfpMainFrame.cpp:302
+msgid "Remove card"
+msgstr "Usuń kartę"
+
+#: src/nfpMainFrame.cpp:302
+msgid "Remove card. It is possible to remove only the last card from the set"
+msgstr "Usuń aktualną kartę. Można usunąć tylko ostatnią kartę z zestawu"
+
+#: src/nfpMainFrame.cpp:303
+msgid "Card locked\tCtrl+L"
+msgstr "Karta zablokowana\tCtrl+L"
+
+#: src/nfpMainFrame.cpp:303
+msgid "Lock card. This option protects card's data against accidental changes. Also prevents from autocalculating results so manually set results will not be lost."
+msgstr "Zablokuj edycję karty. Opcja ta chroni dane wpisane do karty i ustawione wyniki przed przypadkowymi zmianami."
+
+#: src/nfpMainFrame.cpp:304
+msgid "Corrupted/incomplete data"
+msgstr "Niekompletne albo niepoprawne dane na karcie"
+
+#: src/nfpMainFrame.cpp:304
+msgid "Card contains corrupted or incomplete data. If selected then data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles."
+msgstr "Karta zawiera niekompletne albo niepoprawne dane. To znaczy, że dane z tej karty nie będą używane w następnych cyklach np. do obliczania początku fazy płodnej."
+
+#: src/nfpMainFrame.cpp:306
+msgid "New card\tCtrl+C"
+msgstr "Nowa karta\tCtrl+C"
+
+#: src/nfpMainFrame.cpp:306
+msgid "Add new card - new cycle begun"
+msgstr "Dodaj nową kartę - nowy cykl się rozpoczął"
+
+#: src/nfpMainFrame.cpp:311
+#: src/nfpMainFrame.cpp:839
+msgid "Day"
+msgstr "Dzień"
+
+#: src/nfpMainFrame.cpp:313
+#: src/nfpMainFrame.cpp:383
+msgid "Day XX"
+msgstr "Dzień XX"
+
+#: src/nfpMainFrame.cpp:316
+#: src/nfpMainFrame.cpp:386
+msgid "Edit day's data"
+msgstr "Edytuj dane z dnia"
+
+#: src/nfpMainFrame.cpp:317
+#: src/nfpMainFrame.cpp:387
+msgid "Remove day"
+msgstr "Usuń dzień"
+
+#: src/nfpMainFrame.cpp:317
+#: src/nfpMainFrame.cpp:387
+msgid "Remove day. It is possible to remove only the last day from the last card from the set"
+msgstr "Można usunąć tylko ostatni dzień z ostatniej karty z zestawu"
+
+#: src/nfpMainFrame.cpp:320
+#: src/nfpMainFrame.cpp:841
+msgid "XX - XX to the previous card"
+msgstr "XX - XX do poprzedniej karty"
+
+#: src/nfpMainFrame.cpp:320
+msgid "Move the currently selected day and preceding ones to the next card"
+msgstr "Przenieś aktualnie zaznaczony dzień i wszystkie poprzedzające dni do poprzedniej karty"
+
+#: src/nfpMainFrame.cpp:321
+#: src/nfpMainFrame.cpp:842
+msgid "XX - XX to the next card"
+msgstr "XX - XX do następnej karty"
+
+#: src/nfpMainFrame.cpp:321
+msgid "Move the currently selected day and following ones to the next card. Create next card if it doesn't exist"
+msgstr "Przenieś aktualnie zaznaczony dzień i wszystkie następujące dni do poprzedniej karty. Utwórz następna karta jeśli nie iestnieje"
+
+#: src/nfpMainFrame.cpp:324
+#: src/nfpMainFrame.cpp:391
+msgid "Move days.."
+msgstr "Przenieś dni.."
+
+#: src/nfpMainFrame.cpp:326
+msgid "New day\tCtrl+D"
+msgstr "Nowy dzień\tCtrl+D"
+
+#: src/nfpMainFrame.cpp:334
+msgid "first day of mucus apperance"
+msgstr "1-szy dzień występienia śluzu"
+
+#: src/nfpMainFrame.cpp:334
+msgid "Mark this day as a first day of mucus apperance"
+msgstr "Zaznacz ten dzień jako pierwszy dzień występienia śluzu"
+
+#: src/nfpMainFrame.cpp:335
+msgid "first day of more fertile mucus apperance"
+msgstr "1-szy dzień wystąpienia śluzu bardziej płodnego"
+
+#: src/nfpMainFrame.cpp:335
+msgid "Mark this day as a first day of more fertile mucus apperance"
+msgstr "Zaznacz ten dzień jako pierwszy dzień wystąpienia śluzu bardziej płodnego"
+
 #: src/nfpMainFrame.cpp:336
+msgid "mucus peak day"
+msgstr "dzień szczytu śluzu"
+
+#: src/nfpMainFrame.cpp:336
+msgid "Mark this day as a mucus peak day"
+msgstr "Zaznacz ten dzień jako pierwszy dzień występienia śluzu"
+
+#: src/nfpMainFrame.cpp:338
+msgid "first day of cervix changes"
+msgstr "1-szy dzień zmiany szyjki"
+
+#: src/nfpMainFrame.cpp:338
+msgid "Mark this day as a first day of cervix changes"
+msgstr "Zaznacz ten dzień jako pierwszy dzień zmiany szyjki"
+
+#: src/nfpMainFrame.cpp:339
+msgid "cervix peak day"
+msgstr "dzień szczytu szyjki"
+
+#: src/nfpMainFrame.cpp:339
+msgid "Mark this day as a cervix peak day"
+msgstr "Zaznacz ten dzień jao dzień szczytu szyjki"
+
+#: src/nfpMainFrame.cpp:341
+msgid "first day of high temperature level"
+msgstr "1-szy dzień wzrostu temperatury"
+
+#: src/nfpMainFrame.cpp:341
+msgid "Mark this day as a first day of high temperature level"
+msgstr "Zaznacz ten dzień jako pierwszy dzień wzrostu temperatury"
+
+#: src/nfpMainFrame.cpp:343
+msgid "first day of fertile phase"
+msgstr "1-szy dzień fazy płodnej"
+
+#: src/nfpMainFrame.cpp:343
+msgid "Mark this day as a first day of the fertile phase"
+msgstr "Zaznacz ten dzień jako pierwszy dzień płodnej fazy cyklu"
+
+#: src/nfpMainFrame.cpp:344
+msgid "first day of infertile phase"
+msgstr "1-szy dzień fazy niepłodnej"
+
+#: src/nfpMainFrame.cpp:344
+msgid "Mark this day as a first day of the infertile phase (pre- or post-ovulatory infertility)"
+msgstr "Zaznacz ten dzień jako pierwszy dzień niepłodnej fazy cyklu (przed- lub poowulacyjnej fazy niepłodności)"
+
+#: src/nfpMainFrame.cpp:346
+#: src/nfpMainFrame.cpp:390
+#: src/nfpMainFrame.cpp:840
+msgid "Mark day XX as.."
+msgstr "Zaznacz dzień XX jako.."
+
+#: src/nfpMainFrame.cpp:348
+msgid "Analyze cycle data now"
+msgstr "Analizuj dane karty teraz"
+
+#: src/nfpMainFrame.cpp:349
+msgid "Analyze cycle after each data change"
+msgstr "Analizuj dane karty po każdej zmianie danych"
+
+#: src/nfpMainFrame.cpp:349
+msgid "Analyze cycle automatically after each data change"
+msgstr "Analizuj dane karty po każdej zmianie danych"
+
+#: src/nfpMainFrame.cpp:350
+msgid "Change analysis settings"
+msgstr "Ustawienia analizy"
+
+#: src/nfpMainFrame.cpp:356
 msgid "Statistics"
 msgstr "Statystyki"
 
-#: src/nfpMainFrame.cpp:343
-#: src/nfpMainFrame.cpp:345
+#: src/nfpMainFrame.cpp:364
+#: src/nfpMainFrame.cpp:366
 msgid "Help"
 msgstr "Pomoc"
 
-#: src/nfpMainFrame.cpp:345
+#: src/nfpMainFrame.cpp:366
 msgid "Help\tF1"
 msgstr "Pomoc\tF1"
 
-#: src/nfpMainFrame.cpp:346
+#: src/nfpMainFrame.cpp:367
 msgid "Home page"
 msgstr "Strona domowa"
 
-#: src/nfpMainFrame.cpp:346
+#: src/nfpMainFrame.cpp:367
 msgid "Visit the web page of wx-nfp"
 msgstr "Odwiedź stronę domową wx-nfp w Internecie"
 
-#: src/nfpMainFrame.cpp:347
+#: src/nfpMainFrame.cpp:368
 msgid "Report bug / comments"
 msgstr "Zgłoś błąd / uwagi"
 
-#: src/nfpMainFrame.cpp:347
+#: src/nfpMainFrame.cpp:368
 msgid "Report bug found in the application or any comments to the application"
 msgstr "Zgłoś błąd znaleziony w applikacji lub inne uwagi do applikacji"
 
-#: src/nfpMainFrame.cpp:350
+#: src/nfpMainFrame.cpp:371
 msgid "Check for updates..."
 msgstr "Sprawdź aktualizacje..."
 
-#: src/nfpMainFrame.cpp:353
+#: src/nfpMainFrame.cpp:374
 msgid "About..."
 msgstr "O programie..."
 
-#: src/nfpMainFrame.cpp:353
+#: src/nfpMainFrame.cpp:374
 msgid "General information about the application"
 msgstr "Podstawowe informacje o programie"
 
-#: src/nfpMainFrame.cpp:416
-#: src/nfpMainFrame.cpp:418
+#: src/nfpMainFrame.cpp:447
+#: src/nfpMainFrame.cpp:449
 msgid "New version of application is not available."
 msgstr "Nowa wersja aplikacji nie jest dostępna."
 
-#: src/nfpMainFrame.cpp:427
-#: src/nfpMainFrame.cpp:429
+#: src/nfpMainFrame.cpp:458
+#: src/nfpMainFrame.cpp:460
 #, c-format
 msgid "Unknown event ID: %i, message: %s"
 msgstr "Nieznany sygnał ID: %i, wiadomość: %s"
 
-#: src/nfpMainFrame.cpp:448
-#: src/nfpMainFrame.cpp:584
+#: src/nfpMainFrame.cpp:480
+#: src/nfpMainFrame.cpp:642
 msgid ""
 "New version of application is ready for installation.\n"
 "-Press 'Yes' if you want to reinstall the application now.\n"
@@ -1710,49 +2166,73 @@ msgstr ""
 "-Wybierz przycisk 'Tak', jeżeli chcesz ją zainstalować teraz.\n"
 "-Wybierz 'Nie', jeżeli wolisz zainstalować ją poźniej."
 
-#: src/nfpMainFrame.cpp:448
-#: src/nfpMainFrame.cpp:584
-#: src/nfpMainFrame.cpp:1353
-#: src/nfpMainFrame.cpp:1382
-#: src/nfpMainFrame.cpp:1745
+#: src/nfpMainFrame.cpp:480
+#: src/nfpMainFrame.cpp:642
+#: src/nfpMainFrame.cpp:1338
+#: src/nfpMainFrame.cpp:1368
+#: src/nfpMainFrame.cpp:1943
 #: src/wx-nfpApp.cpp:45
 #: src/wx-nfpApp.cpp:48
 msgid "Question"
 msgstr "Pytanie"
 
-#: src/nfpMainFrame.cpp:456
+#: src/nfpMainFrame.cpp:488
 msgid "You chose to not reinstall the application now. I ask you again when you close the application."
 msgstr ""
 "Wybrałeś, aby nie instalować nowej wersji aplikacji teraz.\n"
 "Zapytam Cię o to jeszcze raz przy zamykaniu aplikacji."
 
-#: src/nfpMainFrame.cpp:469
+#: src/nfpMainFrame.cpp:502
 #, c-format
 msgid "Cannot execute file: %s - NOT IMPLEMENTED YET!"
 msgstr "Nie mogę uruchomić aplikacji: %s - FUNKCJA JESZCZE NIE ZAIMPLEMENTOWANA!"
 
-#: src/nfpMainFrame.cpp:479
-#: src/nfpMainFrame.cpp:590
+#: src/nfpMainFrame.cpp:512
+#: src/nfpMainFrame.cpp:648
 #, c-format
 msgid "Cannot execute file: %s"
 msgstr "Nie mogę uruchomić aplikacji: %s"
 
-#: src/nfpMainFrame.cpp:643
-#: src/nfpMainFrame.cpp:1641
+#: src/nfpMainFrame.cpp:705
+#: src/nfpMainFrame.cpp:1835
 msgid "new_set"
 msgstr "nowy_zestaw"
 
-#: src/nfpMainFrame.cpp:696
+#: src/nfpMainFrame.cpp:759
 msgid "Please, remember to perform today a breasts self-examination."
 msgstr ""
 "Dzisiaj powinnaś przeprowadzić samokontrolę piersi.\n"
 "Możesz też poprosić męża o pomoc.. ;-)"
 
-#: src/nfpMainFrame.cpp:879
+#: src/nfpMainFrame.cpp:851
+#, c-format
+msgid "Mark day %i as.."
+msgstr "Zaznacz dzień %i jako.."
+
+#: src/nfpMainFrame.cpp:907
+#, c-format
+msgid "%i to the next card"
+msgstr "%i do następnej karty"
+
+#: src/nfpMainFrame.cpp:909
+#, c-format
+msgid "%i - %i to the next card"
+msgstr "%i - %i do następnej karty"
+
+#: src/nfpMainFrame.cpp:913
+msgid "1 to the previous card"
+msgstr "1 do poprzedniej karty"
+
+#: src/nfpMainFrame.cpp:915
+#, c-format
+msgid "1 - %i to the previous card"
+msgstr "1 - %i do poprzedniej karty"
+
+#: src/nfpMainFrame.cpp:976
 msgid "Open cards' set..."
 msgstr "Otwórz zestaw..."
 
-#: src/nfpMainFrame.cpp:900
+#: src/nfpMainFrame.cpp:1000
 #, c-format
 msgid ""
 "Error occured while reading data from file:\n"
@@ -1761,7 +2241,7 @@ msgstr ""
 "Wystąpił błąd przy czytaniu danych z pliku:\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:950
+#: src/nfpMainFrame.cpp:1053
 msgid ""
 "Problem with printing occurred.\n"
 "Perhaps your current printer is not set correctly?"
@@ -1769,11 +2249,11 @@ msgstr ""
 "Wystąpił problem z drukowaniem.\n"
 "Drukarka jest źle skonfigurowana? A może nie włączona?"
 
-#: src/nfpMainFrame.cpp:952
+#: src/nfpMainFrame.cpp:1055
 msgid "Printing has been canceled."
 msgstr "Drukowanie zostało anulowane."
 
-#: src/nfpMainFrame.cpp:1074
+#: src/nfpMainFrame.cpp:1187
 msgid ""
 "Are you sure you want to unlock the card?\n"
 "Card's data will not be protected against accidental changes."
@@ -1781,41 +2261,21 @@ msgstr ""
 "Czy na pewno chcesz odblokować kartę?\n"
 "Dane nie będą chronione przed przypadkowymi zmianami."
 
-#: src/nfpMainFrame.cpp:1179
-#: src/nfpMainFrame.cpp:1195
-#: src/nfpMainFrame.cpp:1211
-#: src/nfpMainFrame.cpp:1227
-#: src/nfpMainFrame.cpp:1243
-#: src/nfpMainFrame.cpp:1259
-#: src/nfpMainFrame.cpp:1275
-#: src/nfpMainFrame.cpp:1291
-#: src/nfpMainFrame.cpp:1307
-msgid "Setting result faild:"
-msgstr "Błąd ustawiania wyników:"
-
-#: src/nfpMainFrame.cpp:1323
-msgid "Calculating results automatically faild:"
-msgstr "Automatyczne wyznaczanie wyników nie powiodło się"
-
-#: src/nfpMainFrame.cpp:1330
-msgid "Not implemented yet"
-msgstr "Not implemented yet"
-
-#: src/nfpMainFrame.cpp:1346
+#: src/nfpMainFrame.cpp:1331
 #, c-format
 msgid "Should I move day %i to the previous card?"
 msgstr "Przenieść dzień %i do poprzedniej karty?"
 
-#: src/nfpMainFrame.cpp:1348
+#: src/nfpMainFrame.cpp:1333
 #, c-format
 msgid "Should I move days %i - %i to the previous card?"
 msgstr "Przenieść dni %i - %i do poprzedniej karty?"
 
-#: src/nfpMainFrame.cpp:1351
+#: src/nfpMainFrame.cpp:1336
 msgid "Current card will be removed, because all days will be moved."
 msgstr "Aktualna karta zostanie usunięta, gdyż wszystkie dni zostaną przeniesione."
 
-#: src/nfpMainFrame.cpp:1355
+#: src/nfpMainFrame.cpp:1340
 #, c-format
 msgid ""
 "Error occured while moving days to the previous card\n"
@@ -1824,21 +2284,21 @@ msgstr ""
 "Wystąpił błąd przy przenoszeniu dni do poprzedniej karty\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:1375
+#: src/nfpMainFrame.cpp:1361
 #, c-format
 msgid "Should I move day %i to the next card?"
 msgstr "Przenieść dzień %i do następnej karty?"
 
-#: src/nfpMainFrame.cpp:1377
+#: src/nfpMainFrame.cpp:1363
 #, c-format
 msgid "Should I move days %i - %i to the next card?"
 msgstr "Przenieść dni %i - %i do następnej karty?"
 
-#: src/nfpMainFrame.cpp:1380
+#: src/nfpMainFrame.cpp:1366
 msgid "New card will be created."
 msgstr "Zostanie utworzona nowa karta."
 
-#: src/nfpMainFrame.cpp:1384
+#: src/nfpMainFrame.cpp:1370
 #, c-format
 msgid ""
 "Error occured while moving days to the next card\n"
@@ -1847,39 +2307,48 @@ msgstr ""
 "Wystąpił błąd przy przenoszeniu dni do następnej karty\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:1439
-#: src/nfpMainFrame.cpp:1453
+#: src/nfpMainFrame.cpp:1423
+#: src/nfpMainFrame.cpp:1440
+#: src/nfpMainFrame.cpp:1457
+#: src/nfpMainFrame.cpp:1474
+#: src/nfpMainFrame.cpp:1491
+#: src/nfpMainFrame.cpp:1508
+#: src/nfpMainFrame.cpp:1527
+#: src/nfpMainFrame.cpp:1546
+#: src/nfpMainFrame.cpp:1563
+msgid "Setting result faild:"
+msgstr "Błąd ustawiania wyników:"
+
+#: src/nfpMainFrame.cpp:1531
+#, c-format
+msgid "%i, %i"
+msgstr "%i, %i"
+
+#: src/nfpMainFrame.cpp:1621
+#: src/nfpMainFrame.cpp:1637
 #, c-format
 msgid "%s%s?l=en"
 msgstr "%s%s?l=pl"
 
-#: src/nfpMainFrame.cpp:1446
+#: src/nfpMainFrame.cpp:1629
 #, c-format
 msgid "%s?l=en"
 msgstr "%s?l=pl"
 
-#: src/nfpMainFrame.cpp:1523
+#: src/nfpMainFrame.cpp:1712
 msgid "Checking if new version of application is available."
 msgstr "Sprawdzam, czy jest dostępna nowa wercja aplikacji."
 
-#: src/nfpMainFrame.cpp:1585
-msgid "Unlock card\tCtrl+L"
-msgstr "Odblokuj edycję karty\tCtrl+L"
-
-#: src/nfpMainFrame.cpp:1586
-msgid "Unlock card. It will be possible to edit all card's data again"
-msgstr "Odblokuj edycję karty. Edycja tej karty będzie znowu możliwa"
-
-#: src/nfpMainFrame.cpp:1606
-#: src/nfpMainFrame.cpp:1608
+#: src/nfpMainFrame.cpp:1799
+#: src/nfpMainFrame.cpp:1801
 msgid "Save changes in current cards' set to the file?"
 msgstr "Czy zapisać zmiany w aktualnym zestawie?"
 
-#: src/nfpMainFrame.cpp:1629
+#: src/nfpMainFrame.cpp:1823
 msgid "Save cards' set as..."
 msgstr "Zapisz zestaw jako..."
 
-#: src/nfpMainFrame.cpp:1666
+#: src/nfpMainFrame.cpp:1860
 #, c-format
 msgid ""
 "Error occured while saving data to file:\n"
@@ -1888,7 +2357,7 @@ msgstr ""
 "Wystąpił błąd przy zapisywaniu danych do pliku:\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:1745
+#: src/nfpMainFrame.cpp:1943
 #, c-format
 msgid ""
 "%i day should be added to the current card to have on the card all days including today.\n"
@@ -1906,13 +2375,77 @@ msgstr[2] ""
 "%i dni powinno być dodanych do aktualnej karty aby na karcie znajdowały się wszystkie dni łącznie z dzisiejszym.\n"
 "Czy dodać brakujące dni?"
 
-#: src/nfpMainFrame.cpp:1851
+#: src/nfpMainFrame.cpp:2053
 msgid ""
 "Card is protected agains changes!\n"
 "Do you anyway want to updates results?"
 msgstr ""
 "Karta jest chroniona przed zmianami!\n"
 "Czy mimo wszystko chcesz zmodyfikować wyniki?"
+
+#: src/nfpMainFrame.cpp:2078
+msgid ""
+"In this release the automatic interpretation of cycle data has been implemented.\n"
+"Please read the documentation to understand how it works!"
+msgstr ""
+"W tej wersji programu zaimplementowano automatyczną interpretację danych cyklu.\n"
+"Proszę przeczytać informacje z dokumentacji aby zrozumieć jak to działa!\n"
+"Oczywiście wszelkie informacje o nieprawidłowym działaniu mile widziane."
+
+#: src/nfpMainFrame.cpp:2079
+msgid ""
+"\n"
+"\n"
+"Also the way how sexual relations are stored has been changed.\n"
+"Instead of storing number of sexual relations, you can now set\n"
+"that there was a sexual relations in the morning, during the day and in the evening.\n"
+"Because of that all existing data has been converted in following way:"
+msgstr ""
+"\n"
+"\n"
+"Zmienił się również sposób zapisu informacji o współżyciu.\n"
+"Zamiast wpisywania 'ile razy' teraz można zapisać o której porze dnia współżycie nastąpiło.\n"
+"Z tego powodu dotychczasowe dane zostały przekonwertowane w następujący sposób:"
+
+#: src/nfpMainFrame.cpp:2080
+msgid ""
+"\n"
+"- 1st reported sexual relation is now marked as 'in the evening'"
+msgstr ""
+"\n"
+"- 1-sze współżycie danego dnia zostało zaznaczone jako 'wieczorem'"
+
+#: src/nfpMainFrame.cpp:2081
+msgid ""
+"\n"
+"- 2nd reported sexual relation is now marked as 'during the day'"
+msgstr ""
+"\n"
+"- 2-gie współżycie danego dnia zostało zaznaczone jako 'w ciągnu dnia'"
+
+#: src/nfpMainFrame.cpp:2085
+msgid ""
+"\n"
+"- 3rd reported sexual relation is now marked as 'in the evening'"
+msgstr ""
+"\n"
+"- 3-cie współżycie danego dnia zostało zaznaczone jako 'rano'"
+
+#: src/nfpMainFrame.cpp:2089
+msgid ""
+"\n"
+"- 4th and other reported sexual relations reported for a day are not stored anymore"
+msgstr ""
+"\n"
+"- 4-te i kolejne współżycia danego dnia nie mogły zostać przekonwertowane do nowego formatu."
+
+#: src/nfpMainFrame.cpp:2093
+msgid ""
+"\n"
+"Last file in previous format has been backed-up in:\n"
+msgstr ""
+"\n"
+"Utworzono kopię zapasową aktualnego pliku danych w starym formacie:\n"
 
 #: src/notificationFrame.cpp:58
 msgid "Close"
@@ -2070,259 +2603,3 @@ msgstr ""
 "i wciśnij przycisk 'OK'.\n"
 "Jeżeli nie używasz proxy, wciśnij przycisk 'Anuluj'."
 
-#: src/cyclesData_declarations.h:63
-msgid "mouth"
-msgstr "usta"
-
-#: src/cyclesData_declarations.h:64
-msgid "rectum"
-msgstr "odbyt"
-
-#: src/cyclesData_declarations.h:65
-msgid "vagina"
-msgstr "pochwa"
-
-#: src/cyclesData_declarations.h:67
-#: src/cyclesData_declarations.h:86
-msgid "dry"
-msgstr "sucho"
-
-#: src/cyclesData_declarations.h:68
-#: src/cyclesData_declarations.h:87
-msgid "moist"
-msgstr "wilgotno"
-
-#: src/cyclesData_declarations.h:69
-#: src/cyclesData_declarations.h:88
-msgid "wet"
-msgstr "mokro"
-
-#: src/cyclesData_declarations.h:70
-msgid "slip."
-msgstr "śl"
-
-#: src/cyclesData_declarations.h:72
-msgid "o"
-msgstr "n"
-
-#: src/cyclesData_declarations.h:73
-msgid "w"
-msgstr "b"
-
-#: src/cyclesData_declarations.h:74
-msgid "y"
-msgstr "ż"
-
-#: src/cyclesData_declarations.h:75
-msgid "t"
-msgstr "l"
-
-#: src/cyclesData_declarations.h:76
-msgid "c"
-msgstr "p"
-
-#: src/cyclesData_declarations.h:77
-msgid "s"
-msgstr "r"
-
-#: src/cyclesData_declarations.h:78
-msgid "SR"
-msgstr "PN"
-
-#: src/cyclesData_declarations.h:80
-#: src/cyclesData_declarations.h:101
-msgid "soft"
-msgstr "miękka"
-
-#: src/cyclesData_declarations.h:81
-msgid "rf"
-msgstr "tm"
-
-#: src/cyclesData_declarations.h:82
-#: src/cyclesData_declarations.h:103
-msgid "firm"
-msgstr "twarda"
-
-#: src/cyclesData_declarations.h:83
-msgid "P"
-msgstr "S"
-
-#: src/cyclesData_declarations.h:89
-msgid "slippery"
-msgstr "ślisko"
-
-#: src/cyclesData_declarations.h:91
-msgid "high"
-msgstr "uniesiona"
-
-#: src/cyclesData_declarations.h:92
-msgid "above middle"
-msgstr "trochę uniesiona"
-
-#: src/cyclesData_declarations.h:93
-msgid "in middle"
-msgstr "na środku"
-
-#: src/cyclesData_declarations.h:94
-msgid "below middle"
-msgstr "trochę opuszczona"
-
-#: src/cyclesData_declarations.h:95
-msgid "low"
-msgstr "opuszczona"
-
-#: src/cyclesData_declarations.h:97
-msgid "open"
-msgstr "otwarta"
-
-#: src/cyclesData_declarations.h:98
-msgid "half-open"
-msgstr "pół-otwarta"
-
-#: src/cyclesData_declarations.h:99
-msgid "closed"
-msgstr "zamknięta"
-
-#: src/cyclesData_declarations.h:102
-msgid "rather firm"
-msgstr "twarda-miękka"
-
-#: src/cyclesData_declarations.h:105
-msgid ""
-"fertile\n"
-"phase"
-msgstr ""
-"faza\n"
-"płodna"
-
-#: src/cyclesData_declarations.h:106
-msgid ""
-"infertile\n"
-"phase"
-msgstr ""
-"faza\n"
-"niepłodna"
-
-#~ msgid "Histogram"
-#~ msgstr "Histogram"
-
-#~ msgid ","
-#~ msgstr ","
-
-#~ msgid "Temperature"
-#~ msgstr "Temperatura"
-
-#~ msgid "phase III"
-#~ msgstr "faza III"
-
-#~ msgid "phase I"
-#~ msgstr "faza I"
-
-#~ msgid "phase II"
-#~ msgstr "faza II"
-
-#~ msgid "First day of second phase"
-#~ msgstr "Pierwszy dzień drugiej fazy cyklu"
-
-#~ msgid "Thanks for reminder"
-#~ msgstr "Dzięki za przypomnienie"
-
-#~ msgid "en"
-#~ msgstr "pl"
-
-#~ msgid "wx-nfp help: %s"
-#~ msgstr "wx-nfp pomoc: %s"
-
-#~ msgid "Maximum temperature"
-#~ msgstr "Maksymalna temperatura"
-
-#~ msgid "Minimum temperature"
-#~ msgstr "Minimalna temperatura"
-
-#~ msgid "Double click to change language now"
-#~ msgstr "--out"
-
-#~ msgid "When application starts load the last opened cards' set"
-#~ msgstr "Przy starcie programu otwórz ostatnio otwarty zbiór kart"
-
-#~ msgid ""
-#~ "When the cards' set is loaded propose to add missing days to the last card"
-#~ msgstr ""
-#~ "Po otwarciu zestawu, zaproponuj dodanie brakujących dni do ostatniej karty"
-
-#~ msgid "Define the minimum temperature on the chart."
-#~ msgstr "Ustaw kolor punktu temperatury niższego poziomu"
-
-#~ msgid "Line which connects temperature points"
-#~ msgstr "Ustaw kolor linii łącząca punkty temperatury"
-
-#~ msgid "NFP - configuration"
-#~ msgstr "NPR - ustawienia programu"
-
-#~ msgid "Cannot parse URL: '%s'.. Is it correct URL?"
-#~ msgstr "Problem z utworzeniem URL: '%s' - czy to  jest poprawny URL?"
-
-#~ msgid "Cannot read from URL: '%s'"
-#~ msgstr "Problem z czytaniem danych z adresu: '%s'"
-
-#~ msgid ""
-#~ "Incorrect data received from Web Server -couldn't find the '.' character "
-#~ "in the 'installedVersion' string '%s'"
-#~ msgstr ""
-#~ "Server zwrócił niepoprawne dane - nie mogę znaleźć znaku '.' w wartości "
-#~ "parameteru 'installedVersion': '%s'"
-
-#~ msgid "Vaild dates: 2004-01-01 - 2007-04-03"
-#~ msgstr "Poprawne daty: 2004-01-01 - 2007-04-03"
-
-#~ msgid "card is locked - changes of the data is not allowed!"
-#~ msgstr "edycja karty jest zablokowana! - dane tylko do odczytu."
-
-#~ msgid "card number "
-#~ msgstr "numer karty"
-
-#~ msgid "date "
-#~ msgstr "data"
-
-#~ msgid "Apply"
-#~ msgstr "Zastosuj"
-
-#~ msgid "d"
-#~ msgstr "s"
-
-#~ msgid "m"
-#~ msgstr "w"
-
-#~ msgid "sl"
-#~ msgstr "śl"
-
-#~ msgid "f"
-#~ msgstr "t"
-
-#~ msgid "Fonts settings have been changed - refresh view."
-#~ msgstr "Fonts settings have been changed - refresh view."
-
-#~ msgid ""
-#~ "Buttons style setting has been changed - run setButtonsStyle() methods."
-#~ msgstr ""
-#~ "Buttons style setting has been changed - run setButtonsStyle() methods."
-
-#~ msgid "Config has been changed."
-#~ msgstr "Config has been changed."
-
-#, fuzzy
-#~ msgid ""
-#~ "Language settings have been changed - display info that the application "
-#~ "must be restarted."
-#~ msgstr "--out"
-
-#~ msgid "Generate the language skeleton file"
-#~ msgstr "--out"
-
-#~ msgid ""
-#~ "Generate the language skeleton file\n"
-#~ "- this file can be used later to create language file for new languege."
-#~ msgstr "--out"
-
-#~ msgid "areFontsTheSame"
-#~ msgstr "--out"
