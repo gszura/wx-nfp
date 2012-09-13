@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="statisticsFrame">
+		<id_arg>0</id_arg>
+		<handler function="resize" entry="EVT_SIZE" />
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_chartPanel" variable="chartPanel" member="yes">
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer3" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxListBox" name="ID_listBoxChartList" variable="listBoxChartList" member="yes">
+										<default>-1</default>
+										<size>180,400</size>
+										<minsize>150,400</minsize>
+										<handler function="listBoxChartListSelect" entry="EVT_LISTBOX" />
+										<handler function="listBoxChartListDClick" entry="EVT_LISTBOX_DCLICK" />
+									</object>
+									<flag>wxTOP|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_buttonClose" variable="buttonClose" member="yes">
+										<label>Close</label>
+										<handler function="buttonCloseClick" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer4" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="Custom" name="ID_chartWindow" subclass="customChartWindow" variable="chartWindow" member="yes">
+										<creating_code>$(THIS) = new $(CLASS)($(PARENT),m__config,m__cycleData,$(ID),$(POS),$(SIZE));</creating_code>
+										<style></style>
+										<size>650,-1</size>
+										<minsize>400,-1</minsize>
+									</object>
+									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<option>1</option>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

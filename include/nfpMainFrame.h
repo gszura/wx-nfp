@@ -44,8 +44,6 @@
 #include "dayFrame.h"
 #include "liveUpdateClass.h"
 #include "updatesNotificationForm.h"
-#include "histogramsFrame.h"
-#include "cycleGraph.h"
 #include "notificationFrame.h"
 
 #undef nfpMainFrame_STYLE
@@ -146,8 +144,7 @@ public:
         ID_MNU_MOVE_DAYS,
         ID_MNU_MOVE_DAYS_TO_PREV_CARD,
         ID_MNU_MOVE_DAYS_TO_NEXT_CARD,
-        ID_MNU_STAT_CYCLE_HIST,
-        ID_MNU_STAT_TEMPER_HIST,
+        ID_MNU_STAT_STATICTICS,
         ID_MNU_HELP_MENU,
         ID_MNU_HELP,
         ID_MNU_HOME_PAGE,
@@ -238,6 +235,7 @@ public:
     void MnuResultsAutocalculateOnChangeClick(wxCommandEvent& event);
     void MnuResultsChangeAnalysisSettingsClick(wxCommandEvent& event);
 
+    void MnuStatStatisticsClick(wxCommandEvent& event);
     void MnuLengthOfCycleHist(wxCommandEvent& event);
     void MnuCycleHist(wxCommandEvent& event);
 
@@ -255,6 +253,7 @@ public:
 private:
     cardFrame *m_cardFrm;
     dayFrame *m_dayFrm;
+    notificationFrame *m_notificationFrm;
 
     wxWindow *m_parent;
     configClass *m_config;
@@ -295,6 +294,9 @@ public:
     bool checkForMissingDays();
     int getNumberOfDays (wxDateTime, wxDateTime);
     void showNotification( const wxString& message, int textAlign = wxALIGN_LEFT );
+    void showAnalysisResultNotification( const wxString&);
+    void closeAnalysisResultNotification();
+
 
 private:
     bool doModifyLockedCard();

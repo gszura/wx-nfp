@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        customWindowMain.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -52,8 +52,6 @@ customWindowMain::customWindowMain( wxWindow *parent, customWindowLeft *windowLe
  * Method runs on OnPaint event.
  */
 void customWindowMain::OnPaint( wxPaintEvent &WXUNUSED( event ) ) {
-
-
 
     SetBackgroundColour( m_config->colourBackground );
 

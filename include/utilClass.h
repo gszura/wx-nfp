@@ -32,8 +32,7 @@ public:
 
      wxDateTime getZeroDateTime();
 
-     wxString temperatureToStr (int, bool);
-     wxString temperatureToStr (int, bool, bool);
+     wxString temperatureToStr (int temp, bool correction = true, bool returnZero = false);
      int strToTemperature (wxString);
 
 private:

@@ -19,10 +19,11 @@ END_EVENT_TABLE()
 /**
  *
  */
-notificationFrame::notificationFrame( wxWindow *parent, configClass *config, const wxString& message, int textAlign, const wxPoint& pos, const wxSize& size, wxWindowID id, const wxString &title, long style )
+notificationFrame::notificationFrame( wxWindow *parent, configClass *config, const wxString& message, int textAlign, const wxPoint& pos, bool hideOnClose, const wxSize& size, wxWindowID id, const wxString &title, long style )
     : wxDialog( parent, id, title, pos, size, style )
 {
     m_config = config;
+    m_hideOnClose = hideOnClose;
     CreateGUIControls(message, textAlign);
 }
 
@@ -73,12 +74,27 @@ void notificationFrame::CreateGUIControls(const wxString& message, int textAlign
     //buttonClose->SetDefault();
 }
 
+
+/**
+ *
+ */
+void notificationFrame::setMessage( wxString message )
+{
+    text1->SetLabel(message);
+    this->Refresh();
+    this->Update();
+    this->Show();
+}
+
 /**
  *
  */
 void notificationFrame::OnClose( wxCloseEvent& /*event*/ )
 {
-    Destroy();
+    if (m_hideOnClose)
+        Hide();
+    else
+        Destroy();
 }
 
 /**
@@ -86,5 +102,8 @@ void notificationFrame::OnClose( wxCloseEvent& /*event*/ )
  */
 void notificationFrame::buttonCloseClick( wxCommandEvent& event )
 {
-    Destroy();
+    if (m_hideOnClose)
+        Hide();
+    else
+        Destroy();
 }

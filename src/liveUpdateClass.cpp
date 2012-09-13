@@ -63,6 +63,7 @@ void liveUpdateClass::OnExit() {
 bool liveUpdateClass::checkUpdateAvailability() {
     wxString urlToFetch = wxString::Format( _T( "%s%s" ), HOME_URL, UPDATES_PATH );
 #if defined(__UNIX__)
+    // FIXME 'deb32', 'deb64'
     urlToFetch << _T( "?os=linux" );
 #else
     urlToFetch << _T( "?os=win" );

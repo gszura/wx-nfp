@@ -1,6 +1,3 @@
-#ifndef HEADER_F339FF6BCADB581F
-#define HEADER_F339FF6BCADB581F
-
 /*******************************************************************************
 //
 // Name:        cardEntry.h
@@ -216,6 +213,3 @@ WX_DECLARE_HASH_MAP( int, cardEntry*, wxIntegerHash, wxIntegerEqual, cardEntryHa
 *******************************************************************************/
 
 #endif
-
-
-#endif // header guard

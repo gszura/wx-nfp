@@ -123,8 +123,8 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-DwxUSE_UNICODE" />
 					<Add option="`/usr/bin/wx-config --cflags --unicode=yes`" />
+					<Add option="-DwxUSE_UNICODE" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -139,8 +139,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DwxUSE_UNICODE" />
 					<Add option="`/usr/bin/wx-config --cflags --unicode=yes --debug=yes`" />
+					<Add option="-DwxUSE_UNICODE" />
 				</Compiler>
 				<Linker>
 					<Add option="`/usr/bin/wx-config --libs --debug=yes`" />
@@ -165,63 +165,76 @@
 		<VirtualTargets>
 			<Add alias="All" targets="default;" />
 		</VirtualTargets>
+		<Compiler>
+			<Add directory="include" />
+		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#wx)/include" />
 		</ResourceCompiler>
+		<Unit filename="include/aboutFrame.h" />
+		<Unit filename="include/cardEntry.h" />
+		<Unit filename="include/cardFrame.h" />
+		<Unit filename="include/chart.h" />
+		<Unit filename="include/configClass.h" />
+		<Unit filename="include/configFrame.h" />
+		<Unit filename="include/customChartWindow.h" />
+		<Unit filename="include/customPrintout.h" />
+		<Unit filename="include/customWindowLeft.h" />
+		<Unit filename="include/customWindowMain.h" />
+		<Unit filename="include/customWindowNotes.h" />
+		<Unit filename="include/customWindowTop.h" />
+		<Unit filename="include/cyclesData.h" />
+		<Unit filename="include/cyclesData_declarations.h" />
+		<Unit filename="include/cyclesLengthChart.h" />
+		<Unit filename="include/dayEntry.h" />
+		<Unit filename="include/dayFrame.h" />
+		<Unit filename="include/drawingClass.h" />
+		<Unit filename="include/goToFrame.h" />
+		<Unit filename="include/liveUpdateClass.h" />
+		<Unit filename="include/lutealPhasesChart.h" />
+		<Unit filename="include/nfpMainFrame.h" />
+		<Unit filename="include/notificationFrame.h" />
+		<Unit filename="include/phasesChart.h" />
+		<Unit filename="include/printFrame.h" />
+		<Unit filename="include/statisticsFrame.h" />
+		<Unit filename="include/temperaturesChart.h" />
+		<Unit filename="include/translationHelper.h" />
+		<Unit filename="include/updatesNotificationForm.h" />
+		<Unit filename="include/utilClass.h" />
+		<Unit filename="include/wx-nfpApp.h" />
+		<Unit filename="include/wx-nfpAppInfo.h" />
+		<Unit filename="include/wx-nfpAppVersion.h" />
 		<Unit filename="src/aboutFrame.cpp" />
-		<Unit filename="src/aboutFrame.h" />
 		<Unit filename="src/cardEntry.cpp" />
-		<Unit filename="src/cardEntry.h" />
 		<Unit filename="src/cardFrame.cpp" />
-		<Unit filename="src/cardFrame.h" />
+		<Unit filename="src/chart.cpp" />
 		<Unit filename="src/configClass.cpp" />
-		<Unit filename="src/configClass.h" />
 		<Unit filename="src/configFrame.cpp" />
-		<Unit filename="src/configFrame.h" />
+		<Unit filename="src/customChartWindow.cpp" />
 		<Unit filename="src/customPrintout.cpp" />
-		<Unit filename="src/customPrintout.h" />
 		<Unit filename="src/customWindowLeft.cpp" />
-		<Unit filename="src/customWindowLeft.h" />
 		<Unit filename="src/customWindowMain.cpp" />
-		<Unit filename="src/customWindowMain.h" />
 		<Unit filename="src/customWindowNotes.cpp" />
-		<Unit filename="src/customWindowNotes.h" />
 		<Unit filename="src/customWindowTop.cpp" />
-		<Unit filename="src/customWindowTop.h" />
-		<Unit filename="src/cycleGraph.cpp" />
-		<Unit filename="src/cycleGraph.h" />
 		<Unit filename="src/cyclesData.cpp" />
-		<Unit filename="src/cyclesData.h" />
-		<Unit filename="src/cyclesData_declarations.h" />
 		<Unit filename="src/cyclesData_results.cpp" />
+		<Unit filename="src/cyclesLengthChart.cpp" />
 		<Unit filename="src/dayEntry.cpp" />
-		<Unit filename="src/dayEntry.h" />
 		<Unit filename="src/dayFrame.cpp" />
-		<Unit filename="src/dayFrame.h" />
 		<Unit filename="src/drawingClass.cpp" />
-		<Unit filename="src/drawingClass.h" />
 		<Unit filename="src/goToFrame.cpp" />
-		<Unit filename="src/goToFrame.h" />
-		<Unit filename="src/histogramsFrame.cpp" />
-		<Unit filename="src/histogramsFrame.h" />
 		<Unit filename="src/liveUpdateClass.cpp" />
-		<Unit filename="src/liveUpdateClass.h" />
+		<Unit filename="src/lutealPhasesChart.cpp" />
 		<Unit filename="src/nfpMainFrame.cpp" />
-		<Unit filename="src/nfpMainFrame.h" />
 		<Unit filename="src/notificationFrame.cpp" />
-		<Unit filename="src/notificationFrame.h" />
+		<Unit filename="src/phasesChart.cpp" />
 		<Unit filename="src/printFrame.cpp" />
-		<Unit filename="src/printFrame.h" />
+		<Unit filename="src/statisticsFrame.cpp" />
+		<Unit filename="src/temperaturesChart.cpp" />
 		<Unit filename="src/translationHelper.cpp" />
-		<Unit filename="src/translationHelper.h" />
 		<Unit filename="src/updatesNotificationForm.cpp" />
-		<Unit filename="src/updatesNotificationForm.h" />
 		<Unit filename="src/utilClass.cpp" />
-		<Unit filename="src/utilClass.h" />
 		<Unit filename="src/wx-nfpApp.cpp" />
-		<Unit filename="src/wx-nfpApp.h" />
-		<Unit filename="src/wx-nfpAppInfo.h" />
-		<Unit filename="src/wx-nfpAppVersion.h" />
 		<Unit filename="wx-nfpApp.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
@@ -229,22 +242,24 @@
 		<Unit filename="wxsmith/configFrame.wxs" />
 		<Unit filename="wxsmith/dayFrame.wxs" />
 		<Unit filename="wxsmith/goToFrame.wxs" />
+		<Unit filename="wxsmith/statisticsFrame.wxs" />
 		<Extensions>
 			<code_completion />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
 				<resources>
-					<wxDialog wxs="wxsmith/cardFrame.wxs" src="src/cardFrame.cpp" hdr="src/cardFrame.h" fwddecl="0" i18n="1" name="cardFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/dayFrame.wxs" src="src/dayFrame.cpp" hdr="src/dayFrame.h" fwddecl="0" i18n="1" name="dayFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/goToFrame.wxs" src="src/goToFrame.cpp" hdr="src/goToFrame.h" fwddecl="0" i18n="1" name="goToFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/configFrame.wxs" src="src/configFrame.cpp" hdr="src/configFrame.h" fwddecl="0" i18n="1" name="configFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/cardFrame.wxs" src="src/cardFrame.cpp" hdr="include/cardFrame.h" fwddecl="0" i18n="1" name="cardFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/dayFrame.wxs" src="src/dayFrame.cpp" hdr="include/dayFrame.h" fwddecl="0" i18n="1" name="dayFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/goToFrame.wxs" src="src/goToFrame.cpp" hdr="include/goToFrame.h" fwddecl="0" i18n="1" name="goToFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/configFrame.wxs" src="src/configFrame.cpp" hdr="include/configFrame.h" fwddecl="0" i18n="1" name="configFrame" language="CPP" />
+					<wxFrame wxs="wxsmith/statisticsFrame.wxs" src="src/statisticsFrame.cpp" hdr="include/statisticsFrame.h" fwddecl="0" i18n="1" name="statisticsFrame" language="CPP" />
 				</resources>
 			</wxsmith>
 			<envvars />
 			<debugger />
 			<AutoVersioning>
-				<Scheme minor_max="20" build_max="0" rev_max="0" rev_rand_max="1" build_times_to_increment_minor="100000" />
-				<Settings autoincrement="0" date_declarations="1" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory=" " header_path="src/wx-nfpAppVersion.h" />
+				<Scheme minor_max="20" build_max="0" rev_max="0" rev_rand_max="1" build_times_to_increment_minor="500000" />
+				<Settings autoincrement="0" date_declarations="1" update_manifest="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory=" " header_path="include/wx-nfpAppVersion.h" />
 				<Changes_Log show_changes_editor="0" app_title="%M.%m.%b" changeslog_path="changesLog.txt" />
 				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix=" " />
 			</AutoVersioning>

@@ -161,54 +161,6 @@
 											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
-												<cols>2</cols>
-												<growablecols>0</growablecols>
-												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_checkBoxStoppedPills" variable="checkBoxStoppedPills" member="yes">
-														<label>I just stopped using birth control pills</label>
-														<tooltip>Check this checkbox if this is the first cycle after stopping using birth control pills&#x0A;This information is used to calculate the beginning of the infertile phase</tooltip>
-														<handler function="checkBoxStoppedPillsClick" entry="EVT_CHECKBOX" />
-													</object>
-													<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-													<border>5</border>
-													<option>1</option>
-												</object>
-												<object class="sizeritem">
-													<object class="wxStaticText" name="ID_changesStoppedPills" variable="changesStoppedPills" member="yes">
-														<label></label>
-														<size>15,-1</size>
-														<fg>#FF0000</fg>
-														<style>wxALIGN_CENTRE</style>
-													</object>
-													<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-													<border>5</border>
-												</object>
-												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_checkBoxCorrupedData" variable="checkBoxCorruptedData" member="yes">
-														<label>data in this cycle are corrupted or incomplete</label>
-														<tooltip>That means that data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles</tooltip>
-														<handler function="checkBoxCorruptedDataClick" entry="EVT_CHECKBOX" />
-													</object>
-													<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-													<border>5</border>
-													<option>1</option>
-												</object>
-												<object class="sizeritem">
-													<object class="wxStaticText" name="ID_changesCorruptedData" variable="changesCorruptedData" member="yes">
-														<label></label>
-														<size>15,-1</size>
-														<fg>#FF0000</fg>
-														<style>wxALIGN_CENTRE</style>
-													</object>
-													<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-													<border>5</border>
-												</object>
-											</object>
-											<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-											<border>5</border>
-										</object>
-										<object class="sizeritem">
 											<object class="wxStaticText" name="ID_staticTemp" variable="staticTemp" member="yes">
 												<label>temperature measurement:</label>
 											</object>
@@ -473,7 +425,6 @@
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
-									<option>1</option>
 								</object>
 								<object class="sizeritem">
 									<object class="wxBoxSizer" variable="sizerDataRight" member="no">
@@ -492,6 +443,54 @@
 													<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
 													<option>1</option>
+												</object>
+												<object class="sizeritem">
+													<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
+														<cols>2</cols>
+														<growablecols>0</growablecols>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxStoppedPills" variable="checkBoxStoppedPills" member="yes">
+																<label>I just stopped using birth control pills</label>
+																<tooltip>Check this checkbox if this is the first cycle after stopping using birth control pills&#x0A;This information is used to calculate the beginning of the infertile phase</tooltip>
+																<handler function="checkBoxStoppedPillsClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesStoppedPills" variable="changesStoppedPills" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+														<object class="sizeritem">
+															<object class="wxCheckBox" name="ID_checkBoxCorrupedData" variable="checkBoxCorruptedData" member="yes">
+																<label>data in this cycle are corrupted or incomplete</label>
+																<tooltip>That means that data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles</tooltip>
+																<handler function="checkBoxCorruptedDataClick" entry="EVT_CHECKBOX" />
+															</object>
+															<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxStaticText" name="ID_changesCorruptedData" variable="changesCorruptedData" member="yes">
+																<label></label>
+																<size>15,-1</size>
+																<fg>#FF0000</fg>
+																<style>wxALIGN_CENTRE</style>
+															</object>
+															<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+															<border>5</border>
+														</object>
+													</object>
+													<flag>wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
 												</object>
 												<object class="sizeritem">
 													<object class="wxBoxSizer" variable="sizerCardNotes1" member="no">
@@ -692,7 +691,6 @@
 										</object>
 									</object>
 									<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-									<option>1</option>
 								</object>
 							</object>
 							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

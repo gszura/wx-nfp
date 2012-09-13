@@ -13,9 +13,9 @@
 
 //(*InternalHeaders(cardFrame)
 #include <wx/settings.h>
-#include <wx/font.h>
-#include <wx/intl.h>
 #include <wx/string.h>
+#include <wx/intl.h>
+#include <wx/font.h>
 //*)
 
 /******************************************************************************/
@@ -113,7 +113,6 @@ cardFrame::cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycl
     m_notesEventProcessing = false;
 
     buildGui(parent);
-
 }
 
 /**
@@ -122,24 +121,24 @@ cardFrame::cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycl
 void cardFrame::buildGui(wxWindow* parent)
 {
     //(*Initialize(cardFrame)
-    wxBoxSizer* sizerMain2;
-    wxFlexGridSizer* sizerTempCorrection;
-    wxBoxSizer* sizerMain1;
-    wxFlexGridSizer* sizerPrevCycles2;
-    wxBoxSizer* sizerDataRight;
-    wxBoxSizer* sizerCardNotes1;
-    wxFlexGridSizer* sizerTemp;
-    wxStaticBoxSizer* sizerCardNotes;
-    wxFlexGridSizer* sizerCardNo;
-    wxBoxSizer* sizerButtons;
-    wxBoxSizer* BoxSizer1;
+    wxStaticBoxSizer* sizerDataLeft;
     wxStaticBoxSizer* sizerPrevCycles;
     wxFlexGridSizer* FlexGridSizer1;
-    wxStaticBoxSizer* sizerDataLeft;
-    wxStaticBoxSizer* sizerCommon;
     wxFlexGridSizer* sizerCommon2;
-    wxBoxSizer* sizerData;
+    wxBoxSizer* sizerMain2;
+    wxFlexGridSizer* sizerTempCorrection;
     wxBoxSizer* sizerTempTime;
+    wxFlexGridSizer* sizerCardNo;
+    wxFlexGridSizer* sizerTemp;
+    wxStaticBoxSizer* sizerCommon;
+    wxBoxSizer* sizerMain1;
+    wxStaticBoxSizer* sizerCardNotes;
+    wxBoxSizer* sizerData;
+    wxBoxSizer* BoxSizer1;
+    wxBoxSizer* sizerButtons;
+    wxFlexGridSizer* sizerPrevCycles2;
+    wxBoxSizer* sizerCardNotes1;
+    wxBoxSizer* sizerDataRight;
 
     Create(parent, wxID_ANY, _("NFP - edit card\'s data"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);
@@ -277,7 +276,7 @@ void cardFrame::buildGui(wxWindow* parent)
     changesTempCorrectionTime->SetForegroundColour(wxColour(255,0,0));
     sizerTempCorrection->Add(changesTempCorrectionTime, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerDataLeft->Add(sizerTempCorrection, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerData->Add(sizerDataLeft, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerData->Add(sizerDataLeft, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerDataRight = new wxBoxSizer(wxVERTICAL);
     sizerCardNotes = new wxStaticBoxSizer(wxVERTICAL, panelMain, _("notes for current card"));
     textNotes = new wxTextCtrl(panelMain, ID_textNotes, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE|wxSIMPLE_BORDER, wxDefaultValidator, _T("ID_textNotes"));
@@ -289,18 +288,18 @@ void cardFrame::buildGui(wxWindow* parent)
     checkBoxStoppedPills = new wxCheckBox(panelMain, ID_checkBoxStoppedPills, _("I just stopped using birth control pills"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxStoppedPills"));
     checkBoxStoppedPills->SetValue(false);
     checkBoxStoppedPills->SetToolTip(_("Check this checkbox if this is the first cycle after stopping using birth control pills\nThis information is used to calculate the beginning of the infertile phase"));
-    FlexGridSizer1->Add(checkBoxStoppedPills, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(checkBoxStoppedPills, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     changesStoppedPills = new wxStaticText(panelMain, ID_changesStoppedPills, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesStoppedPills"));
     changesStoppedPills->SetForegroundColour(wxColour(255,0,0));
-    FlexGridSizer1->Add(changesStoppedPills, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(changesStoppedPills, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxCorruptedData = new wxCheckBox(panelMain, ID_checkBoxCorrupedData, _("data in this cycle are corrupted or incomplete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxCorrupedData"));
     checkBoxCorruptedData->SetValue(false);
     checkBoxCorruptedData->SetToolTip(_("That means that data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles"));
-    FlexGridSizer1->Add(checkBoxCorruptedData, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(checkBoxCorruptedData, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     changesCorruptedData = new wxStaticText(panelMain, ID_changesCorruptedData, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCorruptedData"));
     changesCorruptedData->SetForegroundColour(wxColour(255,0,0));
-    FlexGridSizer1->Add(changesCorruptedData, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerCardNotes->Add(FlexGridSizer1, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(changesCorruptedData, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerCardNotes->Add(FlexGridSizer1, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerCardNotes1 = new wxBoxSizer(wxHORIZONTAL);
     staticNotes = new wxStaticText(panelMain, ID_staticNotes, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticNotes"));
     staticNotes->SetToolTip(_("Type notes common for this cycle"));
@@ -344,26 +343,26 @@ void cardFrame::buildGui(wxWindow* parent)
     sizerPrevCycles2->Add(spinShortestCycleFromCycles, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticPrevCycle2 = new wxStaticText(panelMain, ID_staticPrevCycle2, _("cycles"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPrevCycle2"));
     staticPrevCycle2->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
-    sizerPrevCycles2->Add(staticPrevCycle2, 0, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles2->Add(staticPrevCycle2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesShortestCycleFromCycles = new wxStaticText(panelMain, ID_changesShortestCycleFromCycles, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesShortestCycleFromCycles"));
     changesShortestCycleFromCycles->SetForegroundColour(wxColour(255,0,0));
     sizerPrevCycles2->Add(changesShortestCycleFromCycles, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticPrevCycle3 = new wxStaticText(panelMain, ID_staticPreCycle3, _("was"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_staticPreCycle3"));
     staticPrevCycle3->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
-    sizerPrevCycles2->Add(staticPrevCycle3, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles2->Add(staticPrevCycle3, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     spinShortestCycleDays = new wxSpinCtrl(panelMain, ID_spinShortestCycleDays, _T("0"), wxDefaultPosition, wxSize(70,-1), wxSIMPLE_BORDER, 0, 70, 0, _T("ID_spinShortestCycleDays"));
     spinShortestCycleDays->SetValue(_T("0"));
     spinShortestCycleDays->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
-    sizerPrevCycles2->Add(spinShortestCycleDays, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles2->Add(spinShortestCycleDays, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     staticPrevCycle4 = new wxStaticText(panelMain, ID_staticPrevCycle4, _("days"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPrevCycle4"));
     staticPrevCycle4->SetToolTip(_("Record here what was the length of the shortest cycle from the period BEFORE you start using this application"));
-    sizerPrevCycles2->Add(staticPrevCycle4, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles2->Add(staticPrevCycle4, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesShortestCycleDays = new wxStaticText(panelMain, ID_changesShortestCycleDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesShortestCycleDays"));
     changesShortestCycleDays->SetForegroundColour(wxColour(255,0,0));
-    sizerPrevCycles2->Add(changesShortestCycleDays, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerPrevCycles2->Add(changesShortestCycleDays, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerPrevCycles->Add(sizerPrevCycles2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerDataRight->Add(sizerPrevCycles, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerData->Add(sizerDataRight, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerData->Add(sizerDataRight, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerMain2->Add(sizerData, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     sizerButtons = new wxBoxSizer(wxHORIZONTAL);
     buttonSave = new wxButton(panelMain, ID_buttonSave, _("save changes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonSave"));
@@ -1161,6 +1160,7 @@ void cardFrame::update()
         if ( m_cycleData->getCard()->getCardLocked() ) {
             comboBoxCycleType->Enable( false );
             checkBoxStoppedPills->Enable( false );
+            checkBoxCorruptedData->Enable( false );
             comboBoxTempTimeHour->Enable( false );
             comboBoxTempTimeMinute->Enable( false );
             comboBoxTempPlace->Enable( false );
@@ -1172,6 +1172,7 @@ void cardFrame::update()
         } else {
             comboBoxCycleType->Enable( true );
             checkBoxStoppedPills->Enable( true );
+            checkBoxCorruptedData->Enable( true );
             comboBoxTempTimeHour->Enable( true );
             comboBoxTempTimeMinute->Enable( true );
             comboBoxTempPlace->Enable( true );
@@ -1264,8 +1265,7 @@ void cardFrame::updateButtonsState()
 }
 
 /**
- * ask to save chages and next check if value of the 'name' is not
- * empty - if it's empty then do not let to exit the window.
+ * ask to save chages and next check if value of the 'name' is not empty - if it's empty then do not let to exit the window.
  */
 bool cardFrame::checkIfCanExit( bool cancelAllowed )
 {
@@ -1394,7 +1394,13 @@ bool cardFrame::save()
         sendDataUpdateEvent( ACTIVE_CARD_UPDATE_WITH_TEMP, _T( "refresh current card - temperature related data have been changed." ) );
     } else if ( changesTempCorrectionMouth->GetLabel().IsSameAs( _T( "*" ) ) ||
                 changesTempCorrectionVagina->GetLabel().IsSameAs( _T( "*" ) ) ||
-                changesTempCorrectionRectum->GetLabel().IsSameAs( _T( "*" ) )
+                changesTempCorrectionRectum->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesCycleType->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesBasicInfertilePattern->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesStoppedPills->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesCorruptedData->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesShortestCycleFromCycles->GetLabel().IsSameAs( _T( "*" ) ) ||
+                changesShortestCycleDays->GetLabel().IsSameAs( _T( "*" ) )
               ) {
         updateTemperatureCorrectedValues();
 

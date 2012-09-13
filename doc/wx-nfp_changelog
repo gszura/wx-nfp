@@ -13,9 +13,14 @@
 * US date format  (low priority - is it really needed..?)
 
 == known issues
-* Printing under Linux doesn't work
+* Printing with correct fonts under Linux doesn't work
 
-== 0.9 (build 1099, 2012-09-04)
+== 0.9.1 (build 1433, 2012-09-13)
+* New: New statistics.
+* Fix: Fixed existing statistics.
+* Fix: Now the notification pop-up after calculating results is not be dupliced.
+
+== 0.9 (build 1116, 2012-09-05)
 * New: Automatic interpretation of cycle data has been implemented.
 * New: Added possibility to set the cycle type (normal, pregnancy, after-pregnancy and peri-menopause)
 * New: Allow to define more than one result (mucus/cervix 1st day/peak day) for after-pregnancy and peri-menopause cycles (see Billings ovulation method rules).

@@ -11,17 +11,17 @@
 #define __CARD_FRAME__
 
 //(*Headers(cardFrame)
+#include <wx/spinctrl.h>
+#include <wx/combobox.h>
+#include <wx/checkbox.h>
+#include <wx/dialog.h>
 #include <wx/sizer.h>
+#include <wx/datectrl.h>
+#include <wx/button.h>
+#include <wx/dateevt.h>
+#include <wx/panel.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/checkbox.h>
-#include <wx/datectrl.h>
-#include <wx/spinctrl.h>
-#include <wx/panel.h>
-#include <wx/dateevt.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
-#include <wx/combobox.h>
 //*)
 
 #include "configClass.h"
@@ -51,76 +51,76 @@ enum {
 class cardFrame: public wxDialog
 {
 public:
-    cardFrame(wxWindow* parent,configClass *config, cycleDataClass *cycleData, wxWindowID id=wxID_ANY);
+    cardFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleData, wxWindowID id=wxID_ANY);
     virtual ~cardFrame();
 
     //(*Declarations(cardFrame)
-    wxStaticText* changesBirthdayDay;
-    wxStaticText* changesTempCorrectionMouth;
-    wxButton* buttonCancel;
-    wxStaticText* staticPrevCycle2;
-    wxStaticText* textCardNo;
-    wxStaticText* changesShortestCycleFromCycles;
-    wxComboBox* comboBoxTempCorrectionTime;
-    wxComboBox* comboBoxTempCorrectionVagina;
-    wxStaticText* changesTempPlace;
-    wxStaticText* changes1stDayOfCycle;
-    wxStaticText* staticPrevCycle1;
-    wxStaticText* staticTempTime;
-    wxStaticText* staticCycleType;
-    wxStaticText* changesTempCorrectionRectum;
-    wxComboBox* comboBoxTempPlace;
-    wxComboBox* comboBoxBasicInfertilePattern;
-    wxStaticText* changesTempCorrectionVagina;
-    wxStaticText* staticCardNo;
-    wxStaticText* staticTempCorrectionRectum;
-    wxComboBox* comboBoxTempTimeMinute;
-    wxStaticText* staticPrevCycle4;
-    wxStaticText* changesBasicInfertilePattern;
-    wxStaticText* changesTempTime;
-    wxDatePickerCtrl* datePickerBirthdayDay;
-    wxStaticText* changesNotes;
-    wxStaticText* staticPrevCycle3;
-    wxTextCtrl* textName;
-    wxStaticText* staticTempCorrection;
-    wxStaticText* changesCycleType;
-    wxCheckBox* checkBoxStoppedPills;
-    wxComboBox* comboBoxTempCorrectionMouth;
-    wxStaticText* staticSpace5;
     wxStaticText* changesCorruptedData;
-    wxComboBox* comboBoxTempCorrectionRectum;
-    wxComboBox* comboBoxCycleType;
+    wxStaticText* staticPrevCycle3;
+    wxStaticText* changesCycleType;
+    wxStaticText* changesTempCorrectionVagina;
+    wxComboBox* comboBoxBasicInfertilePattern;
+    wxStaticText* staticSpace5;
+    wxComboBox* comboBoxTempCorrectionTime;
+    wxDatePickerCtrl* datePicker1stDayOfCycle;
+    wxStaticText* changesBirthdayDay;
+    wxStaticText* staticBasicInfertilePattern;
+    wxStaticText* staticName;
+    wxCheckBox* checkBoxCorruptedData;
+    wxComboBox* comboBoxTempTimeMinute;
+    wxStaticText* staticTempCorrection;
+    wxStaticText* staticSpace6;
+    wxStaticText* staticPrevCycle2;
+    wxStaticText* staticSpace7;
+    wxStaticText* staticTempTime;
+    wxSpinCtrl* spinShortestCycleDays;
+    wxStaticText* staticCycleType;
+    wxStaticText* static1stDayOfCycle;
+    wxStaticText* staticSpace4;
+    wxStaticText* changesShortestCycleFromCycles;
     wxStaticText* staticTemp;
+    wxStaticText* staticSpace3;
+    wxStaticText* changesBasicInfertilePattern;
+    wxStaticText* changesTempPlace;
+    wxComboBox* comboBoxTempPlace;
+    wxStaticText* changes1stDayOfCycle;
+    wxStaticText* staticCardNo;
     wxStaticText* changesStoppedPills;
+    wxStaticText* changesTempCorrectionTime;
+    wxComboBox* comboBoxTempCorrectionRectum;
+    wxStaticText* staticNotes;
+    wxStaticText* staticTempPlace;
     wxStaticText* StaticText3;
+    wxTextCtrl* textNotes;
+    wxStaticText* staticSpace1;
+    wxComboBox* comboBoxTempTimeHour;
+    wxStaticText* staticTempCorrectionRectum;
+    wxComboBox* comboBoxTempCorrectionVagina;
+    wxTextCtrl* textName;
+    wxButton* buttonSave;
+    wxStaticText* changesTempCorrectionRectum;
+    wxStaticText* staticPrevCycle1;
+    wxComboBox* comboBoxTempCorrectionMouth;
+    wxStaticText* changesCardNo;
+    wxStaticText* staticTempCorrectionTime;
+    wxStaticText* changesNotes;
+    wxButton* buttonCancel;
     wxStaticText* staticBirthdayDay;
     wxStaticText* changesName;
-    wxStaticText* staticSpace1;
     wxStaticText* staticTempCorrectionMouth;
-    wxStaticText* staticTempPlace;
-    wxStaticText* changesTempCorrectionTime;
-    wxStaticText* staticTempCorrectionTime;
-    wxCheckBox* checkBoxCorruptedData;
-    wxStaticText* staticTempCorrectionVagina;
-    wxStaticText* staticSpace6;
-    wxDatePickerCtrl* datePicker1stDayOfCycle;
-    wxStaticText* staticBasicInfertilePattern;
-    wxPanel* panelMain;
     wxButton* buttonClose;
-    wxStaticText* staticNotes;
-    wxStaticText* static1stDayOfCycle;
-    wxSpinCtrl* spinShortestCycleDays;
-    wxStaticText* changesCardNo;
-    wxStaticText* staticSpace3;
-    wxButton* buttonSave;
-    wxStaticText* staticSpace7;
+    wxStaticText* staticPrevCycle4;
+    wxPanel* panelMain;
     wxSpinCtrl* spinShortestCycleFromCycles;
-    wxStaticText* staticName;
-    wxStaticText* staticSpace4;
-    wxComboBox* comboBoxTempTimeHour;
-    wxTextCtrl* textNotes;
-    wxStaticText* changesShortestCycleDays;
+    wxComboBox* comboBoxCycleType;
+    wxStaticText* staticTempCorrectionVagina;
+    wxStaticText* changesTempCorrectionMouth;
+    wxStaticText* textCardNo;
     wxStaticText* staticSpace2;
+    wxCheckBox* checkBoxStoppedPills;
+    wxDatePickerCtrl* datePickerBirthdayDay;
+    wxStaticText* changesShortestCycleDays;
+    wxStaticText* changesTempTime;
     //*)
 
 protected:

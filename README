@@ -98,10 +98,7 @@ If you change the Makefile.am, run:
   sudo make install
 
 If you change the configure.ac, or Makefile.in.in in po folder, run:
-  autoheader
-  aclocal
-  automake
-  autoconf
+  ./autogen.sh
   ./configure
   make
   sudo make install

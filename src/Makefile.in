@@ -38,7 +38,12 @@ bin_PROGRAMS = wx-nfp$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
+	$(top_srcdir)/m4/iconv.m4 $(top_srcdir)/m4/intlmacosx.m4 \
+	$(top_srcdir)/m4/lib-ld.m4 $(top_srcdir)/m4/lib-link.m4 \
+	$(top_srcdir)/m4/lib-prefix.m4 $(top_srcdir)/m4/nls.m4 \
+	$(top_srcdir)/m4/po.m4 $(top_srcdir)/m4/progtest.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -49,24 +54,24 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_wx_nfp_OBJECTS = wx_nfp-aboutFrame.$(OBJEXT) \
 	wx_nfp-cardEntry.$(OBJEXT) wx_nfp-cardFrame.$(OBJEXT) \
-	wx_nfp-configClass.$(OBJEXT) wx_nfp-configFrame.$(OBJEXT) \
+	wx_nfp-chart.$(OBJEXT) wx_nfp-configClass.$(OBJEXT) \
+	wx_nfp-configFrame.$(OBJEXT) \
+	wx_nfp-customChartWindow.$(OBJEXT) \
 	wx_nfp-customPrintout.$(OBJEXT) \
 	wx_nfp-customWindowLeft.$(OBJEXT) \
 	wx_nfp-customWindowMain.$(OBJEXT) \
 	wx_nfp-customWindowNotes.$(OBJEXT) \
-<<<<<<< HEAD
-	wx_nfp-customWindowTop.$(OBJEXT) wx_nfp-cycleGraph.$(OBJEXT) \
-	wx_nfp-cyclesData.$(OBJEXT) \
-	wx_nfp-cyclesData_results.$(OBJEXT) wx_nfp-dayEntry.$(OBJEXT) \
-=======
 	wx_nfp-customWindowTop.$(OBJEXT) wx_nfp-cyclesData.$(OBJEXT) \
 	wx_nfp-cyclesData_results.$(OBJEXT) \
-	wx_nfp-cycleGraph.$(OBJEXT) wx_nfp-dayEntry.$(OBJEXT) \
->>>>>>> c439c65c9403bf4357e082fc9baeca576bfd1edd
+	wx_nfp-cyclesLengthChart.$(OBJEXT) wx_nfp-dayEntry.$(OBJEXT) \
 	wx_nfp-dayFrame.$(OBJEXT) wx_nfp-drawingClass.$(OBJEXT) \
-	wx_nfp-goToFrame.$(OBJEXT) wx_nfp-histogramsFrame.$(OBJEXT) \
-	wx_nfp-liveUpdateClass.$(OBJEXT) wx_nfp-nfpMainFrame.$(OBJEXT) \
-	wx_nfp-notificationFrame.$(OBJEXT) wx_nfp-printFrame.$(OBJEXT) \
+	wx_nfp-goToFrame.$(OBJEXT) wx_nfp-liveUpdateClass.$(OBJEXT) \
+	wx_nfp-lutealPhasesChart.$(OBJEXT) \
+	wx_nfp-nfpMainFrame.$(OBJEXT) \
+	wx_nfp-notificationFrame.$(OBJEXT) \
+	wx_nfp-phasesChart.$(OBJEXT) wx_nfp-printFrame.$(OBJEXT) \
+	wx_nfp-statisticsFrame.$(OBJEXT) \
+	wx_nfp-temperaturesChart.$(OBJEXT) \
 	wx_nfp-translationHelper.$(OBJEXT) \
 	wx_nfp-updatesNotificationForm.$(OBJEXT) \
 	wx_nfp-utilClass.$(OBJEXT) wx_nfp-wx-nfpApp.$(OBJEXT)
@@ -83,10 +88,6 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
-COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
-	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
-CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(wx_nfp_SOURCES)
 DIST_SOURCES = $(wx_nfp_SOURCES)
 ETAGS = etags
@@ -220,75 +221,41 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-wx_nfp_SOURCES = aboutFrame.cpp	\
-		aboutFrame.h	\
-		cardEntry.cpp	\
-		cardEntry.h	\
-		cardFrame.cpp	\
-		cardFrame.h	\
-		configClass.cpp	\
-		configClass.h	\
-		configFrame.cpp	\
-		configFrame.h	\
-		customPrintout.cpp	\
-		customPrintout.h	\
-		customWindowLeft.cpp	\
-		customWindowLeft.h	\
-		customWindowMain.cpp	\
-		customWindowMain.h	\
-		customWindowNotes.cpp	\
-		customWindowNotes.h	\
-		customWindowTop.cpp	\
-		customWindowTop.h	\
-		cycleGraph.cpp	\
-		cycleGraph.h	\
-		cyclesData.cpp	\
-		cyclesData_declarations.h	\
-		cyclesData_results.cpp \
-		cyclesData.h	\
-<<<<<<< HEAD
-		cyclesData_results.cpp	\
-=======
-		cycleGraph.cpp \
-		cycleGraph.h \
->>>>>>> c439c65c9403bf4357e082fc9baeca576bfd1edd
-		dayEntry.cpp	\
-		dayEntry.h	\
-		dayFrame.cpp	\
-		dayFrame.h	\
-		drawingClass.cpp	\
-		drawingClass.h	\
-		goToFrame.cpp	\
-		goToFrame.h	\
-<<<<<<< HEAD
-		histogramsFrame.cpp	\
-		histogramsFrame.h	\
-=======
-		histogramsFrame.cpp \
-		histogramsFrame.h \
->>>>>>> c439c65c9403bf4357e082fc9baeca576bfd1edd
-		liveUpdateClass.cpp	\
-		liveUpdateClass.h	\
-		nfpMainFrame.cpp	\
-		nfpMainFrame.h	\
-		notificationFrame.cpp	\
-		notificationFrame.h	\
-		printFrame.cpp	\
-		printFrame.h	\
-		translationHelper.cpp	\
-		translationHelper.h	\
-		updatesNotificationForm.cpp	\
-		updatesNotificationForm.h	\
-		utilClass.cpp	\
-		utilClass.h	\
-		wx-nfpApp.cpp	\
-		wx-nfpApp.h	\
-		wx-nfpAppInfo.h	\
-		wx-nfpAppVersion.h
+wx_nfp_SOURCES = aboutFrame.cpp \
+cardEntry.cpp \
+cardFrame.cpp \
+chart.cpp \
+configClass.cpp \
+configFrame.cpp \
+customChartWindow.cpp \
+customPrintout.cpp \
+customWindowLeft.cpp \
+customWindowMain.cpp \
+customWindowNotes.cpp \
+customWindowTop.cpp \
+cyclesData.cpp \
+cyclesData_results.cpp \
+cyclesLengthChart.cpp \
+dayEntry.cpp \
+dayFrame.cpp \
+drawingClass.cpp \
+goToFrame.cpp \
+liveUpdateClass.cpp \
+lutealPhasesChart.cpp \
+nfpMainFrame.cpp \
+notificationFrame.cpp \
+phasesChart.cpp \
+printFrame.cpp \
+statisticsFrame.cpp \
+temperaturesChart.cpp \
+translationHelper.cpp \
+updatesNotificationForm.cpp \
+utilClass.cpp \
+wx-nfpApp.cpp
 
 wx_nfp_LDADD = @LIBS@
 wx_nfp_CXXFLAGS = @CXXFLAGS@
-wx_nfp_CPPFLAGS = -DDATADIR='"$(pkgdatadir)"' -DLOCALEDIR=\"$(localedir)\" -DDOCDIR='"$(docdir)"'
+wx_nfp_CPPFLAGS = -DDATADIR='"$(pkgdatadir)"' -DLOCALEDIR=\"$(localedir)\" -DDOCDIR='"$(docdir)"' -I../include
 all: all-am
 
 .SUFFIXES:
@@ -373,25 +340,30 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-aboutFrame.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cardEntry.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cardFrame.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-chart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-configClass.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-configFrame.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customChartWindow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customPrintout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customWindowLeft.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customWindowMain.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customWindowNotes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-customWindowTop.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cycleGraph.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cyclesData.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cyclesData_results.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-cyclesLengthChart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-dayEntry.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-dayFrame.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-drawingClass.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-goToFrame.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-histogramsFrame.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-liveUpdateClass.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-lutealPhasesChart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-nfpMainFrame.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-notificationFrame.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-phasesChart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-printFrame.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-statisticsFrame.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-temperaturesChart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-translationHelper.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-updatesNotificationForm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wx_nfp-utilClass.Po@am__quote@
@@ -453,6 +425,20 @@ wx_nfp-cardFrame.obj: cardFrame.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cardFrame.obj `if test -f 'cardFrame.cpp'; then $(CYGPATH_W) 'cardFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/cardFrame.cpp'; fi`
 
+wx_nfp-chart.o: chart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-chart.o -MD -MP -MF $(DEPDIR)/wx_nfp-chart.Tpo -c -o wx_nfp-chart.o `test -f 'chart.cpp' || echo '$(srcdir)/'`chart.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-chart.Tpo $(DEPDIR)/wx_nfp-chart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='chart.cpp' object='wx_nfp-chart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-chart.o `test -f 'chart.cpp' || echo '$(srcdir)/'`chart.cpp
+
+wx_nfp-chart.obj: chart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-chart.obj -MD -MP -MF $(DEPDIR)/wx_nfp-chart.Tpo -c -o wx_nfp-chart.obj `if test -f 'chart.cpp'; then $(CYGPATH_W) 'chart.cpp'; else $(CYGPATH_W) '$(srcdir)/chart.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-chart.Tpo $(DEPDIR)/wx_nfp-chart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='chart.cpp' object='wx_nfp-chart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-chart.obj `if test -f 'chart.cpp'; then $(CYGPATH_W) 'chart.cpp'; else $(CYGPATH_W) '$(srcdir)/chart.cpp'; fi`
+
 wx_nfp-configClass.o: configClass.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-configClass.o -MD -MP -MF $(DEPDIR)/wx_nfp-configClass.Tpo -c -o wx_nfp-configClass.o `test -f 'configClass.cpp' || echo '$(srcdir)/'`configClass.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-configClass.Tpo $(DEPDIR)/wx_nfp-configClass.Po
@@ -480,6 +466,20 @@ wx_nfp-configFrame.obj: configFrame.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='configFrame.cpp' object='wx_nfp-configFrame.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-configFrame.obj `if test -f 'configFrame.cpp'; then $(CYGPATH_W) 'configFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/configFrame.cpp'; fi`
+
+wx_nfp-customChartWindow.o: customChartWindow.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-customChartWindow.o -MD -MP -MF $(DEPDIR)/wx_nfp-customChartWindow.Tpo -c -o wx_nfp-customChartWindow.o `test -f 'customChartWindow.cpp' || echo '$(srcdir)/'`customChartWindow.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-customChartWindow.Tpo $(DEPDIR)/wx_nfp-customChartWindow.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='customChartWindow.cpp' object='wx_nfp-customChartWindow.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-customChartWindow.o `test -f 'customChartWindow.cpp' || echo '$(srcdir)/'`customChartWindow.cpp
+
+wx_nfp-customChartWindow.obj: customChartWindow.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-customChartWindow.obj -MD -MP -MF $(DEPDIR)/wx_nfp-customChartWindow.Tpo -c -o wx_nfp-customChartWindow.obj `if test -f 'customChartWindow.cpp'; then $(CYGPATH_W) 'customChartWindow.cpp'; else $(CYGPATH_W) '$(srcdir)/customChartWindow.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-customChartWindow.Tpo $(DEPDIR)/wx_nfp-customChartWindow.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='customChartWindow.cpp' object='wx_nfp-customChartWindow.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-customChartWindow.obj `if test -f 'customChartWindow.cpp'; then $(CYGPATH_W) 'customChartWindow.cpp'; else $(CYGPATH_W) '$(srcdir)/customChartWindow.cpp'; fi`
 
 wx_nfp-customPrintout.o: customPrintout.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-customPrintout.o -MD -MP -MF $(DEPDIR)/wx_nfp-customPrintout.Tpo -c -o wx_nfp-customPrintout.o `test -f 'customPrintout.cpp' || echo '$(srcdir)/'`customPrintout.cpp
@@ -551,20 +551,6 @@ wx_nfp-customWindowTop.obj: customWindowTop.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-customWindowTop.obj `if test -f 'customWindowTop.cpp'; then $(CYGPATH_W) 'customWindowTop.cpp'; else $(CYGPATH_W) '$(srcdir)/customWindowTop.cpp'; fi`
 
-wx_nfp-cycleGraph.o: cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cycleGraph.o -MD -MP -MF $(DEPDIR)/wx_nfp-cycleGraph.Tpo -c -o wx_nfp-cycleGraph.o `test -f 'cycleGraph.cpp' || echo '$(srcdir)/'`cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cycleGraph.Tpo $(DEPDIR)/wx_nfp-cycleGraph.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cycleGraph.cpp' object='wx_nfp-cycleGraph.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cycleGraph.o `test -f 'cycleGraph.cpp' || echo '$(srcdir)/'`cycleGraph.cpp
-
-wx_nfp-cycleGraph.obj: cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cycleGraph.obj -MD -MP -MF $(DEPDIR)/wx_nfp-cycleGraph.Tpo -c -o wx_nfp-cycleGraph.obj `if test -f 'cycleGraph.cpp'; then $(CYGPATH_W) 'cycleGraph.cpp'; else $(CYGPATH_W) '$(srcdir)/cycleGraph.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cycleGraph.Tpo $(DEPDIR)/wx_nfp-cycleGraph.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cycleGraph.cpp' object='wx_nfp-cycleGraph.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cycleGraph.obj `if test -f 'cycleGraph.cpp'; then $(CYGPATH_W) 'cycleGraph.cpp'; else $(CYGPATH_W) '$(srcdir)/cycleGraph.cpp'; fi`
-
 wx_nfp-cyclesData.o: cyclesData.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cyclesData.o -MD -MP -MF $(DEPDIR)/wx_nfp-cyclesData.Tpo -c -o wx_nfp-cyclesData.o `test -f 'cyclesData.cpp' || echo '$(srcdir)/'`cyclesData.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cyclesData.Tpo $(DEPDIR)/wx_nfp-cyclesData.Po
@@ -593,23 +579,20 @@ wx_nfp-cyclesData_results.obj: cyclesData_results.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cyclesData_results.obj `if test -f 'cyclesData_results.cpp'; then $(CYGPATH_W) 'cyclesData_results.cpp'; else $(CYGPATH_W) '$(srcdir)/cyclesData_results.cpp'; fi`
 
-<<<<<<< HEAD
-=======
-wx_nfp-cycleGraph.o: cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cycleGraph.o -MD -MP -MF $(DEPDIR)/wx_nfp-cycleGraph.Tpo -c -o wx_nfp-cycleGraph.o `test -f 'cycleGraph.cpp' || echo '$(srcdir)/'`cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cycleGraph.Tpo $(DEPDIR)/wx_nfp-cycleGraph.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cycleGraph.cpp' object='wx_nfp-cycleGraph.o' libtool=no @AMDEPBACKSLASH@
+wx_nfp-cyclesLengthChart.o: cyclesLengthChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cyclesLengthChart.o -MD -MP -MF $(DEPDIR)/wx_nfp-cyclesLengthChart.Tpo -c -o wx_nfp-cyclesLengthChart.o `test -f 'cyclesLengthChart.cpp' || echo '$(srcdir)/'`cyclesLengthChart.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cyclesLengthChart.Tpo $(DEPDIR)/wx_nfp-cyclesLengthChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cyclesLengthChart.cpp' object='wx_nfp-cyclesLengthChart.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cycleGraph.o `test -f 'cycleGraph.cpp' || echo '$(srcdir)/'`cycleGraph.cpp
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cyclesLengthChart.o `test -f 'cyclesLengthChart.cpp' || echo '$(srcdir)/'`cyclesLengthChart.cpp
 
-wx_nfp-cycleGraph.obj: cycleGraph.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cycleGraph.obj -MD -MP -MF $(DEPDIR)/wx_nfp-cycleGraph.Tpo -c -o wx_nfp-cycleGraph.obj `if test -f 'cycleGraph.cpp'; then $(CYGPATH_W) 'cycleGraph.cpp'; else $(CYGPATH_W) '$(srcdir)/cycleGraph.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cycleGraph.Tpo $(DEPDIR)/wx_nfp-cycleGraph.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cycleGraph.cpp' object='wx_nfp-cycleGraph.obj' libtool=no @AMDEPBACKSLASH@
+wx_nfp-cyclesLengthChart.obj: cyclesLengthChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-cyclesLengthChart.obj -MD -MP -MF $(DEPDIR)/wx_nfp-cyclesLengthChart.Tpo -c -o wx_nfp-cyclesLengthChart.obj `if test -f 'cyclesLengthChart.cpp'; then $(CYGPATH_W) 'cyclesLengthChart.cpp'; else $(CYGPATH_W) '$(srcdir)/cyclesLengthChart.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-cyclesLengthChart.Tpo $(DEPDIR)/wx_nfp-cyclesLengthChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='cyclesLengthChart.cpp' object='wx_nfp-cyclesLengthChart.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cycleGraph.obj `if test -f 'cycleGraph.cpp'; then $(CYGPATH_W) 'cycleGraph.cpp'; else $(CYGPATH_W) '$(srcdir)/cycleGraph.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-cyclesLengthChart.obj `if test -f 'cyclesLengthChart.cpp'; then $(CYGPATH_W) 'cyclesLengthChart.cpp'; else $(CYGPATH_W) '$(srcdir)/cyclesLengthChart.cpp'; fi`
 
->>>>>>> c439c65c9403bf4357e082fc9baeca576bfd1edd
 wx_nfp-dayEntry.o: dayEntry.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-dayEntry.o -MD -MP -MF $(DEPDIR)/wx_nfp-dayEntry.Tpo -c -o wx_nfp-dayEntry.o `test -f 'dayEntry.cpp' || echo '$(srcdir)/'`dayEntry.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-dayEntry.Tpo $(DEPDIR)/wx_nfp-dayEntry.Po
@@ -666,20 +649,6 @@ wx_nfp-goToFrame.obj: goToFrame.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-goToFrame.obj `if test -f 'goToFrame.cpp'; then $(CYGPATH_W) 'goToFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/goToFrame.cpp'; fi`
 
-wx_nfp-histogramsFrame.o: histogramsFrame.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-histogramsFrame.o -MD -MP -MF $(DEPDIR)/wx_nfp-histogramsFrame.Tpo -c -o wx_nfp-histogramsFrame.o `test -f 'histogramsFrame.cpp' || echo '$(srcdir)/'`histogramsFrame.cpp
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-histogramsFrame.Tpo $(DEPDIR)/wx_nfp-histogramsFrame.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='histogramsFrame.cpp' object='wx_nfp-histogramsFrame.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-histogramsFrame.o `test -f 'histogramsFrame.cpp' || echo '$(srcdir)/'`histogramsFrame.cpp
-
-wx_nfp-histogramsFrame.obj: histogramsFrame.cpp
-@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-histogramsFrame.obj -MD -MP -MF $(DEPDIR)/wx_nfp-histogramsFrame.Tpo -c -o wx_nfp-histogramsFrame.obj `if test -f 'histogramsFrame.cpp'; then $(CYGPATH_W) 'histogramsFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/histogramsFrame.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-histogramsFrame.Tpo $(DEPDIR)/wx_nfp-histogramsFrame.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='histogramsFrame.cpp' object='wx_nfp-histogramsFrame.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-histogramsFrame.obj `if test -f 'histogramsFrame.cpp'; then $(CYGPATH_W) 'histogramsFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/histogramsFrame.cpp'; fi`
-
 wx_nfp-liveUpdateClass.o: liveUpdateClass.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-liveUpdateClass.o -MD -MP -MF $(DEPDIR)/wx_nfp-liveUpdateClass.Tpo -c -o wx_nfp-liveUpdateClass.o `test -f 'liveUpdateClass.cpp' || echo '$(srcdir)/'`liveUpdateClass.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-liveUpdateClass.Tpo $(DEPDIR)/wx_nfp-liveUpdateClass.Po
@@ -693,6 +662,20 @@ wx_nfp-liveUpdateClass.obj: liveUpdateClass.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='liveUpdateClass.cpp' object='wx_nfp-liveUpdateClass.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-liveUpdateClass.obj `if test -f 'liveUpdateClass.cpp'; then $(CYGPATH_W) 'liveUpdateClass.cpp'; else $(CYGPATH_W) '$(srcdir)/liveUpdateClass.cpp'; fi`
+
+wx_nfp-lutealPhasesChart.o: lutealPhasesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-lutealPhasesChart.o -MD -MP -MF $(DEPDIR)/wx_nfp-lutealPhasesChart.Tpo -c -o wx_nfp-lutealPhasesChart.o `test -f 'lutealPhasesChart.cpp' || echo '$(srcdir)/'`lutealPhasesChart.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-lutealPhasesChart.Tpo $(DEPDIR)/wx_nfp-lutealPhasesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='lutealPhasesChart.cpp' object='wx_nfp-lutealPhasesChart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-lutealPhasesChart.o `test -f 'lutealPhasesChart.cpp' || echo '$(srcdir)/'`lutealPhasesChart.cpp
+
+wx_nfp-lutealPhasesChart.obj: lutealPhasesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-lutealPhasesChart.obj -MD -MP -MF $(DEPDIR)/wx_nfp-lutealPhasesChart.Tpo -c -o wx_nfp-lutealPhasesChart.obj `if test -f 'lutealPhasesChart.cpp'; then $(CYGPATH_W) 'lutealPhasesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/lutealPhasesChart.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-lutealPhasesChart.Tpo $(DEPDIR)/wx_nfp-lutealPhasesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='lutealPhasesChart.cpp' object='wx_nfp-lutealPhasesChart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-lutealPhasesChart.obj `if test -f 'lutealPhasesChart.cpp'; then $(CYGPATH_W) 'lutealPhasesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/lutealPhasesChart.cpp'; fi`
 
 wx_nfp-nfpMainFrame.o: nfpMainFrame.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-nfpMainFrame.o -MD -MP -MF $(DEPDIR)/wx_nfp-nfpMainFrame.Tpo -c -o wx_nfp-nfpMainFrame.o `test -f 'nfpMainFrame.cpp' || echo '$(srcdir)/'`nfpMainFrame.cpp
@@ -722,6 +705,20 @@ wx_nfp-notificationFrame.obj: notificationFrame.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-notificationFrame.obj `if test -f 'notificationFrame.cpp'; then $(CYGPATH_W) 'notificationFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/notificationFrame.cpp'; fi`
 
+wx_nfp-phasesChart.o: phasesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-phasesChart.o -MD -MP -MF $(DEPDIR)/wx_nfp-phasesChart.Tpo -c -o wx_nfp-phasesChart.o `test -f 'phasesChart.cpp' || echo '$(srcdir)/'`phasesChart.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-phasesChart.Tpo $(DEPDIR)/wx_nfp-phasesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='phasesChart.cpp' object='wx_nfp-phasesChart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-phasesChart.o `test -f 'phasesChart.cpp' || echo '$(srcdir)/'`phasesChart.cpp
+
+wx_nfp-phasesChart.obj: phasesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-phasesChart.obj -MD -MP -MF $(DEPDIR)/wx_nfp-phasesChart.Tpo -c -o wx_nfp-phasesChart.obj `if test -f 'phasesChart.cpp'; then $(CYGPATH_W) 'phasesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/phasesChart.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-phasesChart.Tpo $(DEPDIR)/wx_nfp-phasesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='phasesChart.cpp' object='wx_nfp-phasesChart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-phasesChart.obj `if test -f 'phasesChart.cpp'; then $(CYGPATH_W) 'phasesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/phasesChart.cpp'; fi`
+
 wx_nfp-printFrame.o: printFrame.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-printFrame.o -MD -MP -MF $(DEPDIR)/wx_nfp-printFrame.Tpo -c -o wx_nfp-printFrame.o `test -f 'printFrame.cpp' || echo '$(srcdir)/'`printFrame.cpp
 @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-printFrame.Tpo $(DEPDIR)/wx_nfp-printFrame.Po
@@ -735,6 +732,34 @@ wx_nfp-printFrame.obj: printFrame.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='printFrame.cpp' object='wx_nfp-printFrame.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-printFrame.obj `if test -f 'printFrame.cpp'; then $(CYGPATH_W) 'printFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/printFrame.cpp'; fi`
+
+wx_nfp-statisticsFrame.o: statisticsFrame.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-statisticsFrame.o -MD -MP -MF $(DEPDIR)/wx_nfp-statisticsFrame.Tpo -c -o wx_nfp-statisticsFrame.o `test -f 'statisticsFrame.cpp' || echo '$(srcdir)/'`statisticsFrame.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-statisticsFrame.Tpo $(DEPDIR)/wx_nfp-statisticsFrame.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='statisticsFrame.cpp' object='wx_nfp-statisticsFrame.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-statisticsFrame.o `test -f 'statisticsFrame.cpp' || echo '$(srcdir)/'`statisticsFrame.cpp
+
+wx_nfp-statisticsFrame.obj: statisticsFrame.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-statisticsFrame.obj -MD -MP -MF $(DEPDIR)/wx_nfp-statisticsFrame.Tpo -c -o wx_nfp-statisticsFrame.obj `if test -f 'statisticsFrame.cpp'; then $(CYGPATH_W) 'statisticsFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/statisticsFrame.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-statisticsFrame.Tpo $(DEPDIR)/wx_nfp-statisticsFrame.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='statisticsFrame.cpp' object='wx_nfp-statisticsFrame.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-statisticsFrame.obj `if test -f 'statisticsFrame.cpp'; then $(CYGPATH_W) 'statisticsFrame.cpp'; else $(CYGPATH_W) '$(srcdir)/statisticsFrame.cpp'; fi`
+
+wx_nfp-temperaturesChart.o: temperaturesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-temperaturesChart.o -MD -MP -MF $(DEPDIR)/wx_nfp-temperaturesChart.Tpo -c -o wx_nfp-temperaturesChart.o `test -f 'temperaturesChart.cpp' || echo '$(srcdir)/'`temperaturesChart.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-temperaturesChart.Tpo $(DEPDIR)/wx_nfp-temperaturesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='temperaturesChart.cpp' object='wx_nfp-temperaturesChart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-temperaturesChart.o `test -f 'temperaturesChart.cpp' || echo '$(srcdir)/'`temperaturesChart.cpp
+
+wx_nfp-temperaturesChart.obj: temperaturesChart.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-temperaturesChart.obj -MD -MP -MF $(DEPDIR)/wx_nfp-temperaturesChart.Tpo -c -o wx_nfp-temperaturesChart.obj `if test -f 'temperaturesChart.cpp'; then $(CYGPATH_W) 'temperaturesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/temperaturesChart.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/wx_nfp-temperaturesChart.Tpo $(DEPDIR)/wx_nfp-temperaturesChart.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='temperaturesChart.cpp' object='wx_nfp-temperaturesChart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -c -o wx_nfp-temperaturesChart.obj `if test -f 'temperaturesChart.cpp'; then $(CYGPATH_W) 'temperaturesChart.cpp'; else $(CYGPATH_W) '$(srcdir)/temperaturesChart.cpp'; fi`
 
 wx_nfp-translationHelper.o: translationHelper.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wx_nfp_CPPFLAGS) $(CPPFLAGS) $(wx_nfp_CXXFLAGS) $(CXXFLAGS) -MT wx_nfp-translationHelper.o -MD -MP -MF $(DEPDIR)/wx_nfp-translationHelper.Tpo -c -o wx_nfp-translationHelper.o `test -f 'translationHelper.cpp' || echo '$(srcdir)/'`translationHelper.cpp

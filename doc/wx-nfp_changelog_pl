@@ -13,9 +13,16 @@
 * US date format  (low priority - is it really needed..?)
 
 == known issues
-* Drukowanie pod Linuxem nie działa.
+* Drukowanie pod Linuxem z poprawnymi fontami nie działa (przynajmniej u mnie ;)
+* Statystyki nie działają poprawnie
 
-== 0.9 (build 1099, 2012-09-04)
+== 0.9.1 (build 1433, 2012-09-13)
+* New: Dodano nowe statystyki.
+* Fix: Poprawiono istniejące statystyki.
+* Fix: Now the notification pop-up after calculating results is not be dupliced.
+
+
+== 0.9 (build 1116, 2012-09-05)
 * New: Automatyczne wyznaczanie wyników.
 * New: Dodano możliwość zdefiniowania typu karty (normalna, ciąża, po ciąży, pre-menopauza)
 * New: Dla karty typu po ciąży i pre-menopauza można ustawić wyniki (pierwszy dzień śluzu, płodnego śluzu, szczyt śluzu, pierwszy dzień zmian szyjki, szczyt szyjki) dla kilku dni na jednej karcie. Funkcja ta jest użyteczna w przypadku cyklu poporodowego, kiedy utrzymuje się niepłodność związana z karmieniem piersią, ale juz pojawiają się sygnały powrotu płodności. W takim cyklu może być kilka(naście) okresów płodnych i niepłodnych w zależności od zaobserwowanych objawów śluzu i szyjki.

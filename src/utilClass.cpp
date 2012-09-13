@@ -17,7 +17,8 @@
 /**
  *
  */
-utilClass::utilClass() {
+utilClass::utilClass()
+{
 //#if defined(__UNIX__)
 //    m_standardPaths.SetInstallPrefix( _T("/usr") );
 //#endif
@@ -28,7 +29,8 @@ utilClass::utilClass() {
 /**
  *
  */
-int utilClass::strToInt( wxString input ) {
+int utilClass::strToInt( wxString input )
+{
     int ret = -1;
     long l;
 
@@ -41,7 +43,8 @@ int utilClass::strToInt( wxString input ) {
 /**
  *
  */
-wxString utilClass::intToStr( int input ) {
+wxString utilClass::intToStr( int input )
+{
     wxString ret = wxEmptyString;
     ret << input;
     return ret;
@@ -50,7 +53,8 @@ wxString utilClass::intToStr( int input ) {
 /**
  *
  */
-bool utilClass::strToBool( wxString input ) {
+bool utilClass::strToBool( wxString input )
+{
     if ( input.IsSameAs( _T( "true" ), false ) ) {
         return true;
     } else {
@@ -61,7 +65,8 @@ bool utilClass::strToBool( wxString input ) {
 /**
  *
  */
-wxString utilClass::boolToStr( bool input ) {
+wxString utilClass::boolToStr( bool input )
+{
 
     if ( input ) {
         return ( wxString ) _T( "true" );
@@ -73,7 +78,8 @@ wxString utilClass::boolToStr( bool input ) {
 /**
  *
  */
-wxDateTime utilClass::getZeroDateTime() {
+wxDateTime utilClass::getZeroDateTime()
+{
     wxDateTime ret = wxDateTime();
     ret.Set( 0, 0, 0, 0 );
     ret.SetYear( 1901 );
@@ -84,25 +90,21 @@ wxDateTime utilClass::getZeroDateTime() {
 
 /**
  * Convert temperature stored in int to string.
- * When value of the parameter 'temp' == [-1 | 0], then return empty string.
  *
  * Parameters:
- * temp - tempetarute to convert (eg. 10 == '0,1'; -125 ==  '-1,25' )
- * correction - if true, then add '+'/'-' sign to the output string
- */
-wxString utilClass::temperatureToStr( int temp, bool correction ) {
-    return temperatureToStr( temp, correction, false );
-}
-
-/**
- * Convert temperature stored in int to string.
- *
- * Parameters:
- * temp - tempetarute to convert (eg. 10 == '0,1'; -125 ==  '-1,25' )
+ * temp - tempetarute to convert
  * correction - if true, then add '+'/'-' sign to the output string
  * returnZero - if true, then return '0', when value of the parameter 'temp' == [-1 | 0]; if false, then return empty string.
+ *
+ * examples:
+ * 10 -> '0,1'
+ * -125 -> '-1,25' (if correction == true)
+ *      -> '1,25'  (if correction == false)
+ * 0    -> ''      (if returnZero == false)
+ *      -> '0'     (if returnZero == true)
  */
-wxString utilClass::temperatureToStr( int temp, bool correction, bool returnZero ) {
+wxString utilClass::temperatureToStr( int temp, bool correction, bool returnZero )
+{
     wxString ret = _T( "" );
     int t = temp;
 
@@ -141,7 +143,8 @@ wxString utilClass::temperatureToStr( int temp, bool correction, bool returnZero
  * Parameters:
  * temp - tempetarute to convert (eg. '0,1' == 10; '-1,25' = -125; '+37,10' == 3710)
  */
-int utilClass::strToTemperature( wxString temp ) {
+int utilClass::strToTemperature( wxString temp )
+{
     int negative = 1;
 
     if ( temp.IsEmpty() ) {
@@ -232,7 +235,8 @@ wxString utilClass::getAllPathsPath() {
  * Return the path to the folder where config file is stored.
  * This method doesn't check if the folder exists, just return the path.
  */
-wxString utilClass::getConfigPath() {
+wxString utilClass::getConfigPath()
+{
     /* Linux: ~/wx-nfp/ */
     /* M$ Win: c:\Documents and Settings\<user>\Dane aplikacji\wx-nfp\ */
     return m_standardPaths.GetUserDataDir() + wxFileName::GetPathSeparator();
@@ -242,7 +246,8 @@ wxString utilClass::getConfigPath() {
  * Return the path to the folder where cards' set file is stored by default.
  * This method doesn't check if the folder exists, just return the path.
  */
-wxString utilClass::getCardSetDataPath() {
+wxString utilClass::getCardSetDataPath()
+{
     // old location //
     /* Linux: ~/.wx-nfp/data/ */
     /* M$ Win: c:\Documents and Settings\<user>\Dane aplikacji\wx-nfp\data\ */
@@ -256,7 +261,8 @@ wxString utilClass::getCardSetDataPath() {
 /**
  * Return the path to the to the configuration file with list of available languages.
  */
-wxString utilClass::getAvailableLanguagesConfigFilePath() {
+wxString utilClass::getAvailableLanguagesConfigFilePath()
+{
     /* Linux: <InstallPrefix>/share/wx-nfp/language.cfg */
     /* M$ Win: <installation path>\language.cfg */
     return m_standardPaths.GetDataDir() + wxFileName::GetPathSeparator() + _T( "languages.cfg" );
@@ -265,7 +271,8 @@ wxString utilClass::getAvailableLanguagesConfigFilePath() {
 /**
  *
  */
-wxString utilClass::getLocalePath() {
+wxString utilClass::getLocalePath()
+{
 #if defined(__UNIX__)
     /* Linux: <InstallPrefix>/share/locale/
        return wxEmptyString - system should find the locale file itself.. */
@@ -293,7 +300,8 @@ wxString utilClass::getHelpFilePath( wxString lang ) {
  * Return the URI to the index.html help file for specific language.
  * If file does not exist, just return wxEmptyString (== no local help).
  */
-wxString utilClass::getHelpUrl( wxString lang ) {
+wxString utilClass::getHelpUrl( wxString lang )
+{
 #if defined(__UNIX__)
     /* Linux: this path can be different on other Linux distributions
        so we try to find the 'index.html' file in following locations:
@@ -335,7 +343,8 @@ wxString utilClass::getHelpUrl( wxString lang ) {
  * first, last, step - values in (temperature * 10)
  * eg. 3600 == 36,0 ; 54 == 0,54
  */
-wxArrayString utilClass::prepareTemperaturesArray( int first, int last, int step ) {
+wxArrayString utilClass::prepareTemperaturesArray( int first, int last, int step )
+{
     wxArrayString ret;
 
     for ( int t = last; t >= first; t -= step ) {
@@ -348,7 +357,8 @@ wxArrayString utilClass::prepareTemperaturesArray( int first, int last, int step
  * first, last, step - values in (Celsius * 10)
  * eg. 3600 == 36,0 C ; 54 == 0,54 C
  */
-int utilClass::celsiusToFahrenheit( int in ) {
+int utilClass::celsiusToFahrenheit( int in )
+{
     float tC = ( float ) in / ( float ) 100;
     float tF = tC * ( float )( 9 / 5 ) + ( float ) 32;
     return ( int )( tF*100 );
@@ -358,7 +368,8 @@ int utilClass::celsiusToFahrenheit( int in ) {
  * first, last, step - values in (Celsius * 10)
  * eg. 3600 == 36,0 C ; 54 == 0,54 C
  */
-int utilClass::fahrenheitCelsiusTo( int in ) {
+int utilClass::fahrenheitCelsiusTo( int in )
+{
     float tF = ( float ) in / ( float ) 100;
     float tC = ( float )( 5 / 9 ) * ( tF - ( float ) 32 );
     return ( int )( tC*100 );

@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        customWindowMain.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -30,7 +30,8 @@
 /**
  * windows to display cycle chart
  */
-class customWindowMain: public wxScrolledWindow {
+class customWindowMain: public wxScrolledWindow
+{
     // VARIABLES
 private:
     DECLARE_EVENT_TABLE()

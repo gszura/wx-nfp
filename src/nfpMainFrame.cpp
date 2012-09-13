@@ -29,7 +29,7 @@
 #include "configFrame.h"
 #include "customPrintout.h"
 #include "printFrame.h"
-#include "histogramsFrame.h"
+#include "statisticsFrame.h"
 
 
 /*******************************************************************************
@@ -94,8 +94,7 @@ BEGIN_EVENT_TABLE( nfpMainFrame, wxFrame )
     EVT_MENU( ID_MNU_RESULTS_INFERTILE_PHASE_START, nfpMainFrame::MnuResultsInfertilePhaseStartClick )
     EVT_MENU( ID_MNU_MOVE_DAYS_TO_PREV_CARD, nfpMainFrame::MnuMoveDaysToPrevCardClick )
     EVT_MENU( ID_MNU_MOVE_DAYS_TO_NEXT_CARD, nfpMainFrame::MnuMoveDaysToNextCardClick )
-    EVT_MENU( ID_MNU_STAT_CYCLE_HIST, nfpMainFrame::MnuLengthOfCycleHist )
-    EVT_MENU( ID_MNU_STAT_TEMPER_HIST, nfpMainFrame::MnuCycleHist )
+    EVT_MENU( ID_MNU_STAT_STATICTICS, nfpMainFrame::MnuStatStatisticsClick )
     EVT_MENU( ID_MNU_HELP, nfpMainFrame::MnuHelpClick )
     EVT_MENU( ID_MNU_HOME_PAGE, nfpMainFrame::MnuHomePageClick )
     EVT_MENU( ID_MNU_REPORT_BUG, nfpMainFrame::MnuReportBugClick )
@@ -134,6 +133,11 @@ nfpMainFrame::nfpMainFrame( wxWindow *parent, configClass *config, wxWindowID id
     m_cycleData = new cycleDataClass();
     m_cardFrm = new cardFrame( this, m_config, m_cycleData );
     m_dayFrm = new dayFrame( this, m_config, m_cycleData );
+    wxPoint pos = GetPosition();
+    pos.x += 10;
+    pos.y += 130;
+    m_notificationFrm = new notificationFrame( this, m_config, wxEmptyString, wxALIGN_LEFT, pos, true );
+    m_notificationFrm->Hide();
 
     CreateGUIControls();
 
@@ -355,9 +359,11 @@ void nfpMainFrame::CreateGUIControls( void )
 
     menuStats = new wxMenu( 0 );
     menuBarMain->Append( menuStats, _( "Statistics" ) );
-
+    menuStats->Append( ID_MNU_STAT_STATICTICS, _( "Statistics" ), wxEmptyString, wxITEM_NORMAL );
+    /*
     menuStats->Append( ID_MNU_STAT_CYCLE_HIST, _( "Length of cycles" ), wxEmptyString, wxITEM_NORMAL );
     menuStats->Append( ID_MNU_STAT_TEMPER_HIST, _( "Temperature in cycles" ), wxEmptyString, wxITEM_NORMAL );
+    */
 
     /*********************/
 
@@ -556,15 +562,15 @@ void nfpMainFrame::cardDataModifiedEvent( wxCommandEvent& event )
     int id = event.GetInt();
     wxString message = event.GetString();
 
-    if (m_config->autoanalyzeCard && ! m_cycleData->getCard()->getCardLocked()) {
+    if (m_config->autoanalyzeCard && ! m_cycleData->getCard()->getCardLocked() && id != ACTIVE_CARD_UPDATE ) {
         m_cycleData->calculateResultsAutomaticallyOnChange(m_cycleData->getActiveCard(), m_config);
 
         if ( !m_cycleData->getErrorMessages().IsEmpty() ) {
-            showNotification(m_cycleData->getErrorMessages());
+            showAnalysisResultNotification(m_cycleData->getErrorMessages());
         }
 
         m_cycleData->setCardModified( true );
-        windowMain->Refresh();
+        //windowMain->Refresh();
     }
 
     if ( id == ACTIVE_CARD_UPDATE ) {
@@ -595,7 +601,7 @@ void nfpMainFrame::dayDataModifiedEvent( wxCommandEvent& event )
         m_cycleData->calculateResultsAutomaticallyOnChange(m_cycleData->getActiveCard(), m_config);
 
         if ( !m_cycleData->getErrorMessages().IsEmpty() ) {
-            showNotification(m_cycleData->getErrorMessages());
+            showAnalysisResultNotification(m_cycleData->getErrorMessages());
         }
 
         m_cycleData->setCardModified( true );
@@ -660,9 +666,6 @@ void nfpMainFrame::nfpMainFrameClose( wxCloseEvent& event )
  */
 void nfpMainFrame::nfpMainFrameMouseWheel( wxMouseEvent& event )
 {
-
-
-
     // insert your code here
 }
 
@@ -671,8 +674,6 @@ void nfpMainFrame::nfpMainFrameMouseWheel( wxMouseEvent& event )
  */
 void nfpMainFrame::nfpMainFrameSize( wxSizeEvent& event )
 {
-
-
     // insert your code here
 }
 
@@ -1047,7 +1048,7 @@ void nfpMainFrame::MnuPrintClick( wxCommandEvent& event )
         printDialogData.EnablePrintToFile( false );
 
         wxPrinter printer( & printDialogData );
-        customPrintout printout( m_config, m_cycleData, firstCard, lastCard, printLegend, _T( "wx-nfp" ) );
+        customPrintout printout( m_config, m_cycleData, firstCard, lastCard, printLegend, _( "wx-nfp" ) );
 
         if ( !printer.Print( this, &printout, true ) ) {
             if ( wxPrinter::GetLastError() == wxPRINTER_ERROR )
@@ -1070,11 +1071,11 @@ void nfpMainFrame::MnuPrintPreviewClick( wxCommandEvent& event )
     wxPrintPreview *preview = new wxPrintPreview( new customPrintout( m_config, m_cycleData, 11, 11, false ), new customPrintout( m_config, m_cycleData, 11, 11, false ), & printDialogData );
     if ( !preview->Ok() ) {
         delete preview;
-        wxMessageBox( _T( "There was a problem previewing.\nPerhaps your current printer is not set correctly?" ), _T( "Previewing" ), wxOK );
+        wxMessageBox( _( "There was a problem previewing.\nPerhaps your current printer is not set correctly?" ), _( "Previewing" ), wxOK );
         return;
     }
 
-    wxPreviewFrame *frame = new wxPreviewFrame( preview, this, _T( "Demo Print Preview" ), wxPoint( 100, 100 ), wxSize( 600, 650 ) );
+    wxPreviewFrame *frame = new wxPreviewFrame( preview, this, _( "Demo Print Preview" ), wxPoint( 100, 100 ), wxSize( 600, 650 ) );
     frame->Centre( wxBOTH );
     frame->Initialize();
     frame->Show();
@@ -1388,7 +1389,7 @@ void nfpMainFrame::MnuResultsAutocalculateClick( wxCommandEvent& event )
     m_cycleData->calculateResultsAutomatically(m_cycleData->getActiveCard(), m_config);
 
     if ( !m_cycleData->getErrorMessages().IsEmpty() ) {
-        showNotification(m_cycleData->getErrorMessages());
+        showAnalysisResultNotification(m_cycleData->getErrorMessages());
     }
     m_cycleData->setCardModified( true );
     windowMain->Refresh();
@@ -1572,36 +1573,52 @@ void nfpMainFrame::MnuResultsInfertilePhaseStartClick( wxCommandEvent& event )
 /******************************************************************************/
 
 /**
+ * Display the frame with statictic
+ */
+void nfpMainFrame::MnuStatStatisticsClick( wxCommandEvent& event )
+{
+    statisticsFrame *frame = new statisticsFrame(this, m_config, m_cycleData, 0);
+    if ( frame->Show() == wxID_OK ) {
+    } else { // something wrong
+    }
+
+    //frame->Destroy();
+}
+
+
+
+/**
  * Display histogram of length of cycles
  */
+/*
 void nfpMainFrame::MnuLengthOfCycleHist( wxCommandEvent& event )
 {
-
-
     histogramsFrame *hist = new histogramsFrame(this, m_cycleData);
     if ( hist->ShowModal() == wxID_OK ) {
-    } else { // somethink wrong
+    } else { // something wrong
     }
 
     hist->Destroy();
 }
+*/
 
 /******************************************************************************/
 /**
  * Display histogram of temperature in cycles
  */
+/*
 void nfpMainFrame::MnuCycleHist( wxCommandEvent& event )
 {
 
 
     cycleGraph *hist = new cycleGraph(this, m_cycleData);
     if ( hist->ShowModal() == wxID_OK ) {
-    } else { // somethink wrong
+    } else { // something wrong
     }
 
     hist->Destroy();
 }
-
+*/
 
 /******************************************************************************/
 
@@ -1873,6 +1890,10 @@ bool nfpMainFrame::saveChanges( bool forceNewFile, bool cancelAllowed )
  */
 bool nfpMainFrame::checkCardAndDayFramesStates( bool closeFrame, bool cancelAllowed )
 {
+    if (closeFrame) {
+        closeAnalysisResultNotification();
+    }
+
     if ( !checkCardFrameState( closeFrame, cancelAllowed ) ) {
         return false;
     } else if ( ! checkDayFrameState( closeFrame, cancelAllowed ) ) {
@@ -2039,6 +2060,22 @@ void nfpMainFrame::showNotification( const wxString& message, int textAlign )
     //notificationFrame *frame = new notificationFrame( this, m_config, message, textAlign, pos, wxSize(300, 500) );
     notificationFrame *frame = new notificationFrame( this, m_config, message, textAlign, pos );
     frame->Show();
+}
+
+void nfpMainFrame::showAnalysisResultNotification( const wxString& message )
+{
+    m_notificationFrm->Destroy();
+    wxPoint pos = GetPosition();
+    pos.x += 10;
+    pos.y += 130;
+    m_notificationFrm = new notificationFrame( this, m_config, message, wxALIGN_LEFT, pos, true );
+    m_notificationFrm->Show();
+}
+
+void nfpMainFrame::closeAnalysisResultNotification()
+{
+    if (m_notificationFrm->IsShown())
+        m_notificationFrm->Hide();
 }
 
 /**

@@ -7287,10 +7287,10 @@
 	"wx/filesys.h"
 	"wx/hashmap.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.cpp
 	"customWindowLeft.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	<wx/button.h>
@@ -8765,7 +8765,7 @@
 1329067347 /usr/include/wx-2.8/wx/gtk/filedlg.h
 	"wx/generic/filedlgg.h"
 
-1346673034 /home/enkeli/codeblocks/wx-nfp/src/configClass.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/configClass.h
 	<wx/wx.h>
 	<wx/fileconf.h>
 	"utilClass.h"
@@ -8802,7 +8802,7 @@
 	"wx/string.h"
 	"wx/string.h"
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/utilClass.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/utilClass.h
 	<wx/datetime.h>
 	<wx/stdpaths.h>
 
@@ -8818,14 +8818,14 @@
 
 1329067345 /usr/include/wx-2.8/wx/unix/stdpaths.h
 
-1346050601 /home/enkeli/codeblocks/wx-nfp/src/drawingClass.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/drawingClass.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
 	"cyclesData.h"
 	"utilClass.h"
 
-1346760501 /home/enkeli/codeblocks/wx-nfp/src/cyclesData.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/cyclesData.h
 	<wx/datetime.h>
 	"dayEntry.h"
 	"cardEntry.h"
@@ -8833,24 +8833,24 @@
 	"configClass.h"
 	"utilClass.h"
 
-1346147874 /home/enkeli/codeblocks/wx-nfp/src/dayEntry.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/dayEntry.h
 	<wx/wx.h>
 	<wx/datetime.h>
 	"cyclesData_declarations.h"
 
-1346759772 /home/enkeli/codeblocks/wx-nfp/src/cyclesData_declarations.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/cyclesData_declarations.h
 
-1346760338 /home/enkeli/codeblocks/wx-nfp/src/cardEntry.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/cardEntry.h
 	<wx/wx.h>
 	<wx/datetime.h>
 	<wx/dynarray.h>
 	"dayEntry.h"
 	"cyclesData_declarations.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowTop.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowTop.cpp
 	"customWindowTop.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/customWindowTop.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowTop.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
@@ -8859,7 +8859,7 @@
 	"utilClass.h"
 	"cardFrame.h"
 
-1346759163 /home/enkeli/codeblocks/wx-nfp/src/cardFrame.h
+1347097746 /home/enkeli/codeblocks/wx-nfp/src/cardFrame.h
 	<wx/spinctrl.h>
 	<wx/combobox.h>
 	<wx/checkbox.h>
@@ -8890,12 +8890,12 @@
 	"wx/datetime.h"
 	"wx/window.h"
 
-1346667437 source:/home/enkeli/codeblocks/wx-nfp/src/configClass.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/configClass.cpp
 	"configClass.h"
 	"wx-nfpAppInfo.h"
 	<wx/ffile.h>
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpAppInfo.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpAppInfo.h
 
 1329067344 /usr/include/wx-2.8/wx/ffile.h
 	"wx/defs.h"
@@ -8904,7 +8904,7 @@
 	"wx/convauto.h"
 	<stdio.h>
 
-1346151968 source:/home/enkeli/codeblocks/wx-nfp/src/goToFrame.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/goToFrame.cpp
 	"goToFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	<wx/settings.h>
@@ -8912,7 +8912,7 @@
 	<wx/intl.h>
 	<wx/font.h>
 
-1346151624 /home/enkeli/codeblocks/wx-nfp/src/goToFrame.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/goToFrame.h
 	<wx/spinctrl.h>
 	<wx/dialog.h>
 	<wx/sizer.h>
@@ -8958,47 +8958,47 @@
 
 1329067347 /usr/include/wx-2.8/wx/gtk/spinctrl.h
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/data/xpm/wx-nfp.xpm
+1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/wx-nfp.xpm
 
-1346313059 source:/home/enkeli/codeblocks/wx-nfp/src/dayFrame.cpp
+1347369618 source:/home/enkeli/codeblocks/wx-nfp/src/dayFrame.cpp
 	"dayFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
 	<wx/settings.h>
-	<wx/string.h>
-	<wx/intl.h>
 	<wx/font.h>
+	<wx/intl.h>
+	<wx/string.h>
 
-1345739511 /home/enkeli/codeblocks/wx-nfp/src/dayFrame.h
-	<wx/combobox.h>
-	<wx/checkbox.h>
-	<wx/dialog.h>
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/dayFrame.h
 	<wx/sizer.h>
-	<wx/button.h>
-	<wx/panel.h>
 	<wx/stattext.h>
 	<wx/textctrl.h>
+	<wx/checkbox.h>
+	<wx/panel.h>
+	<wx/button.h>
+	<wx/dialog.h>
+	<wx/combobox.h>
 	"configClass.h"
 	"cyclesData.h"
 	"utilClass.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.cpp
 	"customWindowNotes.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
 	"utilClass.h"
 
-1345716500 source:/home/enkeli/codeblocks/wx-nfp/src/aboutFrame.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/aboutFrame.cpp
 	"aboutFrame.h"
 	"wx-nfpAppInfo.h"
 	"wx-nfpAppVersion.h"
 	"wx-nfpApp.h"
 	"../data/xpm/splash_screen.xpm"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/aboutFrame.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/aboutFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -9017,7 +9017,7 @@
 	"wx/defs.h"
 	"wx/control.h"
 
-1346742538 /home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.h
+1347092880 /home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.h
 	<wx/wx.h>
 	<wx/frame.h>
 	<wx/wxprec.h>
@@ -9044,8 +9044,6 @@
 	"dayFrame.h"
 	"liveUpdateClass.h"
 	"updatesNotificationForm.h"
-	"histogramsFrame.h"
-	"cycleGraph.h"
 	"notificationFrame.h"
 
 1329067346 /usr/include/wx-2.8/wx/printdlg.h
@@ -9075,7 +9073,7 @@
 
 1329067347 /usr/include/wx-2.8/wx/gtk/fontdlg.h
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/customWindowMain.h
+1347203246 /home/enkeli/codeblocks/wx-nfp/src/customWindowMain.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
@@ -9086,7 +9084,7 @@
 	"utilClass.h"
 	"dayFrame.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.h
 	"configClass.h"
 	"utilClass.h"
 	<wx/wfstream.h>
@@ -9099,7 +9097,7 @@
 	"wx/file.h"
 	"wx/ffile.h"
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.h
 	<wx/wx.h>
 	<wx/frame.h>
 	<wx/wxprec.h>
@@ -9112,7 +9110,17 @@
 	"utilClass.h"
 	"liveUpdateClass.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/histogramsFrame.h
+1347092313 /home/enkeli/codeblocks/wx-nfp/src/histogramsFrame.h
+	<wx/dialog.h>
+	<wx/sizer.h>
+	<wx/dc.h>
+	<wx/dcclient.h>
+	<wx/panel.h>
+	<wx/colour.h>
+	"nfpMainFrame.h"
+	<vector>
+
+1347092313 /home/enkeli/codeblocks/wx-nfp/src/cycleGraph.h
 	<wx/dialog.h>
 	<wx/sizer.h>
 	<wx/dc.h>
@@ -9120,29 +9128,21 @@
 	"nfpMainFrame.h"
 	<vector>
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/cycleGraph.h
-	<wx/dialog.h>
-	<wx/sizer.h>
-	<wx/dc.h>
-	<wx/dcclient.h>
-	"nfpMainFrame.h"
-	<vector>
+1347204192 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpAppVersion.h
 
-1346763291 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpAppVersion.h
-
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.h
 	<wx/wx.h>
 	<wx/wxprec.h>
 	"translationHelper.h"
 	"configClass.h"
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/translationHelper.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/translationHelper.h
 	<wx/wx.h>
 	<wx/intl.h>
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/data/xpm/splash_screen.xpm
+1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/splash_screen.xpm
 
-1345716827 source:/home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.cpp
+1347095857 source:/home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.cpp
 	"liveUpdateClass.h"
 	"wx-nfpAppInfo.h"
 	"wx-nfpAppVersion.h"
@@ -9201,24 +9201,24 @@
 	"wx/datetime.h"
 	"wx/intl.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/cycleGraph.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cycleGraph.cpp
 	"cycleGraph.h"
 	<iostream>
 	<wx/intl.h>
 	<wx/string.h>
 
-1346269370 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowMain.cpp
+1347203982 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowMain.cpp
 	"customWindowMain.h"
 	"cardFrame.h"
 
-1319613226 source:/home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.cpp
 	"updatesNotificationForm.h"
 	"../data/xpm/wx-nfp.xpm"
 
-1346246718 source:/home/enkeli/codeblocks/wx-nfp/src/dayEntry.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/dayEntry.cpp
 	"dayEntry.h"
 
-1346762955 source:/home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.cpp
+1347452548 source:/home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.cpp
 	"../data/xpm/buttonNextCard_XPM.xpm"
 	"../data/xpm/buttonPrevCard_XPM.xpm"
 	"../data/xpm/wx-nfp.xpm"
@@ -9238,10 +9238,11 @@
 	"configFrame.h"
 	"customPrintout.h"
 	"printFrame.h"
+	"statisticsFrame.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/data/xpm/buttonNextCard_XPM.xpm
+1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/buttonNextCard_XPM.xpm
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/data/xpm/buttonPrevCard_XPM.xpm
+1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/buttonPrevCard_XPM.xpm
 
 1329067345 /usr/include/wx-2.8/wx/url.h
 	"wx/defs.h"
@@ -9451,7 +9452,7 @@
 	"wx/filesys.h"
 	"wx/hashmap.h"
 
-1346674581 /home/enkeli/codeblocks/wx-nfp/src/configFrame.h
+1347092880 /home/enkeli/codeblocks/wx-nfp/src/configFrame.h
 	<wx/spinctrl.h>
 	<wx/combobox.h>
 	<wx/checkbox.h>
@@ -9467,7 +9468,7 @@
 	"utilClass.h"
 	<wx/fontdlg.h>
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/notificationFrame.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/notificationFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -9477,7 +9478,7 @@
 	<wx/sizer.h>
 	"configClass.h"
 
-1319613225 /home/enkeli/codeblocks/wx-nfp/src/customPrintout.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/customPrintout.h
 	"wx/print.h"
 	"wx/printdlg.h"
 	"configClass.h"
@@ -9485,7 +9486,7 @@
 	"drawingClass.h"
 	"utilClass.h"
 
-1319613226 /home/enkeli/codeblocks/wx-nfp/src/printFrame.h
+1347004191 /home/enkeli/codeblocks/wx-nfp/src/printFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -9498,7 +9499,7 @@
 	"configClass.h"
 	"utilClass.h"
 
-1319613226 source:/home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.cpp
 	<wx/socket.h>
 	<wx/filename.h>
 	"wx-nfpApp.h"
@@ -9506,7 +9507,7 @@
 	"aboutFrame.h"
 	"utilClass.h"
 
-1319613226 source:/home/enkeli/codeblocks/wx-nfp/src/translationHelper.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/translationHelper.cpp
 	"translationHelper.h"
 	<wx/dir.h>
 	<wx/fileconf.h>
@@ -9518,24 +9519,24 @@
 	"wx/longlong.h"
 	"wx/string.h"
 
-1346743422 source:/home/enkeli/codeblocks/wx-nfp/src/drawingClass.cpp
+1347259013 source:/home/enkeli/codeblocks/wx-nfp/src/drawingClass.cpp
 	"drawingClass.h"
 
-1319613226 source:/home/enkeli/codeblocks/wx-nfp/src/printFrame.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/printFrame.cpp
 	"../data/xpm/wx-nfp.xpm"
 	"printFrame.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/customPrintout.cpp
+1347452881 source:/home/enkeli/codeblocks/wx-nfp/src/customPrintout.cpp
 	"customPrintout.h"
 
-1346675183 source:/home/enkeli/codeblocks/wx-nfp/src/configFrame.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/configFrame.cpp
 	"../data/xpm/wx-nfp.xpm"
 	"configFrame.h"
 	<wx/colordlg.h>
 	<wx/numdlg.h>
 	"wx-nfpApp.h"
-	<wx/string.h>
 	<wx/intl.h>
+	<wx/string.h>
 
 1329067346 /usr/include/wx-2.8/wx/colordlg.h
 	"wx/defs.h"
@@ -9555,27 +9556,27 @@
 	"wx/dialog.h"
 	"wx/cmndata.h"
 
-1319613225 source:/home/enkeli/codeblocks/wx-nfp/src/histogramsFrame.cpp
+1347095846 source:/home/enkeli/codeblocks/wx-nfp/src/histogramsFrame.cpp
 	"histogramsFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
 	<iostream>
 
-1346065543 source:/home/enkeli/codeblocks/wx-nfp/src/notificationFrame.cpp
+1347367640 source:/home/enkeli/codeblocks/wx-nfp/src/notificationFrame.cpp
 	"notificationFrame.h"
 
-1346762048 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData.cpp
 	<wx/ffile.h>
 	<wx/filename.h>
 	"cyclesData.h"
 	<wx/dir.h>
 
-1319613226 source:/home/enkeli/codeblocks/wx-nfp/src/utilClass.cpp
+1347453213 source:/home/enkeli/codeblocks/wx-nfp/src/utilClass.cpp
 	"utilClass.h"
 	<wx/stdpaths.h>
 	<wx/filename.h>
 
-1346762105 source:/home/enkeli/codeblocks/wx-nfp/src/cardFrame.cpp
+1347521006 source:/home/enkeli/codeblocks/wx-nfp/src/cardFrame.cpp
 	"cardFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
@@ -9584,11 +9585,856 @@
 	<wx/intl.h>
 	<wx/font.h>
 
-1346760399 source:/home/enkeli/codeblocks/wx-nfp/src/cardEntry.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cardEntry.cpp
 	"cardEntry.h"
 
-1346762524 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData_results.cpp
+1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData_results.cpp
 	"cyclesData.h"
 
 1329065699 /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-debug-2.8/wx/setup.h
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/category/categorydataset.cpp
+	<wx/category/categorydataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/category/categorydataset.h
+	<wx/dataset.h>
+	<wx/bars/barrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/dataset.h
+	<wx/wxfreechartdefs.h>
+	<time.h>
+	<wx/refobject.h>
+	<wx/observable.h>
+	<wx/chartrenderer.h>
+	<wx/marker.h>
+	<wx/dynarray.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/wxfreechartdefs.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/refobject.h
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/observable.h
+	<vector>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/chartrenderer.h
+	<wx/wxfreechartdefs.h>
+	<wx/drawobject.h>
+	<wx/refobject.h>
+	<wx/art.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/drawobject.h
+	<wx/observable.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/art.h
+	<wx/wx.h>
+	<wx/symbol.h>
+	<wx/hashmap.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/symbol.h
+	<wx/wxfreechartdefs.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/marker.h
+	<wx/wxfreechartdefs.h>
+	<wx/drawobject.h>
+	<wx/areadraw.h>
+	<wx/dynarray.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/areadraw.h
+	<wx/wxfreechartdefs.h>
+	<wx/hashmap.h>
+	<wx/drawobject.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/bars/barrenderer.h
+	"wx/xy/xyrenderer.h"
+	"wx/areadraw.h"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xyrenderer.h
+	<wx/chartrenderer.h>
+	<wx/axis/axis.h>
+	<wx/xy/xydataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/axis.h
+	<wx/wxfreechartdefs.h>
+	<wx/dataset.h>
+	<wx/dynarray.h>
+	<wx/drawobject.h>
+	<wx/observable.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xydataset.h
+	<wx/dataset.h>
+	<wx/axis/axis.h>
+
+1347109364 /home/enkeli/codeblocks/wx-nfp/src/statisticsFrame.h
+	<wx/frame.h>
+	<wx/sizer.h>
+	<wx/panel.h>
+	<wx/aui/aui.h>
+	<wx/listbox.h>
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+	<wx/chartpanel.h>
+	<wx/bars/barplot.h>
+	<wx/axis/numberaxis.h>
+	<wx/axis/categoryaxis.h>
+	<wx/category/categorysimpledataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/categoryaxis.cpp
+	<wx/axis/categoryaxis.h>
+	<wx/category/categorydataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/categoryaxis.h
+	<wx/axis/labelaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/labelaxis.h
+	<wx/axis/axis.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axisplot.cpp
+	<wx/axisplot.h>
+	<wx/drawutils.h>
+	"wx/arrimpl.cpp"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axisplot.h
+	<wx/plot.h>
+	<wx/axis/axis.h>
+	<wx/areadraw.h>
+	<wx/legend.h>
+	<wx/marker.h>
+	<wx/dynarray.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/plot.h
+	<wx/wxfreechartdefs.h>
+	<wx/observable.h>
+	<wx/areadraw.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/legend.h
+	<wx/wxfreechartdefs.h>
+	<wx/dataset.h>
+	<wx/areadraw.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/drawutils.h
+
+1329067344 /usr/include/wx-2.8/wx/arrimpl.cpp
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/plot.cpp
+	<wx/plot.h>
+	<wx/drawutils.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xyz/xyzrenderer.cpp
+	"wx/xyz/xyzrenderer.h"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xyz/xyzrenderer.h
+	<wx/chartrenderer.h>
+	<wx/axis/axis.h>
+	<wx/xyz/xyzdataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xyz/xyzdataset.h
+	<wx/xy/xydataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/category/categorysimpledataset.cpp
+	<wx/category/categorysimpledataset.h>
+	<wx/arrstr.h>
+	<wx/arrimpl.cpp>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/category/categorysimpledataset.h
+	<wx/category/categorydataset.h>
+	<wx/dynarray.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/logarithmicnumberaxis.cpp
+	<wx/axis/logarithmicnumberaxis.h>
+	<math.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/logarithmicnumberaxis.h
+	<wx/axis/numberaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/numberaxis.h
+	<wx/axis/labelaxis.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/gantt/ganttrenderer.cpp
+	<wx/gantt/ganttrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/gantt/ganttrenderer.h
+	<wx/axis/dateaxis.h>
+	<wx/axis/categoryaxis.h>
+	<wx/gantt/ganttdataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/dateaxis.h
+	<wx/axis/labelaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/gantt/ganttdataset.h
+	<wx/category/categorydataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/chartsplitpanel.cpp
+	"wx/chartsplitpanel.h"
+	"wx/chartpanel.h"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/chartsplitpanel.h
+	<wx/aui/aui.h>
+	"wx/wxfreechartdefs.h"
+	"wx/plot.h"
+	"wx/multiplot.h"
+
+1329067348 /usr/include/wx-2.8/wx/aui/aui.h
+	"wx/aui/framemanager.h"
+	"wx/aui/dockart.h"
+	"wx/aui/floatpane.h"
+	"wx/aui/auibar.h"
+	"wx/aui/auibook.h"
+	"wx/aui/tabmdi.h"
+
+1329067347 /usr/include/wx-2.8/wx/aui/framemanager.h
+	"wx/defs.h"
+	"wx/dynarray.h"
+	"wx/gdicmn.h"
+	"wx/window.h"
+	"wx/timer.h"
+	"wx/sizer.h"
+
+1329067347 /usr/include/wx-2.8/wx/aui/dockart.h
+	"wx/defs.h"
+	"wx/pen.h"
+	"wx/brush.h"
+	"wx/bitmap.h"
+	"wx/colour.h"
+
+1329067348 /usr/include/wx-2.8/wx/aui/floatpane.h
+	"wx/defs.h"
+	"wx/frame.h"
+	"wx/minifram.h"
+
+1329067346 /usr/include/wx-2.8/wx/minifram.h
+	"wx/defs.h"
+	"wx/palmos/minifram.h"
+	"wx/msw/minifram.h"
+	"wx/motif/minifram.h"
+	"wx/gtk/minifram.h"
+	"wx/gtk1/minifram.h"
+	"wx/x11/minifram.h"
+	"wx/mac/minifram.h"
+	"wx/os2/minifram.h"
+	"wx/frame.h"
+
+1329067346 /usr/include/wx-2.8/wx/gtk/minifram.h
+	"wx/defs.h"
+	"wx/object.h"
+	"wx/bitmap.h"
+	"wx/frame.h"
+
+1329067348 /usr/include/wx-2.8/wx/aui/auibar.h
+	"wx/defs.h"
+	"wx/control.h"
+
+1329067348 /usr/include/wx-2.8/wx/aui/auibook.h
+	"wx/defs.h"
+	"wx/aui/framemanager.h"
+	"wx/aui/dockart.h"
+	"wx/aui/floatpane.h"
+	"wx/control.h"
+
+1329067348 /usr/include/wx-2.8/wx/aui/tabmdi.h
+	"wx/frame.h"
+	"wx/panel.h"
+	"wx/notebook.h"
+	"wx/icon.h"
+	"wx/aui/auibook.h"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/multiplot.h
+	<wx/dynarray.h>
+	<wx/plot.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/chartpanel.h
+	<wx/wxfreechartdefs.h>
+	<wx/chart.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/chart.h
+	<wx/wxfreechartdefs.h>
+	<wx/refobject.h>
+	<wx/observable.h>
+	<wx/plot.h>
+	<wx/areadraw.h>
+	<wx/axis/axis.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/multiplot.cpp
+	<wx/multiplot.h>
+	"wx/arrimpl.cpp"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xyhistorenderer.cpp
+	<wx/xy/xyhistorenderer.h>
+	<wx/art.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xyhistorenderer.h
+	<wx/xy/xyrenderer.h>
+	<wx/areadraw.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xydataset.cpp
+	<wx/xy/xydataset.h>
+	<wx/xy/xyrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/functions/polynom.cpp
+	<wx/xy/functions/polynom.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/functions/polynom.h
+	<wx/xy/xydataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/gantt/ganttplot.cpp
+	<wx/gantt/ganttplot.h>
+	<wx/gantt/ganttdataset.h>
+	<wx/gantt/ganttrenderer.h>
+	<wx/axis/dateaxis.h>
+	<wx/axis/categoryaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/gantt/ganttplot.h
+	<wx/axisplot.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/gantt/ganttdataset.cpp
+	<wx/gantt/ganttdataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/colorscheme.cpp
+	<wx/colorscheme.h>
+	<wx/arrimpl.cpp>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/colorscheme.h
+	<wx/wxfreechartdefs.h>
+	<wx/dynarray.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/bars/barplot.cpp
+	<wx/bars/barplot.h>
+	<wx/axis/categoryaxis.h>
+	<wx/axis/numberaxis.h>
+	<wx/axis/dateaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/bars/barplot.h
+	<wx/xy/xyplot.h>
+	<wx/category/categorydataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xyplot.h
+	<wx/axisplot.h>
+	<wx/axis/numberaxis.h>
+	<wx/xy/xydataset.h>
+	<wx/xy/xyrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/symbol.cpp
+	<wx/symbol.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/ohlc/ohlcplot.cpp
+	<wx/ohlc/ohlcplot.h>
+	<wx/axis/dateaxis.h>
+	<wx/axis/numberaxis.h>
+	<wx/axis/compdateaxis.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/ohlc/ohlcplot.h
+	<wx/xy/xyplot.h>
+	<wx/ohlc/ohlcdataset.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/ohlc/ohlcdataset.h
+	<wx/xy/xydataset.h>
+	<wx/ohlc/ohlcrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/ohlc/ohlcrenderer.h
+	<wx/chartrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/axis/compdateaxis.h
+	<wx/axis/axis.h>
+	<wx/areadraw.h>
+	<wx/dynarray.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/numberaxis.cpp
+	<wx/axis/numberaxis.h>
+	<wx/xy/xydataset.h>
+	<wx/category/categorydataset.h>
+	<float.h>
+	<math.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/labelaxis.cpp
+	<wx/axis/labelaxis.h>
+	<wx/drawutils.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xyz/bubbleplot.cpp
+	<wx/xyz/bubbleplot.h>
+	<wx/xyz/xyzdataset.h>
+	<wx/xyz/xyzrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xyz/bubbleplot.h
+	<wx/axisplot.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/chart.cpp
+	<wx/chart.h>
+	<wx/drawutils.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xydynamicdataset.cpp
+	"wx/xy/xydynamicdataset.h"
+	<wx/arrimpl.cpp>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xydynamicdataset.h
+	<wx/wx.h>
+	<wx/gdicmn.h>
+	<wx/dynarray.h>
+	"wx/wxfreechartdefs.h"
+	"wx/xy/xydataset.h"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/legend.cpp
+	<wx/legend.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xysimpledataset.cpp
+	<wx/xy/xysimpledataset.h>
+	"wx/arrimpl.cpp"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xysimpledataset.h
+	<wx/xy/xydataset.h>
+	<wx/dynarray.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xyplot.cpp
+	<wx/xy/xyplot.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/gantt/ganttsimpledataset.cpp
+	<wx/gantt/ganttsimpledataset.h>
+	"wx/arrimpl.cpp"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/gantt/ganttsimpledataset.h
+	<wx/gantt/ganttdataset.h>
+	<wx/dynarray.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/ohlc/ohlcbarrenderer.cpp
+	<wx/ohlc/ohlcbarrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/ohlc/ohlcbarrenderer.h
+	<wx/ohlc/ohlcrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xyrenderer.cpp
+	<wx/xy/xyrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/axis.cpp
+	<wx/axis/axis.h>
+	"wx/arrimpl.cpp"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/ohlc/ohlcdataset.cpp
+	<wx/ohlc/ohlcdataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/dateaxis.cpp
+	<wx/axis/dateaxis.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/art.cpp
+	<wx/dynarray.h>
+	<wx/arrimpl.cpp>
+	<wx/art.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xyarearenderer.cpp
+	<wx/xy/xyarearenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xyarearenderer.h
+	<wx/xy/xyrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/ohlc/ohlccandlestickrenderer.cpp
+	<wx/ohlc/ohlccandlestickrenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/ohlc/ohlccandlestickrenderer.h
+	<wx/ohlc/ohlcrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/dataset.cpp
+	<wx/dataset.h>
+	"wx/arrimpl.cpp"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/xylinerenderer.cpp
+	<wx/xy/xylinerenderer.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/xylinerenderer.h
+	<wx/xy/xyrenderer.h>
+	<wx/art.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/functions/sinefunction.cpp
+	<wx/xy/functions/sinefunction.h>
+	<math.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/functions/sinefunction.h
+	<wx/xy/xydataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xyz/xyzdataset.cpp
+	<wx/xyz/xyzdataset.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/areadraw.cpp
+	<wx/areadraw.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/axis/compdateaxis.cpp
+	"wx/axis/compdateaxis.h"
+	<wx/arrimpl.cpp>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/ohlc/ohlcrenderer.cpp
+	<wx/ohlc/ohlcrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/marker.cpp
+	<wx/marker.h>
+	<wx/axis/axis.h>
+	"wx/arrimpl.cpp"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/pie/pieplot.cpp
+	<wx/pie/pieplot.h>
+	<wx/drawutils.h>
+	<wx/drawobject.h>
+	<math.h>
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/pie/pieplot.h
+	<wx/plot.h>
+	<wx/category/categorydataset.h>
+	<wx/colorscheme.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/chartpanel.cpp
+	<wx/chartpanel.h>
+	<wx/dcbuffer.h>
+	<wx/dcgraph.h>
+
+1329067347 /usr/include/wx-2.8/wx/dcbuffer.h
+	"wx/dcmemory.h"
+	"wx/dcclient.h"
+	"wx/window.h"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/bars/barrenderer.cpp
+	"wx/bars/barrenderer.h"
+	"wx/category/categorydataset.h"
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/renderer.cpp
+	<wx/chartrenderer.h>
+
+1347092937 source:/home/enkeli/codeblocks/wx-nfp/lib/freecharts/src/xy/vectordataset.cpp
+	<wx/xy/vectordataset.h>
+	"wx/arrimpl.cpp"
+
+1347092937 /home/enkeli/codeblocks/wx-nfp/lib/freecharts/include/wx/xy/vectordataset.h
+	<wx/xy/xydataset.h>
+	<wx/dynarray.h>
+
+1347474813 source:/home/enkeli/codeblocks/wx-nfp/src/statisticsFrame.cpp
+	"statisticsFrame.h"
+	"phasesChart.h"
+	"lutealPhasesChart.h"
+	"cyclesLengthChart.h"
+	"temperaturesChart.h"
+	<wx/arrimpl.cpp>
+	<wx/string.h>
+	<wx/intl.h>
+
+1347475116 source:/home/enkeli/codeblocks/wx-nfp/src/customChartWindow.cpp
+	"customChartWindow.h"
+
+1347474844 /home/enkeli/codeblocks/wx-nfp/include/customChartWindow.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	"cyclesData.h"
+	"configClass.h"
+	"chart.h"
+	"utilClass.h"
+
+1347464348 /home/enkeli/codeblocks/wx-nfp/include/cyclesData.h
+	<wx/datetime.h>
+	"dayEntry.h"
+	"cardEntry.h"
+	"cyclesData_declarations.h"
+	"configClass.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/dayEntry.h
+	<wx/wx.h>
+	<wx/datetime.h>
+	"cyclesData_declarations.h"
+
+1347464323 /home/enkeli/codeblocks/wx-nfp/include/cyclesData_declarations.h
+
+1347464461 /home/enkeli/codeblocks/wx-nfp/include/cardEntry.h
+	<wx/wx.h>
+	<wx/datetime.h>
+	<wx/dynarray.h>
+	"dayEntry.h"
+	"cyclesData_declarations.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/configClass.h
+	<wx/wx.h>
+	<wx/fileconf.h>
+	"utilClass.h"
+
+1347474000 /home/enkeli/codeblocks/wx-nfp/include/utilClass.h
+	<wx/datetime.h>
+	<wx/stdpaths.h>
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/printFrame.h
+	<wx/wx.h>
+	<wx/dialog.h>
+	<wx/wxprec.h>
+	<wx/button.h>
+	<wx/spinctrl.h>
+	<wx/radiobut.h>
+	<wx/stattext.h>
+	<wx/checkbox.h>
+	<wx/sizer.h>
+	"configClass.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/translationHelper.h
+	<wx/wx.h>
+	<wx/intl.h>
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppInfo.h
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowNotes.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	"configClass.h"
+	"utilClass.h"
+
+1347367547 /home/enkeli/codeblocks/wx-nfp/include/notificationFrame.h
+	<wx/wx.h>
+	<wx/dialog.h>
+	<wx/wxprec.h>
+	<wx/button.h>
+	<wx/stattext.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+	"configClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/goToFrame.h
+	<wx/spinctrl.h>
+	<wx/dialog.h>
+	<wx/sizer.h>
+	<wx/datectrl.h>
+	<wx/button.h>
+	<wx/radiobut.h>
+	<wx/dateevt.h>
+	<wx/panel.h>
+	<wx/stattext.h>
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowTop.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	"configClass.h"
+	"drawingClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+	"cardFrame.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/drawingClass.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+
+1347369947 /home/enkeli/codeblocks/wx-nfp/include/cardFrame.h
+	<wx/spinctrl.h>
+	<wx/combobox.h>
+	<wx/checkbox.h>
+	<wx/dialog.h>
+	<wx/sizer.h>
+	<wx/datectrl.h>
+	<wx/button.h>
+	<wx/dateevt.h>
+	<wx/panel.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+
+1347203246 /home/enkeli/codeblocks/wx-nfp/include/customWindowMain.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	"configClass.h"
+	"drawingClass.h"
+	"customWindowLeft.h"
+	"customWindowNotes.h"
+	"cyclesData.h"
+	"utilClass.h"
+	"dayFrame.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowLeft.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/button.h>
+	<wx/scrolwin.h>
+	<wx/frame.h>
+	"configClass.h"
+	"drawingClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/dayFrame.h
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+	<wx/checkbox.h>
+	<wx/panel.h>
+	<wx/button.h>
+	<wx/dialog.h>
+	<wx/combobox.h>
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/liveUpdateClass.h
+	"configClass.h"
+	"utilClass.h"
+	<wx/wfstream.h>
+
+1347522133 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppVersion.h
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpApp.h
+	<wx/wx.h>
+	<wx/wxprec.h>
+	"translationHelper.h"
+	"configClass.h"
+
+1347438835 /home/enkeli/codeblocks/wx-nfp/include/nfpMainFrame.h
+	<wx/wx.h>
+	<wx/frame.h>
+	<wx/wxprec.h>
+	<wx/wxprec.h>
+	<wx/printdlg.h>
+	<wx/cmndata.h>
+	<wx/filedlg.h>
+	<wx/fontdlg.h>
+	<wx/menu.h>
+	<wx/button.h>
+	<wx/toolbar.h>
+	<wx/scrolbar.h>
+	<wx/scrolwin.h>
+	<wx/panel.h>
+	<wx/timer.h>
+	<vector>
+	"customWindowMain.h"
+	"customWindowLeft.h"
+	"customWindowTop.h"
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+	"cardFrame.h"
+	"dayFrame.h"
+	"liveUpdateClass.h"
+	"updatesNotificationForm.h"
+	"notificationFrame.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/updatesNotificationForm.h
+	<wx/wx.h>
+	<wx/frame.h>
+	<wx/wxprec.h>
+	<wx/button.h>
+	<wx/stattext.h>
+	<wx/panel.h>
+	<wx/timer.h>
+	<wx/gauge.h>
+	"configClass.h"
+	"utilClass.h"
+	"liveUpdateClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/aboutFrame.h
+	<wx/wx.h>
+	<wx/dialog.h>
+	<wx/wxprec.h>
+	<wx/button.h>
+	<wx/stattext.h>
+	<wx/panel.h>
+	<wx/statbmp.h>
+	<wx/sizer.h>
+	<wx/timer.h>
+	<wx/hyperlink.h>
+	"nfpMainFrame.h"
+	"configClass.h"
+	"utilClass.h"
+
+1347092313 /home/enkeli/codeblocks/wx-nfp/include/histogramsFrame.h
+	<wx/dialog.h>
+	<wx/sizer.h>
+	<wx/dc.h>
+	<wx/dcclient.h>
+	<wx/panel.h>
+	<wx/colour.h>
+	"nfpMainFrame.h"
+	<vector>
+
+1347452846 /home/enkeli/codeblocks/wx-nfp/include/customPrintout.h
+	"wx/print.h"
+	"wx/printdlg.h"
+	"configClass.h"
+	"cyclesData.h"
+	"drawingClass.h"
+	"utilClass.h"
+
+1347004191 /home/enkeli/codeblocks/wx-nfp/include/configFrame.h
+	<wx/notebook.h>
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+	<wx/checkbox.h>
+	<wx/listbox.h>
+	<wx/spinctrl.h>
+	<wx/panel.h>
+	<wx/button.h>
+	<wx/dialog.h>
+	<wx/combobox.h>
+	"configClass.h"
+	"utilClass.h"
+	<wx/fontdlg.h>
+
+1347092313 /home/enkeli/codeblocks/wx-nfp/include/cycleGraph.h
+	<wx/dialog.h>
+	<wx/sizer.h>
+	<wx/dc.h>
+	<wx/dcclient.h>
+	"nfpMainFrame.h"
+	<vector>
+
+1347474675 /home/enkeli/codeblocks/wx-nfp/include/statisticsFrame.h
+	<wx/sizer.h>
+	<wx/button.h>
+	<wx/panel.h>
+	<wx/frame.h>
+	<wx/listbox.h>
+	<wx/dynarray.h>
+	"customChartWindow.h"
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+	"chart.h"
+
+1347518404 /home/enkeli/codeblocks/wx-nfp/include/chart.h
+	"configClass.h"
+	"cyclesData.h"
+	"utilClass.h"
+	<wx/arrstr.h>
+	<wx/dynarray.h>
+	<wx/wxprec.h>
+	<wx/wx.h>
+
+1347518397 source:/home/enkeli/codeblocks/wx-nfp/src/chart.cpp
+	"chart.h"
+	<wx/arrimpl.cpp>
+
+1347475197 source:/home/enkeli/codeblocks/wx-nfp/src/phasesChart.cpp
+	"phasesChart.h"
+
+1347475232 /home/enkeli/codeblocks/wx-nfp/include/phasesChart.h
+	<chart.h>
+
+1347475236 /home/enkeli/codeblocks/wx-nfp/include/lutealPhasesChart.h
+	<chart.h>
+
+1347475203 source:/home/enkeli/codeblocks/wx-nfp/src/lutealPhasesChart.cpp
+	"lutealPhasesChart.h"
+
+1347475190 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesLengthChart.cpp
+	"cyclesLengthChart.h"
+	<vector>
+
+1347475228 /home/enkeli/codeblocks/wx-nfp/include/cyclesLengthChart.h
+	<chart.h>
+
+1347519284 source:/home/enkeli/codeblocks/wx-nfp/src/temperaturesChart.cpp
+	"temperaturesChart.h"
+	<wx/arrimpl.cpp>
+
+1347477343 /home/enkeli/codeblocks/wx-nfp/include/temperaturesChart.h
+	<chart.h>
+	<map>
+	<wx/dynarray.h>
 
