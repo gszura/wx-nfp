@@ -151,7 +151,7 @@ void temperaturesChart::drawTemperaturesLegend(wxDC &dc)
     int textWidth, textHeight, legendY = m_marginTop + 5;
     wxString str = wxString::Format( _( "%d times" ), m_maxCount );
     dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
-    dc.GetTextExtent( str, &textWidth, &textHeight );
+    dc.GetMultiLineTextExtent( str, &textWidth, &textHeight );
 
     int cellHeight = ( m_chartHeight + m_marginTop - legendY ) / ( m_maxCount + 1 );
     if (cellHeight > m_onePointHeight) cellHeight = m_onePointHeight;

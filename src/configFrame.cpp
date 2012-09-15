@@ -985,9 +985,9 @@ void configFrame::buildGui(wxWindow* parent)
     buttonFontResultPhases->SetWindowStyle( wxNO_BORDER );
     buttonFontResultPhases->Refresh();
 #else
-    checkBoxCheckForUpdates->Enable( false );
-    staticUpdatesProxy->Enable( false );
-    textUpdatesProxy->Enable( false );
+    //checkBoxCheckForUpdates->Enable( false );
+    //staticUpdatesProxy->Enable( false );
+    //textUpdatesProxy->Enable( false );
 #endif
 
     setButtonsStyle();

@@ -7287,7 +7287,7 @@
 	"wx/filesys.h"
 	"wx/hashmap.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.cpp
 	"customWindowLeft.h"
 
 1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowLeft.h
@@ -8847,7 +8847,7 @@
 	"dayEntry.h"
 	"cyclesData_declarations.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowTop.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowTop.cpp
 	"customWindowTop.h"
 
 1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowTop.h
@@ -8890,7 +8890,7 @@
 	"wx/datetime.h"
 	"wx/window.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/configClass.cpp
+1347556819 source:/home/enkeli/codeblocks/wx-nfp/src/configClass.cpp
 	"configClass.h"
 	"wx-nfpAppInfo.h"
 	<wx/ffile.h>
@@ -8904,7 +8904,7 @@
 	"wx/convauto.h"
 	<stdio.h>
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/goToFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/goToFrame.cpp
 	"goToFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	<wx/settings.h>
@@ -8960,7 +8960,7 @@
 
 1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/wx-nfp.xpm
 
-1347369618 source:/home/enkeli/codeblocks/wx-nfp/src/dayFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/dayFrame.cpp
 	"dayFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
@@ -8982,7 +8982,7 @@
 	"cyclesData.h"
 	"utilClass.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.cpp
 	"customWindowNotes.h"
 
 1347004191 /home/enkeli/codeblocks/wx-nfp/src/customWindowNotes.h
@@ -8991,7 +8991,7 @@
 	"configClass.h"
 	"utilClass.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/aboutFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/aboutFrame.cpp
 	"aboutFrame.h"
 	"wx-nfpAppInfo.h"
 	"wx-nfpAppVersion.h"
@@ -9142,7 +9142,7 @@
 
 1346764831 /home/enkeli/codeblocks/wx-nfp/data/xpm/splash_screen.xpm
 
-1347095857 source:/home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.cpp
+1347556502 source:/home/enkeli/codeblocks/wx-nfp/src/liveUpdateClass.cpp
 	"liveUpdateClass.h"
 	"wx-nfpAppInfo.h"
 	"wx-nfpAppVersion.h"
@@ -9150,6 +9150,7 @@
 	<wx/sstream.h>
 	<wx/datetime.h>
 	<wx/filename.h>
+	<wx/utils.h>
 
 1329067345 /usr/include/wx-2.8/wx/protocol/http.h
 	"wx/defs.h"
@@ -9207,18 +9208,18 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1347203982 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowMain.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customWindowMain.cpp
 	"customWindowMain.h"
 	"cardFrame.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/updatesNotificationForm.cpp
 	"updatesNotificationForm.h"
 	"../data/xpm/wx-nfp.xpm"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/dayEntry.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/dayEntry.cpp
 	"dayEntry.h"
 
-1347452548 source:/home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.cpp
+1347556344 source:/home/enkeli/codeblocks/wx-nfp/src/nfpMainFrame.cpp
 	"../data/xpm/buttonNextCard_XPM.xpm"
 	"../data/xpm/buttonPrevCard_XPM.xpm"
 	"../data/xpm/wx-nfp.xpm"
@@ -9499,7 +9500,7 @@
 	"configClass.h"
 	"utilClass.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/wx-nfpApp.cpp
 	<wx/socket.h>
 	<wx/filename.h>
 	"wx-nfpApp.h"
@@ -9507,7 +9508,7 @@
 	"aboutFrame.h"
 	"utilClass.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/translationHelper.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/translationHelper.cpp
 	"translationHelper.h"
 	<wx/dir.h>
 	<wx/fileconf.h>
@@ -9519,17 +9520,17 @@
 	"wx/longlong.h"
 	"wx/string.h"
 
-1347259013 source:/home/enkeli/codeblocks/wx-nfp/src/drawingClass.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/drawingClass.cpp
 	"drawingClass.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/printFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/printFrame.cpp
 	"../data/xpm/wx-nfp.xpm"
 	"printFrame.h"
 
-1347452881 source:/home/enkeli/codeblocks/wx-nfp/src/customPrintout.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customPrintout.cpp
 	"customPrintout.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/configFrame.cpp
+1347556606 source:/home/enkeli/codeblocks/wx-nfp/src/configFrame.cpp
 	"../data/xpm/wx-nfp.xpm"
 	"configFrame.h"
 	<wx/colordlg.h>
@@ -9562,21 +9563,21 @@
 	<wx/string.h>
 	<iostream>
 
-1347367640 source:/home/enkeli/codeblocks/wx-nfp/src/notificationFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/notificationFrame.cpp
 	"notificationFrame.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData.cpp
 	<wx/ffile.h>
 	<wx/filename.h>
 	"cyclesData.h"
 	<wx/dir.h>
 
-1347453213 source:/home/enkeli/codeblocks/wx-nfp/src/utilClass.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/utilClass.cpp
 	"utilClass.h"
 	<wx/stdpaths.h>
 	<wx/filename.h>
 
-1347521006 source:/home/enkeli/codeblocks/wx-nfp/src/cardFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/cardFrame.cpp
 	"cardFrame.h"
 	"../data/xpm/wx-nfp.xpm"
 	"cyclesData_declarations.h"
@@ -9585,10 +9586,10 @@
 	<wx/intl.h>
 	<wx/font.h>
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cardEntry.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/cardEntry.cpp
 	"cardEntry.h"
 
-1347004191 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData_results.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesData_results.cpp
 	"cyclesData.h"
 
 1329065699 /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-debug-2.8/wx/setup.h
@@ -10104,7 +10105,7 @@
 	<wx/xy/xydataset.h>
 	<wx/dynarray.h>
 
-1347474813 source:/home/enkeli/codeblocks/wx-nfp/src/statisticsFrame.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/statisticsFrame.cpp
 	"statisticsFrame.h"
 	"phasesChart.h"
 	"lutealPhasesChart.h"
@@ -10114,10 +10115,10 @@
 	<wx/string.h>
 	<wx/intl.h>
 
-1347475116 source:/home/enkeli/codeblocks/wx-nfp/src/customChartWindow.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/customChartWindow.cpp
 	"customChartWindow.h"
 
-1347474844 /home/enkeli/codeblocks/wx-nfp/include/customChartWindow.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customChartWindow.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"cyclesData.h"
@@ -10125,7 +10126,7 @@
 	"chart.h"
 	"utilClass.h"
 
-1347464348 /home/enkeli/codeblocks/wx-nfp/include/cyclesData.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/cyclesData.h
 	<wx/datetime.h>
 	"dayEntry.h"
 	"cardEntry.h"
@@ -10133,30 +10134,30 @@
 	"configClass.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/dayEntry.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/dayEntry.h
 	<wx/wx.h>
 	<wx/datetime.h>
 	"cyclesData_declarations.h"
 
-1347464323 /home/enkeli/codeblocks/wx-nfp/include/cyclesData_declarations.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/cyclesData_declarations.h
 
-1347464461 /home/enkeli/codeblocks/wx-nfp/include/cardEntry.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/cardEntry.h
 	<wx/wx.h>
 	<wx/datetime.h>
 	<wx/dynarray.h>
 	"dayEntry.h"
 	"cyclesData_declarations.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/configClass.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/configClass.h
 	<wx/wx.h>
 	<wx/fileconf.h>
 	"utilClass.h"
 
-1347474000 /home/enkeli/codeblocks/wx-nfp/include/utilClass.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/utilClass.h
 	<wx/datetime.h>
 	<wx/stdpaths.h>
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/printFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/printFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -10169,19 +10170,19 @@
 	"configClass.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/translationHelper.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/translationHelper.h
 	<wx/wx.h>
 	<wx/intl.h>
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppInfo.h
+1347556425 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppInfo.h
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowNotes.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customWindowNotes.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
 	"utilClass.h"
 
-1347367547 /home/enkeli/codeblocks/wx-nfp/include/notificationFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/notificationFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -10191,7 +10192,7 @@
 	<wx/sizer.h>
 	"configClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/goToFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/goToFrame.h
 	<wx/spinctrl.h>
 	<wx/dialog.h>
 	<wx/sizer.h>
@@ -10205,7 +10206,7 @@
 	"cyclesData.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowTop.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customWindowTop.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
@@ -10214,14 +10215,14 @@
 	"utilClass.h"
 	"cardFrame.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/drawingClass.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/drawingClass.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
 	"cyclesData.h"
 	"utilClass.h"
 
-1347369947 /home/enkeli/codeblocks/wx-nfp/include/cardFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/cardFrame.h
 	<wx/spinctrl.h>
 	<wx/combobox.h>
 	<wx/checkbox.h>
@@ -10237,7 +10238,7 @@
 	"cyclesData.h"
 	"utilClass.h"
 
-1347203246 /home/enkeli/codeblocks/wx-nfp/include/customWindowMain.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customWindowMain.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	"configClass.h"
@@ -10248,7 +10249,7 @@
 	"utilClass.h"
 	"dayFrame.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/customWindowLeft.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customWindowLeft.h
 	<wx/wxprec.h>
 	<wx/wx.h>
 	<wx/button.h>
@@ -10259,7 +10260,7 @@
 	"cyclesData.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/dayFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/dayFrame.h
 	<wx/sizer.h>
 	<wx/stattext.h>
 	<wx/textctrl.h>
@@ -10272,20 +10273,20 @@
 	"cyclesData.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/liveUpdateClass.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/liveUpdateClass.h
 	"configClass.h"
 	"utilClass.h"
 	<wx/wfstream.h>
 
-1347522133 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppVersion.h
+1347556889 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpAppVersion.h
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpApp.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/wx-nfpApp.h
 	<wx/wx.h>
 	<wx/wxprec.h>
 	"translationHelper.h"
 	"configClass.h"
 
-1347438835 /home/enkeli/codeblocks/wx-nfp/include/nfpMainFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/nfpMainFrame.h
 	<wx/wx.h>
 	<wx/frame.h>
 	<wx/wxprec.h>
@@ -10314,7 +10315,7 @@
 	"updatesNotificationForm.h"
 	"notificationFrame.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/updatesNotificationForm.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/updatesNotificationForm.h
 	<wx/wx.h>
 	<wx/frame.h>
 	<wx/wxprec.h>
@@ -10327,7 +10328,7 @@
 	"utilClass.h"
 	"liveUpdateClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/aboutFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/aboutFrame.h
 	<wx/wx.h>
 	<wx/dialog.h>
 	<wx/wxprec.h>
@@ -10352,7 +10353,7 @@
 	"nfpMainFrame.h"
 	<vector>
 
-1347452846 /home/enkeli/codeblocks/wx-nfp/include/customPrintout.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/customPrintout.h
 	"wx/print.h"
 	"wx/printdlg.h"
 	"configClass.h"
@@ -10360,7 +10361,7 @@
 	"drawingClass.h"
 	"utilClass.h"
 
-1347004191 /home/enkeli/codeblocks/wx-nfp/include/configFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/configFrame.h
 	<wx/notebook.h>
 	<wx/sizer.h>
 	<wx/stattext.h>
@@ -10384,7 +10385,7 @@
 	"nfpMainFrame.h"
 	<vector>
 
-1347474675 /home/enkeli/codeblocks/wx-nfp/include/statisticsFrame.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/statisticsFrame.h
 	<wx/sizer.h>
 	<wx/button.h>
 	<wx/panel.h>
@@ -10397,7 +10398,7 @@
 	"utilClass.h"
 	"chart.h"
 
-1347518404 /home/enkeli/codeblocks/wx-nfp/include/chart.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/chart.h
 	"configClass.h"
 	"cyclesData.h"
 	"utilClass.h"
@@ -10406,34 +10407,34 @@
 	<wx/wxprec.h>
 	<wx/wx.h>
 
-1347518397 source:/home/enkeli/codeblocks/wx-nfp/src/chart.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/chart.cpp
 	"chart.h"
 	<wx/arrimpl.cpp>
 
-1347475197 source:/home/enkeli/codeblocks/wx-nfp/src/phasesChart.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/phasesChart.cpp
 	"phasesChart.h"
 
-1347475232 /home/enkeli/codeblocks/wx-nfp/include/phasesChart.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/phasesChart.h
 	<chart.h>
 
-1347475236 /home/enkeli/codeblocks/wx-nfp/include/lutealPhasesChart.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/lutealPhasesChart.h
 	<chart.h>
 
-1347475203 source:/home/enkeli/codeblocks/wx-nfp/src/lutealPhasesChart.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/lutealPhasesChart.cpp
 	"lutealPhasesChart.h"
 
-1347475190 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesLengthChart.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/cyclesLengthChart.cpp
 	"cyclesLengthChart.h"
 	<vector>
 
-1347475228 /home/enkeli/codeblocks/wx-nfp/include/cyclesLengthChart.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/cyclesLengthChart.h
 	<chart.h>
 
-1347519284 source:/home/enkeli/codeblocks/wx-nfp/src/temperaturesChart.cpp
+1347555128 source:/home/enkeli/codeblocks/wx-nfp/src/temperaturesChart.cpp
 	"temperaturesChart.h"
 	<wx/arrimpl.cpp>
 
-1347477343 /home/enkeli/codeblocks/wx-nfp/include/temperaturesChart.h
+1347555141 /home/enkeli/codeblocks/wx-nfp/include/temperaturesChart.h
 	<chart.h>
 	<map>
 	<wx/dynarray.h>

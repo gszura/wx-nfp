@@ -5,7 +5,6 @@
 * Quick help (pl)
 * Detailed help (pl)
 * Detailed help (en)
-* Statistics
 * Sending cards via e-mail
 * Restoring previous versions from backup file
 * Fahrenheit as a temperature unit (low priority - is it really needed..?)
@@ -15,10 +14,10 @@
 == known issues
 * Printing with correct fonts under Linux doesn't work
 
-== 0.9.1 (build 1433, 2012-09-13)
+== 0.9.1 (build 1439, 2012-09-13)
 * New: New statistics.
 * Fix: Fixed existing statistics.
-* Fix: Now the notification pop-up after calculating results is not be dupliced.
+* Fix: Now the notification pop-up after calculating results is displayed only once.
 
 == 0.9 (build 1116, 2012-09-05)
 * New: Automatic interpretation of cycle data has been implemented.

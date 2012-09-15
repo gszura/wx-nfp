@@ -1,54 +1,64 @@
-     ../src/aboutFrame.cpp \
-     ../src/cardEntry.cpp \
-     ../src/cardFrame.cpp \
-     ../src/configClass.cpp \
-     ../src/configFrame.cpp \
-     ../src/customPrintout.cpp \
-     ../src/customWindowLeft.cpp \
-     ../src/customWindowMain.cpp \
-     ../src/customWindowNotes.cpp \
-     ../src/customWindowTop.cpp \
-     ../src/cycleGraph.cpp \
-     ../src/cyclesData.cpp \
-     ../src/cyclesData_results.cpp \
-     ../src/dayEntry.cpp \
-     ../src/dayFrame.cpp \
-     ../src/drawingClass.cpp \
-     ../src/goToFrame.cpp \
-     ../src/histogramsFrame.cpp \
-     ../src/liveUpdateClass.cpp \
-     ../src/nfpMainFrame.cpp \
-     ../src/notificationFrame.cpp \
-     ../src/printFrame.cpp \
-     ../src/translationHelper.cpp \
-     ../src/updatesNotificationForm.cpp \
-     ../src/utilClass.cpp \
-     ../src/wx-nfpApp.cpp \
-     ../src/aboutFrame.h \
-     ../src/cardEntry.h \
-     ../src/cardFrame.h \
-     ../src/configClass.h \
-     ../src/configFrame.h \
-     ../src/customPrintout.h \
-     ../src/customWindowLeft.h \
-     ../src/customWindowMain.h \
-     ../src/customWindowNotes.h \
-     ../src/customWindowTop.h \
-     ../src/cycleGraph.h \
-     ../src/cyclesData.h \
-     ../src/cyclesData_declarations.h \
-     ../src/dayEntry.h \
-     ../src/dayFrame.h \
-     ../src/drawingClass.h \
-     ../src/goToFrame.h \
-     ../src/histogramsFrame.h \
-     ../src/liveUpdateClass.h \
-     ../src/nfpMainFrame.h \
-     ../src/notificationFrame.h \
-     ../src/printFrame.h \
-     ../src/translationHelper.h \
-     ../src/updatesNotificationForm.h \
-     ../src/utilClass.h \
-     ../src/wx-nfpApp.h \
-     ../src/wx-nfpAppInfo.h \
-     ../src/wx-nfpAppVersion.h
+../include/aboutFrame.h
+../include/cardEntry.h
+../include/cardFrame.h
+../include/chart.h
+../include/configClass.h
+../include/configFrame.h
+../include/customChartWindow.h
+../include/customPrintout.h
+../include/customWindowLeft.h
+../include/customWindowMain.h
+../include/customWindowNotes.h
+../include/customWindowTop.h
+../include/cyclesData_declarations.h
+../include/cyclesData.h
+../include/cyclesLengthChart.h
+../include/dayEntry.h
+../include/dayFrame.h
+../include/drawingClass.h
+../include/goToFrame.h
+../include/liveUpdateClass.h
+../include/lutealPhasesChart.h
+../include/nfpMainFrame.h
+../include/notificationFrame.h
+../include/phasesChart.h
+../include/printFrame.h
+../include/statisticsFrame.h
+../include/temperaturesChart.h
+../include/translationHelper.h
+../include/updatesNotificationForm.h
+../include/utilClass.h
+../include/wx-nfpApp.h
+../include/wx-nfpAppInfo.h
+../include/wx-nfpAppVersion.h
+../src/aboutFrame.cpp
+../src/cardEntry.cpp
+../src/cardFrame.cpp
+../src/chart.cpp
+../src/configClass.cpp
+../src/configFrame.cpp
+../src/customChartWindow.cpp
+../src/customPrintout.cpp
+../src/customWindowLeft.cpp
+../src/customWindowMain.cpp
+../src/customWindowNotes.cpp
+../src/customWindowTop.cpp
+../src/cyclesData.cpp
+../src/cyclesData_results.cpp
+../src/cyclesLengthChart.cpp
+../src/dayEntry.cpp
+../src/dayFrame.cpp
+../src/drawingClass.cpp
+../src/goToFrame.cpp
+../src/liveUpdateClass.cpp
+../src/lutealPhasesChart.cpp
+../src/nfpMainFrame.cpp
+../src/notificationFrame.cpp
+../src/phasesChart.cpp
+../src/printFrame.cpp
+../src/statisticsFrame.cpp
+../src/temperaturesChart.cpp
+../src/translationHelper.cpp
+../src/updatesNotificationForm.cpp
+../src/utilClass.cpp
+../src/wx-nfpApp.cpp

@@ -14,6 +14,7 @@
 #include <wx/sstream.h>
 #include <wx/datetime.h>
 #include <wx/filename.h>
+#include <wx/utils.h>
 
 
 const wxEventType wxEVT_NEW_APP_AVAILABLE_EVENT = wxNewEventType();
@@ -63,10 +64,9 @@ void liveUpdateClass::OnExit() {
 bool liveUpdateClass::checkUpdateAvailability() {
     wxString urlToFetch = wxString::Format( _T( "%s%s" ), HOME_URL, UPDATES_PATH );
 #if defined(__UNIX__)
-    // FIXME 'deb32', 'deb64'
-    urlToFetch << _T( "?os=linux" );
+    urlToFetch << _T( "?os=deb" ) << (wxIsPlatform64Bit() ? _T( "64" ) : _T( "32" ));
 #else
-    urlToFetch << _T( "?os=win" );
+    urlToFetch << _T( "?os=win" ); //  << wxIsPlatform64Bit() ? _T( "64" ) : _T( "32" );
 #endif
 
     // Preparing value of the 'Host' header

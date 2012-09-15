@@ -26,13 +26,13 @@ sudo pbuilder update
 debuild -S
 
 # build a package using pbuilder, run
-sudo pbuilder build ../*.dsc
+cd ..
+sudo pbuilder build *.dsc
 
 # created deb files are in: /var/cache/pbuilder/result/
 
 
 # check the source package for common mistakes
-cd ..
 lintian -Ivi *.dsc
 
 # check the content of deb file:
@@ -46,8 +46,11 @@ $ For different architecture:
 pbuilder-dist $(lsb_release -cs) i386 create
 
 # 2/ to create new deb file
-pbuilder-dist precise i386 build *.dsc
+pbuilder-dist $(lsb_release -cs) i386 build *.dsc
 
-# created deb files are in: ~/pbuilder/DIST-ARCH_result/
+
+for precise:
+pbuilder-dist precise i386 build *.dsc
+# created deb files are in: ~/pbuilder/precise-i386_result/
 
 --------------------------------------------------------------------------------

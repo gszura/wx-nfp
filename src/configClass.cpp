@@ -43,8 +43,6 @@ configClass::configClass( wxString configFile )
  */
 void configClass::setDefaultParams()
 {
-
-
     // ogolne
     openLastOpenedFile = true;
     autosaveChanges = true;
@@ -52,11 +50,11 @@ void configClass::setDefaultParams()
 
     rememberPosition = true;
     checkForMissingDays = true;
-#if defined(__WXMSW__)
+//#if defined(__WXMSW__)
     checkForUpdates = true;
-#else
-    checkForUpdates = false;
-#endif
+//#else
+//    checkForUpdates = false;
+//#endif
     updatesProxy = _T( "" );
     formMainMaximized = false;
     formMainHeight = 650;
@@ -225,11 +223,11 @@ bool configClass::readParamsFromConfigFile()
     config->Read( CONF_ENTRY_useFlatButtons, &useFlatButtons );
     // useCoitusRecordCounter
     config->Read( CONF_ENTRY_useCoitusRecordCounter, &useCoitusRecordCounter );
-#if defined(__WXMSW__)
+//#if defined(__WXMSW__)
     // live update
     config->Read( CONF_ENTRY_checkForUpdates, &checkForUpdates );
     config->Read( CONF_ENTRY_updatesProxy, &updatesProxy );
-#endif
+//#endif
 
     /* APPLICATION */
     config->SetPath( CONF_PATH_application );
@@ -438,11 +436,11 @@ bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
     readString( params, _T("lastOpenedFileName"),         dataFileName );
     // missing days
     readBool( params, _T("checkForMissingDays"),          checkForMissingDays );
-#if defined(__WXMSW__)
+//#if defined(__WXMSW__)
     // live update
     readBool( params, _T("checkForUpdates"),              checkForUpdates );
     readString( params, _T("updatesProxy"),               updatesProxy );
-#endif
+//#endif
     // windows position
     readBool( params, _T("rememberPosition"),             rememberPosition );
     readBool( params, _T("formMainMaximized"),            formMainMaximized );

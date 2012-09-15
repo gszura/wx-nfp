@@ -15,8 +15,7 @@ WX_DEFINE_OBJARRAY(wxArrayColour);
 ********************************************************************************
 *******************************************************************************/
 
-chart::chart(configClass *config, cycleDataClass *cycleData, wxString name, wxString title)
-{
+chart::chart(configClass *config, cycleDataClass *cycleData, wxString name, wxString title) {
     m_name = name;
     m_title = title;
     m_config = config;
@@ -35,18 +34,15 @@ chart::chart(configClass *config, cycleDataClass *cycleData, wxString name, wxSt
     m_legendX = 0;
 }
 
-chart::~chart()
-{
+chart::~chart() {
     //dtor
 }
 
-wxString chart::getName()
-{
+wxString chart::getName() {
     return m_name;
 };
 
-wxString chart::getTitle()
-{
+wxString chart::getTitle() {
     return m_title;
 };
 
@@ -55,8 +51,7 @@ wxString chart::getTitle()
 /**
  * Update data and print chart
  */
-void chart::updateChartData()
-{
+void chart::updateChartData() {
     // nothing
 }
 
@@ -66,8 +61,7 @@ void chart::updateChartData()
 /**
  *
  */
-void chart::printChart(int width, int height, wxDC &dc)
-{
+void chart::printChart(int width, int height, wxDC &dc) {
     // nothing
 }
 
@@ -76,18 +70,18 @@ void chart::printChart(int width, int height, wxDC &dc)
 /**
  *
  */
-void chart::drawTitle(wxDC &dc)
-{
+void chart::drawTitle(wxDC &dc) {
     dc.SetFont( m_config->fontHeadTopic );
     dc.SetTextForeground( m_config->fontHeadTopicColour );
-    dc.DrawText( m_title, m_marginLeft + 10, 1);
+    int w, h;
+    dc.GetMultiLineTextExtent( m_title, &w, &h );
+    dc.DrawLabel( m_title, wxRect(m_marginLeft + 10, 1, w, h));
 }
 
 /**
  *
  */
-void chart::drawLegend(wxDC &dc, wxArrayString *entries, wxArrayColour *colours)
-{
+void chart::drawLegend(wxDC &dc, wxArrayString *entries, wxArrayColour *colours) {
     int legendY = m_marginTop + 5;
 
     for (int i=0; i<entries->GetCount(); i++) {
@@ -96,8 +90,8 @@ void chart::drawLegend(wxDC &dc, wxArrayString *entries, wxArrayColour *colours)
         dc.DrawRectangle( m_legendX, legendY, m_marginRight - 4, 10 );
         legendY += 11;
         int w, h;
-        dc.DrawText(entries->Item(i), m_legendX, legendY);
-        dc.GetTextExtent( entries->Item(i), &w, &h );
+        dc.GetMultiLineTextExtent( entries->Item(i), &w, &h );
+        dc.DrawLabel(entries->Item(i), wxRect(m_legendX, legendY, w, h));
         legendY += h + 5;
     }
 }
@@ -107,20 +101,19 @@ void chart::drawLegend(wxDC &dc, wxArrayString *entries, wxArrayColour *colours)
 /**
  * if density == -1 => autocalculate
  */
-void chart::drawAxisVertical(wxDC &dc, wxString axisName, int numberOfPoints, int density, bool drawChartLines, bool inTheMiddle)
-{
+void chart::drawAxisVertical(wxDC &dc, wxString axisName, int numberOfPoints, int density, bool drawChartLines, bool inTheMiddle) {
     int w, h;
 
     if (density == -1) {
         // calculating density
-        dc.GetTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
+        dc.GetMultiLineTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
 
         density = h / m_onePointHeight + 1;
         if (m_onePointHeight * density - h < 2) density++;
     }
 
     int yRows = (numberOfPoints / density) + 1;
-    dc.GetTextExtent( m_util.intToStr(numberOfPoints), &w, &h );
+    dc.GetMultiLineTextExtent( m_util.intToStr(numberOfPoints), &w, &h );
 
 
     // main vertical line
@@ -146,26 +139,26 @@ void chart::drawAxisVertical(wxDC &dc, wxString axisName, int numberOfPoints, in
         yLine -= density * m_onePointHeight;
     }
 
-    dc.DrawText(axisName, 1, 1);
+    dc.GetMultiLineTextExtent( axisName, &w, &h );
+    dc.DrawLabel(axisName, wxRect(1, 1, w, h));
 }
 
 /**
  * if density == -1 => autocalculate
  */
-void chart::drawAxisVertical(wxDC &dc, wxString axisName, wxArrayString *points, int density, bool drawChartLines, bool inTheMiddle)
-{
+void chart::drawAxisVertical(wxDC &dc, wxString axisName, wxArrayString *points, int density, bool drawChartLines, bool inTheMiddle) {
     int w, h;
 
     if (density == -1) {
         // calculating density
-        dc.GetTextExtent(points->Item(0), &w, &h );
+        dc.GetMultiLineTextExtent(points->Item(0), &w, &h );
 
         density = h / m_onePointHeight + 1;
         if (m_onePointHeight * density - h < 2) density++;
     }
 
     int yRows = (points->GetCount() / density) + 1;
-    dc.GetTextExtent( points->Item(0), &w, &h );
+    dc.GetMultiLineTextExtent( points->Item(0), &w, &h );
 
 
     // main vertical line
@@ -191,7 +184,8 @@ void chart::drawAxisVertical(wxDC &dc, wxString axisName, wxArrayString *points,
         yLine -= density * m_onePointHeight;
     }
 
-    dc.DrawText(axisName, 1, 1);
+    dc.GetMultiLineTextExtent( axisName, &w, &h );
+    dc.DrawLabel(axisName, wxRect(1, 1, w, h));
 }
 
 /******************************************************************************/
@@ -199,20 +193,19 @@ void chart::drawAxisVertical(wxDC &dc, wxString axisName, wxArrayString *points,
 /**
  *
  */
-void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, int numberOfPoints, int density, bool drawChartLines, bool inTheMiddle)
-{
+void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, int numberOfPoints, int density, bool drawChartLines, bool inTheMiddle) {
     int w, h;
 
     if (density == -1) {
         // calculating density
-        dc.GetTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
+        dc.GetMultiLineTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
 
         density = w / m_onePointWidth + 1;
         if (m_onePointWidth * density - w < 3) density++;
     }
 
     int xRows = (numberOfPoints / density) + 1;
-    dc.GetTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
+    dc.GetMultiLineTextExtent( wxString::Format(_T("%i"), numberOfPoints), &w, &h );
 
     // main horizonatal line
     dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
@@ -237,14 +230,14 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, int numberOfPoints, 
         xLine += density * m_onePointWidth;
     }
 
-    dc.DrawText(axisName, m_x0 + m_chartWidth, m_y0+5);
+    dc.GetMultiLineTextExtent( axisName, &w, &h );
+    dc.DrawLabel(axisName, wxRect(m_x0 + m_chartWidth, m_y0+5, w, h));
 }
 
 /**
  *
  */
-void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *points, int density, bool drawChartLines, bool verticalNames, bool inTheMiddle)
-{
+void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *points, int density, bool drawChartLines, bool verticalNames, bool inTheMiddle) {
     int w, h;
 
     if (density == -1) {
@@ -266,7 +259,7 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *point
             break;
 
         dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
-        dc.GetTextExtent( points->Item(i*density-1), &w, &h );
+        dc.GetMultiLineTextExtent( points->Item(i*density-1), &w, &h );
         if (!verticalNames) {
             dc.DrawLabel( points->Item(i*density-1), wxRect( xPoint - w/2, m_y0 + 5, w, h ), wxALIGN_CENTER_VERTICAL | wxALIGN_CENTER );
         } else {
@@ -280,7 +273,8 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *point
         xPoint += density * m_onePointWidth;
         xLine += density * m_onePointWidth;
     }
-    dc.DrawText( axisName, m_x0 + m_chartWidth, m_y0+5 );
+    dc.GetMultiLineTextExtent( axisName, &w, &h );
+    dc.DrawLabel(axisName, wxRect(m_x0 + m_chartWidth, m_y0+5, w, h));
 }
 
 /******************************************************************************/
@@ -288,8 +282,7 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *point
 /**
  *
  */
-void chart::drawBarPlot(wxDC &dc, wxArrayInt *data, wxColour colour)
-{
+void chart::drawBarPlot(wxDC &dc, wxArrayInt *data, wxColour colour) {
     int x = m_x0 + 3;
     for (int i=0; i<data->GetCount(); i++) {
         dc.SetPen( wxPen( colour ) );
@@ -304,8 +297,7 @@ void chart::drawBarPlot(wxDC &dc, wxArrayInt *data, wxColour colour)
 /**
  *
  */
-void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *namesLeft, wxArrayString *namesRight, wxArrayString *namesTop, wxArrayString *namesBottom, int verticalPointsCount, int horizontalPointsCount, bool verticalNames)
-{
+void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *namesLeft, wxArrayString *namesRight, wxArrayString *namesTop, wxArrayString *namesBottom, int verticalPointsCount, int horizontalPointsCount, bool verticalNames) {
     m_marginLeft = 0;
     m_marginTop = 0;
     m_marginBottom = 0;
@@ -322,7 +314,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     dc.SetFont( m_config->fontHeadTopic );
     dc.SetTextForeground( m_config->fontHeadTopicColour );
     for (int i=0; i<namesTop->GetCount(); i++) {
-        dc.GetTextExtent( namesTop->Item(i), &w, &h );
+        dc.GetMultiLineTextExtent( namesTop->Item(i), &w, &h );
         if (m_marginTop < h)
             m_marginTop = h;
     }
@@ -332,7 +324,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     dc.SetTextForeground( m_config->fontResultDefaultColour );
     w = h = 0;
     for (int i=0; i<namesLeft->GetCount(); i++) {
-        dc.GetTextExtent( namesLeft->Item(i), &w, &h );
+        dc.GetMultiLineTextExtent( namesLeft->Item(i), &w, &h );
         if (m_marginLeft < w)
             m_marginLeft = w;
     }
@@ -340,7 +332,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
 
     w = h = 0;
     for (int i=0; i<namesRight->GetCount(); i++) {
-        dc.GetTextExtent( namesRight->Item(i), &w, &h );
+        dc.GetMultiLineTextExtent( namesRight->Item(i), &w, &h );
         if (m_marginRight < w)
             m_marginRight = w;
     }
@@ -348,7 +340,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
 
     w = h = 0;
     for (int i=0; i<namesBottom->GetCount(); i++) {
-        dc.GetTextExtent( namesBottom->Item(i), &w, &h );
+        dc.GetMultiLineTextExtent( namesBottom->Item(i), &w, &h );
         if (verticalNames) {
             if (m_marginBottom < w)
                 m_marginBottom = w;

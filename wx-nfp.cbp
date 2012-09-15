@@ -27,6 +27,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-static" />
 					<Add library="wxmsw28u" />
 					<Add library="winspool" />
 					<Add library="winmm" />
