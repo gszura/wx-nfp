@@ -1,5 +1,6 @@
 /* XPM */
-static char *splash_screen_xpm[] = {
+static const char *splash_screen_xpm[] = {
+/* splash_screen */
 /* width height num_colors chars_per_pixel */
 "   400   235      256            2",
 /* colors */

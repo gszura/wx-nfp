@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="serverOperationsForm">
+		<title>NFP - synchronizig data with server</title>
+		<id_arg>0</id_arg>
+		<style>wxSTAY_ON_TOP</style>
+		<handler function="onInit" entry="EVT_INIT_DIALOG" />
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxStaticText" name="ID_label1" variable="label1" member="yes">
+								<label>File with your cycles data is now downloading from the server.&#x0A;Please wait...</label>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxGauge" name="ID_GAUGE1" variable="gauge" member="yes" />
+							<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>10</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticText" name="ID_label2" variable="label2" member="yes">
+								<label></label>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+		<object class="wxTimer" name="ID_TIMER" variable="timer" member="yes">
+			<handler function="updateProgress" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

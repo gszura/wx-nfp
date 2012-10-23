@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        configClass.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -11,6 +11,7 @@
 
 #include <wx/wx.h>
 #include <wx/fileconf.h>
+#include <wx/arrstr.h>
 #include "utilClass.h"
 
 #define LEFT   1
@@ -59,9 +60,16 @@
 /* APPLICATION */
 #define CONF_PATH_application _T( "/application/" )
 #define CONF_ENTRY_openLastOpenedFile _T( "openLastOpenedFile" )
+#define CONF_ENTRY_syncFileAutomatically _T( "syncFileAutomatically" )
+#define CONF_ENTRY_password _T( "password" )
+#define CONF_ENTRY_rememberPassword _T( "rememberPassword" )
+#define CONF_ENTRY_useCustomServer _T( "useCustomServer" )
+#define CONF_ENTRY_customServerUri _T( "customServerUri" )
 #define CONF_ENTRY_autosaveChanges _T( "autosaveChanges" )
 #define CONF_ENTRY_autosaveSet _T( "autosaveSet" )
 #define CONF_ENTRY_lastOpenedFileName _T( "lastOpenedFileName" )
+#define CONF_ENTRY_EXT_ENCODING _T( ".encoding" )
+#define CONF_ENTRY_PREFIX_previouslyOpenedFileNames _T( "previouslyOpenedFileName." )
 #define CONF_ENTRY_checkForMissingDays _T( "checkForMissingDays" )
 #define CONF_ENTRY_breastSelfControlReminderDay _T( "breastSelfControlReminderDay" )
 #define CONF_ENTRY_breastSelfControlInterval _T( "breastSelfControlInterval" )
@@ -119,6 +127,7 @@
 /* ANALYSIS */
 #define CONF_PATH_analysis _T( "/analysis/" )
 #define CONF_ENTRY_autoanalyzeCard _T( "autoanalyzeCard" )
+#define CONF_ENTRY_showAutoanalysisDetails _T( "showAutoanalysisDetails" )
 #define CONF_ENTRY_maxAllowedNotMesuredLowLevelDays _T( "maxAllowedNotMesuredLowLevelDays" )
 #define CONF_ENTRY_maxIncludedNotMesuredLowLevelDays _T( "maxIncludedNotMesuredLowLevelDays" )
 #define CONF_ENTRY_maxAllowedNotMesuredHighLevelDays _T( "maxAllowedNotMesuredHighLevelDays" )
@@ -151,21 +160,13 @@ public:
     configClass(wxString);
     void setDefaultParams();
     void calculateParams();
+    void instertCurrentlyOpenedFileNameToHistory();
 
 public:
     bool readParamsFromConfigFile();
-    // deprecated
-    bool readParamsFromOldVersionOfConfigFile(wxString);
 private:
     bool readParamsColour(wxConfigBase*, wxString, wxColour&);
     bool readParamsFont(wxConfigBase*, wxString, wxFont&);
-    // deprecated code start
-    void readString(paramsHash, wxString, wxString&);
-    void readInt(paramsHash, wxString, int&);
-    void readBool(paramsHash, wxString, bool&);
-    void readColour(paramsHash, wxString, wxColour&);
-    void readFont(paramsHash, wxString, wxFont&);
-    // deprecated code end
 
 public:
     bool saveParamsToConfigFile();
@@ -181,19 +182,24 @@ private:
     wxString m_configFile;
 
 public:
-    // PARAMETERS KEPT IN CONFIG FILE
+    // PARAMETERS SAVED IN CONFIG FILE
     int langId;
 
     // true - start with last opened file, false - start with new file
     bool openLastOpenedFile;
-
     bool autosaveChanges;
     bool autosaveSet;
 
     // currently opened file with cycles' data, or empty if not opened
     wxString dataFileName;
+    wxArrayString previouslyOpenedFileNames;
 
-    bool openFileFromParams;
+    // saving file on server
+    bool syncFileAutomatically;
+    wxString password;
+    bool rememberPassword;
+    bool useCustomServer;
+    wxString customServerUri;
 
     // true - prompt to add to the last card (if it's not locked) missing days (based on current date)
     bool checkForMissingDays;
@@ -226,6 +232,7 @@ public:
 
     // analyze card after each change
     bool autoanalyzeCard;
+    bool showAutoanalysisDetails;
     // temperature graph
     int maxAllowedNotMesuredLowLevelDays;
     int maxIncludedNotMesuredLowLevelDays;
@@ -286,7 +293,10 @@ public:
     wxColour fontResultPhasesColour;
 
     /**************************************************************************/
-    // PARAMETERS NOT KEPT IN CONFIG FILE
+    // PARAMETERS NOT SAVED IN CONFIG FILE
+
+    // true
+    bool openFileFromParams;
 
     // przesuniecie w pionie
     // verticalDisplacement == (-xxxx - 0)

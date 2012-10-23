@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // m_name:        cycleDataClass.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -9,7 +9,6 @@
 #include <wx/ffile.h>
 #include <wx/filename.h>
 #include "cyclesData.h"
-#include <wx/dir.h>
 
 /*******************************************************************************
 ********************************************************************************
@@ -20,19 +19,34 @@
  */
 cycleDataClass::cycleDataClass( )
 {
+    initParams();
+}
+
+/**
+ *
+ */
+void cycleDataClass::initParams()
+{
     m_cardModified = false;
     m_activeCard = -1;
     m_activeDay = -1;
     m_prevActiveDay = -1;
     m_coitusRecordCounter = 0;
-    m_askUserToKeepResultsAlreadySetForOtherDays = true;
 
-    // dane osobowe
+    // personal data
     m_name = _( "your name" );
     m_birthdayDay = wxDateTime::Today();
     m_shortestCycleDays = 0;
     m_shortestCycleFromCycles = 12;
+
+    // sync information
+    m_serverFileName = wxEmptyString;
+    m_serverFileHash = wxEmptyString;
+    m_serverFileSyncTimestamp = 0;
+    m_serverUri = wxEmptyString;
+    m_serverFileNotInSync = false;
 }
+
 
 /**
  *
@@ -86,25 +100,16 @@ wxString cycleDataClass::getSexualRelationDataConversionMessages4()
 /**
  *
  */
-bool cycleDataClass::isAskUserToKeepResultsAlreadySetForOtherDays()
-{
-    return m_askUserToKeepResultsAlreadySetForOtherDays;
-}
-
-/**
- *
- */
-void cycleDataClass::setAskUserToKeepResultsAlreadySetForOtherDays(bool value)
-{
-    m_askUserToKeepResultsAlreadySetForOtherDays = value;
-}
-
-/**
- *
- */
 void cycleDataClass::setCardModified( bool value )
 {
+    if (value)
+        wxLogDebug( _T("[cycleDataClass] setCardModified(true)"));
+    else
+        wxLogDebug( _T("[cycleDataClass] setCardModified(false)"));
+
     m_cardModified = value;
+    if (value)
+        setServerFileNotInSync(true);
 }
 
 /**
@@ -220,6 +225,10 @@ bool cycleDataClass::createNewSet()
         return false;
     }
 
+    setActiveCard( 1 );
+    setActiveDay( -1 );
+    setCardModified( true );
+
     return true;
 }
 
@@ -229,8 +238,7 @@ bool cycleDataClass::createNewSet()
 bool cycleDataClass::removeAll()
 {
     if ( removeAllCards() ) {
-        m_name = _T( "your name" );
-        m_birthdayDay = wxDateTime::Today();
+        initParams();
         return true;
     } else {
         return false;
@@ -277,20 +285,6 @@ bool cycleDataClass::setShortestCycleFromCycles(int value)
     return true;
 }
 
-/**
-*
-*/
-int cycleDataClass::getShortestCycleDays()
-{
-    return m_shortestCycleDays;
-}
-/**
-*
-*/
-int cycleDataClass::getShortestCycleFromCycles()
-{
-    return m_shortestCycleFromCycles;
-}
 
 /**
  *
@@ -308,8 +302,116 @@ wxDateTime cycleDataClass::getBirthdayDay()
     return m_birthdayDay;
 }
 
+/**
+*
+*/
+int cycleDataClass::getShortestCycleDays()
+{
+    return m_shortestCycleDays;
+}
+
+/**
+*
+*/
+int cycleDataClass::getShortestCycleFromCycles()
+{
+    return m_shortestCycleFromCycles;
+}
+
 /*******************************************************************************
-***** m_cards ********************************************************************
+***** sync with server *********************************************************
+*******************************************************************************/
+
+/**
+*
+*/
+bool cycleDataClass::setServerSyncData( wxString serverFileName, wxString serverFileHash, time_t serverFileSyncTimestamp, wxString serverUri )
+{
+    m_serverFileName = serverFileName;
+    m_serverFileHash = serverFileHash;
+    m_serverUri = serverUri;
+    if (serverFileSyncTimestamp != -1)
+        m_serverFileSyncTimestamp = serverFileSyncTimestamp;
+    return true;
+}
+
+/**
+*
+*/
+bool cycleDataClass::setServerFileNotInSync( bool value )
+{
+    if (value)
+        wxLogDebug( _T("[cycleDataClass] setServerFileNotInSync(true)"));
+    else
+        wxLogDebug( _T("[cycleDataClass] setServerFileNotInSync(false)"));
+
+    m_serverFileNotInSync = value;
+    return true;
+}
+
+
+/**
+*
+*/
+wxString cycleDataClass::getServerFileName()
+{
+    return m_serverFileName;
+}
+
+/**
+*
+*/
+wxString cycleDataClass::getServerFileHash()
+{
+    return m_serverFileHash;
+}
+
+/**
+*
+*/
+bool cycleDataClass::isServerFileHashSameAs(wxString hashToCheck)
+{
+    return m_serverFileHash.IsSameAs(hashToCheck);
+}
+
+/**
+*
+*/
+time_t cycleDataClass::getServerFileSyncTimestamp()
+{
+    return m_serverFileSyncTimestamp;
+}
+
+/**
+*
+*/
+wxString cycleDataClass::getServerFileSyncHumanReadableDate()
+{
+    if (m_serverFileSyncTimestamp < 1)
+        return _("not set");
+    wxDateTime dateTime(m_serverFileSyncTimestamp);
+    return  dateTime.Format(_T("%A, %d %B %Y %T"));
+}
+
+/**
+*
+*/
+wxString cycleDataClass::getServerUri()
+{
+    return m_serverUri;
+}
+
+/**
+*
+*/
+bool cycleDataClass::getServerFileNotInSync()
+{
+    return m_serverFileNotInSync;
+}
+
+
+/*******************************************************************************
+***** m_cards ******************************************************************
 *******************************************************************************/
 
 /**
@@ -486,15 +588,56 @@ dayEntry * cycleDataClass::getDay( int cardNo, int dayNo )
 ***** READING CYCLES DATA FROM FILE ********************************************
 *******************************************************************************/
 
+
+/**
+ * Read header from the data file, i.e. only data neede for synchronization with server.
+ */
+bool cycleDataClass::readSyncDetailsFromFile( wxString fileName )
+{
+    wxString input;
+    wxString tmp;
+    int rest;
+
+    if ( !readFileContentToString(fileName, input) ) {
+        return false;
+    }
+
+    input = getSection( input, _T( "nfp" ), rest );
+
+    if ( input.Length() == 0 ) {
+        addErrorMessages( wxString::Format( _( "File is not the data file of the NFP application: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
+
+    // dane osobowe
+    tmp = getSection( input, _T( "personalData" ), rest );
+
+    if ( tmp.Length() > 0 ) {
+        if ( ! readPersonalData( tmp ) ) {
+            return false;
+        }
+    } else {
+        addErrorMessages( wxString::Format( _( "File is not the data file of the NFP application: %s" ), fileName.c_str() ) );
+        return false;
+    }
+
+    return true;
+}
+
 /**
  *
  */
 bool cycleDataClass::readCardsDataFromFile( wxString fileName )
 {
+    removeAll();
+    setActiveCard( -1 );
+    setActiveDay( -1 );
+    setCardModified( false );
+
     wxString input;
     wxString tmp, tmp2;
     int rest;
-    wxFFile file;
     m_coitusRecordCounter = 0;
 
     m_errorMessages = wxEmptyString;
@@ -503,37 +646,7 @@ bool cycleDataClass::readCardsDataFromFile( wxString fileName )
     m_sexualRelationDataConversionMessages3 = wxEmptyString;
     m_sexualRelationDataConversionMessages4 = wxEmptyString;
 
-    if ( !wxFileExists( fileName ) ) {
-        addErrorMessages( wxString::Format( _( "File doesn't exist: %s" ), fileName.c_str() ) );
-
-        return false;
-    }
-
-    if ( !file.Open( fileName, _T( "r" ) ) ) {
-        addErrorMessages( wxString::Format( _( "Cannot open file: %s" ), fileName.c_str() ) );
-
-        return false;
-    }
-
-    if ( file.Length() < 11 ) {
-        file.Close();
-        addErrorMessages( wxString::Format( _( "File is not the data file of the NFP application: %s" ), fileName.c_str() ) );
-
-        return false;
-    }
-
-    if ( ! file.ReadAll( &input ) ) {
-        file.Close();
-        addErrorMessages( wxString::Format( _( "Cannot read file: %s" ), fileName.c_str() ) );
-
-        return false;
-    }
-
-    file.Close();
-
-    if ( input.IsEmpty() ) {
-        addErrorMessages( wxString::Format( _( "File is empty: %s" ), fileName.c_str() ) );
-
+    if ( !readFileContentToString(fileName, input) ) {
         return false;
     }
 
@@ -579,6 +692,46 @@ bool cycleDataClass::readCardsDataFromFile( wxString fileName )
 
     }
 
+    return true;
+}
+
+bool cycleDataClass::readFileContentToString( wxString fileName, wxString &input )
+{
+    wxFFile file;
+
+    if ( !wxFileExists( fileName ) ) {
+        addErrorMessages( wxString::Format( _( "File doesn't exist: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
+
+    if ( !file.Open( fileName, _T( "r" ) ) ) {
+        addErrorMessages( wxString::Format( _( "Cannot open file: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
+
+    if ( file.Length() < 11 ) {
+        file.Close();
+        addErrorMessages( wxString::Format( _( "File is not the data file of the NFP application: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
+
+    if ( ! file.ReadAll( &input ) ) {
+        file.Close();
+        addErrorMessages( wxString::Format( _( "Cannot read file: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
+
+    file.Close();
+
+    if ( input.IsEmpty() ) {
+        addErrorMessages( wxString::Format( _( "File is empty: %s" ), fileName.c_str() ) );
+
+        return false;
+    }
 
     return true;
 }
@@ -590,7 +743,7 @@ bool cycleDataClass::readPersonalData( wxString input )
 {
 
     m_name = readString( input, _T( "m_name" ) );
-    if (m_name.empty()) {
+    if (m_name.IsEmpty()) {
         m_name = readString( input, _T( "name" ) );
     }
 
@@ -608,6 +761,12 @@ bool cycleDataClass::readPersonalData( wxString input )
     m_shortestCycleFromCycles = readInt( input, _T( "shortestCycleFromCycles" ) );
     if (m_shortestCycleDays < 0) m_shortestCycleDays = 0;
     if (m_shortestCycleFromCycles < 0) m_shortestCycleFromCycles = 0;
+
+    m_serverFileName = readString( input, _T( "serverFileName" ) );
+    m_serverFileHash = readString( input, _T( "serverFileHash" ) );
+    m_serverFileSyncTimestamp = readLong( input, _T( "serverFileSyncTimestamp" ) );
+    m_serverUri = readString( input, _T( "serverUri" ) );
+    m_serverFileNotInSync = ( readBool( input, _T( "serverFileNotInSync" ) ) );
 
     return true;
 }
@@ -935,8 +1094,22 @@ int cycleDataClass::readInt( wxString input, wxString tag )
         return -1;
     }
 
-    int ret = m_util.strToInt( tmp );
-    return ret;
+    return m_util.strToInt( tmp );
+}
+
+/**
+ *
+ */
+long cycleDataClass::readLong( wxString input, wxString tag )
+{
+
+    wxString tmp = readString( input, tag );
+
+    if ( tmp.IsEmpty() ) {
+        return -1;
+    }
+
+    return m_util.strToLong( tmp );
 }
 
 /**
@@ -1017,6 +1190,11 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
     data += getNodeDateTime( _T( "birthdayDay" ), m_birthdayDay, _T( "d" ) );
     data += getNodeInt( _T( "shortestCycleDays" ), m_shortestCycleDays );
     data += getNodeInt( _T( "shortestCycleFromCycles" ), m_shortestCycleFromCycles );
+    data += getNode( _T( "serverFileName" ), m_serverFileName );
+    data += getNode( _T( "serverFileHash" ), m_serverFileHash );
+    data += getNodeLong( _T( "serverFileSyncTimestamp" ), m_serverFileSyncTimestamp );
+    data += getNode( _T( "serverUri" ), m_serverUri );
+    data += getNodeBool( _T( "serverFileNotInSync" ), m_serverFileNotInSync );
     data += _T( "</personalData>\n" );
 
 
@@ -1125,43 +1303,8 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
     data += _T( " </cardsList>\n" );
     data += _T( "</nfp>\n" );
 
-    if ( wxFileExists( fileName ) ) {
-        wxString path;
-        wxString m_name;
-        wxString ext;
-        wxString backupFile;
-
-        wxFileName::SplitPath( fileName, &path, &m_name, &ext );
-
-        //wxString path = m_util.findPath( fileName );
-
-        if ( !path.IsEmpty() ) {
-            if ( ! wxDirExists( path ) ) {
-                wxFileName::Mkdir( path, 0755, wxPATH_MKDIR_FULL );
-            }
-
-            path = path + wxFileName::GetPathSeparator() + _T( "backup" );
-            backupFile = path + wxFileName::GetPathSeparator() + m_name;
-
-            if ( ! wxDirExists( path ) ) {
-                wxFileName::Mkdir( path, 0755, wxPATH_MKDIR_FULL );
-            }
-
-            backupFile = backupFile + _T( "_" ) + wxDateTime::Now().Format( _T( "%Y%m%d%H%M" ) ) + _T( "." ) + ext;
-
-            wxCopyFile( fileName, backupFile );
-
-            // remove older backup files
-            wxSortedArrayString backupFilesArr;
-            wxDir::GetAllFiles( path, &backupFilesArr, m_name + _T("_*"), wxDIR_FILES );
-            if (backupFilesArr.GetCount() > 15)
-                for ( size_t i = 0; i < backupFilesArr.GetCount()-15; i++ ) {
-                    wxRemoveFile( backupFilesArr[i] );
-                }
-        }
-    }
-
     // save data to file
+    m_util.backupFile(fileName);
     if ( file.Open( fileName, _T( "w" ) ) ) {
 
         file.Write( data );
@@ -1171,6 +1314,7 @@ bool cycleDataClass::saveCardsDataToFile( wxString fileName )
         return false;
     }
 
+    m_cardModified = false;
     return true;
 }
 
@@ -1197,6 +1341,18 @@ wxString cycleDataClass::getNodeInt( wxString m_name, int value )
         return wxEmptyString;
     } else {
         return getNode( m_name, m_util.intToStr( value ) );
+    }
+}
+
+/**
+ *
+ */
+wxString cycleDataClass::getNodeLong( wxString m_name, long value )
+{
+    if ( value == -1 ) {
+        return wxEmptyString;
+    } else {
+        return getNode( m_name, m_util.longToStr( value ) );
     }
 }
 

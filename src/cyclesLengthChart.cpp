@@ -52,7 +52,7 @@ void cyclesLengthChart::printChart(int width, int height, wxDC &dc)
 
     for(int i=1; i<=m_cycleData->getCardsCount(); i++) {
         int days = m_cycleData->getCard(i)->getDaysCount();
-        while( items.size() < days+1 )
+        while( (int)items.size() < days+1 )
             items.push_back( 0 );
         items[days]++;
     }
@@ -70,7 +70,6 @@ void cyclesLengthChart::printChart(int width, int height, wxDC &dc)
             elementsCount++;
     }
 
-    int e = 0;
     for (size_t i = 0; i < items.size(); i++) {
         if (items[i] > 0) {
             points.Add(m_util.intToStr(i));

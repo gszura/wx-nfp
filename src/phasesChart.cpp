@@ -58,8 +58,6 @@ void phasesChart::printChart(int width, int height, wxDC &dc)
     cycleLengthValues.Alloc(cardsCount);
     cycleTypes.Alloc(cardsCount);
 
-    bool isLongerCycle = false;
-
     for (int c=1; c<=m_cycleData->getCardsCount(); c++) {
         cardEntry *card = m_cycleData->getCard(c);
 
@@ -78,19 +76,15 @@ void phasesChart::printChart(int width, int height, wxDC &dc)
 
             cycleLengthValues.Add(card->getDaysCount());
 
-            if (card->getCycleType() == CYCLE_TYPE_NORMAL && longestCycle < card->getDaysCount())
+            if (card->getCycleType() == CYCLE_TYPE_NORMAL && longestCycle < card->getDaysCount()) {
                 longestCycle = card->getDaysCount();
-            else
-                isLongerCycle = true;
+            }
         } else {
             fertilePhaseStartValues.Add(0);
             infertilePhaseStartValues.Add(0);
             cycleLengthValues.Add(card->getDaysCount());
-            isLongerCycle = true;
         }
     }
-    //if (isLongerCycle)
-    //    longestCycle += 5;
 
     wxArrayString namesLeft;
     namesLeft.Add(m_util.intToStr(longestCycle));

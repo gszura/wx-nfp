@@ -84,7 +84,7 @@ void chart::drawTitle(wxDC &dc) {
 void chart::drawLegend(wxDC &dc, wxArrayString *entries, wxArrayColour *colours) {
     int legendY = m_marginTop + 5;
 
-    for (int i=0; i<entries->GetCount(); i++) {
+    for (size_t i=0; i<entries->GetCount(); i++) {
         dc.SetPen( wxPen( colours->Item(i) ) );
         dc.SetBrush( wxBrush( colours->Item(i) ) );
         dc.DrawRectangle( m_legendX, legendY, m_marginRight - 4, 10 );
@@ -170,7 +170,7 @@ void chart::drawAxisVertical(wxDC &dc, wxString axisName, wxArrayString *points,
     int yPoint = m_y0 - density * m_onePointHeight + (inTheMiddle ? m_onePointHeight / 2 : 0);
 
     for (int i=1; i<=yRows; i++) {
-        if (i*density > points->GetCount())
+        if (i*density > (int)points->GetCount())
             break;
 
         dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
@@ -255,7 +255,7 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *point
     int xPoint = m_x0 + density * m_onePointWidth - (inTheMiddle ? m_onePointWidth / 2 : 0);
 
     for (int i=1; i<=xRows; i++) {
-        if (i*density > points->GetCount())
+        if (i*density > (int)points->GetCount())
             break;
 
         dc.SetPen( wxPen( m_config->fontResultDefaultColour ) );
@@ -284,7 +284,7 @@ void chart::drawAxisHorizontal(wxDC &dc, wxString axisName, wxArrayString *point
  */
 void chart::drawBarPlot(wxDC &dc, wxArrayInt *data, wxColour colour) {
     int x = m_x0 + 3;
-    for (int i=0; i<data->GetCount(); i++) {
+    for (int i=0; i < (int)data->GetCount(); i++) {
         dc.SetPen( wxPen( colour ) );
         dc.SetBrush( wxBrush( colour ) );
         dc.DrawRectangle(x, m_y0 - m_onePointHeight * data->Item(i), m_onePointWidth-3, m_onePointHeight * data->Item(i));
@@ -313,7 +313,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     int w, h;
     dc.SetFont( m_config->fontHeadTopic );
     dc.SetTextForeground( m_config->fontHeadTopicColour );
-    for (int i=0; i<namesTop->GetCount(); i++) {
+    for (size_t i=0; i<namesTop->GetCount(); i++) {
         dc.GetMultiLineTextExtent( namesTop->Item(i), &w, &h );
         if (m_marginTop < h)
             m_marginTop = h;
@@ -323,7 +323,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     dc.SetFont( m_config->fontResultDefault );
     dc.SetTextForeground( m_config->fontResultDefaultColour );
     w = h = 0;
-    for (int i=0; i<namesLeft->GetCount(); i++) {
+    for (size_t i=0; i<namesLeft->GetCount(); i++) {
         dc.GetMultiLineTextExtent( namesLeft->Item(i), &w, &h );
         if (m_marginLeft < w)
             m_marginLeft = w;
@@ -331,7 +331,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     m_marginLeft+=2;
 
     w = h = 0;
-    for (int i=0; i<namesRight->GetCount(); i++) {
+    for (size_t i=0; i<namesRight->GetCount(); i++) {
         dc.GetMultiLineTextExtent( namesRight->Item(i), &w, &h );
         if (m_marginRight < w)
             m_marginRight = w;
@@ -339,7 +339,7 @@ void chart::calculateMargins(wxDC &dc, int width, int height, wxArrayString *nam
     m_marginRight+=5;
 
     w = h = 0;
-    for (int i=0; i<namesBottom->GetCount(); i++) {
+    for (size_t i=0; i<namesBottom->GetCount(); i++) {
         dc.GetMultiLineTextExtent( namesBottom->Item(i), &w, &h );
         if (verticalNames) {
             if (m_marginBottom < w)

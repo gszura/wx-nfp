@@ -8,7 +8,7 @@
  **************************************************************/
 
 #include "cardFrame.h"
-#include "../data/xpm/wx-nfp.xpm"
+#include "../data/xpm/wx_nfp.xpm"
 #include "cyclesData_declarations.h"
 
 //(*InternalHeaders(cardFrame)

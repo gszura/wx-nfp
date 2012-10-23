@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        cycleDataClass.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -38,13 +38,18 @@ private:
     wxString m_sexualRelationDataConversionMessages4;
     bool m_sexualRelationDataConverted;
 
-    bool m_askUserToKeepResultsAlreadySetForOtherDays;
-
+    // personal data
     wxString m_name;
     wxDateTime m_birthdayDay;
-
     int m_shortestCycleDays;
     int m_shortestCycleFromCycles;
+
+    // sync information
+    wxString m_serverFileName;
+    wxString m_serverFileHash;
+    time_t m_serverFileSyncTimestamp;
+    wxString m_serverUri;
+    bool m_serverFileNotInSync;
 
 
     // keys of the hash table: [1...]
@@ -72,7 +77,10 @@ private:
 public:
     cycleDataClass();
 
+private:
+    void initParams();
     void addErrorMessages( wxString );
+public:
     wxString getErrorMessages();
     bool isSexualRelationDataConverted();
     wxString getSexualRelationDataConversionMessages2();
@@ -113,6 +121,21 @@ public:
     int getShortestCycleFromCycles();
 
     /**************************************************************************/
+    /** sync with server */
+
+    bool setServerSyncData( wxString, wxString, time_t, wxString );
+    bool setServerFileNotInSync( bool );
+
+    wxString getServerFileName();
+    wxString getServerFileHash();
+    bool isServerFileHashSameAs(wxString);
+    time_t getServerFileSyncTimestamp();
+    wxString getServerUri();
+    wxString getServerFileSyncHumanReadableDate();
+    bool getServerFileNotInSync();
+
+
+    /**************************************************************************/
     /** CARDS */
 private:
     bool removeAllCards();
@@ -144,7 +167,9 @@ public:
     /** READING AND STORING CYCLES DATA */
 public:
     // reading cycles data
+    bool readSyncDetailsFromFile( wxString );
     bool readCardsDataFromFile( wxString );
+    bool readFileContentToString( wxString, wxString& );
     int getNumberOfHistoricalCyclesUsedToCalculateShortestCycle( int, configClass* );
     int getNumberOfHistoricalCyclesUsedToCalculateEarliestFirstDayOfHighLevelTemperature( int, configClass* );
     int getNumberOfDaysOfShortestCycle( int, configClass* );
@@ -158,6 +183,7 @@ private:
     wxString   readString( wxString, wxString );
     bool       readBool( wxString, wxString );
     int        readInt( wxString, wxString );
+    long       readLong( wxString, wxString );
     wxDateTime readDateTime( wxString, wxString );
     intArray   readList( wxString, wxString );
 
@@ -168,6 +194,7 @@ public:
 private:
     wxString   getNode( wxString, wxString );
     wxString   getNodeInt( wxString, int );
+    wxString   getNodeLong( wxString, long );
     wxString   getNodeDateTime( wxString, wxDateTime, wxString );
     wxString   getNodeBool( wxString, bool );
     wxString   getNodeList( wxString, intArray );

@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        customWindowTop.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -53,6 +53,9 @@ customWindowTop::customWindowTop(wxWindow *parent,
  */
 void customWindowTop::OnMouseDClick(wxMouseEvent &event)
 {
+    if ( m_cycleData->getActiveCard() < 1)
+        return;
+
      m_cardFrm->update();
      m_cardFrm->Show();
 }

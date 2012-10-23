@@ -1,18 +1,13 @@
 /*******************************************************************************
 //
 // Name:        configClass.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
 
 #include "configClass.h"
 #include "wx-nfpAppInfo.h"
-//#include <wx/filename.h>
-//#include <wx/defs.h>
-
-// deprecated
-#include <wx/ffile.h>
 
 /*******************************************************************************
 ********************************************************************************
@@ -29,33 +24,52 @@ configClass::configClass( wxString configFile )
     checkCurrentDayVisibility = false;
     checkFirstDayVisibility = false;
     checkLastDayVisibility = false;
-    visibleNote = _T( "" );
+    visibleNote = wxEmptyString;
     warningShown = false;
-    dataFileName = _T( "" );
+    dataFileName = wxEmptyString;
+
     openFileFromParams = false;
     useCoitusRecordCounter = false;
+    openLastOpenedFile = true;
+    autosaveChanges = true;
+    autosaveSet = false;
+    syncFileAutomatically = true;
+    wxString password = wxEmptyString;
+    rememberPassword = false;
+    useCustomServer = false;
+    customServerUri = wxEmptyString;
+
+    rememberPosition = true;
+    checkForMissingDays = true;
+    checkForUpdates = true;
+    updatesProxy = wxEmptyString;
+    breastSelfControlReminderDay = 6;
+    breastSelfControlInterval = 30;
+    // analyze card after each change
+    autoanalyzeCard = false;
+    showAutoanalysisDetails = true;
+    // temperature graph
+    maxAllowedNotMesuredLowLevelDays = 3;
+    maxIncludedNotMesuredLowLevelDays = 2;
+    maxAllowedNotMesuredHighLevelDays = 1;
+    maxIncludedNotMesuredHighLevelDays = 1;
+    includeNotMesuredDaysIfAfterMucusPeak = true;
+    // calculating beginning of the fertile phase
+    numberOfHistoricalCyclesToUse = 12;
+    autoanalyzeCardPreferResult1 = RULE_DOERING;
+    autoanalyzeCardPreferResult2 = RULE_CERVICAL_MUCUS_BASED;
+    autoanalyzeCardPreferResult3 = RULE_CERVICAL_POSITION_BASED;
+    autoanalyzeCardPreferResult4 = RULE_CLINICAL;
+    autoanalyzeCardPreferResult5 = RULE_2120;
 
     setDefaultParams();
 }
 
 /**
- * odpalane przy starcie programu, oraz gdy wybrano przycisk "przywroc domyslne" w oknie konfiguracji.
+ * Function run during application start and when user press the button 'restore settings' in options dialog.
  */
 void configClass::setDefaultParams()
 {
-    // ogolne
-    openLastOpenedFile = true;
-    autosaveChanges = true;
-    autosaveSet = false;
-
-    rememberPosition = true;
-    checkForMissingDays = true;
-//#if defined(__WXMSW__)
-    checkForUpdates = true;
-//#else
-//    checkForUpdates = false;
-//#endif
-    updatesProxy = _T( "" );
     formMainMaximized = false;
     formMainHeight = 650;
     formMainWidth  = 800;
@@ -75,26 +89,8 @@ void configClass::setDefaultParams()
     widowLeftWidth = 150; // off-line
     windowTopHeight = 40; // off-line
 
-    breastSelfControlReminderDay = 6;
-    breastSelfControlInterval = 30;
     breastSelfControlLastReminder = wxDateTime::Today();
     breastSelfControlLastReminder.Subtract( wxDateSpan::Days( breastSelfControlInterval + 1 ) );
-
-    // analyze card after each change
-    autoanalyzeCard = false;
-    // temperature graph
-    maxAllowedNotMesuredLowLevelDays = 3;
-    maxIncludedNotMesuredLowLevelDays = 2;
-    maxAllowedNotMesuredHighLevelDays = 1;
-    maxIncludedNotMesuredHighLevelDays = 1;
-    includeNotMesuredDaysIfAfterMucusPeak = true;
-    // calculating beginning of the fertile phase
-    numberOfHistoricalCyclesToUse = 12;
-    autoanalyzeCardPreferResult1 = RULE_DOERING;
-    autoanalyzeCardPreferResult2 = RULE_CERVICAL_MUCUS_BASED;
-    autoanalyzeCardPreferResult3 = RULE_CERVICAL_POSITION_BASED;
-    autoanalyzeCardPreferResult4 = RULE_CLINICAL;
-    autoanalyzeCardPreferResult5 = RULE_2120;
 
     lengthInCentimeters = true;
 
@@ -165,6 +161,29 @@ void configClass::calculateParams()
     rowNoCervix = rowsCountAboveTemp + rowsCountTemp + rowNoCervixBelowTemp;
 }
 
+void configClass::instertCurrentlyOpenedFileNameToHistory()
+{
+    // file name we're just adding should be on first place on the list and it should be only once on the list
+    wxLogDebug( wxString::Format( _T("[configClass] cards in history: %i, current card: '%s'"), previouslyOpenedFileNames.GetCount(), dataFileName.c_str() ) );
+    if ( !dataFileName.IsEmpty() && previouslyOpenedFileNames.GetCount() > 0) {
+        for ( int i = previouslyOpenedFileNames.GetCount()-1; i>=0; i-- ) {
+            wxLogDebug( wxString::Format( _T("[configClass] testing card %i from history '%s'"), i, previouslyOpenedFileNames.Item(i).c_str() ) );
+            if ( dataFileName.IsSameAs(previouslyOpenedFileNames.Item(i)) ) {
+                wxLogDebug( wxString::Format( _T("[configClass] the same name - removing") ) );
+                previouslyOpenedFileNames.RemoveAt(i);
+            }
+        }
+    }
+    // we want to keep max 10 entries, so leave only 9 entries
+    if ( previouslyOpenedFileNames.GetCount() > 9 ) {
+        wxLogDebug( wxString::Format( _T("[configClass] removing card 9 from history") ) );
+        previouslyOpenedFileNames.RemoveAt( 9, previouslyOpenedFileNames.GetCount() - 9 );
+    }
+
+    wxLogDebug( wxString::Format( _T("[configClass] insterting current card to the 1st place in the history") ) );
+    previouslyOpenedFileNames.Insert(dataFileName, 0);
+}
+
 /*******************************************************************************
 ********************************************************************************
 *******************************************************************************/
@@ -177,27 +196,6 @@ bool configClass::readParamsFromConfigFile()
     if (!wxFileExists(m_configFile)) {
         return false;
     }
-
-    /** Deprecated code START */
-    wxFFile infile;
-    wxString input;
-    if ( !infile.Open(m_configFile, _T("r")) ) {
-        wxRemoveFile(m_configFile);
-        return false;
-    }
-
-    infile.ReadAll(&input);
-    infile.Close();
-    input = input.Trim(false);
-    input = input.Trim(true);
-    if ( !input.empty() ) {
-        int n = input.find( wxT("logLevel"));
-        if (n > -1) {
-            return readParamsFromOldVersionOfConfigFile(input);
-        }
-    }
-    /** Deprecated code END */
-
 
     wxConfigBase *config = new wxFileConfig( wxEmptyString, wxEmptyString, m_configFile );
 
@@ -234,9 +232,24 @@ bool configClass::readParamsFromConfigFile()
     // last open file
     config->Read( CONF_ENTRY_openLastOpenedFile, &openLastOpenedFile );
     config->Read( CONF_ENTRY_lastOpenedFileName, &dataFileName );
+    wxString fileName;
+    for (int i=0; i<10; i++) {
+        if ( config->Read( wxString::Format( _T("%s%i"), CONF_ENTRY_PREFIX_previouslyOpenedFileNames, i ), &fileName ) )
+            previouslyOpenedFileNames.Add(fileName);
+    }
+
     // autosave
     config->Read( CONF_ENTRY_autosaveChanges, &autosaveChanges );
     config->Read( CONF_ENTRY_autosaveSet, &autosaveSet );
+    // saving file on server
+    config->Read( CONF_ENTRY_syncFileAutomatically, &syncFileAutomatically );
+    config->Read( CONF_ENTRY_rememberPassword, &rememberPassword );
+    config->Read( CONF_ENTRY_password, &password );
+    password = m_util.unhashString(password);
+
+    config->Read( CONF_ENTRY_useCustomServer, &useCustomServer );
+    config->Read( CONF_ENTRY_customServerUri, &customServerUri );
+
     // missing days
     config->Read( CONF_ENTRY_checkForMissingDays, &checkForMissingDays );
     // breast self control reminder
@@ -298,6 +311,7 @@ bool configClass::readParamsFromConfigFile()
     /* ANALYSIS */
     config->SetPath( CONF_PATH_analysis );
     config->Read( CONF_ENTRY_autoanalyzeCard, &autoanalyzeCard );
+    config->Read( CONF_ENTRY_showAutoanalysisDetails, &showAutoanalysisDetails );
     config->Read( CONF_ENTRY_maxAllowedNotMesuredLowLevelDays, &maxAllowedNotMesuredLowLevelDays );
     config->Read( CONF_ENTRY_maxIncludedNotMesuredLowLevelDays, &maxIncludedNotMesuredLowLevelDays );
     config->Read( CONF_ENTRY_maxAllowedNotMesuredHighLevelDays, &maxAllowedNotMesuredHighLevelDays );
@@ -351,7 +365,7 @@ bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &f
     int      style     = -1;
     int      weight    = -1;
     bool     underline = false;
-    wxString faceName  = _T( "" );
+    wxString faceName  = wxEmptyString;
     //int      encoding  = -1;
 
     if ( ! config->Read( name + CONF_ENTRY_EXT_POINTSIZE, &pointSize ) )
@@ -377,229 +391,6 @@ bool configClass::readParamsFont( wxConfigBase *config, wxString name, wxFont &f
     font = wxFont( pointSize, family, style, weight, underline, faceName );
     return true;
 }
-
-
-
-/** Deprecated code START */
-
-/**
- * Support for previous version of config file..
- */
-bool configClass::readParamsFromOldVersionOfConfigFile(wxString input)
-{
-    // parse the configuration entries and put it to the 'params' hash map
-    paramsHash params;
-    wxString entry, name, value;
-    int index;
-    while ( ! input.IsEmpty() ) {
-        index = input.First( _T("\n") ) ;
-        if (index > -1) {
-            entry = input.Mid(0, index);
-            input = input.Mid(index).Trim(false);
-            index = entry.First( _T("=") ) ;
-            if (index > -1) {
-                name  = entry.Mid(0, index);
-                value = entry.Mid(index+1);
-                if ( !name.IsEmpty() ) {
-                    //log->debug(m_lClass , lMethod, _T("params[") + name + _T("] = ") + value );
-                    params[name] = value;
-                } else {
-                    wxMessageBox( _T("Error while spliting configuration infile - 'name' is empty in entry: '") + entry + _T("'"), _T( "Warning" ), wxOK | wxICON_ERROR );
-                }
-            } else {
-                wxMessageBox( _T("Error while spliting configuration infile - cannot find '=' in entry: '") + entry + _T("'"), _T( "Warning" ), wxOK | wxICON_ERROR );
-            }
-
-        } else {
-            if ( !input.IsEmpty() ) {
-                index = input.First( _T("=") ) ;
-                if (index > -1) {
-                    name  = input.Mid(0, index);
-                    value = input.Mid(index+1);
-                    if ( !name.IsEmpty() ) {
-                        //log->debug(m_lClass , lMethod, _T("params[") + name + _T("] = ") + value );
-                        params[name] = value;
-                    } else {
-                        wxMessageBox( _T("Error while spliting configuration infile - 'name' is empty in entry: '") + input + _T("'"), _T( "Warning" ), wxOK | wxICON_ERROR );
-                    }
-                } else {
-                    wxMessageBox( _T("Error while spliting configuration infile - cannot find '=' in entry: '") + input + _T("'"), _T( "Warning" ), wxOK | wxICON_ERROR );
-                }
-                input = _T("");
-            }
-        }
-    }
-
-    // last open file
-    readBool( params, _T("openLastOpenedFile"),           openLastOpenedFile );
-
-    readString( params, _T("lastOpenedFileName"),         dataFileName );
-    // missing days
-    readBool( params, _T("checkForMissingDays"),          checkForMissingDays );
-//#if defined(__WXMSW__)
-    // live update
-    readBool( params, _T("checkForUpdates"),              checkForUpdates );
-    readString( params, _T("updatesProxy"),               updatesProxy );
-//#endif
-    // windows position
-    readBool( params, _T("rememberPosition"),             rememberPosition );
-    readBool( params, _T("formMainMaximized"),            formMainMaximized );
-    readInt( params, _T("formMainHeight"),                formMainHeight );
-    readInt( params, _T("formMainHeight"),                formMainHeight );
-    readInt( params, _T("formMainWidth"),                 formMainWidth );
-    readInt( params, _T("formMainLeft"),                  formMainLeft );
-    readInt( params, _T("formMainTop"),                   formMainTop );
-    readInt( params, _T("formDayLeft"),                   formDayLeft );
-    readInt( params, _T("formDayTop"),                    formDayTop );
-    readInt( params, _T("formCardLeft"),                  formCardLeft );
-    readInt( params, _T("formCardTop"),                   formCardTop );
-    readBool( params, _T("useFlatButtons"),               useFlatButtons );
-    readInt( params, _T("widowLeftWidth"),                widowLeftWidth );
-    readInt( params, _T("windowTopHeight"),               windowTopHeight );
-
-    readInt( params, _T("breastSelfControlReminderDay"),     breastSelfControlReminderDay );
-    readInt( params, _T("breastSelfControlInterval"),     breastSelfControlInterval );
-    wxString tmp;
-    readString( params, _T("breastSelfControlLastReminder"), tmp );
-    try {
-        if (tmp.IsEmpty()) {
-            breastSelfControlLastReminder = wxDateTime::Today();
-            breastSelfControlLastReminder.Subtract ( wxDateSpan::Days ( breastSelfControlInterval + 1 ) );
-        }
-
-        if (tmp.Mid(4,1)==_T("-") && tmp.Mid(7,1)==_T("-")) {
-            breastSelfControlLastReminder.Set(m_util.strToInt(tmp.Mid(8,2)), wxDateTime::Month(m_util.strToInt(tmp.Mid(5,2))-1), m_util.strToInt(tmp.Mid(0,4)) );
-        } else {
-            breastSelfControlLastReminder = wxDateTime::Today();
-            breastSelfControlLastReminder.Subtract ( wxDateSpan::Days ( breastSelfControlInterval + 1 ) );
-        }
-
-    } catch (...) {
-        breastSelfControlLastReminder = wxDateTime::Today();
-        breastSelfControlLastReminder.Subtract ( wxDateSpan::Days ( breastSelfControlInterval + 1 ) );
-    }
-
-    readBool( params, _T("lengthInCentimeters"),          lengthInCentimeters );
-
-    // graph
-    readBool( params, _T("temperatureInCelsius"),         temperatureInCelsius );
-    readInt( params, _T("temperatureMin"),                temperatureRangeLow );
-    readInt( params, _T("temperatureMax"),                temperatureRangeHigh );
-    // colours
-    readColour( params, _T("colourBackground"),           colourBackground );
-    readColour( params, _T("colourCell11"),               colourCell11 );
-    readColour( params, _T("colourCell12"),               colourCell12 );
-    readColour( params, _T("colourCell21"),               colourCell21 );
-    readColour( params, _T("colourCell22"),               colourCell22 );
-    readColour( params, _T("colourMarkedCell1"),          colourMarkedCell1 );
-    readColour( params, _T("colourMarkedCell2"),          colourMarkedCell2 );
-    readColour( params, _T("colourPointNormal"),          colourPointNormal );
-    readColour( params, _T("colourPointBefore"),          colourPointBefore );
-    readColour( params, _T("colourPointAfter"),           colourPointAfter );
-    readColour( params, _T("colourTemperatureLine"),      colourTemperatureLine );
-    readColour( params, _T("colourTemperatureLevelLine"), colourTemperatureLevelLine );
-    readColour( params, _T("colourPhaseLine"),            colourPhaseLine );
-    readColour( params, _T("colourBorders"),              colourBorders );
-    readColour( params, _T("colourMarkedBorders"),        colourMarkedBorders );
-    // fonts
-    readFont( params, _T("fontHeadTopic"),                fontHeadTopic );
-    readFont( params, _T("fontHeadName"),                 fontHeadName );
-    readFont( params, _T("fontHeadValue"),                fontHeadValue );
-    readFont( params, _T("fontResultHeader"),             fontResultHeader );
-    readFont( params, _T("fontResultDefault"),            fontResultDefault );
-    readFont( params, _T("fontResultResults"),            fontResultResults );
-    readFont( params, _T("fontResultPhases"),             fontResultPhases );
-    // fonts' colours
-    readColour( params, _T("fontHeadTopicColour"),        fontHeadTopicColour );
-    readColour( params, _T("fontHeadNameColour"),         fontHeadNameColour );
-    readColour( params, _T("fontHeadValueColour"),        fontHeadValueColour );
-    readColour( params, _T("fontResultHeaderColour"),     fontResultHeaderColour );
-    readColour( params, _T("fontResultDefaultColour"),    fontResultDefaultColour );
-    readColour( params, _T("fontResultResultsColour"),    fontResultResultsColour );
-    readColour( params, _T("fontResultPhasesColour"),     fontResultPhasesColour );
-
-    calculateParams();
-
-    wxRemoveFile(m_configFile);
-    return true;
-}
-
-/**
- *
- */
-void configClass::readString(paramsHash params, wxString name, wxString &paramToSet )
-{
-    if ( ! params[name].IsEmpty() ) {
-        paramToSet = params[name];
-    }
-}
-
-/**
- *
- */
-void configClass::readInt(paramsHash params, wxString name, int &paramToSet )
-{
-    if ( ! params[name].IsEmpty() ) {
-        paramToSet = m_util.strToInt(params[name]);
-    }
-}
-
-/**
- *
- */
-void configClass::readBool(paramsHash params, wxString name, bool &paramToSet )
-{
-    if ( ! params[name].IsEmpty() ) {
-        paramToSet = m_util.strToBool(params[name]);
-    }
-}
-
-/**
- *
- */
-void configClass::readColour(paramsHash params, wxString name, wxColour &paramToSet )
-{
-    int red = -1, green = -1, blue = -1;
-
-    if ( ! params[name + _T(".red")].IsEmpty() )  red = m_util.strToInt( params[name + _T(".red")] );
-    if ( ! params[name + _T(".red")].IsEmpty() )  green = m_util.strToInt( params[name + _T(".green")] );
-    if ( ! params[name + _T(".red")].IsEmpty() )  blue = m_util.strToInt( params[name + _T(".blue")] );
-
-    if ( red != -1 && green != -1 && blue != -1 ) {
-        paramToSet = wxColour(red, green, blue);
-    }
-}
-
-/**
- *
- */
-void configClass::readFont(paramsHash params, wxString name, wxFont &paramToSet)
-{
-    int      pointSize = -1;
-    int      family    = -1;
-    int      style     = -1;
-    int      weight    = -1;
-    bool     underline = false;
-    wxString faceName  = _T("");
-    //int      encoding  = -1;
-
-    if ( ! params[name + _T(".pointSize")].IsEmpty() )  pointSize = m_util.strToInt( params[name + _T(".pointSize")] );
-    if ( ! params[name + _T(".family")].IsEmpty() )     family = m_util.strToInt( params[name + _T(".family")] );
-    if ( ! params[name + _T(".style")].IsEmpty() )      style = m_util.strToInt( params[name + _T(".style")] );
-    if ( ! params[name + _T(".weight")].IsEmpty() )     weight = m_util.strToInt( params[name + _T(".weight")] );
-    if ( ! params[name + _T(".underline")].IsEmpty() )  underline = m_util.strToBool( params[name + _T(".underline")] );
-    if ( ! params[name + _T(".faceName")].IsEmpty() )   faceName = params[name + _T(".faceName")];
-    //if ( ! params[name + _T(".encoding")].IsEmpty() )   encoding = m_util.strToInt( params[name + _T(".encoding")] );
-
-    //if ( pointSize != -1 && family != -1 && style != -1 && weight != -1 && encoding != -1 && !faceName.IsEmpty() )
-    //    paramToSet = wxFont (pointSize, family, style, weight, underline, faceName, wxFontEncoding(encoding) );
-
-    if ( pointSize != -1 && family != -1 && style != -1 && weight != -1 && !faceName.IsEmpty() )
-        paramToSet = wxFont (pointSize, family, style, weight, underline, faceName );
-}
-
-
-/** Deprecated code END */
 
 
 /*******************************************************************************
@@ -649,9 +440,23 @@ bool configClass::saveParamsToConfigFile()
         config->DeleteEntry( CONF_ENTRY_lastOpenedFileName, false );
     }
 
+    for (size_t i=0; i<previouslyOpenedFileNames.GetCount(); i++) {
+        config->Write( wxString::Format( _T("%s%i"), CONF_ENTRY_PREFIX_previouslyOpenedFileNames, i ), previouslyOpenedFileNames.Item(i) );
+    }
+
     // autosave
     config->Write( CONF_ENTRY_autosaveChanges,             autosaveChanges );
     config->Write( CONF_ENTRY_autosaveSet,                 autosaveSet );
+    // saving file on server
+    config->Write( CONF_ENTRY_syncFileAutomatically, syncFileAutomatically );
+    config->Write( CONF_ENTRY_rememberPassword, rememberPassword );
+    if ( rememberPassword ) {
+        config->Write( CONF_ENTRY_password, m_util.hashString(password) );
+    } else {
+        config->Write( CONF_ENTRY_password, wxEmptyString );
+    }
+    config->Write( CONF_ENTRY_useCustomServer, useCustomServer );
+    config->Write( CONF_ENTRY_customServerUri, customServerUri );
 
     // missing days
     config->Write( CONF_ENTRY_checkForMissingDays,          checkForMissingDays );
@@ -707,6 +512,7 @@ bool configClass::saveParamsToConfigFile()
     /* ANALYSIS */
     config->SetPath( CONF_PATH_analysis );
     config->Write( CONF_ENTRY_autoanalyzeCard,                       autoanalyzeCard );
+    config->Write( CONF_ENTRY_showAutoanalysisDetails,               showAutoanalysisDetails );
     config->Write( CONF_ENTRY_maxAllowedNotMesuredLowLevelDays,      maxAllowedNotMesuredLowLevelDays );
     config->Write( CONF_ENTRY_maxIncludedNotMesuredLowLevelDays,     maxIncludedNotMesuredLowLevelDays );
     config->Write( CONF_ENTRY_maxAllowedNotMesuredHighLevelDays,     maxAllowedNotMesuredHighLevelDays );

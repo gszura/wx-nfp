@@ -787,7 +787,6 @@ bool cycleDataClass::calculateResultCervix1stDay( cardEntry *card, int cardNo )
 bool cycleDataClass::calculateResultCervixPeak( cardEntry *card, int cardNo )
 {
     dayEntry * cDay;
-    dayEntry * pDay;
 
     /*
     if (card->getCycleType() == CYCLE_TYPE_NORMAL || card->getCycleType() == CYCLE_TYPE_PREGNANCY) {
@@ -802,7 +801,6 @@ bool cycleDataClass::calculateResultCervixPeak( cardEntry *card, int cardNo )
 
     for ( int dayNo = 2; dayNo < card->getDaysCount(); dayNo++ ) {
         cDay = card->getDay(dayNo);
-        pDay = card->getDay(dayNo-1);
 
         if ( cDay->isCervixChange() ) {
             if (cDay->getCervixPosition() > CERVIX_LOW) {

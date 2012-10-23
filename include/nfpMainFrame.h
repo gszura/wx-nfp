@@ -1,7 +1,10 @@
+#ifndef HEADER_4081C4F6D602A2DC
+#define HEADER_4081C4F6D602A2DC
+
 /*******************************************************************************
 //
 // Name:        nfpMainFrame.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -33,6 +36,7 @@
 #include <wx/panel.h>
 #include <wx/timer.h>
 #include <vector>
+#include <wx/log.h>
 
 #include "customWindowMain.h"
 #include "customWindowLeft.h"
@@ -42,9 +46,11 @@
 #include "utilClass.h"
 #include "cardFrame.h"
 #include "dayFrame.h"
-#include "liveUpdateClass.h"
+#include "wxHttpThread.h"
 #include "updatesNotificationForm.h"
 #include "notificationFrame.h"
+#include "IOoperations.h"
+
 
 #undef nfpMainFrame_STYLE
 #define nfpMainFrame_STYLE wxCAPTION | wxRESIZE_BORDER | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxMAXIMIZE_BOX | wxCLOSE_BOX | wxCLIP_CHILDREN
@@ -59,12 +65,13 @@ private:
     DECLARE_EVENT_TABLE();
 
 public:
-    nfpMainFrame(wxWindow *parent, configClass *config, wxWindowID id = 1, const wxString &title = wxT("NFP"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = nfpMainFrame_STYLE);
+    nfpMainFrame(wxWindow *parent, configClass *config, wxWindowID id = 1, const wxString &title = _("NFP"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = nfpMainFrame_STYLE);
     virtual ~nfpMainFrame();
 
 public:
     wxMenuBar *menuBarMain;
     wxMenu *menuNfp;
+    wxMenu *menuOpenedCardHistory;
     wxMenu *menuCard;
     wxMenu *menuDay;
     wxMenu *menuResults;
@@ -101,12 +108,17 @@ public:
         ID_MNU_SAVE_SET,
         ID_MNU_SAVE_SET_AS,
         ID_MNU_SEPARATOR_11,
+        ID_MNU_ENABLE_SYNC,
+        ID_MNU_AUTO_SYNC,
+        ID_MNU_SYNC_NOW,
+        ID_MNU_SEPARATOR_12,
         ID_MNU_PRINT,
         ID_MNU_PRINT_PREVIEW,
         ID_MNU_PRINT_PAGE_SETUP,
-        ID_MNU_SEPARATOR_12,
-        ID_MNU_OPTIONS,
         ID_MNU_SEPARATOR_13,
+        ID_MNU_OPTIONS,
+        ID_MNU_SEPARATOR_14,
+        ID_MNU_SEPARATOR_15,
         ID_MNU_EXIT,
         ID_MNU_CARD,
         ID_MNU_PREVIOUS_CARD,
@@ -153,10 +165,12 @@ public:
         ID_MNU_ABOUT,
 
         ID_STATUSBAR,
-        ID_BUTTONNEWDAY,
-        ID_BUTTONANALYZECYCLE,
         ID_BUTTONNEXTCARD,
         ID_BUTTONPREVCARD,
+        ID_BUTTONNEWDAY,
+        ID_BUTTONANALYZECYCLE,
+        ID_BUTTONSAVESET,
+        ID_BUTTONSYNCSET,
         ID_TOOLBAR,
 
         ID_WINDOWMAIN,
@@ -166,12 +180,17 @@ public:
         ID_SCROLLBARVERTICAL,
         ID_TIMERMAIN,
         ID_TIMERNOTIFICATION,
+        ID_thread,
+
+        ID_MNU_OPENED_CARD_HISTORY_CLEAR = 9900,
+        ID_MNU_OPENED_CARD_HISTORY,
 
         ID_DUMMY_VALUE_ //don't remove this value unless you have other enum values
     };
     /**************************************************************************/
-public:
+private:
     void CreateGUIControls(void);
+    void updateRecentCardsMenu();
 
     void newAppAvailableEvent( wxCommandEvent& event);
     void newAppDownloadedEvent( wxCommandEvent& event);
@@ -199,8 +218,13 @@ public:
 
     void MnuNewSetClick(wxCommandEvent& event);
     void MnuOpenSetClick(wxCommandEvent& event);
+    void MnuOpenCardFromHistoryClick(wxCommandEvent& event);
+    void MnuClearCardHistoryClick(wxCommandEvent& event);
     void MnuSaveSetClick(wxCommandEvent& event);
     void MnuSaveSetAsClick(wxCommandEvent& event);
+    void MnuEnableSyncClick(wxCommandEvent& event);
+    void MnuAutoSyncClick(wxCommandEvent& event);
+    void MnuSyncNowClick(wxCommandEvent& event);
     void MnuPrintClick(wxCommandEvent& event);
     void MnuPrintPreviewClick(wxCommandEvent& event);
     void MnuPrintPageSetupClick(wxCommandEvent& event);
@@ -255,6 +279,7 @@ private:
     dayFrame *m_dayFrm;
     notificationFrame *m_notificationFrm;
 
+    bool m_initCard;
     wxWindow *m_parent;
     configClass *m_config;
     cycleDataClass *m_cycleData;
@@ -262,14 +287,17 @@ private:
     bool m_showNewAppMessage;
     int m_newAppStatusMessage;
 
+    wxHttpThread *m_checkUpdatesThread;
     updatesNotificationForm *m_updatesNotificationFrame;
     bool m_doUpdateOnExit;
     wxString m_newAppSetupFile;
-    bool m_doCheckForMissingDays;
+    //bool m_doCheckForMissingDays;
 
     // variables needed to monitor if the frame title needs to be updated.
     wxString m_dataFileNamePrev;
     bool m_cardModifiedPrev;
+    wxString m_serverDataFileNamePrev;
+    bool m_serverFileNotInSyncPrev;
 
     // PRINTING
     // print data, to remember settings during the session
@@ -278,7 +306,6 @@ private:
     // page setup data
     wxPageSetupData* m_pageSetupData;
 
-
 public:
     void setFocusOnCardFrm();
     void checkForUpdates(bool);
@@ -286,22 +313,32 @@ public:
     void setButtonsStyle();
     void updateAll();
     void updateButtons();
-    bool askToSaveChanges(bool);
-    bool saveChanges(bool, bool);
     bool checkCardAndDayFramesStates(bool, bool);
     bool checkDayFrameState(bool, bool);
     bool checkCardFrameState(bool, bool);
     bool checkForMissingDays();
-    int getNumberOfDays (wxDateTime, wxDateTime);
     void showNotification( const wxString& message, int textAlign = wxALIGN_LEFT );
     void showAnalysisResultNotification( const wxString&);
     void closeAnalysisResultNotification();
-
 
 private:
     bool doModifyLockedCard();
     void informUserAboutChangesInThisRelease();
 
+
+    /** FILE: nfpMainFrame_io_operations.cpp */
+public:
+    void readLastOpenedCard();
+    bool readCard();
+    bool askToSaveCard(bool);
+    bool saveCard(bool forceNewFile, bool cancelAllowed);
+    bool saveCardWithInitialSync();
+    bool syncCard();
+    bool removeCardFromServer(wxString syncServerName = wxEmptyString);
+    bool moveCardToNewSyncServer();
+    wxString getSyncServerName();
 };
 
 #endif
+
+#endif // header guard

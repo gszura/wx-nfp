@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="syncActionTypeDialog">
+		<title>NFP - synchronizing cards&apos; set with server</title>
+		<id_arg>0</id_arg>
+		<style>wxCAPTION</style>
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+								<label>If your cards&apos; set is already stored on the server&#x0A;(e.g. synchronization is enabled on another computer),&#x0A;select &apos;read existing cards&apos; set&apos;&#x0A;&#x0A;If your cards&apos; set is not yet stored on the server,&#x0A;select &apos;create new cards&apos; set&apos; button.</label>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxHyperlinkCtrl" name="ID_HYPERLINKCTRL" variable="hyperlinkCtrl" member="yes">
+								<label>Read more information about this feature</label>
+								<style>wxHL_CONTEXTMENU|wxHL_ALIGN_LEFT|wxNO_BORDER</style>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="ID_buttonReadExistingCard" variable="buttonReadExistingCard" member="yes">
+								<label>read existing cards&apos; set</label>
+								<handler function="OnbuttonReadExistingCardClick" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="ID_buttonCreateNewCard" variable="buttonCreateNewCard" member="yes">
+								<label>create new cards&apos; set</label>
+								<handler function="OnbuttonCreateNewCardClick" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="wxID_CANCEL" variable="buttonCancel" member="yes">
+								<label>Cancel</label>
+								<handler function="OnbuttonCancelClick" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

@@ -124,12 +124,12 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="`/usr/bin/wx-config --cflags --unicode=yes`" />
+					<Add option="`/usr/bin/wx-config --cflags --unicode=yes --version=2.8`" />
 					<Add option="-DwxUSE_UNICODE" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="`/usr/bin/wx-config --libs`" />
+					<Add option="`/usr/bin/wx-config --libs --version=2.8`" />
 				</Linker>
 			</Target>
 			<Target title="linux_debug">
@@ -140,11 +140,11 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="`/usr/bin/wx-config --cflags --unicode=yes --debug=yes`" />
+					<Add option="`/usr/bin/wx-config --cflags --unicode=yes --debug=yes --version=2.8`" />
 					<Add option="-DwxUSE_UNICODE" />
 				</Compiler>
 				<Linker>
-					<Add option="`/usr/bin/wx-config --libs --debug=yes`" />
+					<Add option="`/usr/bin/wx-config --libs --debug=yes --version=2.8`" />
 				</Linker>
 			</Target>
 			<Target title="linux_debug_wx2.9">
@@ -155,8 +155,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DwxUSE_UNICODE" />
 					<Add option="`/usr/bin/wx-config --cflags --unicode=yes --debug=yes --version=2.9`" />
+					<Add option="-DwxUSE_UNICODE" />
 				</Compiler>
 				<Linker>
 					<Add option="`/usr/bin/wx-config --libs --debug=yes --version=2.9`" />
@@ -168,10 +168,13 @@
 		</VirtualTargets>
 		<Compiler>
 			<Add directory="include" />
+			<Add directory="lib/wxcurl/include" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#wx)/include" />
 		</ResourceCompiler>
+		<Unit filename="include/Crypto.h" />
+		<Unit filename="include/IOoperations.h" />
 		<Unit filename="include/aboutFrame.h" />
 		<Unit filename="include/cardEntry.h" />
 		<Unit filename="include/cardFrame.h" />
@@ -191,13 +194,15 @@
 		<Unit filename="include/dayFrame.h" />
 		<Unit filename="include/drawingClass.h" />
 		<Unit filename="include/goToFrame.h" />
-		<Unit filename="include/liveUpdateClass.h" />
 		<Unit filename="include/lutealPhasesChart.h" />
 		<Unit filename="include/nfpMainFrame.h" />
 		<Unit filename="include/notificationFrame.h" />
+		<Unit filename="include/passwordDialog.h" />
 		<Unit filename="include/phasesChart.h" />
 		<Unit filename="include/printFrame.h" />
+		<Unit filename="include/serverOperationsForm.h" />
 		<Unit filename="include/statisticsFrame.h" />
+		<Unit filename="include/syncActionTypeDialog.h" />
 		<Unit filename="include/temperaturesChart.h" />
 		<Unit filename="include/translationHelper.h" />
 		<Unit filename="include/updatesNotificationForm.h" />
@@ -205,6 +210,9 @@
 		<Unit filename="include/wx-nfpApp.h" />
 		<Unit filename="include/wx-nfpAppInfo.h" />
 		<Unit filename="include/wx-nfpAppVersion.h" />
+		<Unit filename="include/wxHttpThread.h" />
+		<Unit filename="src/Crypto.cpp" />
+		<Unit filename="src/IOoperations.cpp" />
 		<Unit filename="src/aboutFrame.cpp" />
 		<Unit filename="src/cardEntry.cpp" />
 		<Unit filename="src/cardFrame.cpp" />
@@ -224,18 +232,22 @@
 		<Unit filename="src/dayFrame.cpp" />
 		<Unit filename="src/drawingClass.cpp" />
 		<Unit filename="src/goToFrame.cpp" />
-		<Unit filename="src/liveUpdateClass.cpp" />
 		<Unit filename="src/lutealPhasesChart.cpp" />
 		<Unit filename="src/nfpMainFrame.cpp" />
+		<Unit filename="src/nfpMainFrame_io_operations.cpp" />
 		<Unit filename="src/notificationFrame.cpp" />
+		<Unit filename="src/passwordDialog.cpp" />
 		<Unit filename="src/phasesChart.cpp" />
 		<Unit filename="src/printFrame.cpp" />
+		<Unit filename="src/serverOperationsForm.cpp" />
 		<Unit filename="src/statisticsFrame.cpp" />
+		<Unit filename="src/syncActionTypeDialog.cpp" />
 		<Unit filename="src/temperaturesChart.cpp" />
 		<Unit filename="src/translationHelper.cpp" />
 		<Unit filename="src/updatesNotificationForm.cpp" />
 		<Unit filename="src/utilClass.cpp" />
 		<Unit filename="src/wx-nfpApp.cpp" />
+		<Unit filename="src/wxHttpThread.cpp" />
 		<Unit filename="wx-nfpApp.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
@@ -243,17 +255,25 @@
 		<Unit filename="wxsmith/configFrame.wxs" />
 		<Unit filename="wxsmith/dayFrame.wxs" />
 		<Unit filename="wxsmith/goToFrame.wxs" />
+		<Unit filename="wxsmith/passwordDialog.wxs" />
+		<Unit filename="wxsmith/serverOperationsForm.wxs" />
 		<Unit filename="wxsmith/statisticsFrame.wxs" />
+		<Unit filename="wxsmith/syncActionTypeDialog.wxs" />
+		<Unit filename="wxsmith/updatesNotificationForm.wxs" />
 		<Extensions>
 			<code_completion />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
 				<resources>
+					<wxDialog wxs="wxsmith/configFrame.wxs" src="src/configFrame.cpp" hdr="include/configFrame.h" fwddecl="0" i18n="1" name="configFrame" language="CPP" />
 					<wxDialog wxs="wxsmith/cardFrame.wxs" src="src/cardFrame.cpp" hdr="include/cardFrame.h" fwddecl="0" i18n="1" name="cardFrame" language="CPP" />
 					<wxDialog wxs="wxsmith/dayFrame.wxs" src="src/dayFrame.cpp" hdr="include/dayFrame.h" fwddecl="0" i18n="1" name="dayFrame" language="CPP" />
 					<wxDialog wxs="wxsmith/goToFrame.wxs" src="src/goToFrame.cpp" hdr="include/goToFrame.h" fwddecl="0" i18n="1" name="goToFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/configFrame.wxs" src="src/configFrame.cpp" hdr="include/configFrame.h" fwddecl="0" i18n="1" name="configFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/statisticsFrame.wxs" src="src/statisticsFrame.cpp" hdr="include/statisticsFrame.h" fwddecl="0" i18n="1" name="statisticsFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/syncActionTypeDialog.wxs" src="src/syncActionTypeDialog.cpp" hdr="include/syncActionTypeDialog.h" fwddecl="0" i18n="1" name="syncActionTypeDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/passwordDialog.wxs" src="src/passwordDialog.cpp" hdr="include/passwordDialog.h" fwddecl="0" i18n="1" name="passwordDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/serverOperationsForm.wxs" src="src/serverOperationsForm.cpp" hdr="include/serverOperationsForm.h" fwddecl="0" i18n="1" name="serverOperationsForm" language="CPP" />
+					<wxDialog wxs="wxsmith/updatesNotificationForm.wxs" src="src/updatesNotificationForm.cpp" hdr="include/updatesNotificationForm.h" fwddecl="0" i18n="1" name="updatesNotificationForm" language="CPP" />
 				</resources>
 			</wxsmith>
 			<envvars />

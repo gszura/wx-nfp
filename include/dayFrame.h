@@ -11,14 +11,14 @@
 #define DAYFRAME_H
 
 //(*Headers(dayFrame)
+#include <wx/combobox.h>
+#include <wx/checkbox.h>
+#include <wx/dialog.h>
 #include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/panel.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/checkbox.h>
-#include <wx/panel.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
-#include <wx/combobox.h>
 //*)
 
 #include "configClass.h"
@@ -51,102 +51,102 @@ public:
      virtual ~dayFrame();
 
      //(*Declarations(dayFrame)
-     wxStaticText* staticMucusAmount;
-     wxStaticText* changesAdditionalNotes;
-     wxButton* buttonNextDay;
-     wxCheckBox* checkBoxMucusAppearanceOpaque;
-     wxButton* buttonCancel;
-     wxStaticText* changesCervixDilation;
-     wxCheckBox* checkBoxBreastsTension1;
-     wxStaticText* textCardNo;
-     wxStaticText* staticOvulationPain;
-     wxCheckBox* checkBoxOvulationPain1;
-     wxStaticText* space3;
-     wxStaticText* changesOvulationPain;
-     wxStaticText* changesSexDay;
-     wxStaticText* changesSpotting;
-     wxComboBox* comboBoxCervixPosition;
-     wxStaticText* staticMeasuredTemperature;
-     wxStaticText* staticCardNo;
-     wxCheckBox* checkBoxOtherDisturbances;
-     wxStaticText* staticBreastsTension;
-     wxComboBox* comboBoxCervixDilation;
-     wxCheckBox* checkBoxLengthOfStretch2;
-     wxStaticText* staticAdditionalNotes;
-     wxStaticText* staticSexEvening;
-     wxStaticText* staticMeasurementTime;
-     wxCheckBox* checkBoxSpotting2;
-     wxStaticText* changesMeasuredPlace;
-     wxCheckBox* checkBoxLengthOfStretch1;
-     wxStaticText* staticTemperatureAfterCorections;
-     wxComboBox* comboBoxAdditionalTemperatureCorrection;
-     wxStaticText* staticCervixHardness;
-     wxCheckBox* checkBoxTemperatureDisturbances;
      wxStaticText* space2;
-     wxStaticText* changesMeasuredTime;
-     wxComboBox* comboBoxMeasurementTimeHour;
-     wxCheckBox* checkBoxSpotting1;
-     wxStaticText* staticLengthOfStretch;
-     wxCheckBox* checkBoxSexDay;
-     wxCheckBox* checkBoxMucusAppearanceSeminalResidue;
-     wxTextCtrl* textMucusAppearance;
-     wxStaticText* textCycleDay;
-     wxComboBox* comboBoxMeasurementPlace;
-     wxStaticText* changesOtherDisturbances;
-     wxComboBox* comboBoxMeasurementTimeMinute;
-     wxCheckBox* checkBoxMucusAppearanceWhite;
-     wxStaticText* space1;
-     wxCheckBox* checkBoxMucusAppearanceYellowish;
-     wxCheckBox* checkBoxMucusAmount2;
-     wxCheckBox* checkBoxLengthOfStretch3;
-     wxStaticText* staticDate;
-     wxStaticText* staticMucusAppearance;
-     wxComboBox* comboBoxCervixHardness;
-     wxStaticText* staticCervixPosition;
-     wxStaticText* staticSexDay;
-     wxStaticText* changesCervixHardness;
-     wxStaticText* changesCervixPosition;
-     wxStaticText* textTemperatureAfterCorections;
-     wxCheckBox* checkBoxMucusAmount3;
+     wxCheckBox* checkBoxMucusAppearanceOpaque;
+     wxStaticText* staticBreastsTension;
      wxStaticText* changesBreastsTension;
-     wxComboBox* comboBoxMeasuredTemperature;
-     wxCheckBox* checkBoxMucusAppearanceClear;
-     wxStaticText* changesMucusFeeling;
-     wxStaticText* textCoitusRecordCounter;
-     wxStaticText* textDate;
-     wxStaticText* staticSpotting;
-     wxCheckBox* checkBoxMenstruation1;
-     wxComboBox* comboBoxMucusFeeling;
-     wxPanel* panelMain;
-     wxCheckBox* checkBoxMucusAppearanceTacky;
-     wxButton* buttonClose;
-     wxStaticText* changesSexMorning;
-     wxCheckBox* checkBoxMucusAmount1;
-     wxCheckBox* checkBoxSexEvening;
-     wxStaticText* changesMenstruation;
+     wxTextCtrl* textMucusAppearance;
      wxStaticText* staticSexMorning;
-     wxStaticText* staticCardLocked;
-     wxStaticText* staticCervixDilation;
-     wxCheckBox* checkBoxMucusAppearanceStretchy;
-     wxCheckBox* checkBoxBreastsTension2;
-     wxStaticText* changesTemperatureDisturbances;
-     wxStaticText* staticMenstruation;
-     wxButton* buttonSave;
-     wxStaticText* staticSpace7;
-     wxStaticText* staticMucusFeeling;
-     wxStaticText* changesSexEvening;
-     wxButton* buttonAddNewDay;
-     wxStaticText* staticCycleDay;
-     wxButton* buttonPreviousDay;
-     wxCheckBox* checkBoxSexMorning;
-     wxStaticText* changesMucusAppearance;
-     wxStaticText* staticMeasurementPlace;
+     wxCheckBox* checkBoxMenstruation1;
+     wxStaticText* staticCervixHardness;
      wxStaticText* changesMeasuredTemperature;
-     wxStaticText* changesAdditionalTemperatureCorrection;
+     wxCheckBox* checkBoxMucusAppearanceClear;
+     wxCheckBox* checkBoxMucusAppearanceTacky;
      wxTextCtrl* textAdditionalNotes;
-     wxStaticText* staticAdditionalTemperatureCorrection;
+     wxStaticText* staticTemperatureAfterCorections;
+     wxStaticText* changesCervixHardness;
+     wxComboBox* comboBoxMeasurementTimeMinute;
+     wxStaticText* staticMeasuredTemperature;
+     wxCheckBox* checkBoxLengthOfStretch1;
+     wxStaticText* staticOvulationPain;
+     wxCheckBox* checkBoxLengthOfStretch3;
+     wxStaticText* staticSexDay;
+     wxComboBox* comboBoxMeasurementTimeHour;
+     wxStaticText* changesSexEvening;
+     wxStaticText* staticMucusAmount;
+     wxCheckBox* checkBoxMucusAppearanceStretchy;
+     wxStaticText* staticMeasurementTime;
+     wxCheckBox* checkBoxSpotting1;
+     wxStaticText* space1;
+     wxCheckBox* checkBoxBreastsTension2;
+     wxStaticText* staticSexEvening;
+     wxStaticText* staticSpace7;
+     wxCheckBox* checkBoxSexDay;
+     wxCheckBox* checkBoxSexMorning;
+     wxStaticText* changesAdditionalTemperatureCorrection;
+     wxCheckBox* checkBoxLengthOfStretch2;
+     wxCheckBox* checkBoxMucusAmount1;
+     wxCheckBox* checkBoxMucusAppearanceSeminalResidue;
      wxCheckBox* checkBoxOvulationPain2;
      wxCheckBox* checkBoxMenstruation2;
+     wxCheckBox* checkBoxMucusAppearanceYellowish;
+     wxStaticText* staticCardNo;
+     wxComboBox* comboBoxCervixHardness;
+     wxCheckBox* checkBoxSexEvening;
+     wxStaticText* changesOvulationPain;
+     wxComboBox* comboBoxAdditionalTemperatureCorrection;
+     wxCheckBox* checkBoxOtherDisturbances;
+     wxButton* buttonPreviousDay;
+     wxStaticText* changesCervixPosition;
+     wxStaticText* staticAdditionalTemperatureCorrection;
+     wxComboBox* comboBoxMucusFeeling;
+     wxStaticText* staticDate;
+     wxStaticText* staticMucusAppearance;
+     wxStaticText* staticCardLocked;
+     wxStaticText* staticMeasurementPlace;
+     wxStaticText* textCoitusRecordCounter;
+     wxStaticText* changesCervixDilation;
+     wxCheckBox* checkBoxSpotting2;
+     wxStaticText* staticAdditionalNotes;
+     wxStaticText* space3;
+     wxComboBox* comboBoxCervixDilation;
+     wxStaticText* staticLengthOfStretch;
+     wxCheckBox* checkBoxMucusAmount2;
+     wxStaticText* changesMeasuredPlace;
+     wxButton* buttonSave;
+     wxCheckBox* checkBoxBreastsTension1;
+     wxCheckBox* checkBoxTemperatureDisturbances;
+     wxStaticText* staticCervixPosition;
+     wxStaticText* changesOtherDisturbances;
+     wxButton* buttonNextDay;
+     wxStaticText* changesSexDay;
+     wxStaticText* changesMeasuredTime;
+     wxButton* buttonCancel;
+     wxStaticText* textCycleDay;
+     wxStaticText* staticCervixDilation;
+     wxComboBox* comboBoxCervixPosition;
+     wxCheckBox* checkBoxMucusAppearanceWhite;
+     wxButton* buttonAddNewDay;
+     wxButton* buttonClose;
+     wxPanel* panelMain;
+     wxComboBox* comboBoxMeasuredTemperature;
+     wxStaticText* changesSpotting;
+     wxCheckBox* checkBoxMucusAmount3;
+     wxStaticText* changesSexMorning;
+     wxStaticText* staticMenstruation;
+     wxStaticText* changesMenstruation;
+     wxStaticText* staticSpotting;
+     wxComboBox* comboBoxMeasurementPlace;
+     wxStaticText* textCardNo;
+     wxStaticText* textDate;
+     wxStaticText* changesMucusAppearance;
+     wxCheckBox* checkBoxOvulationPain1;
+     wxStaticText* textTemperatureAfterCorections;
+     wxStaticText* staticMucusFeeling;
+     wxStaticText* changesAdditionalNotes;
+     wxStaticText* staticCycleDay;
+     wxStaticText* changesTemperatureDisturbances;
+     wxStaticText* changesMucusFeeling;
      //*)
 
 protected:

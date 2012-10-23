@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        printFrame.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -34,7 +34,7 @@
 
 /******************************************************************************/
 #undef printFrame_STYLE
-#define printFrame_STYLE wxCAPTION | wxSYSTEM_MENU | wxSTAY_ON_TOP | wxCLOSE_BOX
+#define printFrame_STYLE wxCAPTION | wxSYSTEM_MENU | wxCLOSE_BOX
 
 /******************************************************************************/
 

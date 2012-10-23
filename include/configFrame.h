@@ -11,17 +11,17 @@
 #define __CONFIG_FRAME__
 
 //(*Headers(configFrame)
-#include <wx/notebook.h>
+#include <wx/spinctrl.h>
+#include <wx/combobox.h>
+#include <wx/checkbox.h>
+#include <wx/dialog.h>
 #include <wx/sizer.h>
+#include <wx/notebook.h>
+#include <wx/button.h>
+#include <wx/panel.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/checkbox.h>
 #include <wx/listbox.h>
-#include <wx/spinctrl.h>
-#include <wx/panel.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
-#include <wx/combobox.h>
 //*)
 
 #include "configClass.h"
@@ -34,6 +34,7 @@
 #define CONFIG_FONT_CHANGED            92
 #define CONFIG_LANGUAGE_CHANGED        93
 #define CONFIG_BUTTONS_STYLE_CHANGED   94
+#define CONFIG_SYNC_SERVER_CHANGED     95
 
 #define PAGE_ANALYSIS_NO                2
 
@@ -57,159 +58,183 @@ public:
     virtual ~configFrame();
 
     //(*Declarations(configFrame)
-    wxStaticText* changesAutoanalyzeCardPreferResult5;
-    wxStaticText* changesMaxIncludedNotMesuredLowLevelDays;
-    wxStaticText* StaticText10;
-    wxStaticText* StaticText22;
-    wxStaticText* changesAutosaveChanges;
-    wxStaticText* StaticText9;
-    wxComboBox* comboBoxTemperatureRangeLow;
-    wxStaticText* StaticText20;
-    wxPanel* panelApplication;
-    wxButton* buttonFontResultResults;
-    wxStaticText* changesFontResultHeader;
-    wxButton* buttonColourMarkedCell2;
+    wxStaticText* changesCheckForMissingDays;
     wxButton* buttonFontResultDefault;
-    wxStaticText* changesBreastAutocontrolInterval;
-    wxButton* buttonCancel;
-    wxCheckBox* checkBoxAutosaveSet;
-    wxComboBox* comboBoxAutoanalyzeCardPreferResult2;
-    wxStaticText* changesAutoanalyzeCardPreferResult4;
-    wxStaticText* changesTemperatureRangeHigh;
-    wxPanel* panelColours;
-    wxStaticText* space3;
-    wxButton* buttonFontHeadTopic;
-    wxButton* buttonFontResultPhases;
-    wxListBox* listBoxLanguage;
-    wxStaticText* changesFontResultDefault;
-    wxStaticText* changesColourPointAfter;
-    wxStaticText* staticAnalysis2;
-    wxSpinCtrl* spinMaxIncludedNotMesuredHighLevelDays;
-    wxStaticText* staticLengthUnit;
-    wxPanel* panelFonts;
-    wxStaticText* StaticText13;
-    wxStaticText* StaticText2;
     wxStaticText* changesColourPhaseLine;
-    wxNotebook* notebook;
-    wxStaticText* changesAutoanalyzeCard;
-    wxStaticText* changesColourTemperatureLine;
-    wxSpinCtrl* spinMaxAllowedNotMesuredHighLevelDays;
-    wxCheckBox* checkBoxCheckForUpdates;
-    wxButton* buttonSetDefaults;
-    wxStaticText* changesColourTemperatureLevelLine;
-    wxStaticText* StaticText26;
-    wxStaticText* StaticText6;
-    wxStaticText* changesMaxAllowedNotMesuredLowLevelDays;
-    wxTextCtrl* textUpdatesProxy;
-    wxStaticText* changesFontHeadName;
-    wxStaticText* staticLanguage;
-    wxComboBox* comboBoxTemperatureUnit;
-    wxStaticText* space4;
-    wxStaticText* space10;
-    wxButton* buttonColourTemperatureLevelLine;
-    wxComboBox* comboBoxAutoanalyzeCardPreferResult5;
-    wxStaticText* changesRememberPosition;
-    wxComboBox* comboBoxLengthUnit;
-    wxStaticText* space2;
-    wxStaticText* changesCheckForUpdates;
-    wxButton* buttonColourBorders;
-    wxCheckBox* checkBoxIncludeNotMesuredDaysIfAfterMucusPeak;
-    wxStaticText* StaticText19;
-    wxStaticText* changesFontResultResults;
-    wxStaticText* StaticText8;
-    wxStaticText* space5;
+    wxStaticText* StaticText1;
+    wxStaticText* StaticText23;
+    wxComboBox* comboBoxAutoanalyzeCardPreferResult3;
+    wxButton* buttonColourCell22;
+    wxStaticText* staticCustomServerUri;
+    wxStaticText* space1;
+    wxButton* buttonColourPointAfter;
+    wxStaticText* StaticText13;
     wxStaticText* changesColourBorders;
     wxCheckBox* checkBoxBreastsAutocontrolReminder;
-    wxStaticText* changesIncludeNotMesuredDaysIfAfterMucusPeak;
-    wxStaticText* changesColourCell;
-    wxSpinCtrl* spinNumberOfHistoricalCyclesToUse;
-    wxStaticText* changesFontHeadValue;
-    wxButton* buttonColourPointAfter;
-    wxStaticText* StaticText1;
-    wxStaticText* changesMaxAllowedNotMesuredHighLevelDays;
-    wxStaticText* StaticText27;
-    wxStaticText* staticBreastsAutocontrolReminderDay1;
-    wxStaticText* changesFontHeadTopic;
-    wxStaticText* changesLengthUnit;
-    wxStaticText* StaticText3;
-    wxStaticText* changesBreastsAutocontrolReminder;
-    wxStaticText* space1;
-    wxPanel* PanelAnalysis;
-    wxStaticText* changesBreastsAutocontrolReminderDay;
-    wxCheckBox* checkBoxFlatButtons;
-    wxButton* buttonFontResultHeader;
-    wxStaticText* StaticText21;
-    wxSpinCtrl* spinCtrlBreastAutocontrolInterval;
-    wxButton* buttonColourCell21;
-    wxStaticText* changesColourBackground;
-    wxButton* buttonColourMarkedCell1;
-    wxStaticText* staticBreastAutocontrolInterval1;
-    wxStaticText* changesLanguage;
-    wxStaticText* staticColourCell;
-    wxStaticText* StaticText23;
-    wxStaticText* StaticText24;
-    wxButton* buttonFontHeadName;
-    wxStaticText* changesColourPointNormal;
-    wxComboBox* comboBoxAutoanalyzeCardPreferResult3;
-    wxStaticText* space9;
-    wxStaticText* staticBreastAutocontrolInterval2;
-    wxStaticText* space6;
-    wxStaticText* changesAutoanalyzeCardPreferResult1;
-    wxCheckBox* checkBoxRememberPosition;
-    wxCheckBox* checkBoxOpenLastOpenedFile;
-    wxStaticText* staticColours;
-    wxStaticText* changesColourPointBefore;
-    wxCheckBox* checkBoxCheckForMissingDays;
-    wxStaticText* StaticText7;
-    wxStaticText* changesAutoanalyzeCardPreferResult2;
-    wxButton* buttonColourCell12;
-    wxPanel* panelOther;
-    wxButton* buttonColourCell11;
-    wxStaticText* changesCheckForMissingDays;
-    wxStaticText* changesTemperatureUnit;
-    wxStaticText* staticTemperatureCorF2;
-    wxStaticText* staticTemperatureRangeHigh;
-    wxPanel* panelMain;
-    wxButton* buttonFontHeadValue;
     wxButton* buttonOk;
-    wxButton* buttonColourPhaseLine;
+    wxStaticText* changesFontResultDefault;
+    wxComboBox* comboBoxAutoanalyzeCardPreferResult2;
+    wxStaticText* changesPassword;
+    wxCheckBox* checkBoxAutosaveSet;
+    wxButton* buttonColourTemperatureLevelLine;
+    wxStaticText* space2;
     wxStaticText* changesFontResultPhases;
-    wxStaticText* staticUpdatesProxy;
-    wxStaticText* changesMaxIncludedNotMesuredHighLevelDays;
-    wxStaticText* staticTemperatureCorF1;
-    wxStaticText* StaticText28;
-    wxStaticText* staticFonts;
-    wxButton* buttonColourPointNormal;
-    wxStaticText* StaticText15;
-    wxStaticText* changesUpdatesProxy;
-    wxCheckBox* checkBoxAutoanalyzeCard;
-    wxButton* buttonColourTemperatureLine;
-    wxComboBox* comboBoxAutoanalyzeCardPreferResult4;
-    wxButton* buttonSave;
-    wxComboBox* comboBoxAutoanalyzeCardPreferResult1;
-    wxComboBox* comboBoxTemperatureRangeHigh;
-    wxStaticText* staticTemperatureRangeLow;
-    wxStaticText* StaticText25;
-    wxButton* buttonColourPointBefore;
-    wxSpinCtrl* spinMaxIncludedNotMesuredLowLevelDays;
-    wxStaticText* StaticText4;
-    wxStaticText* StaticText17;
-    wxCheckBox* checkBoxAutosaveChanges;
-    wxStaticText* staticAlalysis1;
-    wxStaticText* changesAutoanalyzeCardPreferResult3;
+    wxStaticText* changesSyncFileAutomatically;
     wxStaticText* changesAutosaveSet;
-    wxStaticText* changesFlatButtons;
+    wxStaticText* StaticText32;
+    wxStaticText* staticTemperatureCorF1;
+    wxStaticText* staticTemperatureCorF2;
+    wxComboBox* comboBoxAutoanalyzeCardPreferResult1;
+    wxStaticText* changesCustomServerUri;
+    wxStaticText* StaticText20;
+    wxButton* buttonFontResultPhases;
+    wxButton* buttonFontHeadTopic;
+    wxStaticText* staticBreastsAutocontrolReminderDay1;
+    wxStaticText* space3;
+    wxStaticText* StaticText6;
+    wxButton* buttonColourBorders;
+    wxStaticText* changesColourBackground;
     wxPanel* panelGeneral;
-    wxSpinCtrl* spinCtrlBreastsAutocontrolReminderDay;
-    wxStaticText* staticBreastsAutocontrolReminderDay2;
-    wxStaticText* changesNumberOfHistoricalCyclesToUse;
-    wxButton* buttonColourCell22;
-    wxStaticText* StaticText16;
-    wxButton* buttonColourBackground;
-    wxStaticText* changesTemperatureRangeLow;
-    wxStaticText* staticTemperatureUnit;
+    wxStaticText* changesAutoanalyzeCardPreferResult3;
     wxSpinCtrl* spinMaxAllowedNotMesuredLowLevelDays;
+    wxStaticText* StaticText18;
+    wxStaticText* changesAutoanalyzeCardPreferResult4;
+    wxStaticText* StaticText17;
+    wxStaticText* StaticText24;
+    wxStaticText* staticLengthUnit;
+    wxStaticText* space6;
+    wxStaticText* StaticText30;
+    wxStaticText* StaticText15;
+    wxComboBox* comboBoxTemperatureRangeLow;
+    wxPanel* panelMain;
+    wxSpinCtrl* spinNumberOfHistoricalCyclesToUse;
+    wxStaticText* changesTemperatureRangeLow;
+    wxStaticText* space5;
+    wxComboBox* comboBoxAutoanalyzeCardPreferResult5;
+    wxStaticText* changesBreastsAutocontrolReminder;
+    wxButton* buttonSetDefaults;
+    wxPanel* panelColours;
+    wxStaticText* StaticText22;
+    wxStaticText* changesColourPointNormal;
+    wxStaticText* staticTemperatureUnit;
+    wxSpinCtrl* spinMaxAllowedNotMesuredHighLevelDays;
+    wxCheckBox* checkBoxCheckForUpdates;
+    wxStaticText* StaticText3;
+    wxCheckBox* checkBoxShowAutoanalysisDetails;
+    wxStaticText* space4;
+    wxStaticText* changesBreastAutocontrolInterval;
+    wxStaticText* StaticText2;
+    wxStaticText* changesFontResultHeader;
+    wxTextCtrl* textUpdatesProxy;
+    wxCheckBox* checkBoxOpenLastOpenedFile;
+    wxStaticText* StaticText27;
+    wxCheckBox* checkBoxRememberPosition;
+    wxButton* buttonFontResultResults;
+    wxButton* buttonColourCell12;
+    wxStaticText* changesShowAutoanalysisDetails;
+    wxStaticText* changesMaxIncludedNotMesuredHighLevelDays;
+    wxStaticText* changesAutoanalyzeCardPreferResult1;
+    wxStaticText* changesAutosaveChanges;
+    wxTextCtrl* textCustomServerUri;
+    wxPanel* panelFonts;
+    wxStaticText* staticColourCell;
+    wxStaticText* staticLanguage;
+    wxStaticText* StaticText16;
+    wxStaticText* staticPasswordNote;
+    wxStaticText* changesColourCell;
+    wxStaticText* changesFlatButtons;
+    wxStaticText* changesUpdatesProxy;
+    wxTextCtrl* textPassword;
+    wxButton* buttonColourCell11;
+    wxButton* buttonSave;
+    wxStaticText* staticBreastAutocontrolInterval1;
+    wxStaticText* changesFontHeadName;
+    wxComboBox* comboBoxAutoanalyzeCardPreferResult4;
+    wxPanel* panelOther;
+    wxStaticText* changesUseCustomServer;
+    wxButton* buttonCancel;
+    wxStaticText* changesNumberOfHistoricalCyclesToUse;
+    wxCheckBox* checkBoxRememberPassword;
+    wxStaticText* changesAutoanalyzeCardPreferResult5;
+    wxButton* buttonColourCell21;
+    wxStaticText* StaticText25;
+    wxStaticText* StaticText26;
+    wxSpinCtrl* spinMaxIncludedNotMesuredHighLevelDays;
+    wxListBox* listBoxLanguage;
+    wxComboBox* comboBoxTemperatureRangeHigh;
+    wxStaticText* changesColourTemperatureLine;
+    wxStaticText* StaticText14;
+    wxStaticText* StaticText4;
+    wxStaticText* StaticText8;
+    wxCheckBox* checkBoxUseCustomServer;
+    wxStaticText* changesMaxAllowedNotMesuredHighLevelDays;
+    wxCheckBox* checkBoxIncludeNotMesuredDaysIfAfterMucusPeak;
     wxStaticText* changesOpenLastOpenedFile;
+    wxButton* buttonFontResultHeader;
+    wxStaticText* StaticText9;
+    wxStaticText* StaticText21;
+    wxStaticText* changesMaxIncludedNotMesuredLowLevelDays;
+    wxStaticText* changesCheckForUpdates;
+    wxStaticText* changesLanguage;
+    wxStaticText* space10;
+    wxStaticText* changesFontHeadTopic;
+    wxButton* buttonColourPointBefore;
+    wxPanel* panelApplication;
+    wxStaticText* StaticText29;
+    wxPanel* PanelAnalysis;
+    wxButton* buttonColourPointNormal;
+    wxStaticText* space9;
+    wxStaticText* changesIncludeNotMesuredDaysIfAfterMucusPeak;
+    wxButton* buttonFontHeadValue;
+    wxStaticText* changesLengthUnit;
+    wxButton* buttonColourMarkedCell1;
+    wxButton* buttonColourTemperatureLine;
+    wxStaticText* StaticText19;
+    wxCheckBox* checkBoxCheckForMissingDays;
+    wxStaticText* staticAnalysis2;
+    wxStaticText* staticBreastAutocontrolInterval2;
+    wxButton* buttonColourBackground;
+    wxComboBox* comboBoxTemperatureUnit;
+    wxStaticText* staticTemperatureRangeLow;
+    wxStaticText* staticBreastsAutocontrolReminderDay2;
+    wxStaticText* changesFontHeadValue;
+    wxStaticText* changesAutoanalyzeCardPreferResult2;
+    wxStaticText* StaticText28;
+    wxCheckBox* checkBoxFlatButtons;
+    wxSpinCtrl* spinMaxIncludedNotMesuredLowLevelDays;
+    wxStaticText* StaticText33;
+    wxStaticText* changesRememberPassword;
+    wxStaticText* staticAlalysis1;
+    wxStaticText* changesMaxAllowedNotMesuredLowLevelDays;
+    wxStaticText* changesColourTemperatureLevelLine;
+    wxStaticText* StaticText7;
+    wxCheckBox* checkBoxAutoanalyzeCard;
+    wxStaticText* StaticText11;
+    wxSpinCtrl* spinCtrlBreastsAutocontrolReminderDay;
+    wxStaticText* changesRememberPosition;
+    wxNotebook* notebook;
+    wxSpinCtrl* spinCtrlBreastAutocontrolInterval;
+    wxStaticText* StaticText12;
+    wxStaticText* staticColours;
+    wxStaticText* changesFontResultResults;
+    wxButton* buttonColourMarkedCell2;
+    wxStaticText* staticFonts;
+    wxStaticText* staticPassword;
+    wxStaticText* StaticText10;
+    wxStaticText* changesTemperatureUnit;
+    wxComboBox* comboBoxLengthUnit;
+    wxButton* buttonFontHeadName;
+    wxStaticText* StaticText5;
+    wxStaticText* changesAutoanalyzeCard;
+    wxStaticText* changesBreastsAutocontrolReminderDay;
+    wxStaticText* changesTemperatureRangeHigh;
+    wxStaticText* changesColourPointBefore;
+    wxCheckBox* checkBoxAutosaveChanges;
+    wxStaticText* staticTemperatureRangeHigh;
+    wxStaticText* changesColourPointAfter;
+    wxButton* buttonColourPhaseLine;
+    wxCheckBox* checkBoxSyncFileAutomatically;
+    wxStaticText* staticUpdatesProxy;
     //*)
 
 protected:
@@ -217,6 +242,14 @@ protected:
     static const long ID_staticLanguage;
     static const long ID_changesLanguage;
     static const long ID_listBoxLanguage;
+    static const long ID_checkBoxOpenLastOpenedFile;
+    static const long ID_changesOpenLastOpenedFile;
+    static const long ID_checkBoxAutosaveChanges;
+    static const long ID_changesAutosaveChanges;
+    static const long ID_checkBoxAutosaveSet;
+    static const long ID_changesAutosaveSet;
+    static const long ID_checkBoxSyncFileAutomatically;
+    static const long ID_changesSyncFileAutomatically;
     static const long ID_checkBoxRememberPosition;
     static const long ID_changesRememberPosition;
     static const long ID_checkBoxFlatButtons;
@@ -230,12 +263,6 @@ protected:
     static const long ID_textUpdatesProxy;
     static const long ID_changesUpdatesProxy;
     static const long ID_panelGeneral;
-    static const long ID_checkBoxOpenLastOpenedFile;
-    static const long ID_changesOpenLastOpenedFile;
-    static const long ID_checkBoxAutosaveChanges;
-    static const long ID_changesAutosaveChanges;
-    static const long ID_checkBoxAutosaveSet;
-    static const long ID_changesAutosaveSet;
     static const long ID_checkBoxCheckForMissingDays;
     static const long ID_changesCheckForMissingDays;
     static const long ID_checkBoxBreastsAutocontrolReminder;
@@ -263,6 +290,9 @@ protected:
     static const long ID_panelApplication;
     static const long ID_checkBoxAutoanalyzeCard;
     static const long ID_changesAutoanalyzeCard;
+    static const long ID_STATICTEXT14;
+    static const long ID_checkBoxShowAutoanalysisDetails;
+    static const long ID_changesShowAutoanalysisDetails;
     static const long ID_STATICTEXT10;
     static const long ID_STATICTEXT17;
     static const long ID_STATICTEXT18;
@@ -353,6 +383,25 @@ protected:
     static const long ID_buttonFontResultPhases;
     static const long ID_changesFontResultPhases;
     static const long ID_panelFonts;
+    static const long ID_checkBoxRememberPassword;
+    static const long ID_changesRememberPassword;
+    static const long ID_STATICTEXT31;
+    static const long ID_staticPassword;
+    static const long ID_STATICTEXT35;
+    static const long ID_STATICTEXT34;
+    static const long ID_textPassword;
+    static const long ID_STATICTEXT7;
+    static const long ID_STATICTEXT32;
+    static const long ID_staticPasswordNote;
+    static const long ID_changesPassword;
+    static const long ID_checkBoxUseCustomServer;
+    static const long ID_changesUseCustomServer;
+    static const long ID_STATICTEXT13;
+    static const long ID_staticCustomServerUri;
+    static const long ID_STATICTEXT16;
+    static const long ID_STATICTEXT20;
+    static const long ID_textCustomServerUri;
+    static const long ID_changesCustomServerUri;
     static const long ID_staticLengthUnit;
     static const long ID_comboBoxLengthUnit;
     static const long ID_changesLengthUnit;
@@ -425,6 +474,12 @@ private:
     void comboBoxAutoanalyzeCardPreferResult3TextUpdated(wxCommandEvent& event);
     void comboBoxAutoanalyzeCardPreferResult4TextUpdated(wxCommandEvent& event);
     void comboBoxAutoanalyzeCardPreferResult5TextUpdated(wxCommandEvent& event);
+    void checkBoxShowAutoanalysisDetailsClick(wxCommandEvent& event);
+    void checkBoxRememberPasswordClick(wxCommandEvent& event);
+    void textPasswordText(wxCommandEvent& event);
+    void checkBoxUseCustomServerClick(wxCommandEvent& event);
+    void textCustomServerUriText(wxCommandEvent& event);
+    void checkBoxSyncFileAutomaticallyClick(wxCommandEvent& event);
     //*)
 
 private:
@@ -463,6 +518,7 @@ private:
     bool m_init;
     wxArrayString m_langNames;
     wxArrayLong m_langIdentifiers;
+    bool m_syncServerChanged;
 };
 
 #endif // __CONFIG_FRAME__

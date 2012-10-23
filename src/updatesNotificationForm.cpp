@@ -1,34 +1,42 @@
 /*******************************************************************************
 //
-// Name:        updatesNotificationForm.cpp
-// Author:      enkeli
+// Name:        updatesNotificationForm.h
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
 
 #include "updatesNotificationForm.h"
-#include "../data/xpm/wx-nfp.xpm"
+#include "../data/xpm/wx_nfp.xpm"
 
-BEGIN_EVENT_TABLE( updatesNotificationForm, wxFrame )
-     EVT_CLOSE( updatesNotificationForm::updatesNotificationFormClose )
-     EVT_BUTTON( ID_BUTTONLATER, updatesNotificationForm::buttonLaterClick )
-     EVT_BUTTON( ID_BUTTONINSTALL, updatesNotificationForm::buttonInstallClick )
-     EVT_COMMAND( THREAD_EVENT, wxEVT_NEW_APP_DOWNLOADED_EVENT, updatesNotificationForm::newAppDownloadedEvent )
-     EVT_TIMER( ID_TIMERUPDATES, updatesNotificationForm::timerUpdatesTimer )
+//(*InternalHeaders(updatesNotificationForm)
+#include <wx/string.h>
+#include <wx/intl.h>
+//*)
+
+//(*IdInit(updatesNotificationForm)
+const long updatesNotificationForm::ID_staticUpdateAvailable = wxNewId();
+const long updatesNotificationForm::ID_GAUGE = wxNewId();
+const long updatesNotificationForm::ID_buttonInstall = wxNewId();
+const long updatesNotificationForm::ID_buttonLater = wxNewId();
+const long updatesNotificationForm::ID_TIMER = wxNewId();
+//*)
+
+BEGIN_EVENT_TABLE(updatesNotificationForm,wxFrame)
+    EVT_COMMAND( THREAD_EVENT, wxEVT_NEW_APP_DOWNLOADED_EVENT, updatesNotificationForm::newAppDownloadedEvent )
+    //(*EventTable(updatesNotificationForm)
+    //*)
 END_EVENT_TABLE()
-
-/******************************************************************************/
 
 /**
  *
  */
-updatesNotificationForm::updatesNotificationForm( wxWindow *parent, configClass *config, wxString newAppSetupFileUrl, wxWindowID id, const wxString &title, const wxPoint &position, const wxSize& size, long style )
-     : wxFrame( parent, id, title, position, size, style )
+updatesNotificationForm::updatesNotificationForm(wxWindow* parent, configClass *config, wxString newAppSetupFileUrl,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
-     m_parent = parent;
-     m_config = config;
-     m_newAppSetupFileUrl = newAppSetupFileUrl;
-     CreateGUIControls();
+    m_parent = parent;
+    m_config = config;
+    m_newAppSetupFileUrl = newAppSetupFileUrl;
+    CreateGUIControls(parent, id);
 }
 
 /**
@@ -39,85 +47,83 @@ updatesNotificationForm::~updatesNotificationForm() {}
 /**
  *
  */
-void updatesNotificationForm::CreateGUIControls( void )
+void updatesNotificationForm::CreateGUIControls( wxWindow *parent, wxWindowID id )
 {
-     int flatButton = 0;
-     if ( m_config->useFlatButtons ) {
-          flatButton = wxNO_BORDER;
-     }
+    //(*Initialize(updatesNotificationForm)
+    wxBoxSizer* BoxSizer2;
+    wxBoxSizer* BoxSizer1;
 
-     WxBoxSizer1 = new wxBoxSizer( wxHORIZONTAL );
-     this->SetSizer( WxBoxSizer1 );
-     this->SetAutoLayout( true );
+    Create(parent, id, _("NFP - new version is available"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("id"));
+    SetClientSize(wxDefaultSize);
+    Move(wxDefaultPosition);
+    BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+    staticUpdateAvailable = new wxStaticText(this, ID_staticUpdateAvailable, _("New version of the application is available.\n-To download and install it, press \'download and install\' button.\n-If you don\'t want to install it now, press \'remind me later\' button."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticUpdateAvailable"));
+    BoxSizer1->Add(staticUpdateAvailable, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    gauge = new wxGauge(this, ID_GAUGE, 100, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_GAUGE"));
+    BoxSizer1->Add(gauge, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 10);
+    BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
+    buttonInstall = new wxButton(this, ID_buttonInstall, _("Download and install"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonInstall"));
+    BoxSizer2->Add(buttonInstall, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    buttonLater = new wxButton(this, ID_buttonLater, _("Remind me later"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonLater"));
+    BoxSizer2->Add(buttonLater, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(BoxSizer2, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    SetSizer(BoxSizer1);
+    timer.SetOwner(this, ID_TIMER);
+    BoxSizer1->Fit(this);
+    BoxSizer1->SetSizeHints(this);
 
-     WxPanel1 = new wxPanel( this, ID_WXPANEL1, wxPoint( 0, 0 ), wxSize( 340, 169 ) );
-     WxBoxSizer1->Add( WxPanel1, 1, wxEXPAND | wxALL, 0 );
+    Connect(ID_buttonInstall,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&updatesNotificationForm::buttonInstallClick);
+    Connect(ID_buttonLater,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&updatesNotificationForm::buttonLaterClick);
+    Connect(ID_TIMER,wxEVT_TIMER,(wxObjectEventFunction)&updatesNotificationForm::timerTrigger);
+    Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&updatesNotificationForm::onClose);
+    //*)
 
-     WxBoxSizer2 = new wxBoxSizer( wxVERTICAL );
-     WxPanel1->SetSizer( WxBoxSizer2 );
-     WxPanel1->SetAutoLayout( true );
-
-     staticUpdateAvailable = new wxStaticText( WxPanel1, ID_STATICUPDATEAVAILABLE, _( "New version of the application is available.\n-To download and install it, press 'download and install' button.\n-If you don't want to install it now, press 'remind me later' button." ), wxPoint( 15, 5 ), wxSize( 300, 58 ), wxALIGN_LEFT | wxST_NO_AUTORESIZE, _T( "staticUpdateAvailable" ) );
-     WxBoxSizer2->Add( staticUpdateAvailable, 1, wxEXPAND | wxALL, 5 );
-
-     gauge = new wxGauge( WxPanel1, ID_GAUGE, 100, wxPoint( 57, 73 ), wxSize( 216, 25 ), wxGA_HORIZONTAL | wxGA_SMOOTH, wxDefaultValidator, _T( "gauge" ) );
-     gauge->SetRange( 100 );
-     gauge->SetValue( 0 );
-     WxBoxSizer2->Add( gauge, 0, wxEXPAND | wxALL, 5 );
-
-     WxBoxSizer3 = new wxBoxSizer( wxHORIZONTAL );
-     WxBoxSizer2->Add( WxBoxSizer3, 0, wxALIGN_CENTER | wxALL, 5 );
-
-     buttonInstall = new wxButton( WxPanel1, ID_BUTTONINSTALL, _( "Download and install" ), wxPoint( 5, 5 ), wxSize( 150, 22 ), flatButton, wxDefaultValidator, _T( "buttonInstall" ) );
-     buttonInstall->SetDefault();
-     WxBoxSizer3->Add( buttonInstall, 0, wxALIGN_CENTER | wxALL, 10 );
-
-     buttonLater = new wxButton( WxPanel1, ID_BUTTONLATER, _( "Remind me later" ), wxPoint( 165, 5 ), wxSize( 150, 22 ), flatButton, wxDefaultValidator, _T( "buttonLater" ) );
-     WxBoxSizer3->Add( buttonLater, 0, wxALIGN_CENTER | wxALL, 10 );
-
-     timerUpdates = new wxTimer();
-     timerUpdates->SetOwner( this, ID_TIMERUPDATES );
-
-     SetTitle( _( "NFP - new version is available" ) );
-     SetSize( wxSystemSettings::GetMetric( wxSYS_SCREEN_X ) - 350, 10, -1, -1 );
-     wxIcon wx_nfp_ICON( wx_nfp_xpm );
-     SetIcon( wx_nfp_ICON );
+    int width, height;
+    GetSize(&width, &height);
+    SetSize( wxSystemSettings::GetMetric( wxSYS_SCREEN_X ) - width - 10, 10, wxDefaultCoord, wxDefaultCoord );
+    wxIcon wx_nfp_ICON( wx_nfp_xpm );
+    SetIcon( wx_nfp_ICON );
 }
 
-/******************************************************************************/
-
-/**
- *
- */
-void updatesNotificationForm::updatesNotificationFormClose( wxCloseEvent& event )
+void updatesNotificationForm::onClose(wxCloseEvent& event)
 {
-     Destroy();
+    Destroy();
 }
 
-/**
- * buttonInstallClick
- */
-void updatesNotificationForm::buttonInstallClick( wxCommandEvent& event )
+void updatesNotificationForm::buttonInstallClick(wxCommandEvent& event)
 {
-     m_checkUpdatesThread = new liveUpdateClass( this, m_config, false, m_newAppSetupFileUrl );
-     if ( m_checkUpdatesThread->Create() != wxTHREAD_NO_ERROR ) {
-          // ...
-     }
-     if ( m_checkUpdatesThread->Run() != wxTHREAD_NO_ERROR ) {
-          // ...
-     }
-     buttonInstall->Enable( false );
-     staticUpdateAvailable->SetLabel( _("Application installer is downloading.\nDuring that time you can continue your work with the application.") );
-     timerUpdates->Start( 300 );
+    m_checkUpdatesThread = new wxHttpThread(this, ACTION_DOWNLOAD_UPDATE, m_newAppSetupFileUrl, wxEmptyString, wxEmptyString, m_config, wxTHREAD_DETACHED);
+
+    if ( m_checkUpdatesThread->Create() != wxTHREAD_NO_ERROR ) {
+        // ...
+    }
+    if ( m_checkUpdatesThread->Run() != wxTHREAD_NO_ERROR ) {
+        // ...
+    }
+    buttonInstall->Enable( false );
+    staticUpdateAvailable->SetLabel( _("Application installer is downloading.\nDuring that time you can continue your work with the application.") );
+    timer.Start( 200 );
 }
 
-/**
- * buttonLaterClick
- */
-void updatesNotificationForm::buttonLaterClick( wxCommandEvent& event )
+void updatesNotificationForm::buttonLaterClick(wxCommandEvent& event)
 {
-     timerUpdates->Stop();
-     Close();
+    timer.Stop();
+    Close();
+}
+
+void updatesNotificationForm::timerTrigger(wxTimerEvent& event)
+{
+    int range = m_checkUpdatesThread->getUploadDownloadSize();
+    if (range < 0) {
+        gauge->Pulse();
+        return;
+    }
+
+    int value = m_checkUpdatesThread->getUploadedDownloadedSoFar();
+    value = value * 100 / range;
+    if (value < 0) value = 0;
+    if (value > 100) value = 100;
+    gauge->SetValue( value );
 }
 
 /**
@@ -125,38 +131,8 @@ void updatesNotificationForm::buttonLaterClick( wxCommandEvent& event )
  */
 void updatesNotificationForm::newAppDownloadedEvent( wxCommandEvent& event )
 {
-     timerUpdates->Stop();
-     event.Skip();
-     Close();
+    m_checkUpdatesThread->Wait();
+    timer.Stop();
+    event.Skip();
+    Close();
 }
-
-/**
- * timerUpdatesTimer
- */
-void updatesNotificationForm::timerUpdatesTimer( wxTimerEvent& event )
-{
-     if ( m_checkUpdatesThread != NULL ) {
-          if ( m_checkUpdatesThread->getInputStream() != NULL ) {
-               int s = m_checkUpdatesThread->getInputStream()->GetSize();
-               if ( gauge->GetRange() != s ) {
-                    gauge->SetRange( s );
-               }
-          } else {
-
-          }
-          if ( m_checkUpdatesThread->getFileOutputStream() != NULL ) {
-               int s = m_checkUpdatesThread->getFileOutputStream()->GetSize();
-               wxString x = _( "downloaded already: " );
-               x << s;
-
-               gauge->SetValue( s );
-          } else {
-
-          }
-     } else {
-
-     }
-
-}
-/******************************************************************************/
-

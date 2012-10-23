@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="updatesNotificationForm">
+		<title>NFP - new version is available</title>
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<handler function="onClose" entry="EVT_CLOSE" />
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_staticUpdateAvailable" variable="staticUpdateAvailable" member="yes">
+					<label>New version of the application is available.&#x0A;-To download and install it, press &apos;download and install&apos; button.&#x0A;-If you don&apos;t want to install it now, press &apos;remind me later&apos; button.</label>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxGauge" name="ID_GAUGE" variable="gauge" member="yes" />
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>10</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+					<object class="sizeritem">
+						<object class="wxButton" name="ID_buttonInstall" variable="buttonInstall" member="yes">
+							<label>Download and install</label>
+							<handler function="buttonInstallClick" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="ID_buttonLater" variable="buttonLater" member="yes">
+							<label>Remind me later</label>
+							<handler function="buttonLaterClick" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+		</object>
+		<object class="wxTimer" name="ID_TIMER" variable="timer" member="yes">
+			<handler function="timerTrigger" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

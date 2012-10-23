@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        notificationFrame.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -27,7 +27,8 @@
 #include "configClass.h"
 
 #undef notificationFrame_STYLE
-#define notificationFrame_STYLE wxSTAY_ON_TOP | wxDIALOG_NO_PARENT
+//#define notificationFrame_STYLE wxSTAY_ON_TOP | wxDIALOG_NO_PARENT
+#define notificationFrame_STYLE wxFULL_REPAINT_ON_RESIZE
 
 /******************************************************************************/
 

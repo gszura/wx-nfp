@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        utilClass.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -20,37 +20,45 @@
 /**
  *
  */
-class utilClass {
+class utilClass
+{
 public:
-     utilClass();
+    int strToInt (wxString);
+    wxString intToStr (int);
+    long strToLong (wxString);
+    wxString longToStr (long);
+    bool strToBool (wxString);
+    wxString boolToStr (bool);
 
-     int strToInt (wxString);
-     wxString intToStr (int);
+    wxDateTime getZeroDateTime();
 
-     bool strToBool (wxString);
-     wxString boolToStr (bool);
-
-     wxDateTime getZeroDateTime();
-
-     wxString temperatureToStr (int temp, bool correction = true, bool returnZero = false);
-     int strToTemperature (wxString);
+    wxString temperatureToStr (int temp, bool correction = true, bool returnZero = false);
+    int strToTemperature (wxString);
 
 private:
-     wxStandardPaths m_standardPaths;
+    wxStandardPaths m_standardPaths;
 
 public:
-     //wxString getAllPathsPath();
+    //wxString getAllPathsPath();
 
-     wxString getConfigPath();
-     wxString getCardSetDataPath();
-     wxString getAvailableLanguagesConfigFilePath();
-     wxString getLocalePath();
-     //wxString getHelpFilePath(wxString);
-     wxString getHelpUrl(wxString);
+    wxString getConfigPath();
+    wxString getCardSetDataPath();
+    wxString getAvailableLanguagesConfigFilePath();
+    wxString getLocalePath();
+    wxString getTempFolderPath();
+    //wxString getHelpFilePath(wxString);
+    wxString getHelpUrl(wxString);
 
-     wxArrayString prepareTemperaturesArray (int, int, int);
-     int celsiusToFahrenheit (int);
-     int fahrenheitCelsiusTo (int);
+    wxArrayString prepareTemperaturesArray (int, int, int);
+    int celsiusToFahrenheit (int);
+    int fahrenheitCelsiusTo (int);
+
+    int getNumberOfDays (wxDateTime, wxDateTime);
+
+    wxString hashString(wxString);
+    wxString unhashString(wxString);
+    wxString generateFancyFileName(wxString, wxString);
+    void backupFile(wxString);
 };
 
 #endif

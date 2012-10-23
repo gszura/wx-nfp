@@ -8,14 +8,14 @@
  **************************************************************/
 
 #include "dayFrame.h"
-#include "../data/xpm/wx-nfp.xpm"
+#include "../data/xpm/wx_nfp.xpm"
 #include "cyclesData_declarations.h"
 
 //(*InternalHeaders(dayFrame)
 #include <wx/settings.h>
-#include <wx/font.h>
-#include <wx/intl.h>
 #include <wx/string.h>
+#include <wx/intl.h>
+#include <wx/font.h>
 //*)
 
 /******************************************************************************/
@@ -154,38 +154,38 @@ dayFrame::dayFrame(wxWindow* parent, configClass *config, cycleDataClass *cycleD
 void dayFrame::buildGui(wxWindow* parent)
 {
     //(*Initialize(dayFrame)
-    wxBoxSizer* sizerMucus4;
-    wxBoxSizer* sizerMain2;
-    wxFlexGridSizer* sizerHeader3;
-    wxBoxSizer* sizerMucus3;
-    wxBoxSizer* sizerHeader4;
-    wxFlexGridSizer* sizerOther1;
-    wxFlexGridSizer* sizerTemperature1;
-    wxFlexGridSizer* sizerTemperature3;
-    wxFlexGridSizer* sizerMucus5;
-    wxBoxSizer* sizerMain1;
-    wxBoxSizer* sizerDataRight;
-    wxBoxSizer* sizerMeasurementTime;
-    wxBoxSizer* sizerTemperature2;
-    wxFlexGridSizer* sizerMucus1;
-    wxFlexGridSizer* sizerCervix1;
-    wxBoxSizer* sizerMucus2;
-    wxStaticBoxSizer* sizerTemperature;
-    wxBoxSizer* sizerMenstruation;
-    wxStaticBoxSizer* sizerBasic;
-    wxBoxSizer* sizerDate;
-    wxBoxSizer* sizerDataLeft;
-    wxBoxSizer* sizerButtons;
-    wxBoxSizer* sizerHeader1;
-    wxStaticBoxSizer* sizerHeader;
-    wxBoxSizer* sizerAdditionalNotes;
-    wxBoxSizer* BoxSizer1;
-    wxFlexGridSizer* sizerGeneral1;
-    wxBoxSizer* sizerHeader2;
     wxStaticBoxSizer* sizerOther;
+    wxFlexGridSizer* sizerMucus5;
+    wxFlexGridSizer* sizerMucus1;
+    wxBoxSizer* sizerMain2;
+    wxBoxSizer* sizerMucus4;
+    wxBoxSizer* sizerMeasurementTime;
+    wxBoxSizer* sizerMenstruation;
+    wxBoxSizer* sizerHeader2;
+    wxStaticBoxSizer* sizerTemperature;
+    wxBoxSizer* sizerMain1;
+    wxBoxSizer* sizerHeader4;
     wxStaticBoxSizer* sizerMucus;
-    wxStaticBoxSizer* sizerCervix;
+    wxBoxSizer* sizerHeader1;
+    wxBoxSizer* sizerDate;
+    wxFlexGridSizer* sizerTemperature1;
+    wxBoxSizer* sizerMucus3;
+    wxBoxSizer* sizerDataLeft;
+    wxFlexGridSizer* sizerTemperature3;
     wxBoxSizer* sizerData;
+    wxFlexGridSizer* sizerHeader3;
+    wxBoxSizer* BoxSizer1;
+    wxBoxSizer* sizerButtons;
+    wxStaticBoxSizer* sizerHeader;
+    wxFlexGridSizer* sizerGeneral1;
+    wxBoxSizer* sizerAdditionalNotes;
+    wxFlexGridSizer* sizerCervix1;
+    wxBoxSizer* sizerTemperature2;
+    wxStaticBoxSizer* sizerCervix;
+    wxFlexGridSizer* sizerOther1;
+    wxBoxSizer* sizerMucus2;
+    wxBoxSizer* sizerDataRight;
+    wxStaticBoxSizer* sizerBasic;
 
     Create(parent, wxID_ANY, _("NFP - edit day\'s data"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);

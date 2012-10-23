@@ -8,7 +8,7 @@
  **************************************************************/
 
 #include "goToFrame.h"
-#include "../data/xpm/wx-nfp.xpm"
+#include "../data/xpm/wx_nfp.xpm"
 
 //(*InternalHeaders(goToFrame)
 #include <wx/settings.h>
@@ -105,7 +105,7 @@ void goToFrame::buildGui(wxWindow* parent)
     wxFlexGridSizer* sizer4;
     wxBoxSizer* sizer2;
 
-    Create(parent, wxID_ANY, _("NFP - go to card.."), wxDefaultPosition, wxDefaultSize, wxSTAY_ON_TOP|wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("NFP - go to card.."), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER, _T("wxID_ANY"));
     sizer1 = new wxBoxSizer(wxHORIZONTAL);
     panel1 = new wxPanel(this, ID_panel1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panel1"));
     sizer2 = new wxBoxSizer(wxVERTICAL);

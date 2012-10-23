@@ -23,7 +23,8 @@ END_EVENT_TABLE()
  * Contructor
  */
 customWindowMain::customWindowMain( wxWindow *parent, customWindowLeft *windowLeft, dayFrame *dayFrm, configClass *config, cycleDataClass *cycleData, wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name )
-    : wxScrolledWindow( parent, winid, pos, size, style, name ) {
+    : wxScrolledWindow( parent, winid, pos, size, style, name )
+{
     m_parent = parent;
     m_windowLeft = windowLeft;
     m_dayFrm = dayFrm;
@@ -51,7 +52,8 @@ customWindowMain::customWindowMain( wxWindow *parent, customWindowLeft *windowLe
 /**
  * Method runs on OnPaint event.
  */
-void customWindowMain::OnPaint( wxPaintEvent &WXUNUSED( event ) ) {
+void customWindowMain::OnPaint( wxPaintEvent &WXUNUSED( event ) )
+{
 
     SetBackgroundColour( m_config->colourBackground );
 
@@ -158,7 +160,11 @@ void customWindowMain::OnPaint( wxPaintEvent &WXUNUSED( event ) ) {
 /**
  * OnMouseClick
  */
-void customWindowMain::OnMouseClick( wxMouseEvent &event ) {
+void customWindowMain::OnMouseClick( wxMouseEvent &event )
+{
+    if ( m_cycleData->getActiveCard() < 1)
+        return;
+
     if ( m_dayFrm == NULL ) {
         // TODO assert
         return;
@@ -241,8 +247,10 @@ void customWindowMain::OnMouseClick( wxMouseEvent &event ) {
 /**
  *
  */
-void customWindowMain::OnMouseDClick( wxMouseEvent &event ) {
-
+void customWindowMain::OnMouseDClick( wxMouseEvent &event )
+{
+    if ( m_cycleData->getActiveCard() < 1 || m_cycleData->getActiveDay() < 1)
+        return;
 
     m_dayFrm->update();
     m_dayFrm->Show();
@@ -254,7 +262,8 @@ void customWindowMain::OnMouseDClick( wxMouseEvent &event ) {
 /**
  *
  */
-void customWindowMain::OnMouseMotion( wxMouseEvent &event ) {
+void customWindowMain::OnMouseMotion( wxMouseEvent &event )
+{
     try {
         if ( m_cycleData == NULL || m_cycleData->getActiveCard() < 1 || m_cycleData->getDaysCount() < 1 ) {
             // TODO assert
@@ -325,7 +334,8 @@ void customWindowMain::OnMouseMotion( wxMouseEvent &event ) {
 }
 
 
-void customWindowMain::markDayAndRow(wxDC &dc, int dayNo, int rowNo) {
+void customWindowMain::markDayAndRow(wxDC &dc, int dayNo, int rowNo)
+{
     try {
         if (m_prevMarkedDay > 0)
             m_drawing->markDay( dc, m_cycleData->getActiveCard(), m_prevMarkedDay, false );
@@ -346,7 +356,8 @@ void customWindowMain::markDayAndRow(wxDC &dc, int dayNo, int rowNo) {
  * - active day has been changed
  * -
  */
-void customWindowMain::repaint( int id ) {
+void customWindowMain::repaint( int id )
+{
     if ( id == ACTIVE_DAY_UPDATE ) {
         repaint_activeDayUpdated( false );
     } else if ( id == ACTIVE_DAY_UPDATE_WITH_TEMP ) {
@@ -361,7 +372,8 @@ void customWindowMain::repaint( int id ) {
 /**
  * Refresh view because data in active day has been changed
  */
-void customWindowMain::repaint_activeDayUpdated( bool tempChanged ) {
+void customWindowMain::repaint_activeDayUpdated( bool tempChanged )
+{
     if ( m_cycleData == NULL ) {
         // TODO assert?
     }
@@ -379,7 +391,6 @@ void customWindowMain::repaint_activeDayUpdated( bool tempChanged ) {
 
     int firstDay = m_cycleData->getActiveDay();
     int lastDay = 0;
-    bool drawEmptySpaceAfter = false;
 
     int xLeft, xRight, h;
     xLeft = dc.DeviceToLogicalX( 0 );
@@ -403,7 +414,6 @@ void customWindowMain::repaint_activeDayUpdated( bool tempChanged ) {
         }
         if ( lastDay == 0 ) {
             lastDay = m_cycleData->getDaysCount();
-            drawEmptySpaceAfter = true;
         }
     }
 
@@ -439,7 +449,8 @@ void customWindowMain::repaint_activeDayUpdated( bool tempChanged ) {
 /**
  * Refresh view because active day has been changed
  */
-void customWindowMain::repaint_activeDayChanged() {
+void customWindowMain::repaint_activeDayChanged()
+{
 
 
 
@@ -524,14 +535,16 @@ void customWindowMain::repaint_daysUpdated( int dayNoFrom, int dayNoTo )
 /**
  * Return calculated width of cell
  */
-int customWindowMain::getCellWidth( int day ) {
+int customWindowMain::getCellWidth( int day )
+{
     return m_drawing->getCellWidth( day );
 }
 
 /**
  * Return calculated height of cell
  */
-int customWindowMain::getCellHeight() {
+int customWindowMain::getCellHeight()
+{
     return m_drawing->getCellHeight();
 }
 

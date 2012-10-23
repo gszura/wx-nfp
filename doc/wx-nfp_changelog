@@ -1,6 +1,5 @@
 == todo
-* Encryption of the data file, password protection
-* Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
+* Encryption of local data file
 * Displaying phases in different colours
 * Quick help (pl)
 * Detailed help (pl)
@@ -13,6 +12,11 @@
 
 == known issues
 * Printing with correct fonts under Linux doesn't work
+
+== 0.9.2 (build 2010, 2012-10-24)
+* New: Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
+* New: Encryption of the data file sent on server, password protection
+* New: Recently opened cards
 
 == 0.9.1 (build 1439, 2012-09-13)
 * New: New statistics.

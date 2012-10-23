@@ -11,6 +11,7 @@
 #include "lutealPhasesChart.h"
 #include "cyclesLengthChart.h"
 #include "temperaturesChart.h"
+#include "../data/xpm/wx_nfp.xpm"
 
 #include <wx/arrimpl.cpp>
 WX_DEFINE_OBJARRAY(wxArrayChart);
@@ -104,6 +105,9 @@ void statisticsFrame::buildGui(wxWindow* parent)
     Connect(ID_buttonClose,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&statisticsFrame::buttonCloseClick);
     Connect(wxEVT_SIZE,(wxObjectEventFunction)&statisticsFrame::resize);
     //*)
+
+    wxIcon wx_nfp_ICON( wx_nfp_xpm );
+    SetIcon( wx_nfp_ICON );
 }
 
 statisticsFrame::~statisticsFrame()

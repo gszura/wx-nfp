@@ -7,15 +7,16 @@
  * License:
  **************************************************************/
 
-#include "../data/xpm/wx-nfp.xpm"
+#include "../data/xpm/wx_nfp.xpm"
 #include "configFrame.h"
 #include <wx/colordlg.h>
 #include <wx/numdlg.h>
 #include "wx-nfpApp.h"
+#include  <wx/url.h>
 
 //(*InternalHeaders(configFrame)
-#include <wx/intl.h>
 #include <wx/string.h>
+#include <wx/intl.h>
 //*)
 
 /******************************************************************************/
@@ -24,6 +25,14 @@
 const long configFrame::ID_staticLanguage = wxNewId();
 const long configFrame::ID_changesLanguage = wxNewId();
 const long configFrame::ID_listBoxLanguage = wxNewId();
+const long configFrame::ID_checkBoxOpenLastOpenedFile = wxNewId();
+const long configFrame::ID_changesOpenLastOpenedFile = wxNewId();
+const long configFrame::ID_checkBoxAutosaveChanges = wxNewId();
+const long configFrame::ID_changesAutosaveChanges = wxNewId();
+const long configFrame::ID_checkBoxAutosaveSet = wxNewId();
+const long configFrame::ID_changesAutosaveSet = wxNewId();
+const long configFrame::ID_checkBoxSyncFileAutomatically = wxNewId();
+const long configFrame::ID_changesSyncFileAutomatically = wxNewId();
 const long configFrame::ID_checkBoxRememberPosition = wxNewId();
 const long configFrame::ID_changesRememberPosition = wxNewId();
 const long configFrame::ID_checkBoxFlatButtons = wxNewId();
@@ -37,12 +46,6 @@ const long configFrame::ID_space3 = wxNewId();
 const long configFrame::ID_textUpdatesProxy = wxNewId();
 const long configFrame::ID_changesUpdatesProxy = wxNewId();
 const long configFrame::ID_panelGeneral = wxNewId();
-const long configFrame::ID_checkBoxOpenLastOpenedFile = wxNewId();
-const long configFrame::ID_changesOpenLastOpenedFile = wxNewId();
-const long configFrame::ID_checkBoxAutosaveChanges = wxNewId();
-const long configFrame::ID_changesAutosaveChanges = wxNewId();
-const long configFrame::ID_checkBoxAutosaveSet = wxNewId();
-const long configFrame::ID_changesAutosaveSet = wxNewId();
 const long configFrame::ID_checkBoxCheckForMissingDays = wxNewId();
 const long configFrame::ID_changesCheckForMissingDays = wxNewId();
 const long configFrame::ID_checkBoxBreastsAutocontrolReminder = wxNewId();
@@ -70,6 +73,9 @@ const long configFrame::ID_changesTemperatureRangeLow = wxNewId();
 const long configFrame::ID_panelApplication = wxNewId();
 const long configFrame::ID_checkBoxAutoanalyzeCard = wxNewId();
 const long configFrame::ID_changesAutoanalyzeCard = wxNewId();
+const long configFrame::ID_STATICTEXT14 = wxNewId();
+const long configFrame::ID_checkBoxShowAutoanalysisDetails = wxNewId();
+const long configFrame::ID_changesShowAutoanalysisDetails = wxNewId();
 const long configFrame::ID_STATICTEXT10 = wxNewId();
 const long configFrame::ID_STATICTEXT17 = wxNewId();
 const long configFrame::ID_STATICTEXT18 = wxNewId();
@@ -160,6 +166,25 @@ const long configFrame::ID_changesFontResultResults = wxNewId();
 const long configFrame::ID_buttonFontResultPhases = wxNewId();
 const long configFrame::ID_changesFontResultPhases = wxNewId();
 const long configFrame::ID_panelFonts = wxNewId();
+const long configFrame::ID_checkBoxRememberPassword = wxNewId();
+const long configFrame::ID_changesRememberPassword = wxNewId();
+const long configFrame::ID_STATICTEXT31 = wxNewId();
+const long configFrame::ID_staticPassword = wxNewId();
+const long configFrame::ID_STATICTEXT35 = wxNewId();
+const long configFrame::ID_STATICTEXT34 = wxNewId();
+const long configFrame::ID_textPassword = wxNewId();
+const long configFrame::ID_STATICTEXT7 = wxNewId();
+const long configFrame::ID_STATICTEXT32 = wxNewId();
+const long configFrame::ID_staticPasswordNote = wxNewId();
+const long configFrame::ID_changesPassword = wxNewId();
+const long configFrame::ID_checkBoxUseCustomServer = wxNewId();
+const long configFrame::ID_changesUseCustomServer = wxNewId();
+const long configFrame::ID_STATICTEXT13 = wxNewId();
+const long configFrame::ID_staticCustomServerUri = wxNewId();
+const long configFrame::ID_STATICTEXT16 = wxNewId();
+const long configFrame::ID_STATICTEXT20 = wxNewId();
+const long configFrame::ID_textCustomServerUri = wxNewId();
+const long configFrame::ID_changesCustomServerUri = wxNewId();
 const long configFrame::ID_staticLengthUnit = wxNewId();
 const long configFrame::ID_comboBoxLengthUnit = wxNewId();
 const long configFrame::ID_changesLengthUnit = wxNewId();
@@ -207,49 +232,61 @@ configFrame::configFrame(wxWindow* parent,configClass *config, size_t pageNo, wx
 void configFrame::buildGui(wxWindow* parent)
 {
     //(*Initialize(configFrame)
-    wxBoxSizer* BoxSizer4;
     wxStaticBoxSizer* StaticBoxSizer2;
-    wxBoxSizer* sizerMain2;
-    wxBoxSizer* BoxSizer6;
-    wxStaticBoxSizer* sizerFonts1;
-    wxBoxSizer* sizerGeneral6;
-    wxBoxSizer* BoxSizer5;
-    wxBoxSizer* BoxSizer7;
-    wxBoxSizer* BoxSizer8;
-    wxFlexGridSizer* sizerApplication2;
-    wxFlexGridSizer* sizerGeneral5;
-    wxBoxSizer* sizerMain1;
-    wxFlexGridSizer* sizerApplication5;
-    wxFlexGridSizer* FlexGridSizer3;
-    wxStaticBoxSizer* sizerOther1;
-    wxBoxSizer* sizerGeneral;
-    wxStaticBoxSizer* sizerApplication7;
-    wxBoxSizer* BoxSizer2;
-    wxBoxSizer* sizerOther;
-    wxStaticBoxSizer* sizerGeneral2;
-    wxFlexGridSizer* sizerGeneral4;
-    wxFlexGridSizer* sizerFonts2;
-    wxStaticBoxSizer* StaticBoxSizer3;
-    wxBoxSizer* sizerButtons;
-    wxBoxSizer* sizerColours3;
-    wxFlexGridSizer* sizerOther2;
-    wxBoxSizer* sizerColours;
-    wxFlexGridSizer* sizerApplication3;
-    wxFlexGridSizer* sizerColours4;
-    wxFlexGridSizer* sizerApplication6;
-    wxBoxSizer* BoxSizer1;
-    wxBoxSizer* sizerGeneral7;
-    wxStaticBoxSizer* sizerGeneral3;
-    wxBoxSizer* sizerFonts;
-    wxFlexGridSizer* sizerColours2;
-    wxBoxSizer* sizerApplication;
-    wxStaticBoxSizer* StaticBoxSizer1;
     wxFlexGridSizer* FlexGridSizer1;
-    wxStaticBoxSizer* sizerColours1;
+    wxFlexGridSizer* FlexGridSizer2;
+    wxBoxSizer* sizerMain2;
+    wxFlexGridSizer* sizerOther2;
     wxBoxSizer* BoxSizer3;
+    wxFlexGridSizer* sizerApplication6;
+    wxStaticBoxSizer* StaticBoxSizer5;
+    wxBoxSizer* BoxSizer10;
+    wxBoxSizer* sizerFonts;
+    wxFlexGridSizer* sizerGeneral5;
+    wxFlexGridSizer* sizerApplication5;
+    wxFlexGridSizer* sizerColours4;
+    wxBoxSizer* BoxSizer7;
+    wxStaticBoxSizer* sizerFonts1;
+    wxStaticBoxSizer* sizerGeneral3;
+    wxStaticBoxSizer* sizerOther1;
+    wxBoxSizer* BoxSizer11;
+    wxStaticBoxSizer* sizerApplication7;
+    wxBoxSizer* BoxSizer13;
+    wxBoxSizer* sizerGeneral;
+    wxBoxSizer* BoxSizer2;
+    wxFlexGridSizer* FlexGridSizer4;
+    wxStaticBoxSizer* StaticBoxSizer3;
+    wxBoxSizer* sizerApplication;
+    wxBoxSizer* BoxSizer9;
+    wxStaticBoxSizer* sizerColours1;
+    wxBoxSizer* sizerMain1;
+    wxBoxSizer* sizerColours;
+    wxFlexGridSizer* sizerColours2;
     wxStaticBoxSizer* sizerApplication1;
+    wxFlexGridSizer* FlexGridSizer3;
+    wxFlexGridSizer* sizerApplication2;
+    wxBoxSizer* BoxSizer4;
+    wxBoxSizer* sizerGeneral6;
+    wxStaticBoxSizer* sizerGeneral2;
+    wxStaticBoxSizer* StaticBoxSizer4;
+    wxBoxSizer* BoxSizer8;
+    wxBoxSizer* sizerColours3;
+    wxBoxSizer* BoxSizer1;
+    wxFlexGridSizer* sizerFonts2;
+    wxBoxSizer* sizerOther;
+    wxBoxSizer* sizerButtons;
+    wxBoxSizer* BoxSizer12;
+    wxBoxSizer* BoxSizer14;
+    wxFlexGridSizer* FlexGridSizer5;
+    wxBoxSizer* sizerGeneral7;
+    wxFlexGridSizer* sizerApplication3;
+    wxFlexGridSizer* sizerGeneral4;
+    wxBoxSizer* BoxSizer6;
+    wxBoxSizer* BoxSizer5;
+    wxStaticBoxSizer* StaticBoxSizer1;
 
-    Create(parent, wxID_ANY, _("NFP - settings"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("NFP - configuration"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
+    Move(wxPoint(-1,-1));
     sizerMain1 = new wxBoxSizer(wxHORIZONTAL);
     panelMain = new wxPanel(this, ID_panelMain, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelMain"));
     sizerMain2 = new wxBoxSizer(wxVERTICAL);
@@ -272,37 +309,70 @@ void configFrame::buildGui(wxWindow* parent)
     sizerGeneral3 = new wxStaticBoxSizer(wxHORIZONTAL, panelGeneral, wxEmptyString);
     sizerGeneral5 = new wxFlexGridSizer(0, 2, 0, 0);
     sizerGeneral5->AddGrowableCol(0);
+    checkBoxOpenLastOpenedFile = new wxCheckBox(panelGeneral, ID_checkBoxOpenLastOpenedFile, _("Open the last opened cards\' set"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxOpenLastOpenedFile"));
+    checkBoxOpenLastOpenedFile->SetValue(false);
+    checkBoxOpenLastOpenedFile->SetToolTip(_("Open the last opened cards\' set when application starts."));
+    sizerGeneral5->Add(checkBoxOpenLastOpenedFile, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesOpenLastOpenedFile = new wxStaticText(panelGeneral, ID_changesOpenLastOpenedFile, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesOpenLastOpenedFile"));
+    changesOpenLastOpenedFile->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral5->Add(changesOpenLastOpenedFile, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxAutosaveChanges = new wxCheckBox(panelGeneral, ID_checkBoxAutosaveChanges, _("Save automatically changes in days / cards"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveChanges"));
+    checkBoxAutosaveChanges->SetValue(false);
+    checkBoxAutosaveChanges->SetToolTip(_("Save automatically changes while editing days and cards"));
+    sizerGeneral5->Add(checkBoxAutosaveChanges, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutosaveChanges = new wxStaticText(panelGeneral, ID_changesAutosaveChanges, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveChanges"));
+    changesAutosaveChanges->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral5->Add(changesAutosaveChanges, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxAutosaveSet = new wxCheckBox(panelGeneral, ID_checkBoxAutosaveSet, _("Save automatically card set"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveSet"));
+    checkBoxAutosaveSet->SetValue(false);
+    checkBoxAutosaveSet->SetToolTip(_("Save automatically changes in card set while exiting the application or closing the card set"));
+    sizerGeneral5->Add(checkBoxAutosaveSet, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesAutosaveSet = new wxStaticText(panelGeneral, ID_changesAutosaveSet, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveSet"));
+    changesAutosaveSet->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral5->Add(changesAutosaveSet, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxSyncFileAutomatically = new wxCheckBox(panelGeneral, ID_checkBoxSyncFileAutomatically, _("Synchronize cards\' set with server automatically"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxSyncFileAutomatically"));
+    checkBoxSyncFileAutomatically->SetValue(false);
+    checkBoxSyncFileAutomatically->SetToolTip(_("Perform automatically synchronization with server on opening and saving cards\' set.\nOf course this works, when you enabled storing cards on server (menu \'NFP\' / \'Store cards\' set on server\' set on server)."));
+    sizerGeneral5->Add(checkBoxSyncFileAutomatically, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesSyncFileAutomatically = new wxStaticText(panelGeneral, ID_changesSyncFileAutomatically, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesSyncFileAutomatically"));
+    changesSyncFileAutomatically->SetForegroundColour(wxColour(255,0,0));
+    sizerGeneral5->Add(changesSyncFileAutomatically, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxRememberPosition = new wxCheckBox(panelGeneral, ID_checkBoxRememberPosition, _("Remember windows positions and sizes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxRememberPosition"));
     checkBoxRememberPosition->SetValue(false);
     checkBoxRememberPosition->SetToolTip(_("Remember application\'s windows and dialogs positions and sizes."));
-    sizerGeneral5->Add(checkBoxRememberPosition, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral5->Add(checkBoxRememberPosition, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesRememberPosition = new wxStaticText(panelGeneral, ID_changesRememberPosition, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesRememberPosition"));
     changesRememberPosition->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral5->Add(changesRememberPosition, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral5->Add(changesRememberPosition, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxFlatButtons = new wxCheckBox(panelGeneral, ID_checkBoxFlatButtons, _("Use flat buttons"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxFlatButtons"));
     checkBoxFlatButtons->SetValue(false);
     checkBoxFlatButtons->SetToolTip(_("Choose if all buttons in the application should be flat or standard ones."));
-    sizerGeneral5->Add(checkBoxFlatButtons, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral5->Add(checkBoxFlatButtons, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesFlatButtons = new wxStaticText(panelGeneral, ID_changesFlatButtons, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesFlatButtons"));
     changesFlatButtons->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral5->Add(changesFlatButtons, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral5->Add(changesFlatButtons, 0, wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerGeneral3->Add(sizerGeneral5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerGeneral->Add(sizerGeneral3, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer5 = new wxStaticBoxSizer(wxHORIZONTAL, panelGeneral, wxEmptyString);
+    FlexGridSizer4 = new wxFlexGridSizer(0, 2, 0, 0);
+    FlexGridSizer4->AddGrowableCol(0);
     checkBoxCheckForUpdates = new wxCheckBox(panelGeneral, ID_checkBoxCheckForUpdates, _("Check for application updates"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxCheckForUpdates"));
     checkBoxCheckForUpdates->SetValue(false);
     checkBoxCheckForUpdates->SetToolTip(_("If set the application checks for new version every time when it is starting.\nThe only data which are sent is the information if you are using Windows or Linux operating system."));
-    sizerGeneral5->Add(checkBoxCheckForUpdates, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer4->Add(checkBoxCheckForUpdates, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesCheckForUpdates = new wxStaticText(panelGeneral, ID_changesCheckForUpdates, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCheckForUpdates"));
     changesCheckForUpdates->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral5->Add(changesCheckForUpdates, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer4->Add(changesCheckForUpdates, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerGeneral6 = new wxBoxSizer(wxHORIZONTAL);
     space2 = new wxStaticText(panelGeneral, ID_space2, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space2"));
     space2->SetForegroundColour(wxColour(255,0,0));
     sizerGeneral6->Add(space2, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     staticUpdatesProxy = new wxStaticText(panelGeneral, ID_staticUpdatesProxy, _("Proxy server address:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticUpdatesProxy"));
     sizerGeneral6->Add(staticUpdatesProxy, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerGeneral5->Add(sizerGeneral6, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    FlexGridSizer4->Add(sizerGeneral6, 1, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     space1 = new wxStaticText(panelGeneral, ID_space1, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_space1"));
     space1->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral5->Add(space1, 0, wxTOP|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer4->Add(space1, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerGeneral7 = new wxBoxSizer(wxHORIZONTAL);
     space3 = new wxStaticText(panelGeneral, ID_space3, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_space3"));
     space3->SetForegroundColour(wxColour(255,0,0));
@@ -310,12 +380,12 @@ void configFrame::buildGui(wxWindow* parent)
     textUpdatesProxy = new wxTextCtrl(panelGeneral, ID_textUpdatesProxy, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_textUpdatesProxy"));
     textUpdatesProxy->SetToolTip(_("If you are using the proxy server to comunicate with the Internet\nthen write here the addess of it in the format \'hostname:port\' or \'hostname\'\n(in this case the default proxy port \'8080\' will be used),\neg. 1.2.3.4:8088"));
     sizerGeneral7->Add(textUpdatesProxy, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerGeneral5->Add(sizerGeneral7, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    FlexGridSizer4->Add(sizerGeneral7, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesUpdatesProxy = new wxStaticText(panelGeneral, ID_changesUpdatesProxy, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesUpdatesProxy"));
     changesUpdatesProxy->SetForegroundColour(wxColour(255,0,0));
-    sizerGeneral5->Add(changesUpdatesProxy, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerGeneral3->Add(sizerGeneral5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
-    sizerGeneral->Add(sizerGeneral3, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer4->Add(changesUpdatesProxy, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer5->Add(FlexGridSizer4, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerGeneral->Add(StaticBoxSizer5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     panelGeneral->SetSizer(sizerGeneral);
     sizerGeneral->Fit(panelGeneral);
     sizerGeneral->SetSizeHints(panelGeneral);
@@ -324,27 +394,6 @@ void configFrame::buildGui(wxWindow* parent)
     sizerApplication1 = new wxStaticBoxSizer(wxVERTICAL, panelApplication, wxEmptyString);
     sizerApplication2 = new wxFlexGridSizer(0, 2, 0, 0);
     sizerApplication2->AddGrowableCol(0);
-    checkBoxOpenLastOpenedFile = new wxCheckBox(panelApplication, ID_checkBoxOpenLastOpenedFile, _("Open the last opened cards\' set"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxOpenLastOpenedFile"));
-    checkBoxOpenLastOpenedFile->SetValue(false);
-    checkBoxOpenLastOpenedFile->SetToolTip(_("Open the last opened cards\' set when application starts."));
-    sizerApplication2->Add(checkBoxOpenLastOpenedFile, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesOpenLastOpenedFile = new wxStaticText(panelApplication, ID_changesOpenLastOpenedFile, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesOpenLastOpenedFile"));
-    changesOpenLastOpenedFile->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication2->Add(changesOpenLastOpenedFile, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    checkBoxAutosaveChanges = new wxCheckBox(panelApplication, ID_checkBoxAutosaveChanges, _("Save automatically changes in days / cards"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveChanges"));
-    checkBoxAutosaveChanges->SetValue(false);
-    checkBoxAutosaveChanges->SetToolTip(_("Save automatically changes while editing days and cards"));
-    sizerApplication2->Add(checkBoxAutosaveChanges, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesAutosaveChanges = new wxStaticText(panelApplication, ID_changesAutosaveChanges, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveChanges"));
-    changesAutosaveChanges->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication2->Add(changesAutosaveChanges, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    checkBoxAutosaveSet = new wxCheckBox(panelApplication, ID_checkBoxAutosaveSet, _("Save automatically card set"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutosaveSet"));
-    checkBoxAutosaveSet->SetValue(false);
-    checkBoxAutosaveSet->SetToolTip(_("Save automatically changes in card set while exiting the application or closing the card set"));
-    sizerApplication2->Add(checkBoxAutosaveSet, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesAutosaveSet = new wxStaticText(panelApplication, ID_changesAutosaveSet, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutosaveSet"));
-    changesAutosaveSet->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication2->Add(changesAutosaveSet, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxCheckForMissingDays = new wxCheckBox(panelApplication, ID_checkBoxCheckForMissingDays, _("Check for missing days"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxCheckForMissingDays"));
     checkBoxCheckForMissingDays->SetValue(false);
     checkBoxCheckForMissingDays->SetToolTip(_("When the cards\' set is loaded check if the last card contains all days including today,\nif not then propose adding missing ones."));
@@ -439,18 +488,29 @@ void configFrame::buildGui(wxWindow* parent)
     checkBoxAutoanalyzeCard = new wxCheckBox(PanelAnalysis, ID_checkBoxAutoanalyzeCard, _("Analyze card automatically after data changes"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxAutoanalyzeCard"));
     checkBoxAutoanalyzeCard->SetValue(false);
     checkBoxAutoanalyzeCard->SetToolTip(_("Everytime after updating cycle\'s data, run auto-analysis"));
-    BoxSizer2->Add(checkBoxAutoanalyzeCard, 1, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer2->Add(checkBoxAutoanalyzeCard, 1, wxTOP|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesAutoanalyzeCard = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCard, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesAutoanalyzeCard"));
     changesAutoanalyzeCard->SetForegroundColour(wxColour(255,0,0));
-    BoxSizer2->Add(changesAutoanalyzeCard, 0, wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticBoxSizer3->Add(BoxSizer2, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer2->Add(changesAutoanalyzeCard, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(BoxSizer2, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer13 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText12 = new wxStaticText(PanelAnalysis, ID_STATICTEXT14, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT14"));
+    BoxSizer13->Add(StaticText12, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    checkBoxShowAutoanalysisDetails = new wxCheckBox(PanelAnalysis, ID_checkBoxShowAutoanalysisDetails, _("Show details of auto-analysis"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxShowAutoanalysisDetails"));
+    checkBoxShowAutoanalysisDetails->SetValue(false);
+    checkBoxShowAutoanalysisDetails->SetToolTip(_("Show infobox with results of auto-analysis"));
+    BoxSizer13->Add(checkBoxShowAutoanalysisDetails, 1, wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesShowAutoanalysisDetails = new wxStaticText(PanelAnalysis, ID_changesShowAutoanalysisDetails, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesShowAutoanalysisDetails"));
+    changesShowAutoanalysisDetails->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer13->Add(changesShowAutoanalysisDetails, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer3->Add(BoxSizer13, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     StaticText8 = new wxStaticText(PanelAnalysis, ID_STATICTEXT10, _("What to do with days with disrupted or not measured\ntemperature while calculating low- and high levels:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
     StaticBoxSizer3->Add(StaticText8, 0, wxTOP|wxLEFT|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer3 = new wxFlexGridSizer(0, 5, 0, 0);
     FlexGridSizer3->AddGrowableCol(1);
-    StaticText15 = new wxStaticText(PanelAnalysis, ID_STATICTEXT17, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT17"));
+    StaticText15 = new wxStaticText(PanelAnalysis, ID_STATICTEXT17, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT17"));
     FlexGridSizer3->Add(StaticText15, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText16 = new wxStaticText(PanelAnalysis, ID_STATICTEXT18, _("- allow maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT18"));
+    StaticText16 = new wxStaticText(PanelAnalysis, ID_STATICTEXT18, _("- allow maximum"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT18"));
     FlexGridSizer3->Add(StaticText16, 0, wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinMaxAllowedNotMesuredLowLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxAllowedNotMesuredLowLevelDays, _T("3"), wxDefaultPosition, wxSize(60,-1), 0, 0, 10, 3, _T("ID_spinMaxAllowedNotMesuredLowLevelDays"));
     spinMaxAllowedNotMesuredLowLevelDays->SetValue(_T("3"));
@@ -459,10 +519,10 @@ void configFrame::buildGui(wxWindow* parent)
     FlexGridSizer3->Add(StaticText17, 1, wxTOP|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText9 = new wxStaticText(PanelAnalysis, ID_STATICTEXT11, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT11"));
     FlexGridSizer3->Add(StaticText9, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    changesMaxAllowedNotMesuredLowLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxAllowedNotMesuredLowLevelDays, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_changesMaxAllowedNotMesuredLowLevelDays"));
+    changesMaxAllowedNotMesuredLowLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxAllowedNotMesuredLowLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxAllowedNotMesuredLowLevelDays"));
     changesMaxAllowedNotMesuredLowLevelDays->SetForegroundColour(wxColour(255,0,0));
     FlexGridSizer3->Add(changesMaxAllowedNotMesuredLowLevelDays, 0, wxTOP|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText10 = new wxStaticText(PanelAnalysis, ID_STATICTEXT12, _("- accept maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
+    StaticText10 = new wxStaticText(PanelAnalysis, ID_STATICTEXT12, _("- accept maximum"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
     FlexGridSizer3->Add(StaticText10, 0, wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinMaxIncludedNotMesuredLowLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxIncludedNotMesuredLowLevelDays, _T("2"), wxDefaultPosition, wxSize(60,-1), 0, 0, 5, 2, _T("ID_spinMaxIncludedNotMesuredLowLevelDays"));
     spinMaxIncludedNotMesuredLowLevelDays->SetValue(_T("2"));
@@ -472,9 +532,9 @@ void configFrame::buildGui(wxWindow* parent)
     changesMaxIncludedNotMesuredLowLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxIncludedNotMesuredLowLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxIncludedNotMesuredLowLevelDays"));
     changesMaxIncludedNotMesuredLowLevelDays->SetForegroundColour(wxColour(255,0,0));
     FlexGridSizer3->Add(changesMaxIncludedNotMesuredLowLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText6 = new wxStaticText(PanelAnalysis, ID_STATICTEXT8, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT8"));
+    StaticText6 = new wxStaticText(PanelAnalysis, ID_STATICTEXT8, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT8"));
     FlexGridSizer3->Add(StaticText6, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText7 = new wxStaticText(PanelAnalysis, ID_STATICTEXT9, _("- allow maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
+    StaticText7 = new wxStaticText(PanelAnalysis, ID_STATICTEXT9, _("- allow maximum"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
     FlexGridSizer3->Add(StaticText7, 0, wxTOP|wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinMaxAllowedNotMesuredHighLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxAllowedNotMesuredHighLevelDays, _T("1"), wxDefaultPosition, wxSize(60,-1), 0, 0, 10, 1, _T("ID_spinMaxAllowedNotMesuredHighLevelDays"));
     spinMaxAllowedNotMesuredHighLevelDays->SetValue(_T("1"));
@@ -484,9 +544,9 @@ void configFrame::buildGui(wxWindow* parent)
     changesMaxAllowedNotMesuredHighLevelDays = new wxStaticText(PanelAnalysis, ID_changesMaxAllowedNotMesuredHighLevelDays, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesMaxAllowedNotMesuredHighLevelDays"));
     changesMaxAllowedNotMesuredHighLevelDays->SetForegroundColour(wxColour(255,0,0));
     FlexGridSizer3->Add(changesMaxAllowedNotMesuredHighLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText21 = new wxStaticText(PanelAnalysis, ID_STATICTEXT23, wxEmptyString, wxDefaultPosition, wxSize(5,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT23"));
+    StaticText21 = new wxStaticText(PanelAnalysis, ID_STATICTEXT23, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT23"));
     FlexGridSizer3->Add(StaticText21, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText22 = new wxStaticText(PanelAnalysis, ID_STATICTEXT24, _("- accept maximum "), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT24"));
+    StaticText22 = new wxStaticText(PanelAnalysis, ID_STATICTEXT24, _("- accept maximum"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT24"));
     FlexGridSizer3->Add(StaticText22, 0, wxLEFT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinMaxIncludedNotMesuredHighLevelDays = new wxSpinCtrl(PanelAnalysis, ID_spinMaxIncludedNotMesuredHighLevelDays, _T("1"), wxDefaultPosition, wxSize(60,-1), 0, 0, 3, 1, _T("ID_spinMaxIncludedNotMesuredHighLevelDays"));
     spinMaxIncludedNotMesuredHighLevelDays->SetValue(_T("1"));
@@ -498,14 +558,14 @@ void configFrame::buildGui(wxWindow* parent)
     FlexGridSizer3->Add(changesMaxIncludedNotMesuredHighLevelDays, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticBoxSizer3->Add(FlexGridSizer3, 0, wxTOP|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
     BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
-    StaticText25 = new wxStaticText(PanelAnalysis, ID_STATICTEXT27, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT27"));
-    BoxSizer4->Add(StaticText25, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText25 = new wxStaticText(PanelAnalysis, ID_STATICTEXT27, wxEmptyString, wxDefaultPosition, wxSize(40,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT27"));
+    BoxSizer4->Add(StaticText25, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     checkBoxIncludeNotMesuredDaysIfAfterMucusPeak = new wxCheckBox(PanelAnalysis, ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak, _("only if 1st day of high level temp. is after mucus peak day"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxIncludeNotMesuredDaysIfAfterMucusPeak"));
     checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->SetValue(true);
-    BoxSizer4->Add(checkBoxIncludeNotMesuredDaysIfAfterMucusPeak, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer4->Add(checkBoxIncludeNotMesuredDaysIfAfterMucusPeak, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesIncludeNotMesuredDaysIfAfterMucusPeak = new wxStaticText(PanelAnalysis, ID_changesIncludeNotMesuredDaysIfAfterMucusPeak, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesIncludeNotMesuredDaysIfAfterMucusPeak"));
     changesIncludeNotMesuredDaysIfAfterMucusPeak->SetForegroundColour(wxColour(255,0,0));
-    BoxSizer4->Add(changesIncludeNotMesuredDaysIfAfterMucusPeak, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer4->Add(changesIncludeNotMesuredDaysIfAfterMucusPeak, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticBoxSizer3->Add(BoxSizer4, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerApplication6 = new wxFlexGridSizer(0, 2, 0, 0);
     sizerApplication6->AddGrowableCol(0);
@@ -516,26 +576,26 @@ void configFrame::buildGui(wxWindow* parent)
     FlexGridSizer1 = new wxFlexGridSizer(0, 5, 0, 0);
     FlexGridSizer1->AddGrowableCol(0);
     StaticText2 = new wxStaticText(PanelAnalysis, ID_STATICTEXT2, _("- use historical data from last max"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
-    FlexGridSizer1->Add(StaticText2, 1, wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 10);
+    FlexGridSizer1->Add(StaticText2, 1, wxTOP|wxBOTTOM|wxLEFT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     spinNumberOfHistoricalCyclesToUse = new wxSpinCtrl(PanelAnalysis, ID_spinNumberOfHistoricalCyclesToUse, _T("12"), wxDefaultPosition, wxSize(60,-1), 0, 6, 36, 12, _T("ID_spinNumberOfHistoricalCyclesToUse"));
     spinNumberOfHistoricalCyclesToUse->SetValue(_T("12"));
-    FlexGridSizer1->Add(spinNumberOfHistoricalCyclesToUse, 0, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(spinNumberOfHistoricalCyclesToUse, 0, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText3 = new wxStaticText(PanelAnalysis, ID_STATICTEXT4, _("cycles"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
-    FlexGridSizer1->Add(StaticText3, 0, wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication6->Add(FlexGridSizer1, 1, wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(StaticText3, 0, wxBOTTOM|wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(FlexGridSizer1, 1, wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     changesNumberOfHistoricalCyclesToUse = new wxStaticText(PanelAnalysis, ID_changesNumberOfHistoricalCyclesToUse, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesNumberOfHistoricalCyclesToUse"));
     changesNumberOfHistoricalCyclesToUse->SetForegroundColour(wxColour(255,0,0));
-    sizerApplication6->Add(changesNumberOfHistoricalCyclesToUse, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication6->Add(changesNumberOfHistoricalCyclesToUse, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     StaticText1 = new wxStaticText(PanelAnalysis, ID_STATICTEXT1, _("- sort calculated results in following order:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
     sizerApplication6->Add(StaticText1, 1, wxLEFT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 10);
     StaticText4 = new wxStaticText(PanelAnalysis, ID_STATICTEXT6, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_STATICTEXT6"));
-    sizerApplication6->Add(StaticText4, 1, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    sizerApplication6->Add(StaticText4, 1, wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
     StaticText20 = new wxStaticText(PanelAnalysis, ID_STATICTEXT22, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT22"));
     BoxSizer3->Add(StaticText20, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     comboBoxAutoanalyzeCardPreferResult1 = new wxComboBox(PanelAnalysis, ID_comboBoxAutoanalyzeCardPreferResult1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_comboBoxAutoanalyzeCardPreferResult1"));
     BoxSizer3->Add(comboBoxAutoanalyzeCardPreferResult1, 1, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    sizerApplication6->Add(BoxSizer3, 1, wxTOP|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    sizerApplication6->Add(BoxSizer3, 1, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
     changesAutoanalyzeCardPreferResult1 = new wxStaticText(PanelAnalysis, ID_changesAutoanalyzeCardPreferResult1, wxEmptyString, wxDefaultPosition, wxSize(15,-1), 0, _T("ID_changesAutoanalyzeCardPreferResult1"));
     changesAutoanalyzeCardPreferResult1->SetForegroundColour(wxColour(255,0,0));
     sizerApplication6->Add(changesAutoanalyzeCardPreferResult1, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -741,6 +801,81 @@ void configFrame::buildGui(wxWindow* parent)
     sizerFonts->SetSizeHints(panelFonts);
     panelOther = new wxPanel(notebook, ID_panelOther, wxPoint(108,8), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_panelOther"));
     sizerOther = new wxBoxSizer(wxVERTICAL);
+    StaticBoxSizer4 = new wxStaticBoxSizer(wxVERTICAL, panelOther, _("Synchronization details"));
+    FlexGridSizer5 = new wxFlexGridSizer(0, 2, 0, 0);
+    FlexGridSizer5->AddGrowableCol(0);
+    checkBoxRememberPassword = new wxCheckBox(panelOther, ID_checkBoxRememberPassword, _("Remember password"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxRememberPassword"));
+    checkBoxRememberPassword->SetValue(false);
+    checkBoxRememberPassword->SetToolTip(_("Application can remember your password.\nDo not use this option on public computer."));
+    FlexGridSizer5->Add(checkBoxRememberPassword, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesRememberPassword = new wxStaticText(panelOther, ID_changesRememberPassword, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesRememberPassword"));
+    changesRememberPassword->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer5->Add(changesRememberPassword, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer9 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText29 = new wxStaticText(panelOther, ID_STATICTEXT31, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT31"));
+    StaticText29->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer9->Add(StaticText29, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticPassword = new wxStaticText(panelOther, ID_staticPassword, _("Password:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPassword"));
+    BoxSizer9->Add(staticPassword, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer5->Add(BoxSizer9, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText33 = new wxStaticText(panelOther, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT35"));
+    StaticText33->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer5->Add(StaticText33, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText32 = new wxStaticText(panelOther, ID_STATICTEXT34, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT34"));
+    StaticText32->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer10->Add(StaticText32, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    textPassword = new wxTextCtrl(panelOther, ID_textPassword, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PASSWORD, wxDefaultValidator, _T("ID_textPassword"));
+    textPassword->SetMaxLength(64);
+    textPassword->SetToolTip(_("Application can remember your password.\nDo not use this option on public computer.\nPassword can be 64 characters length."));
+    BoxSizer10->Add(textPassword, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer5->Add(BoxSizer10, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText5 = new wxStaticText(panelOther, ID_STATICTEXT7, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT7"));
+    StaticText5->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer5->Add(StaticText5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer14 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText30 = new wxStaticText(panelOther, ID_STATICTEXT32, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT32"));
+    StaticText30->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer14->Add(StaticText30, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticPasswordNote = new wxStaticText(panelOther, ID_staticPasswordNote, _("It\'s not recomended to save password\nif it\'s not your private computer."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticPasswordNote"));
+    BoxSizer14->Add(staticPasswordNote, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer5->Add(BoxSizer14, 1, wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesPassword = new wxStaticText(panelOther, ID_changesPassword, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesPassword"));
+    changesPassword->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer5->Add(changesPassword, 1, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer4->Add(FlexGridSizer5, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    FlexGridSizer2 = new wxFlexGridSizer(0, 2, 0, 0);
+    FlexGridSizer2->AddGrowableCol(0);
+    checkBoxUseCustomServer = new wxCheckBox(panelOther, ID_checkBoxUseCustomServer, _("Use custom server"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxUseCustomServer"));
+    checkBoxUseCustomServer->SetValue(false);
+    checkBoxUseCustomServer->SetToolTip(_("If you want you cas setup your own server for storing cards file. More details you can find in the documentation."));
+    FlexGridSizer2->Add(checkBoxUseCustomServer, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesUseCustomServer = new wxStaticText(panelOther, ID_changesUseCustomServer, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesUseCustomServer"));
+    changesUseCustomServer->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer2->Add(changesUseCustomServer, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer11 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText11 = new wxStaticText(panelOther, ID_STATICTEXT13, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT13"));
+    StaticText11->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer11->Add(StaticText11, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+    staticCustomServerUri = new wxStaticText(panelOther, ID_staticCustomServerUri, _("URL:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_staticCustomServerUri"));
+    BoxSizer11->Add(staticCustomServerUri, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer2->Add(BoxSizer11, 0, wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText14 = new wxStaticText(panelOther, ID_STATICTEXT16, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT16"));
+    StaticText14->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer2->Add(StaticText14, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer12 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText18 = new wxStaticText(panelOther, ID_STATICTEXT20, wxEmptyString, wxDefaultPosition, wxSize(25,-1), wxALIGN_CENTRE, _T("ID_STATICTEXT20"));
+    StaticText18->SetForegroundColour(wxColour(255,0,0));
+    BoxSizer12->Add(StaticText18, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    textCustomServerUri = new wxTextCtrl(panelOther, ID_textCustomServerUri, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_textCustomServerUri"));
+    textCustomServerUri->SetToolTip(_("If you want you cas setup your own server for storing cards file. More details you can find in the documentation."));
+    BoxSizer12->Add(textCustomServerUri, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer2->Add(BoxSizer12, 0, wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    changesCustomServerUri = new wxStaticText(panelOther, ID_changesCustomServerUri, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCustomServerUri"));
+    changesCustomServerUri->SetForegroundColour(wxColour(255,0,0));
+    FlexGridSizer2->Add(changesCustomServerUri, 1, wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer4->Add(FlexGridSizer2, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    sizerOther->Add(StaticBoxSizer4, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerOther1 = new wxStaticBoxSizer(wxVERTICAL, panelOther, _("Units used in application"));
     sizerOther2 = new wxFlexGridSizer(0, 3, 0, 0);
     sizerOther2->AddGrowableCol(1);
@@ -794,7 +929,7 @@ void configFrame::buildGui(wxWindow* parent)
     sizerButtons->Add(buttonCancel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     space4 = new wxStaticText(panelMain, ID_space4, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_space4"));
     sizerButtons->Add(space4, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    buttonOk = new wxButton(panelMain, ID_buttonOk, _("OK"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonOk"));
+    buttonOk = new wxButton(panelMain, ID_buttonOk, _("Close (and save)"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_buttonOk"));
     buttonOk->SetToolTip(_("Save and apply changes and close this window"));
     sizerButtons->Add(buttonOk, 0, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     sizerMain2->Add(sizerButtons, 0, wxTOP|wxBOTTOM|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -807,13 +942,14 @@ void configFrame::buildGui(wxWindow* parent)
     sizerMain1->SetSizeHints(this);
 
     Connect(ID_listBoxLanguage,wxEVT_COMMAND_LISTBOX_SELECTED,(wxObjectEventFunction)&configFrame::listBoxLanguageSelected);
+    Connect(ID_checkBoxOpenLastOpenedFile,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxOpenLastOpenedFileClick);
+    Connect(ID_checkBoxAutosaveChanges,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveChangesClick);
+    Connect(ID_checkBoxAutosaveSet,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveSetClick);
+    Connect(ID_checkBoxSyncFileAutomatically,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxSyncFileAutomaticallyClick);
     Connect(ID_checkBoxRememberPosition,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxRememberPositionClick);
     Connect(ID_checkBoxFlatButtons,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxFlatButtonsClick);
     Connect(ID_checkBoxCheckForUpdates,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxCheckForUpdatesClick);
     Connect(ID_textUpdatesProxy,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::textUpdatesProxyUpdated);
-    Connect(ID_checkBoxOpenLastOpenedFile,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxOpenLastOpenedFileClick);
-    Connect(ID_checkBoxAutosaveChanges,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveChangesClick);
-    Connect(ID_checkBoxAutosaveSet,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutosaveSetClick);
     Connect(ID_checkBoxCheckForMissingDays,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxCheckForMissingDaysClick);
     Connect(ID_checkBoxBreastsAutocontrolReminder,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxBreastsAutocontrolReminderClick);
     Connect(ID_spinCtrlBreastsAutocontrolReminderDay,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinCtrlBreastsAutocontrolReminderDayUpdated);
@@ -821,6 +957,7 @@ void configFrame::buildGui(wxWindow* parent)
     Connect(ID_comboBoxTemperatureRangeHigh,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureRangeHighUpdated);
     Connect(ID_comboBoxTemperatureRangeLow,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureRangeLowUpdated);
     Connect(ID_checkBoxAutoanalyzeCard,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxAutoanalyzeCardClick);
+    Connect(ID_checkBoxShowAutoanalysisDetails,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxShowAutoanalysisDetailsClick);
     Connect(ID_spinMaxAllowedNotMesuredLowLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxAllowedNotMesuredLowLevelDaysChange);
     Connect(ID_spinMaxIncludedNotMesuredLowLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxIncludedNotMesuredLowLevelDaysChange);
     Connect(ID_spinMaxAllowedNotMesuredHighLevelDays,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&configFrame::spinMaxAllowedNotMesuredHighLevelDaysChange);
@@ -853,6 +990,10 @@ void configFrame::buildGui(wxWindow* parent)
     Connect(ID_buttonFontResultDefault,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultDefaultClick);
     Connect(ID_buttonFontResultResults,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultResultsClick);
     Connect(ID_buttonFontResultPhases,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonFontResultPhasesClick);
+    Connect(ID_checkBoxRememberPassword,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxRememberPasswordClick);
+    Connect(ID_textPassword,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::textPasswordText);
+    Connect(ID_checkBoxUseCustomServer,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&configFrame::checkBoxUseCustomServerClick);
+    Connect(ID_textCustomServerUri,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&configFrame::textCustomServerUriText);
     Connect(ID_comboBoxLengthUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxLengthUnitUpdated);
     Connect(ID_comboBoxTemperatureUnit,wxEVT_COMMAND_COMBOBOX_SELECTED,(wxObjectEventFunction)&configFrame::comboBoxTemperatureUnitUpdated);
     Connect(ID_buttonSetDefaults,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonSetDefaultsClick);
@@ -861,11 +1002,6 @@ void configFrame::buildGui(wxWindow* parent)
     Connect(ID_buttonOk,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&configFrame::buttonOkClick);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&configFrame::configFrameClose);
     //*)
-
-#if defined(__UNIX__)
-    notebook->SetWindowStyle(wxNB_LEFT);
-    notebook->Refresh();
-#endif
 
     m_fontDialog =  new wxFontDialog( this );
 
@@ -1031,6 +1167,7 @@ configFrame::~configFrame()
  */
 void configFrame::configFrameClose( wxCloseEvent& /*event*/ )
 {
+    wxLogDebug( _T("[configFrame] configFrameClose()") );
     Destroy();
 }
 
@@ -1040,7 +1177,13 @@ void configFrame::configFrameClose( wxCloseEvent& /*event*/ )
 void configFrame::buttonOkClick( wxCommandEvent& event )
 {
     save();
-    EndModal( 1 );
+
+    int exitCode = 1;
+    if (m_syncServerChanged)
+        exitCode = CONFIG_SYNC_SERVER_CHANGED;
+
+    wxLogDebug( wxString::Format( _T("[configFrame] buttonOkClick(), exit code: %i"), exitCode) );
+    EndModal( exitCode );
 }
 
 /**
@@ -1048,7 +1191,14 @@ void configFrame::buttonOkClick( wxCommandEvent& event )
  */
 void configFrame::buttonCancelClick( wxCommandEvent& event )
 {
-    EndModal( 0 );
+    wxLogDebug( _T("[configFrame] buttonCancelClick()") );
+
+    int exitCode = 0;
+    if (m_syncServerChanged)
+        exitCode = CONFIG_SYNC_SERVER_CHANGED;
+
+    wxLogDebug( wxString::Format( _T("[configFrame] buttonCancelClick(), exit code: %i"), exitCode) );
+    EndModal( exitCode );
 }
 
 /**
@@ -1056,6 +1206,7 @@ void configFrame::buttonCancelClick( wxCommandEvent& event )
  */
 void configFrame::buttonSaveClick( wxCommandEvent& event )
 {
+    wxLogDebug( _T("[configFrame] buttonSaveClick()") );
     save();
 }
 
@@ -1081,93 +1232,6 @@ void configFrame::listBoxLanguageSelected( wxCommandEvent& event )
         updateButtonsState();
     }
 }
-
-/**
- * checkBoxRememberPositionClick
- */
-void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event )
-{
-    if ( checkBoxRememberPosition->GetValue() == m_config->rememberPosition ) {
-        if ( changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes--;
-            changesRememberPosition->SetLabel( _T( "" ) );
-        }
-    } else {
-        if ( !changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes++;
-            changesRememberPosition->SetLabel( _T( "*" ) );
-        }
-    }
-    updateButtonsState();
-}
-
-/**
- * checkBoxFlatButtonsClick
- */
-void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event )
-{
-    if ( checkBoxFlatButtons->GetValue() == m_config->useFlatButtons ) {
-        if ( changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes--;
-            changesFlatButtons->SetLabel( _T( "" ) );
-        }
-    } else {
-        if ( !changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes++;
-            changesFlatButtons->SetLabel( _T( "*" ) );
-        }
-    }
-    updateButtonsState();
-}
-
-/**
- * checkBoxCheckForUpdatesClick
- */
-void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event )
-{
-    if ( checkBoxCheckForUpdates->GetValue() ) {
-        staticUpdatesProxy->Enable( true );
-        textUpdatesProxy->Enable( true );
-    } else {
-        staticUpdatesProxy->Enable( false );
-        textUpdatesProxy->Enable( false );
-    }
-
-    if ( checkBoxCheckForUpdates->GetValue() == m_config->checkForUpdates ) {
-        if ( changesCheckForUpdates->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes--;
-            changesCheckForUpdates->SetLabel( _T( "" ) );
-        }
-    } else {
-        if ( !changesCheckForUpdates->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes++;
-            changesCheckForUpdates->SetLabel( _T( "*" ) );
-        }
-    }
-    updateButtonsState();
-
-}
-
-/**
- * textUpdatesProxyUpdated
- */
-void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event )
-{
-    if ( textUpdatesProxy->GetValue().IsSameAs( m_config->updatesProxy ) ) {
-        if ( changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes--;
-            changesUpdatesProxy->SetLabel( _T( "" ) );
-        }
-    } else {
-        if ( !changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
-            m_changes++;
-            changesUpdatesProxy->SetLabel( _T( "*" ) );
-        }
-    }
-    updateButtonsState();
-}
-
-/******************************************************************************/
 
 /**
  * checkBoxOpenLastOpenedFileClick
@@ -1225,6 +1289,103 @@ void configFrame::checkBoxAutosaveSetClick(wxCommandEvent& event)
     }
     updateButtonsState();
 }
+
+void configFrame::checkBoxSyncFileAutomaticallyClick(wxCommandEvent& event)
+{
+    if ( checkBoxSyncFileAutomatically->GetValue() == m_config->syncFileAutomatically) {
+        if ( changesSyncFileAutomatically->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesSyncFileAutomatically->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesSyncFileAutomatically->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesSyncFileAutomatically->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxRememberPositionClick
+ */
+void configFrame::checkBoxRememberPositionClick( wxCommandEvent& event )
+{
+    if ( checkBoxRememberPosition->GetValue() == m_config->rememberPosition ) {
+        if ( changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesRememberPosition->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesRememberPosition->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesRememberPosition->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxFlatButtonsClick
+ */
+void configFrame::checkBoxFlatButtonsClick( wxCommandEvent& event )
+{
+    if ( checkBoxFlatButtons->GetValue() == m_config->useFlatButtons ) {
+        if ( changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesFlatButtons->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesFlatButtons->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesFlatButtons->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxCheckForUpdatesClick
+ */
+void configFrame::checkBoxCheckForUpdatesClick( wxCommandEvent& event )
+{
+    if ( checkBoxCheckForUpdates->GetValue() == m_config->checkForUpdates ) {
+        if ( changesCheckForUpdates->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesCheckForUpdates->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesCheckForUpdates->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesCheckForUpdates->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+
+    staticUpdatesProxy->Enable( checkBoxCheckForUpdates->GetValue() );
+    textUpdatesProxy->Enable( checkBoxCheckForUpdates->GetValue() );
+}
+
+/**
+ * textUpdatesProxyUpdated
+ */
+void configFrame::textUpdatesProxyUpdated( wxCommandEvent& event )
+{
+    if ( textUpdatesProxy->GetValue().IsSameAs( m_config->updatesProxy ) ) {
+        if ( changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesUpdatesProxy->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesUpdatesProxy->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesUpdatesProxy->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/******************************************************************************/
 
 /**
  * checkBoxCheckForMissingDaysClick
@@ -1636,6 +1797,27 @@ void configFrame::checkBoxAutoanalyzeCardClick(wxCommandEvent& event)
             changesAutoanalyzeCard->SetLabel( _T( "*" ) );
         }
     }
+
+    checkBoxShowAutoanalysisDetails->Enable(checkBoxAutoanalyzeCard->GetValue());
+    updateButtonsState();
+}
+
+/**
+ * checkBoxShowAutoanalysisDetailsClick
+ */
+void configFrame::checkBoxShowAutoanalysisDetailsClick(wxCommandEvent& event)
+{
+    if ( checkBoxShowAutoanalysisDetails->GetValue() == m_config->showAutoanalysisDetails) {
+        if ( changesShowAutoanalysisDetails->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesShowAutoanalysisDetails->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesShowAutoanalysisDetails->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesShowAutoanalysisDetails->SetLabel( _T( "*" ) );
+        }
+    }
     updateButtonsState();
 }
 
@@ -1880,6 +2062,90 @@ void configFrame::checkBoxAutoanalyzeCardPreferSafeResultClick(wxCommandEvent& e
 
 /******************************************************************************/
 
+
+/**
+ * checkBoxRememberPasswordClick
+ */
+void configFrame::checkBoxRememberPasswordClick(wxCommandEvent& event)
+{
+    if ( checkBoxRememberPassword->GetValue() == m_config->rememberPassword) {
+        if ( changesRememberPassword->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesRememberPassword->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesRememberPassword->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesRememberPassword->SetLabel( _T( "*" ) );
+        }
+    }
+
+    staticPassword->Enable(checkBoxRememberPassword->GetValue());
+    staticPasswordNote->Enable(checkBoxRememberPassword->GetValue());
+    textPassword->Enable(checkBoxRememberPassword->GetValue());
+    updateButtonsState();
+}
+
+/**
+ * textPasswordText
+ */
+void configFrame::textPasswordText(wxCommandEvent& event)
+{
+    if ( textPassword->GetValue().IsSameAs( m_config->password ) ) {
+        if ( changesPassword->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesPassword->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesPassword->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesPassword->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
+/**
+ * checkBoxUseCustomServerClick
+ */
+void configFrame::checkBoxUseCustomServerClick(wxCommandEvent& event)
+{
+    if ( checkBoxUseCustomServer->GetValue() == m_config->useCustomServer) {
+        if ( changesUseCustomServer->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesUseCustomServer->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesUseCustomServer->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesUseCustomServer->SetLabel( _T( "*" ) );
+        }
+    }
+
+    staticCustomServerUri->Enable(checkBoxUseCustomServer->GetValue());
+    textCustomServerUri->Enable(checkBoxUseCustomServer->GetValue());
+    updateButtonsState();
+}
+
+/**
+ * textCustomServerUriText
+ */
+void configFrame::textCustomServerUriText(wxCommandEvent& event)
+{
+    if ( textCustomServerUri->GetValue().IsSameAs( m_config->customServerUri ) ) {
+        if ( changesCustomServerUri->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes--;
+            changesCustomServerUri->SetLabel( _T( "" ) );
+        }
+    } else {
+        if ( !changesCustomServerUri->GetLabel().IsSameAs( _T( "*" ) ) ) {
+            m_changes++;
+            changesCustomServerUri->SetLabel( _T( "*" ) );
+        }
+    }
+    updateButtonsState();
+}
+
 /**
  * buttonSetDefaultsClick
  */
@@ -1942,24 +2208,22 @@ void configFrame::update()
         }
     }
 
-    checkBoxRememberPosition->SetValue( m_config->rememberPosition );
-    checkBoxFlatButtons->SetValue( m_config->useFlatButtons );
-    checkBoxCheckForUpdates->SetValue( m_config->checkForUpdates );
-    textUpdatesProxy->SetValue( m_config->updatesProxy );
-
-    if ( m_config->checkForUpdates ) {
-        staticUpdatesProxy->Enable( true );
-        textUpdatesProxy->Enable( true );
-    } else {
-        staticUpdatesProxy->Enable( false );
-        textUpdatesProxy->Enable( false );
-    }
-
-    /*******************************/
-    /** PAGE APPLICATION */
     checkBoxOpenLastOpenedFile->SetValue( m_config->openLastOpenedFile );
     checkBoxAutosaveChanges->SetValue( m_config->autosaveChanges );
     checkBoxAutosaveSet->SetValue( m_config->autosaveSet );
+    checkBoxSyncFileAutomatically->SetValue( m_config->syncFileAutomatically );
+
+    checkBoxRememberPosition->SetValue( m_config->rememberPosition );
+    checkBoxFlatButtons->SetValue( m_config->useFlatButtons );
+
+    checkBoxCheckForUpdates->SetValue( m_config->checkForUpdates );
+    textUpdatesProxy->SetValue( m_config->updatesProxy );
+    staticUpdatesProxy->Enable( m_config->checkForUpdates );
+    textUpdatesProxy->Enable( m_config->checkForUpdates );
+
+    /*******************************/
+    /** PAGE APPLICATION */
+
     checkBoxCheckForMissingDays->SetValue( m_config->checkForMissingDays );
 
     spinCtrlBreastsAutocontrolReminderDay->SetValue( m_config->breastSelfControlReminderDay );
@@ -1982,22 +2246,6 @@ void configFrame::update()
         staticBreastAutocontrolInterval2->Enable( false );
     }
 
-    if ( m_config->lengthInCentimeters ) {
-        comboBoxLengthUnit->SetValue( _( "centimiter" ) );
-    } else {
-        comboBoxLengthUnit->SetValue( _( "inch" ) );
-    }
-
-    if ( m_config->temperatureInCelsius ) {
-        comboBoxTemperatureUnit->SetValue( _( "Celsius" ) );
-        staticTemperatureCorF1->SetLabel( _T( "C" ) );
-        staticTemperatureCorF2->SetLabel( _T( "C" ) );
-    } else {
-        comboBoxTemperatureUnit->SetValue( _( "Fahrenheit" ) );
-        staticTemperatureCorF1->SetLabel( _T( "F" ) );
-        staticTemperatureCorF2->SetLabel( _T( "F" ) );
-    }
-
     comboBoxTemperatureRangeHigh->SetValue( m_util.temperatureToStr( m_config->temperatureRangeHigh, false ) );
     comboBoxTemperatureRangeLow->SetValue( m_util.temperatureToStr( m_config->temperatureRangeLow, false ) );
 
@@ -2009,6 +2257,23 @@ void configFrame::update()
     comboBoxTemperatureUnit->Enable( false );
 
 
+    /*******************************/
+    /** PAGE RESULTS */
+    checkBoxAutoanalyzeCard->SetValue( m_config->autoanalyzeCard );
+    checkBoxShowAutoanalysisDetails->SetValue( m_config->showAutoanalysisDetails );
+    checkBoxShowAutoanalysisDetails->Enable( m_config->autoanalyzeCard );
+
+    spinMaxAllowedNotMesuredLowLevelDays->SetValue( m_config->maxAllowedNotMesuredLowLevelDays );
+    spinMaxIncludedNotMesuredLowLevelDays->SetValue( m_config->maxIncludedNotMesuredLowLevelDays );
+    spinMaxAllowedNotMesuredHighLevelDays->SetValue( m_config->maxAllowedNotMesuredHighLevelDays );
+    spinMaxIncludedNotMesuredHighLevelDays->SetValue( m_config->maxIncludedNotMesuredHighLevelDays );
+    checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->SetValue( m_config->includeNotMesuredDaysIfAfterMucusPeak );
+    spinNumberOfHistoricalCyclesToUse->SetValue( m_config->numberOfHistoricalCyclesToUse );
+    comboBoxAutoanalyzeCardPreferResult1->SetSelection(m_config->autoanalyzeCardPreferResult1-1);
+    comboBoxAutoanalyzeCardPreferResult2->SetSelection(m_config->autoanalyzeCardPreferResult2-1);
+    comboBoxAutoanalyzeCardPreferResult3->SetSelection(m_config->autoanalyzeCardPreferResult3-1);
+    comboBoxAutoanalyzeCardPreferResult4->SetSelection(m_config->autoanalyzeCardPreferResult4-1);
+    comboBoxAutoanalyzeCardPreferResult5->SetSelection(m_config->autoanalyzeCardPreferResult5-1);
 
     /*******************************/
     /** PAGE COLORS */
@@ -2062,22 +2327,37 @@ void configFrame::update()
     /** PAGE PRINTING */
 
     /*******************************/
-    /** PAGE RESULTS */
-    checkBoxAutoanalyzeCard->SetValue( m_config->autoanalyzeCard );
-    spinMaxAllowedNotMesuredLowLevelDays->SetValue( m_config->maxAllowedNotMesuredLowLevelDays );
-    spinMaxIncludedNotMesuredLowLevelDays->SetValue( m_config->maxIncludedNotMesuredLowLevelDays );
-    spinMaxAllowedNotMesuredHighLevelDays->SetValue( m_config->maxAllowedNotMesuredHighLevelDays );
-    spinMaxIncludedNotMesuredHighLevelDays->SetValue( m_config->maxIncludedNotMesuredHighLevelDays );
-    checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->SetValue( m_config->includeNotMesuredDaysIfAfterMucusPeak );
-    spinNumberOfHistoricalCyclesToUse->SetValue( m_config->numberOfHistoricalCyclesToUse );
-    comboBoxAutoanalyzeCardPreferResult1->SetSelection(m_config->autoanalyzeCardPreferResult1-1);
-    comboBoxAutoanalyzeCardPreferResult2->SetSelection(m_config->autoanalyzeCardPreferResult2-1);
-    comboBoxAutoanalyzeCardPreferResult3->SetSelection(m_config->autoanalyzeCardPreferResult3-1);
-    comboBoxAutoanalyzeCardPreferResult4->SetSelection(m_config->autoanalyzeCardPreferResult4-1);
-    comboBoxAutoanalyzeCardPreferResult5->SetSelection(m_config->autoanalyzeCardPreferResult5-1);
-
-    /*******************************/
     /** PAGE OTHER */
+
+    checkBoxRememberPassword->SetValue(m_config->rememberPassword);
+    staticPassword->Enable(m_config->rememberPassword);
+    staticPasswordNote->Enable(m_config->rememberPassword);
+    textPassword->Enable(m_config->rememberPassword);
+    if ( m_config->rememberPassword )
+        textPassword->SetValue(m_config->password);
+    else
+        textPassword->SetValue(wxEmptyString);
+
+    checkBoxUseCustomServer->SetValue(m_config->useCustomServer);
+    textCustomServerUri->SetValue(m_config->customServerUri);
+    staticCustomServerUri->Enable(m_config->useCustomServer);
+    textCustomServerUri->Enable(m_config->useCustomServer);
+
+    if ( m_config->lengthInCentimeters ) {
+        comboBoxLengthUnit->SetValue( _( "centimiter" ) );
+    } else {
+        comboBoxLengthUnit->SetValue( _( "inch" ) );
+    }
+
+    if ( m_config->temperatureInCelsius ) {
+        comboBoxTemperatureUnit->SetValue( _( "Celsius" ) );
+        staticTemperatureCorF1->SetLabel( _T( "C" ) );
+        staticTemperatureCorF2->SetLabel( _T( "C" ) );
+    } else {
+        comboBoxTemperatureUnit->SetValue( _( "Fahrenheit" ) );
+        staticTemperatureCorF1->SetLabel( _T( "F" ) );
+        staticTemperatureCorF2->SetLabel( _T( "F" ) );
+    }
 
 
     /*******************************/
@@ -2126,6 +2406,13 @@ void configFrame::update()
     changesAutoanalyzeCardPreferResult4->SetLabel( _T( "" ) );
     changesAutoanalyzeCardPreferResult5->SetLabel( _T( "" ) );
     changesNumberOfHistoricalCyclesToUse->SetLabel( _T( "" ) );
+    changesSyncFileAutomatically->SetLabel( _T( "" ) );
+    changesShowAutoanalysisDetails->SetLabel( _T( "" ) );
+    changesRememberPassword->SetLabel( _T( "" ) );
+    changesPassword->SetLabel( _T( "" ) );
+    changesUseCustomServer->SetLabel( _T( "" ) );
+    changesCustomServerUri->SetLabel( _T( "" ) );
+
 
     updateButtonsState();
 }
@@ -2244,8 +2531,10 @@ void configFrame::updateButtonsState()
 {
     if ( m_changes == 0 ) {
         buttonSave->Enable( false );
+        buttonCancel->Enable( false );
     } else {
         buttonSave->Enable( true );
+        buttonCancel->Enable( true );
     }
 }
 
@@ -2265,10 +2554,23 @@ bool configFrame::save()
     }
     */
 
+    // check if custom sync server is correctly defines
+    if ( checkBoxUseCustomServer->GetValue() ) {
+        if ( textCustomServerUri->GetValue().IsEmpty() ) {
+            wxMessageBox( _( "Use custom synchronization server is enabled, but custom server URL is empty." ), _( "Error" ), wxOK | wxICON_ERROR, this );
+            return false;
+        }
+        wxURL url(textCustomServerUri->GetValue());
+        if ( !url.IsOk() ) {
+            wxMessageBox( _( "Use custom synchronization server is enabled, but given custom server URL is incorrect." ), _( "Error" ), wxOK | wxICON_ERROR, this );
+        }
+    }
+
     // saving data
     bool fontsChanged = false;
     bool languageChanged = false;
     bool buttonStyleChanged = false;
+    m_syncServerChanged = false;
 
     /*******************************/
     /** PAGE GENERAL */
@@ -2278,6 +2580,11 @@ bool configFrame::save()
         m_config->langId = newLangId;
         wxGetApp().getTranslationHelper()->setApplicationLanguage( newLangId );
     }
+
+    m_config->openLastOpenedFile = checkBoxOpenLastOpenedFile->GetValue();
+    m_config->autosaveChanges = checkBoxAutosaveChanges->GetValue();
+    m_config->autosaveSet = checkBoxAutosaveSet->GetValue();
+    m_config->syncFileAutomatically = checkBoxSyncFileAutomatically->GetValue();
 
     m_config->rememberPosition = checkBoxRememberPosition->GetValue();
 
@@ -2300,9 +2607,6 @@ bool configFrame::save()
 
     /*******************************/
     /** PAGE APPLICATION */
-    m_config->openLastOpenedFile = checkBoxOpenLastOpenedFile->GetValue();
-    m_config->autosaveChanges = checkBoxAutosaveChanges->GetValue();
-    m_config->autosaveSet = checkBoxAutosaveSet->GetValue();
     m_config->checkForMissingDays = checkBoxCheckForMissingDays->GetValue();
 
     if ( checkBoxBreastsAutocontrolReminder->GetValue() ) {
@@ -2312,20 +2616,24 @@ bool configFrame::save()
     }
     m_config->breastSelfControlInterval = spinCtrlBreastAutocontrolInterval->GetValue();
 
-    if ( comboBoxLengthUnit->GetValue().IsSameAs( _( "centimiter" ) ) ) {
-        m_config->lengthInCentimeters = true;
-    } else {
-        m_config->lengthInCentimeters = false;
-    }
-
-    if ( comboBoxTemperatureUnit->GetValue().IsSameAs( _( "Celsius" ) ) ) {
-        m_config->temperatureInCelsius = true;
-    } else {
-        m_config->temperatureInCelsius = false;
-    }
-
     m_config->temperatureRangeHigh = m_util.strToTemperature( comboBoxTemperatureRangeHigh->GetValue() );
     m_config->temperatureRangeLow = m_util.strToTemperature( comboBoxTemperatureRangeLow->GetValue() );
+
+    /*******************************/
+    /** PAGE ANALYSIS */
+    m_config->autoanalyzeCard = checkBoxAutoanalyzeCard->GetValue();
+    m_config->showAutoanalysisDetails = checkBoxShowAutoanalysisDetails->GetValue();
+    m_config->maxAllowedNotMesuredLowLevelDays = spinMaxAllowedNotMesuredLowLevelDays->GetValue();
+    m_config->maxIncludedNotMesuredLowLevelDays = spinMaxIncludedNotMesuredLowLevelDays->GetValue();
+    m_config->maxAllowedNotMesuredHighLevelDays = spinMaxAllowedNotMesuredHighLevelDays->GetValue();
+    m_config->maxIncludedNotMesuredHighLevelDays = spinMaxIncludedNotMesuredHighLevelDays->GetValue();
+    m_config->includeNotMesuredDaysIfAfterMucusPeak = checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->GetValue();
+    m_config->autoanalyzeCardPreferResult1 = comboBoxAutoanalyzeCardPreferResult1->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult2 = comboBoxAutoanalyzeCardPreferResult2->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult3 = comboBoxAutoanalyzeCardPreferResult3->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult4 = comboBoxAutoanalyzeCardPreferResult4->GetSelection()+1;
+    m_config->autoanalyzeCardPreferResult5 = comboBoxAutoanalyzeCardPreferResult5->GetSelection()+1;
+    m_config->numberOfHistoricalCyclesToUse = spinNumberOfHistoricalCyclesToUse->GetValue();
 
     /*******************************/
     /** PAGE COLORS */
@@ -2382,22 +2690,45 @@ bool configFrame::save()
     /** PAGE PRINTING */
 
     /*******************************/
-    /** PAGE ANALYSIS */
-    m_config->autoanalyzeCard = checkBoxAutoanalyzeCard->GetValue();
-    m_config->maxAllowedNotMesuredLowLevelDays = spinMaxAllowedNotMesuredLowLevelDays->GetValue();
-    m_config->maxIncludedNotMesuredLowLevelDays = spinMaxIncludedNotMesuredLowLevelDays->GetValue();
-    m_config->maxAllowedNotMesuredHighLevelDays = spinMaxAllowedNotMesuredHighLevelDays->GetValue();
-    m_config->maxIncludedNotMesuredHighLevelDays = spinMaxIncludedNotMesuredHighLevelDays->GetValue();
-    m_config->includeNotMesuredDaysIfAfterMucusPeak = checkBoxIncludeNotMesuredDaysIfAfterMucusPeak->GetValue();
-    m_config->autoanalyzeCardPreferResult1 = comboBoxAutoanalyzeCardPreferResult1->GetSelection()+1;
-    m_config->autoanalyzeCardPreferResult2 = comboBoxAutoanalyzeCardPreferResult2->GetSelection()+1;
-    m_config->autoanalyzeCardPreferResult3 = comboBoxAutoanalyzeCardPreferResult3->GetSelection()+1;
-    m_config->autoanalyzeCardPreferResult4 = comboBoxAutoanalyzeCardPreferResult4->GetSelection()+1;
-    m_config->autoanalyzeCardPreferResult5 = comboBoxAutoanalyzeCardPreferResult5->GetSelection()+1;
-    m_config->numberOfHistoricalCyclesToUse = spinNumberOfHistoricalCyclesToUse->GetValue();
-
-    /*******************************/
     /** PAGE OTHER */
+
+    m_config->rememberPassword = checkBoxRememberPassword->GetValue();
+    if (m_config->rememberPassword)
+        m_config->password = textPassword->GetValue();
+    else
+        m_config->password = wxEmptyString;
+
+    if ( m_config->useCustomServer != checkBoxUseCustomServer->GetValue() ) {
+        wxLogDebug( _T("m_config->useCustomServer != checkBoxUseCustomServer->GetValue() -> sync server update") );
+        m_syncServerChanged = true;
+    }
+
+    wxString customServerUri = textCustomServerUri->GetValue();
+    if ( !customServerUri.EndsWith( _T("/") ))
+        textCustomServerUri->SetValue( customServerUri + _T("/") );
+
+    if ( checkBoxUseCustomServer->GetValue() && !m_config->customServerUri.IsSameAs( textCustomServerUri->GetValue() ) ) {
+        wxLogDebug( _T("checkBoxUseCustomServer->GetValue() && !m_config->customServerUri.IsSameAs( textCustomServerUri->GetValue() ) -> sync server update") );
+        m_syncServerChanged = true;
+    }
+
+    m_config->useCustomServer = checkBoxUseCustomServer->GetValue();
+    m_config->customServerUri = textCustomServerUri->GetValue();
+
+
+    if ( comboBoxLengthUnit->GetValue().IsSameAs( _( "centimiter" ) ) ) {
+        m_config->lengthInCentimeters = true;
+    } else {
+        m_config->lengthInCentimeters = false;
+    }
+
+    if ( comboBoxTemperatureUnit->GetValue().IsSameAs( _( "Celsius" ) ) ) {
+        m_config->temperatureInCelsius = true;
+    } else {
+        m_config->temperatureInCelsius = false;
+    }
+
+
 
     m_config->saveParamsToConfigFile();
 
@@ -2490,4 +2821,3 @@ void configFrame::sendDataUpdateEvent( int id, wxString message )
 }
 
 /******************************************************************************/
-

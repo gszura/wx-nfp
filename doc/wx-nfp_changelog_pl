@@ -1,5 +1,5 @@
 == todo
-* Encryption of the data file, password protection
+* Encryption of local data file
 * Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
 * Displaying phases in different colours
 * Quick help (pl)
@@ -14,6 +14,12 @@
 == known issues
 * Drukowanie pod Linuxem z poprawnymi fontami nie działa (przynajmniej u mnie ;)
 * Statystyki nie działają poprawnie
+
+== 0.9.2 (build 2010, 2012-10-24)
+* New: Synchronizacja z serwerem
+* New: Szyfrowanie pliku danych wysyłanego na serwer 
+* New: Historia otwieranych plików
+
 
 == 0.9.1 (build 1439, 2012-09-13)
 * New: Dodano nowe statystyki.

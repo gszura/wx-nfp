@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 //
 // Name:        wx-nfpApp.h
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Created:     2006-06-13 22:42:38
 // Description:
 //

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-13 20:03+0300\n"
+"POT-Creation-Date: 2012-10-23 16:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,27 +22,27 @@ msgstr ""
 msgid "Select statistic to display"
 msgstr ""
 
-#: include/configClass.h:29
+#: include/configClass.h:30
 msgid "21/20 days rule"
 msgstr ""
 
-#: include/configClass.h:30
+#: include/configClass.h:31
 msgid "clinical rule"
 msgstr ""
 
-#: include/configClass.h:31
+#: include/configClass.h:32
 msgid "D\303\266ring rule"
 msgstr ""
 
-#: include/configClass.h:32
+#: include/configClass.h:33
 msgid "cervical mucus based rule"
 msgstr ""
 
-#: include/configClass.h:33
+#: include/configClass.h:34
 msgid "cervical mucus position rule"
 msgstr ""
 
-#: include/customPrintout.h:79 src/nfpMainFrame.cpp:1027
+#: include/customPrintout.h:79 src/nfpMainFrame.cpp:1199
 msgid "wx-nfp"
 msgstr ""
 
@@ -211,8 +211,12 @@ msgstr ""
 msgid "luteal phase"
 msgstr ""
 
-#: src/aboutFrame.cpp:74 src/aboutFrame.cpp:119 src/nfpMainFrame.cpp:421
-#: src/nfpMainFrame.cpp:690
+#: include/nfpMainFrame.h:68 src/nfpMainFrame.cpp:289
+msgid "NFP"
+msgstr ""
+
+#: src/aboutFrame.cpp:74 src/aboutFrame.cpp:119 src/nfpMainFrame.cpp:445
+#: src/nfpMainFrame.cpp:752
 msgid "Natural Family Planing"
 msgstr ""
 
@@ -229,7 +233,7 @@ msgstr ""
 msgid "check for updates..."
 msgstr ""
 
-#: src/aboutFrame.cpp:110 src/nfpMainFrame.cpp:372
+#: src/aboutFrame.cpp:110 src/nfpMainFrame.cpp:396
 msgid "Check if there is a new version of the application to download.."
 msgstr ""
 
@@ -390,7 +394,7 @@ msgstr ""
 msgid "Max 24 months, 12 is usually enough."
 msgstr ""
 
-#: src/cardFrame.cpp:344 src/configFrame.cpp:523
+#: src/cardFrame.cpp:344 src/configFrame.cpp:583
 msgid "cycles"
 msgstr ""
 
@@ -398,7 +402,7 @@ msgstr ""
 msgid "was"
 msgstr ""
 
-#: src/cardFrame.cpp:357 src/configFrame.cpp:391
+#: src/cardFrame.cpp:357 src/configFrame.cpp:440
 msgid "days"
 msgstr ""
 
@@ -429,56 +433,91 @@ msgid ""
 msgstr ""
 
 #: src/cardFrame.cpp:1281 src/cardFrame.cpp:1283 src/dayFrame.cpp:1908
-#: src/dayFrame.cpp:1910 src/nfpMainFrame.cpp:458 src/nfpMainFrame.cpp:463
-#: src/nfpMainFrame.cpp:1155 src/nfpMainFrame.cpp:1751
-#: src/nfpMainFrame.cpp:1753 src/nfpMainFrame.cpp:2015
-#: src/translationHelper.cpp:154 src/translationHelper.cpp:165
+#: src/dayFrame.cpp:1910 src/IOoperations.cpp:69 src/nfpMainFrame.cpp:501
+#: src/nfpMainFrame.cpp:506 src/nfpMainFrame.cpp:1358
+#: src/nfpMainFrame.cpp:2147 src/nfpMainFrame_io_operations.cpp:98
+#: src/nfpMainFrame_io_operations.cpp:100 src/translationHelper.cpp:154
+#: src/translationHelper.cpp:165
 msgid "Warning"
 msgstr ""
 
-#: src/configFrame.cpp:252
-msgid "NFP - settings"
+#: src/configFrame.cpp:288
+msgid "NFP - configuration"
 msgstr ""
 
-#: src/configFrame.cpp:262
+#: src/configFrame.cpp:299
 msgid "Choose application language:"
 msgstr ""
 
-#: src/configFrame.cpp:268
+#: src/configFrame.cpp:305
 msgid "Select new language of the application."
 msgstr ""
 
-#: src/configFrame.cpp:275
+#: src/configFrame.cpp:312
+msgid "Open the last opened cards' set"
+msgstr ""
+
+#: src/configFrame.cpp:314
+msgid "Open the last opened cards' set when application starts."
+msgstr ""
+
+#: src/configFrame.cpp:319
+msgid "Save automatically changes in days / cards"
+msgstr ""
+
+#: src/configFrame.cpp:321
+msgid "Save automatically changes while editing days and cards"
+msgstr ""
+
+#: src/configFrame.cpp:326
+msgid "Save automatically card set"
+msgstr ""
+
+#: src/configFrame.cpp:328
+msgid "Save automatically changes in card set while exiting the application or closing the card set"
+msgstr ""
+
+#: src/configFrame.cpp:333
+msgid "Synchronize cards' set with server automatically"
+msgstr ""
+
+#: src/configFrame.cpp:335
+msgid ""
+"Perform automatically synchronization with server on opening and saving cards' set.\n"
+"Of course this works, when you enabled storing cards on server (menu 'NFP' / 'Store cards' set on server' set on server)."
+msgstr ""
+
+#: src/configFrame.cpp:340
 msgid "Remember windows positions and sizes"
 msgstr ""
 
-#: src/configFrame.cpp:277
+#: src/configFrame.cpp:342
 msgid "Remember application's windows and dialogs positions and sizes."
 msgstr ""
 
-#: src/configFrame.cpp:282
+#: src/configFrame.cpp:347
 msgid "Use flat buttons"
 msgstr ""
 
-#: src/configFrame.cpp:284
+#: src/configFrame.cpp:349
 msgid "Choose if all buttons in the application should be flat or standard ones."
 msgstr ""
 
-#: src/configFrame.cpp:289
+#: src/configFrame.cpp:359
 msgid "Check for application updates"
 msgstr ""
 
-#: src/configFrame.cpp:291
+#: src/configFrame.cpp:361
 msgid ""
 "If set the application checks for new version every time when it is starting.\n"
 "The only data which are sent is the information if you are using Windows or Linux operating system."
 msgstr ""
 
-#: src/configFrame.cpp:300
+#: src/configFrame.cpp:370
 msgid "Proxy server address:"
 msgstr ""
 
-#: src/configFrame.cpp:311
+#: src/configFrame.cpp:381
 msgid ""
 "If you are using the proxy server to comunicate with the Internet\n"
 "then write here the addess of it in the format 'hostname:port' or 'hostname'\n"
@@ -486,444 +525,500 @@ msgid ""
 "eg. 1.2.3.4:8088"
 msgstr ""
 
-#: src/configFrame.cpp:327
-msgid "Open the last opened cards' set"
-msgstr ""
-
-#: src/configFrame.cpp:329
-msgid "Open the last opened cards' set when application starts."
-msgstr ""
-
-#: src/configFrame.cpp:334
-msgid "Save automatically changes in days / cards"
-msgstr ""
-
-#: src/configFrame.cpp:336
-msgid "Save automatically changes while editing days and cards"
-msgstr ""
-
-#: src/configFrame.cpp:341
-msgid "Save automatically card set"
-msgstr ""
-
-#: src/configFrame.cpp:343
-msgid "Save automatically changes in card set while exiting the application or closing the card set"
-msgstr ""
-
-#: src/configFrame.cpp:348
+#: src/configFrame.cpp:397
 msgid "Check for missing days"
 msgstr ""
 
-#: src/configFrame.cpp:350
+#: src/configFrame.cpp:399
 msgid ""
 "When the cards' set is loaded check if the last card contains all days including today,\n"
 "if not then propose adding missing ones."
 msgstr ""
 
-#: src/configFrame.cpp:355
+#: src/configFrame.cpp:404
 msgid "Enable the breasts self-control reminder"
 msgstr ""
 
-#: src/configFrame.cpp:357
+#: src/configFrame.cpp:406
 msgid ""
 "The breast self-control should be performed monthly.\n"
 "When you enable this function, application can reminds you about it."
 msgstr ""
 
-#: src/configFrame.cpp:368
+#: src/configFrame.cpp:417
 msgid "Remind at"
 msgstr ""
 
-#: src/configFrame.cpp:369 src/configFrame.cpp:373 src/configFrame.cpp:376
+#: src/configFrame.cpp:418 src/configFrame.cpp:422 src/configFrame.cpp:425
 msgid "Set on which day of cycle the application should remind about breast self-control."
 msgstr ""
 
-#: src/configFrame.cpp:375 src/dayFrame.cpp:213 src/drawingClass.cpp:418
+#: src/configFrame.cpp:424 src/dayFrame.cpp:213 src/drawingClass.cpp:418
 #: src/temperaturesChart.cpp:50 src/temperaturesChart.cpp:59
 msgid "day of cycle"
 msgstr ""
 
-#: src/configFrame.cpp:384
+#: src/configFrame.cpp:433
 msgid "Remind every"
 msgstr ""
 
-#: src/configFrame.cpp:385 src/configFrame.cpp:389 src/configFrame.cpp:392
+#: src/configFrame.cpp:434 src/configFrame.cpp:438 src/configFrame.cpp:441
 msgid ""
 "When the cycle is longer than reminder day defined above plus number of days defined here\n"
 "then remind again about breast self-control.\n"
 "This option is usefull during pregnancy and breast-feed time, when the cycle's 'length' is 200 days or more ;-)"
 msgstr ""
 
-#: src/configFrame.cpp:399
+#: src/configFrame.cpp:448
 msgid "Temperatures' range on the chart"
 msgstr ""
 
-#: src/configFrame.cpp:405
+#: src/configFrame.cpp:454
 msgid "High temperature"
 msgstr ""
 
-#: src/configFrame.cpp:406 src/configFrame.cpp:409
+#: src/configFrame.cpp:455 src/configFrame.cpp:458
 msgid ""
 "Define the high temperature of the chart.\n"
 "Highest temperature will be printed outside of the chart."
 msgstr ""
 
-#: src/configFrame.cpp:419
+#: src/configFrame.cpp:468
 msgid "Low temperature"
 msgstr ""
 
-#: src/configFrame.cpp:420 src/configFrame.cpp:423
+#: src/configFrame.cpp:469 src/configFrame.cpp:472
 msgid ""
 "Define the low temperature of the chart.\n"
 "Lowest temperature will be printed outside of the chart."
 msgstr ""
 
-#: src/configFrame.cpp:439
+#: src/configFrame.cpp:488
 msgid "Analyze card automatically after data changes"
 msgstr ""
 
-#: src/configFrame.cpp:441
+#: src/configFrame.cpp:490
 msgid "Everytime after updating cycle's data, run auto-analysis"
 msgstr ""
 
-#: src/configFrame.cpp:447
+#: src/configFrame.cpp:499
+msgid "Show details of auto-analysis"
+msgstr ""
+
+#: src/configFrame.cpp:501
+msgid "Show infobox with results of auto-analysis"
+msgstr ""
+
+#: src/configFrame.cpp:507
 msgid ""
 "What to do with days with disrupted or not measured\n"
 "temperature while calculating low- and high levels:"
 msgstr ""
 
-#: src/configFrame.cpp:453 src/configFrame.cpp:477
-msgid "- allow maximum "
-msgstr ""
-
-#: src/configFrame.cpp:458
-msgid "such days in low-level"
-msgstr ""
-
-#: src/configFrame.cpp:465 src/configFrame.cpp:489
-msgid "- accept maximum "
-msgstr ""
-
-#: src/configFrame.cpp:470
-msgid "such days as low-level days"
-msgstr ""
-
-#: src/configFrame.cpp:482
-msgid "such days in high-level"
-msgstr ""
-
-#: src/configFrame.cpp:494
-msgid "such days as high-level days"
-msgstr ""
-
-#: src/configFrame.cpp:503
-msgid "only if 1st day of high level temp. is after mucus peak day"
-msgstr ""
-
-#: src/configFrame.cpp:512
-msgid "When calculating begining of the fertile phase:"
+#: src/configFrame.cpp:513 src/configFrame.cpp:537
+msgid "- allow maximum"
 msgstr ""
 
 #: src/configFrame.cpp:518
+msgid "such days in low-level"
+msgstr ""
+
+#: src/configFrame.cpp:525 src/configFrame.cpp:549
+msgid "- accept maximum"
+msgstr ""
+
+#: src/configFrame.cpp:530
+msgid "such days as low-level days"
+msgstr ""
+
+#: src/configFrame.cpp:542
+msgid "such days in high-level"
+msgstr ""
+
+#: src/configFrame.cpp:554
+msgid "such days as high-level days"
+msgstr ""
+
+#: src/configFrame.cpp:563
+msgid "only if 1st day of high level temp. is after mucus peak day"
+msgstr ""
+
+#: src/configFrame.cpp:572
+msgid "When calculating begining of the fertile phase:"
+msgstr ""
+
+#: src/configFrame.cpp:578
 msgid "- use historical data from last max"
 msgstr ""
 
-#: src/configFrame.cpp:529
+#: src/configFrame.cpp:589
 msgid "- sort calculated results in following order:"
 msgstr ""
 
-#: src/configFrame.cpp:586 src/configFrame.cpp:2138 src/configFrame.cpp:2220
+#: src/configFrame.cpp:646 src/configFrame.cpp:2425 src/configFrame.cpp:2507
 msgid "Choose colour for:"
 msgstr ""
 
-#: src/configFrame.cpp:599 src/configFrame.cpp:1441
+#: src/configFrame.cpp:659 src/configFrame.cpp:1602
 msgid "Background"
 msgstr ""
 
-#: src/configFrame.cpp:600
+#: src/configFrame.cpp:660
 msgid "Define the colour of the chart's background."
 msgstr ""
 
-#: src/configFrame.cpp:606
+#: src/configFrame.cpp:666
 msgid ""
 "Cells colours of 'normal' days\n"
 "and currently active day"
 msgstr ""
 
-#: src/configFrame.cpp:611
+#: src/configFrame.cpp:671
 msgid "Define the colour of the chart's cell 1,1 (odd column, odd row)."
 msgstr ""
 
-#: src/configFrame.cpp:614
+#: src/configFrame.cpp:674
 msgid "Define the colour of the chart's cell 2,1 (even column, odd row)."
 msgstr ""
 
-#: src/configFrame.cpp:617
+#: src/configFrame.cpp:677
 msgid "Define the colour of the selected cell of the chart, odd row."
 msgstr ""
 
-#: src/configFrame.cpp:620
+#: src/configFrame.cpp:680
 msgid "Define the colour of the chart's cell 1,2 (odd column, even row)."
 msgstr ""
 
-#: src/configFrame.cpp:623
+#: src/configFrame.cpp:683
 msgid "Define the colour of the chart's cell 2,2 (even column, even row)."
 msgstr ""
 
-#: src/configFrame.cpp:626
+#: src/configFrame.cpp:686
 msgid "Define the colour of the selected cell of the chart, even row."
 msgstr ""
 
-#: src/configFrame.cpp:633 src/configFrame.cpp:1505
+#: src/configFrame.cpp:693 src/configFrame.cpp:1666
 msgid "Temperature point"
 msgstr ""
 
-#: src/configFrame.cpp:634
+#: src/configFrame.cpp:694
 msgid "Define the colour of the temperature point."
 msgstr ""
 
-#: src/configFrame.cpp:639 src/configFrame.cpp:1514
+#: src/configFrame.cpp:699 src/configFrame.cpp:1675
 msgid "Low-level temperature point"
 msgstr ""
 
-#: src/configFrame.cpp:640
+#: src/configFrame.cpp:700
 msgid "Define the colour of the low-level temperature point."
 msgstr ""
 
-#: src/configFrame.cpp:645 src/configFrame.cpp:1523
+#: src/configFrame.cpp:705 src/configFrame.cpp:1684
 msgid "High-level temperature point"
 msgstr ""
 
-#: src/configFrame.cpp:646
+#: src/configFrame.cpp:706
 msgid "Define the colour of the high-level temperature point."
 msgstr ""
 
-#: src/configFrame.cpp:651 src/configFrame.cpp:1532
+#: src/configFrame.cpp:711 src/configFrame.cpp:1693
 msgid "Temperatures line"
 msgstr ""
 
-#: src/configFrame.cpp:652
+#: src/configFrame.cpp:712
 msgid "Define the colour of the temperatures lines."
 msgstr ""
 
-#: src/configFrame.cpp:657 src/configFrame.cpp:1541
+#: src/configFrame.cpp:717 src/configFrame.cpp:1702
 msgid "Low- and high-level temperature line"
 msgstr ""
 
-#: src/configFrame.cpp:658
+#: src/configFrame.cpp:718
 msgid "Define the colour of the low- and high-level temperature lines."
 msgstr ""
 
-#: src/configFrame.cpp:663 src/configFrame.cpp:1550
+#: src/configFrame.cpp:723 src/configFrame.cpp:1711
 msgid "Cycle's phases line"
 msgstr ""
 
-#: src/configFrame.cpp:664
+#: src/configFrame.cpp:724
 msgid "Define the colour of the cycle's phases lines."
 msgstr ""
 
-#: src/configFrame.cpp:669 src/configFrame.cpp:1559
+#: src/configFrame.cpp:729 src/configFrame.cpp:1720
 msgid "Borders"
 msgstr ""
 
-#: src/configFrame.cpp:670
+#: src/configFrame.cpp:730
 msgid "Define the colour of the chart's borders."
 msgstr ""
 
-#: src/configFrame.cpp:683
+#: src/configFrame.cpp:743
 msgid "Choose fonts for:"
 msgstr ""
 
-#: src/configFrame.cpp:695 src/configFrame.cpp:1570
+#: src/configFrame.cpp:755 src/configFrame.cpp:1731
 msgid "Cycle observation card"
 msgstr ""
 
-#: src/configFrame.cpp:696
+#: src/configFrame.cpp:756
 msgid "Set font and colour of the string 'Cycle observation card' visible in the left-top corner of the window."
 msgstr ""
 
-#: src/configFrame.cpp:701 src/configFrame.cpp:1578
+#: src/configFrame.cpp:761 src/configFrame.cpp:1739
 msgid "Name of the parameter in the header"
 msgstr ""
 
-#: src/configFrame.cpp:702
+#: src/configFrame.cpp:762
 msgid "Set font and colour of parameters' names in the header."
 msgstr ""
 
-#: src/configFrame.cpp:707 src/configFrame.cpp:1586
+#: src/configFrame.cpp:767 src/configFrame.cpp:1747
 msgid "Value of the parameter in the header"
 msgstr ""
 
-#: src/configFrame.cpp:708
+#: src/configFrame.cpp:768
 msgid "Set font and colour of parameters' values in the header."
 msgstr ""
 
-#: src/configFrame.cpp:713 src/configFrame.cpp:1594
+#: src/configFrame.cpp:773 src/configFrame.cpp:1755
 msgid "First column of the chart"
 msgstr ""
 
-#: src/configFrame.cpp:714
+#: src/configFrame.cpp:774
 msgid "Set font and colour used in the first column of the chart (headers' column)."
 msgstr ""
 
-#: src/configFrame.cpp:719 src/configFrame.cpp:1602
+#: src/configFrame.cpp:779 src/configFrame.cpp:1763
 msgid "Data in the chart"
 msgstr ""
 
-#: src/configFrame.cpp:720
+#: src/configFrame.cpp:780
 msgid "Set font and colour used to present the data on the chart."
 msgstr ""
 
-#: src/configFrame.cpp:725 src/configFrame.cpp:1610
+#: src/configFrame.cpp:785 src/configFrame.cpp:1771
 msgid "Results' rows in the chart"
 msgstr ""
 
-#: src/configFrame.cpp:726
+#: src/configFrame.cpp:786
 msgid "Set font and colour of charactes in results' rows on the chart (mucus and cervix peaks)."
 msgstr ""
 
-#: src/configFrame.cpp:731
+#: src/configFrame.cpp:791
 msgid "Fertile / Unfertile Phase"
 msgstr ""
 
-#: src/configFrame.cpp:732
+#: src/configFrame.cpp:792
 msgid "Set font and colour of strings 'Fertile / Unfertile Phase'."
 msgstr ""
 
-#: src/configFrame.cpp:744
+#: src/configFrame.cpp:804
+msgid "Synchronization details"
+msgstr ""
+
+#: src/configFrame.cpp:807
+msgid "Remember password"
+msgstr ""
+
+#: src/configFrame.cpp:809
+msgid ""
+"Application can remember your password.\n"
+"Do not use this option on public computer."
+msgstr ""
+
+#: src/configFrame.cpp:818
+msgid "Password:"
+msgstr ""
+
+#: src/configFrame.cpp:830
+msgid ""
+"Application can remember your password.\n"
+"Do not use this option on public computer.\n"
+"Password can be 64 characters length."
+msgstr ""
+
+#: src/configFrame.cpp:840
+msgid ""
+"It's not recomended to save password\n"
+"if it's not your private computer."
+msgstr ""
+
+#: src/configFrame.cpp:849
+msgid "Use custom server"
+msgstr ""
+
+#: src/configFrame.cpp:851 src/configFrame.cpp:871
+msgid "If you want you cas setup your own server for storing cards file. More details you can find in the documentation."
+msgstr ""
+
+#: src/configFrame.cpp:860
+msgid "URL:"
+msgstr ""
+
+#: src/configFrame.cpp:879
 msgid "Units used in application"
 msgstr ""
 
-#: src/configFrame.cpp:747
+#: src/configFrame.cpp:882
 msgid "Length unit"
 msgstr ""
 
-#: src/configFrame.cpp:749 src/configFrame.cpp:753
+#: src/configFrame.cpp:884 src/configFrame.cpp:888
 msgid "Choose if you want to use centimiter or inch as a length unit."
 msgstr ""
 
-#: src/configFrame.cpp:758
+#: src/configFrame.cpp:893
 msgid "Temperature unit"
 msgstr ""
 
-#: src/configFrame.cpp:760 src/configFrame.cpp:764
+#: src/configFrame.cpp:895 src/configFrame.cpp:899
 msgid "Choose if you want to use Celsius or Fahrenheit as a temperature unit."
 msgstr ""
 
-#: src/configFrame.cpp:774
+#: src/configFrame.cpp:909
 msgid "Restore defaults settings"
 msgstr ""
 
-#: src/configFrame.cpp:775
+#: src/configFrame.cpp:910
 msgid ""
 "Restore defaults settings of all application parameters,\n"
 " except application language."
 msgstr ""
 
-#: src/configFrame.cpp:781
+#: src/configFrame.cpp:916
 msgid "General"
 msgstr ""
 
-#: src/configFrame.cpp:782
+#: src/configFrame.cpp:917
 msgid "Application"
 msgstr ""
 
-#: src/configFrame.cpp:783 src/nfpMainFrame.cpp:331
+#: src/configFrame.cpp:918 src/nfpMainFrame.cpp:355
 msgid "Analysis"
 msgstr ""
 
-#: src/configFrame.cpp:784
+#: src/configFrame.cpp:919
 msgid "Colours"
 msgstr ""
 
-#: src/configFrame.cpp:785
+#: src/configFrame.cpp:920
 msgid "Fonts"
 msgstr ""
 
-#: src/configFrame.cpp:786
+#: src/configFrame.cpp:921
 msgid "Other"
 msgstr ""
 
-#: src/configFrame.cpp:789
+#: src/configFrame.cpp:924
 msgid "Save"
 msgstr ""
 
-#: src/configFrame.cpp:790
+#: src/configFrame.cpp:925
 msgid "Save and apply changes without closing this window"
 msgstr ""
 
-#: src/configFrame.cpp:792 src/goToFrame.cpp:172 src/printFrame.cpp:123
+#: src/configFrame.cpp:927 src/goToFrame.cpp:172 src/passwordDialog.cpp:67
+#: src/printFrame.cpp:123 src/syncActionTypeDialog.cpp:40
 msgid "Cancel"
 msgstr ""
 
-#: src/configFrame.cpp:793
+#: src/configFrame.cpp:928
 msgid "Discard changes and close this window"
 msgstr ""
 
-#: src/configFrame.cpp:797 src/printFrame.cpp:120
-msgid "OK"
+#: src/configFrame.cpp:932
+msgid "Close (and save)"
 msgstr ""
 
-#: src/configFrame.cpp:798
+#: src/configFrame.cpp:933
 msgid "Save and apply changes and close this window"
 msgstr ""
 
-#: src/configFrame.cpp:906 src/configFrame.cpp:1331 src/configFrame.cpp:1986
-#: src/configFrame.cpp:2315
+#: src/configFrame.cpp:1042 src/configFrame.cpp:1492 src/configFrame.cpp:2347
+#: src/configFrame.cpp:2719
 msgid "centimiter"
 msgstr ""
 
-#: src/configFrame.cpp:907 src/configFrame.cpp:1988
+#: src/configFrame.cpp:1043 src/configFrame.cpp:2349
 msgid "inch"
 msgstr ""
 
-#: src/configFrame.cpp:908 src/configFrame.cpp:1351 src/configFrame.cpp:1381
-#: src/configFrame.cpp:1992 src/configFrame.cpp:2321
+#: src/configFrame.cpp:1044 src/configFrame.cpp:1512 src/configFrame.cpp:1542
+#: src/configFrame.cpp:2353 src/configFrame.cpp:2725
 msgid "Celsius"
 msgstr ""
 
-#: src/configFrame.cpp:909 src/configFrame.cpp:1996
+#: src/configFrame.cpp:1045 src/configFrame.cpp:2357
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/configFrame.cpp:1450
+#: src/configFrame.cpp:1611
 msgid "Cell 1,1"
 msgstr ""
 
-#: src/configFrame.cpp:1460
+#: src/configFrame.cpp:1621
 msgid "Cell 1,2"
 msgstr ""
 
-#: src/configFrame.cpp:1469
+#: src/configFrame.cpp:1630
 msgid "Cell 2,1"
 msgstr ""
 
-#: src/configFrame.cpp:1478
+#: src/configFrame.cpp:1639
 msgid "Cell 2,2"
 msgstr ""
 
-#: src/configFrame.cpp:1487
+#: src/configFrame.cpp:1648
 msgid "Active day's cell 1"
 msgstr ""
 
-#: src/configFrame.cpp:1496
+#: src/configFrame.cpp:1657
 msgid "Active day's cell 2"
 msgstr ""
 
-#: src/configFrame.cpp:1618
+#: src/configFrame.cpp:1779
 msgid "Phase I/II/III"
 msgstr ""
 
-#: src/configFrame.cpp:2427
+#: src/configFrame.cpp:2560
+msgid "Use custom synchronization server is enabled, but custom server URL is empty."
+msgstr ""
+
+#: src/configFrame.cpp:2560 src/configFrame.cpp:2565 src/dayFrame.cpp:811
+#: src/IOoperations.cpp:72 src/IOoperations.cpp:92 src/IOoperations.cpp:194
+#: src/IOoperations.cpp:275 src/IOoperations.cpp:293 src/IOoperations.cpp:296
+#: src/IOoperations.cpp:299 src/IOoperations.cpp:329 src/IOoperations.cpp:396
+#: src/IOoperations.cpp:398 src/IOoperations.cpp:468 src/IOoperations.cpp:484
+#: src/IOoperations.cpp:488 src/IOoperations.cpp:522 src/IOoperations.cpp:531
+#: src/IOoperations.cpp:537 src/IOoperations.cpp:546 src/IOoperations.cpp:550
+#: src/IOoperations.cpp:578 src/IOoperations.cpp:584 src/IOoperations.cpp:585
+#: src/IOoperations.cpp:592 src/IOoperations.cpp:597 src/IOoperations.cpp:626
+#: src/IOoperations.cpp:656 src/nfpMainFrame.cpp:548 src/nfpMainFrame.cpp:558
+#: src/nfpMainFrame.cpp:694 src/nfpMainFrame.cpp:1203
+#: src/nfpMainFrame.cpp:1205 src/nfpMainFrame.cpp:1426
+#: src/nfpMainFrame.cpp:1433 src/nfpMainFrame.cpp:1494
+#: src/nfpMainFrame.cpp:1522 src/nfpMainFrame.cpp:1552
+#: src/nfpMainFrame.cpp:2097 src/serverOperationsForm.cpp:149
+#: src/serverOperationsForm.cpp:155 src/wxHttpThread.cpp:128
+#: src/wxHttpThread.cpp:289 src/wxHttpThread.cpp:389 src/wxHttpThread.cpp:431
+msgid "Error"
+msgstr ""
+
+#: src/configFrame.cpp:2565
+msgid "Use custom synchronization server is enabled, but given custom server URL is incorrect."
+msgstr ""
+
+#: src/configFrame.cpp:2758
 msgid "You must restart the application to change the language of the application."
 msgstr ""
 
-#: src/configFrame.cpp:2427 src/configFrame.cpp:2430 src/nfpMainFrame.cpp:452
-#: src/nfpMainFrame.cpp:490
+#: src/configFrame.cpp:2758 src/configFrame.cpp:2761 src/nfpMainFrame.cpp:485
+#: src/nfpMainFrame.cpp:495 src/nfpMainFrame.cpp:534
 msgid "Notification"
 msgstr ""
 
-#: src/configFrame.cpp:2430
+#: src/configFrame.cpp:2761
 msgid ""
 "Application fonts have been changed.\n"
 "It's recommended to restart the application to have data correctly displayed."
@@ -1032,67 +1127,72 @@ msgstr ""
 msgid "Cervix peak day"
 msgstr ""
 
-#: src/cyclesData.cpp:31
+#: src/cyclesData.cpp:37
 msgid "your name"
 msgstr ""
 
-#: src/cyclesData.cpp:507
-#, c-format
-msgid "File doesn't exist: %s"
+#: src/cyclesData.cpp:391
+msgid "not set"
 msgstr ""
 
-#: src/cyclesData.cpp:513 src/cyclesData.cpp:1170
-#, c-format
-msgid "Cannot open file: %s"
-msgstr ""
-
-#: src/cyclesData.cpp:520 src/cyclesData.cpp:543 src/cyclesData.cpp:556
+#: src/cyclesData.cpp:608 src/cyclesData.cpp:621 src/cyclesData.cpp:656
+#: src/cyclesData.cpp:669 src/cyclesData.cpp:716
 #, c-format
 msgid "File is not the data file of the NFP application: %s"
 msgstr ""
 
-#: src/cyclesData.cpp:527
+#: src/cyclesData.cpp:703
+#, c-format
+msgid "File doesn't exist: %s"
+msgstr ""
+
+#: src/cyclesData.cpp:709 src/cyclesData.cpp:1313
+#, c-format
+msgid "Cannot open file: %s"
+msgstr ""
+
+#: src/cyclesData.cpp:723
 #, c-format
 msgid "Cannot read file: %s"
 msgstr ""
 
-#: src/cyclesData.cpp:535
+#: src/cyclesData.cpp:731
 #, c-format
 msgid "File is empty: %s"
 msgstr ""
 
-#: src/cyclesData.cpp:623 src/nfpMainFrame.cpp:1228
+#: src/cyclesData.cpp:782 src/nfpMainFrame.cpp:1433
 msgid "Error occured while adding new card"
 msgstr ""
 
-#: src/cyclesData.cpp:633
+#: src/cyclesData.cpp:792
 #, c-format
 msgid "Incorrect card number: %i, expected: %i"
 msgstr ""
 
-#: src/cyclesData.cpp:734 src/dayFrame.cpp:811 src/nfpMainFrame.cpp:797
-#: src/nfpMainFrame.cpp:1221 src/nfpMainFrame.cpp:1912
+#: src/cyclesData.cpp:893 src/dayFrame.cpp:811 src/nfpMainFrame.cpp:1426
+#: src/nfpMainFrame.cpp:1494 src/nfpMainFrame.cpp:2097
 msgid "Error occured while adding new day"
 msgstr ""
 
-#: src/cyclesData.cpp:741
+#: src/cyclesData.cpp:900
 #, c-format
 msgid "Incorrect day number: %i, expected: %i (card %i)"
 msgstr ""
 
-#: src/cyclesData.cpp:772 src/cyclesData.cpp:776
+#: src/cyclesData.cpp:931 src/cyclesData.cpp:935
 #, c-format
 msgid "card %i/ day %i, "
 msgstr ""
 
-#: src/cyclesData.cpp:779
+#: src/cyclesData.cpp:938
 #, c-format
 msgid ""
 "\n"
 "there are %i sexual relations reported for day %i on card %i - only 3 of them are converted and others are ignored."
 msgstr ""
 
-#: src/cyclesData.cpp:1006
+#: src/cyclesData.cpp:1179
 #, c-format
 msgid "Incorrect file name: %s"
 msgstr ""
@@ -1124,23 +1224,23 @@ msgstr ""
 msgid "What should I do?"
 msgstr ""
 
-#: src/cyclesData_results.cpp:964
+#: src/cyclesData_results.cpp:962
 #, c-format
 msgid "- Cannot calculate low level value of temperatures - days %i-%i doesn't have measured temperature - exit\n"
 msgstr ""
 
-#: src/cyclesData_results.cpp:1000
+#: src/cyclesData_results.cpp:998
 #, c-format
 msgid "- Day %i pointed by you as a first day of high level temperature doesn't have measured temperature. I hope that you know what are you doing ;)\n"
 msgstr ""
 
-#: src/cyclesData_results.cpp:1103
+#: src/cyclesData_results.cpp:1101
 msgid ""
 "\n"
 "- On first card we don't calculate beginning of fertile phase. Fertile phase starts at first day of the cycle."
 msgstr ""
 
-#: src/cyclesData_results.cpp:1107
+#: src/cyclesData_results.cpp:1105
 #, c-format
 msgid ""
 "\n"
@@ -1148,22 +1248,22 @@ msgid ""
 "Please add this information in the 'edit card' dialog."
 msgstr ""
 
-#: src/cyclesData_results.cpp:1126
+#: src/cyclesData_results.cpp:1124
 msgid ""
 "\n"
 "Calculated beginning of fertile phase:"
 msgstr ""
 
-#: src/cyclesData_results.cpp:1128 src/cyclesData_results.cpp:1130
-#: src/cyclesData_results.cpp:1132 src/cyclesData_results.cpp:1134
-#: src/cyclesData_results.cpp:1136
+#: src/cyclesData_results.cpp:1126 src/cyclesData_results.cpp:1128
+#: src/cyclesData_results.cpp:1130 src/cyclesData_results.cpp:1132
+#: src/cyclesData_results.cpp:1134
 #, c-format
 msgid ""
 "\n"
 "   - day %i (according to %s)"
 msgstr ""
 
-#: src/cyclesData_results.cpp:1139
+#: src/cyclesData_results.cpp:1137
 #, c-format
 msgid ""
 "\n"
@@ -1178,20 +1278,20 @@ msgstr ""
 msgid "Number of cycles with particular length"
 msgstr ""
 
-#: src/cyclesLengthChart.cpp:83 src/cyclesLengthChart.cpp:86
-#: src/cyclesLengthChart.cpp:99
+#: src/cyclesLengthChart.cpp:82 src/cyclesLengthChart.cpp:85
+#: src/cyclesLengthChart.cpp:98
 msgid ""
 "no of\n"
 "cycles"
 msgstr ""
 
-#: src/cyclesLengthChart.cpp:90 src/cyclesLengthChart.cpp:100
+#: src/cyclesLengthChart.cpp:89 src/cyclesLengthChart.cpp:99
 msgid ""
 "cycle\n"
 "length"
 msgstr ""
 
-#: src/cyclesLengthChart.cpp:93
+#: src/cyclesLengthChart.cpp:92
 msgid ""
 "no of\n"
 "cycles\n"
@@ -1403,16 +1503,6 @@ msgstr ""
 msgid "additional notes"
 msgstr ""
 
-#: src/dayFrame.cpp:811 src/liveUpdateClass.cpp:124 src/nfpMainFrame.cpp:148
-#: src/nfpMainFrame.cpp:503 src/nfpMainFrame.cpp:513 src/nfpMainFrame.cpp:645
-#: src/nfpMainFrame.cpp:797 src/nfpMainFrame.cpp:981 src/nfpMainFrame.cpp:1031
-#: src/nfpMainFrame.cpp:1033 src/nfpMainFrame.cpp:1221
-#: src/nfpMainFrame.cpp:1228 src/nfpMainFrame.cpp:1302
-#: src/nfpMainFrame.cpp:1331 src/nfpMainFrame.cpp:1811
-#: src/nfpMainFrame.cpp:1912
-msgid "Error"
-msgstr ""
-
 #: src/dayFrame.cpp:1908 src/dayFrame.cpp:1910
 msgid ""
 "Do you want to save day's data changes? \n"
@@ -1594,29 +1684,200 @@ msgstr ""
 msgid "Cancel operation and close this window"
 msgstr ""
 
-#: src/liveUpdateClass.cpp:110 src/liveUpdateClass.cpp:212
+#: src/IOoperations.cpp:69
 #, c-format
-msgid "Problem with reading data from the server '%s'.. error code: %d"
+msgid ""
+"Hmm.. that's strange - before synchronization there were %i cards in the set, but in the set downloaded from the server are %i cards.\n"
+"Is that correct?\n"
+"Select 'Yes' to ignore this warning.\n"
+"Select 'No' to restore last local backup."
 msgstr ""
 
-#: src/liveUpdateClass.cpp:125
-#, c-format
-msgid "Incorrect data received from Web Server: '%s'"
+#: src/IOoperations.cpp:72
+msgid "Restoring backups is not supported yet.. sorry ;)"
 msgstr ""
 
-#: src/liveUpdateClass.cpp:134
+#: src/IOoperations.cpp:92
 #, c-format
-msgid "Incorrect data received from Web Server -couldn't find the ';' character in the string '%s'"
+msgid ""
+"Error occured while reading data from file:\n"
+"%s"
 msgstr ""
 
-#: src/liveUpdateClass.cpp:150
+#: src/IOoperations.cpp:194
 #, c-format
-msgid "Incorrect data received from Web Server - couldn't find the '.' character in the 'availableVersion' string '%s'"
+msgid ""
+"Error occured while saving card to file:\n"
+"%s"
 msgstr ""
 
-#: src/liveUpdateClass.cpp:220
+#: src/IOoperations.cpp:210
+msgid "Save cards' set as..."
+msgstr ""
+
+#: src/IOoperations.cpp:222
+msgid "new_set"
+msgstr ""
+
+#: src/IOoperations.cpp:239
+msgid ""
+"You're saving the card set in the new file.\n"
+"Dou you want also to create new file on server for this card?"
+msgstr ""
+
+#: src/IOoperations.cpp:240 src/IOoperations.cpp:302 src/nfpMainFrame.cpp:526
+#: src/nfpMainFrame.cpp:688 src/nfpMainFrame.cpp:1123
+#: src/nfpMainFrame.cpp:1150 src/nfpMainFrame.cpp:1163
+#: src/nfpMainFrame.cpp:1520 src/nfpMainFrame.cpp:1550
+#: src/nfpMainFrame.cpp:2079 src/nfpMainFrame_io_operations.cpp:181
+#: src/nfpMainFrame_io_operations.cpp:186 src/wx-nfpApp.cpp:45
+#: src/wx-nfpApp.cpp:48
+msgid "Question"
+msgstr ""
+
+#: src/IOoperations.cpp:275
 #, c-format
-msgid "Cannot save file to disk: '%s'"
+msgid ""
+"Request to this URL faild:\n"
+"%s%s\n"
+"so either server is down or it's incorrectly defined.\n"
+"Anyway I cannot sync data."
+msgstr ""
+
+#: src/IOoperations.cpp:293
+msgid ""
+"I cannot find your file on the server.\n"
+"Are you sure you have given correct password?"
+msgstr ""
+
+#: src/IOoperations.cpp:296
+msgid ""
+"So I don't know what's wrong.. there were problems on server or you have changed the server.. sorry.\n"
+"I'll check it again when you save the card.."
+msgstr ""
+
+#: src/IOoperations.cpp:299
+msgid ""
+"So I don't know what's wrong.. there were problems on server or you have changed the server.. sorry.\n"
+"I cannot remove something what I cannot find ;)"
+msgstr ""
+
+#: src/IOoperations.cpp:302
+msgid ""
+"So I don't know what's wrong.. there were problems on server or you have changed the server.. sorry.\n"
+"Dou you want me to save your card on the server anyway?"
+msgstr ""
+
+#: src/IOoperations.cpp:329
+msgid "File has been checked on server correctly, but m_serverFileMd5Sum is still empty in sync().. this issue shouldn't occured, please inform author"
+msgstr ""
+
+#: src/IOoperations.cpp:351 src/IOoperations.cpp:361
+#, c-format
+msgid ""
+"File on server has been update since last sync (which you made at %s).\n"
+"Select 'Yes' to upload your local file and overwrite the file on server with your latest changes?\n"
+" Select 'No' to download the file from the server and see the changes between it and your local file."
+msgstr ""
+
+#: src/IOoperations.cpp:351 src/IOoperations.cpp:361 src/IOoperations.cpp:667
+msgid "Do overwrite remote file?"
+msgstr ""
+
+#: src/IOoperations.cpp:396
+msgid ""
+"I cannot find your file on the server.\n"
+"Are you sure you have given correct name of the cards' set stored on the server and password?"
+msgstr ""
+
+#: src/IOoperations.cpp:398
+msgid "So I don't know what's wrong.. there were problems on server or... sorry.\n"
+msgstr ""
+
+#: src/IOoperations.cpp:484 src/IOoperations.cpp:488
+#, c-format
+msgid ""
+"Problem occurred when removing your file from server.\n"
+"Expected response string: 'OK'\n"
+"Found: %s"
+msgstr ""
+
+#: src/IOoperations.cpp:487 src/passwordDialog.cpp:65 src/printFrame.cpp:120
+msgid "OK"
+msgstr ""
+
+#: src/IOoperations.cpp:522 src/IOoperations.cpp:531 src/IOoperations.cpp:537
+#, c-format
+msgid ""
+"Problem occurred with sending your file on server.\n"
+"Expected response string: 'OK:<timestamp>:<md5sum>'\n"
+"Found: %s"
+msgstr ""
+
+#: src/IOoperations.cpp:546
+msgid "File has been uploaded to server correctly, but m_serverFileSyncTimestamp is still empty in uploadFile().. this issue shouldn't occured, please inform author"
+msgstr ""
+
+#: src/IOoperations.cpp:550
+msgid "File has been uploaded to server correctly, but m_serverFileMd5Sum is still empty in uploadFile().. this issue shouldn't occured, please inform author"
+msgstr ""
+
+#: src/IOoperations.cpp:578 src/IOoperations.cpp:585
+#, c-format
+msgid ""
+"Problem occurred with downloading your file from server.\n"
+"Expected your cards file.\n"
+"Found: %s"
+msgstr ""
+
+#: src/IOoperations.cpp:592
+msgid "File has been downloaded from server correctly, but m_serverFileMd5Sum is empty in downloadFile().. this issue shouldn't occured, please inform author"
+msgstr ""
+
+#: src/IOoperations.cpp:597
+#, c-format
+msgid ""
+"File has been downloaded from server correctly, but I cannot fine this file stored on hard disk:\n"
+"%s"
+msgstr ""
+
+#: src/IOoperations.cpp:626
+#, c-format
+msgid "Cannot copy file: '%s' -> '%s'"
+msgstr ""
+
+#: src/IOoperations.cpp:656
+#, c-format
+msgid ""
+"Error occured while reading cycles data from just downloaded file.\n"
+"Are you sure that it's your file and you gave correct password?:\n"
+"Details:\n"
+"%s"
+msgstr ""
+
+#: src/IOoperations.cpp:667
+msgid ""
+"I'm sorry but file comparison is not yet implemented..\n"
+"Select 'Yes' to upload your local file and overwrite the file on server with your latest changes?\n"
+" Select 'No' to download the file from the server and overwrite changes you made locally."
+msgstr ""
+
+#: src/IOoperations.cpp:705
+msgid "Type the name you want to use for your cards' set stored on the server."
+msgstr ""
+
+#: src/IOoperations.cpp:707 src/IOoperations.cpp:712
+msgid "Type the name of your cards' set stored on the server."
+msgstr ""
+
+#: src/IOoperations.cpp:714
+msgid ""
+"It seems that somehow the combination of the cards' set name and password you've choosen generats the hash which is already in used.\n"
+"Please type another name for your cards' set stored on the server (e.g. add one more letter)"
+msgstr ""
+
+#: src/IOoperations.cpp:716
+msgid "Card name"
 msgstr ""
 
 #: src/lutealPhasesChart.cpp:18
@@ -1628,15 +1889,15 @@ msgid "Luteal phases length in all cycles (normal type)"
 msgstr ""
 
 #: src/lutealPhasesChart.cpp:64 src/lutealPhasesChart.cpp:67
-#: src/lutealPhasesChart.cpp:80 src/phasesChart.cpp:97 src/phasesChart.cpp:100
-#: src/phasesChart.cpp:121
+#: src/lutealPhasesChart.cpp:80 src/phasesChart.cpp:91 src/phasesChart.cpp:94
+#: src/phasesChart.cpp:115
 msgid ""
 "no of\n"
 "days"
 msgstr ""
 
 #: src/lutealPhasesChart.cpp:71 src/lutealPhasesChart.cpp:81
-#: src/phasesChart.cpp:104 src/phasesChart.cpp:122
+#: src/phasesChart.cpp:98 src/phasesChart.cpp:116
 msgid "cycle"
 msgstr ""
 
@@ -1647,518 +1908,531 @@ msgid ""
 "length"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:148
-msgid "Error occured while reading data from file:\n"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:254
-msgid "new day"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:255 src/nfpMainFrame.cpp:326
-msgid "Add new day to the card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:259
-msgid "analyze cycle"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:260 src/nfpMainFrame.cpp:348
-msgid "Analyze cycle data and calculate results"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:276
-msgid "NFP"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:278
-msgid "New cards' set\tCtrl+N"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:278
-msgid "Create new set of cycles' cards"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:279
-msgid "Open cards' set\tCtrl+O"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:279
-msgid "Open existing set of cycles' cards from file"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:280
-msgid "Save cards' set\tCtrl+S"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:280
-msgid "Save changes in currently opened file"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:281
-msgid "Save cards' set as...\tCtrl+Shift+S"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:281
-msgid "Save set of cycles' cards in new file"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:283
-msgid "Print\tCtrl+P"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:283
-msgid "Print cards"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:288
-msgid "Preferences\tF2"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:288
-msgid "Change the application preferences"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:290
-msgid "Exit\tAlt+F4"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:290
-msgid "Close the application"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:295
-msgid "Card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:297
-msgid "Previous card\tCtrl+Left"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:297
+#: src/nfpMainFrame.cpp:253 src/nfpMainFrame.cpp:321
 msgid "Go to the previous card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:298
-msgid "Next card\tCtrl+Right"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:298
+#: src/nfpMainFrame.cpp:256 src/nfpMainFrame.cpp:322
 msgid "Go to the next card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:299
-msgid "Go to card..\tCtrl+G"
+#: src/nfpMainFrame.cpp:259
+msgid "new day"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:299
-msgid "Go to the card with choosen number or based on date"
+#: src/nfpMainFrame.cpp:260 src/nfpMainFrame.cpp:350
+msgid "Add new day to the card"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:264
+msgid "analyze cycle"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:265 src/nfpMainFrame.cpp:372
+msgid "Analyze cycle data and calculate results"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:271 src/nfpMainFrame.cpp:300
+msgid "Save changes in currently opened file"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:274 src/nfpMainFrame.cpp:305
+msgid "Synchronize file with server now"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:291
+msgid "New cards' set\tCtrl+N"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:291
+msgid "Create new set of cycles' cards"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:292
+msgid "Open cards' set\tCtrl+O"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:292
+msgid "Open existing set of cycles' cards from file"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:297
+msgid "Clear history"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:298
+msgid "Recent cards' set"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:300
+msgid "Save cards' set\tCtrl+S"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:301
-msgid "Edit card's data"
+msgid "Save cards' set as...\tCtrl+Shift+S"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:302
-msgid "Remove card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:302
-msgid "Remove card. It is possible to remove only the last card from the set"
+#: src/nfpMainFrame.cpp:301
+msgid "Save set of cycles' cards in new file"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:303
-msgid "Card locked\tCtrl+L"
+msgid "Store cards' set on server"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:303
-msgid "Lock card. This option protects card's data against accidental changes. Also prevents from autocalculating results so manually set results will not be lost."
+msgid "Enable synchronization with server"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:304
-msgid "Corrupted/incomplete data"
+msgid "Synchronize automatically"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:304
-msgid "Card contains corrupted or incomplete data. If selected then data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles."
+msgid "Perform synchronization automatically when opening and saving file"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:306
-msgid "New card\tCtrl+C"
+#: src/nfpMainFrame.cpp:305
+msgid "Synchronize now"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:306
-msgid "Add new card - new cycle begun"
+#: src/nfpMainFrame.cpp:307
+msgid "Print\tCtrl+P"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:311 src/nfpMainFrame.cpp:822
-msgid "Day"
+#: src/nfpMainFrame.cpp:307
+msgid "Print cards"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:313 src/nfpMainFrame.cpp:383
-msgid "Day XX"
+#: src/nfpMainFrame.cpp:312
+msgid "Preferences\tF2"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:316 src/nfpMainFrame.cpp:386
-msgid "Edit day's data"
+#: src/nfpMainFrame.cpp:312
+msgid "Change the application preferences"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:317 src/nfpMainFrame.cpp:387
-msgid "Remove day"
+#: src/nfpMainFrame.cpp:314
+msgid "Exit\tAlt+F4"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:317 src/nfpMainFrame.cpp:387
-msgid "Remove day. It is possible to remove only the last day from the last card from the set"
+#: src/nfpMainFrame.cpp:314
+msgid "Close the application"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:320 src/nfpMainFrame.cpp:824
-msgid "XX - XX to the previous card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:320
-msgid "Move the currently selected day and preceding ones to the next card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:321 src/nfpMainFrame.cpp:825
-msgid "XX - XX to the next card"
+#: src/nfpMainFrame.cpp:319
+msgid "Card"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:321
-msgid "Move the currently selected day and following ones to the next card. Create next card if it doesn't exist"
+msgid "Previous card\tCtrl+Left"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:324 src/nfpMainFrame.cpp:391
-msgid "Move days.."
+#: src/nfpMainFrame.cpp:322
+msgid "Next card\tCtrl+Right"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:323
+msgid "Go to card..\tCtrl+G"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:323
+msgid "Go to the card with choosen number or based on date"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:325
+msgid "Edit card's data"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:326
-msgid "New day\tCtrl+D"
+msgid "Remove card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:334
-msgid "first day of mucus apperance"
+#: src/nfpMainFrame.cpp:326
+msgid "Remove card. It is possible to remove only the last card from the set"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:334
-msgid "Mark this day as a first day of mucus apperance"
+#: src/nfpMainFrame.cpp:327
+msgid "Card locked\tCtrl+L"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:335
-msgid "first day of more fertile mucus apperance"
+#: src/nfpMainFrame.cpp:327
+msgid "Lock card. This option protects card's data against accidental changes. Also prevents from autocalculating results so manually set results will not be lost."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:335
-msgid "Mark this day as a first day of more fertile mucus apperance"
+#: src/nfpMainFrame.cpp:328
+msgid "Corrupted/incomplete data"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:336
-msgid "mucus peak day"
+#: src/nfpMainFrame.cpp:328
+msgid "Card contains corrupted or incomplete data. If selected then data from this cycle will not be used to e.g. calculate begining of the fertile phase in next cycles."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:336
-msgid "Mark this day as a mucus peak day"
+#: src/nfpMainFrame.cpp:330
+msgid "New card\tCtrl+C"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:338
-msgid "first day of cervix changes"
+#: src/nfpMainFrame.cpp:330
+msgid "Add new card - new cycle begun"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:338
-msgid "Mark this day as a first day of cervix changes"
+#: src/nfpMainFrame.cpp:335 src/nfpMainFrame.cpp:891
+msgid "Day"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:339
-msgid "cervix peak day"
+#: src/nfpMainFrame.cpp:337 src/nfpMainFrame.cpp:407
+msgid "Day XX"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:339
-msgid "Mark this day as a cervix peak day"
+#: src/nfpMainFrame.cpp:340 src/nfpMainFrame.cpp:410
+msgid "Edit day's data"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:341
-msgid "first day of high temperature level"
+#: src/nfpMainFrame.cpp:341 src/nfpMainFrame.cpp:411
+msgid "Remove day"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:341
-msgid "Mark this day as a first day of high temperature level"
+#: src/nfpMainFrame.cpp:341 src/nfpMainFrame.cpp:411
+msgid "Remove day. It is possible to remove only the last day from the last card from the set"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:343
-msgid "first day of fertile phase"
+#: src/nfpMainFrame.cpp:345 src/nfpMainFrame.cpp:893
+msgid "XX - XX to the previous card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:343
-msgid "Mark this day as a first day of the fertile phase"
+#: src/nfpMainFrame.cpp:345
+msgid "Move the currently selected day and preceding ones to the next card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:344
-msgid "first day of infertile phase"
+#: src/nfpMainFrame.cpp:346 src/nfpMainFrame.cpp:894
+msgid "XX - XX to the next card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:344
-msgid "Mark this day as a first day of the infertile phase (pre- or post-ovulatory infertility)"
+#: src/nfpMainFrame.cpp:346
+msgid "Move the currently selected day and following ones to the next card. Create next card if it doesn't exist"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:346 src/nfpMainFrame.cpp:390 src/nfpMainFrame.cpp:823
-msgid "Mark day XX as.."
-msgstr ""
-
-#: src/nfpMainFrame.cpp:348
-msgid "Analyze cycle data now"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:349
-msgid "Analyze cycle after each data change"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:349
-msgid "Analyze cycle automatically after each data change"
+#: src/nfpMainFrame.cpp:348 src/nfpMainFrame.cpp:415
+msgid "Move days.."
 msgstr ""
 
 #: src/nfpMainFrame.cpp:350
-msgid "Change analysis settings"
+msgid "New day\tCtrl+D"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:356 src/nfpMainFrame.cpp:357
-msgid "Statistics"
+#: src/nfpMainFrame.cpp:358
+msgid "first day of mucus apperance"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:366 src/nfpMainFrame.cpp:368
-msgid "Help"
+#: src/nfpMainFrame.cpp:358
+msgid "Mark this day as a first day of mucus apperance"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:359
+msgid "first day of more fertile mucus apperance"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:359
+msgid "Mark this day as a first day of more fertile mucus apperance"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:360
+msgid "mucus peak day"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:360
+msgid "Mark this day as a mucus peak day"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:362
+msgid "first day of cervix changes"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:362
+msgid "Mark this day as a first day of cervix changes"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:363
+msgid "cervix peak day"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:363
+msgid "Mark this day as a cervix peak day"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:365
+msgid "first day of high temperature level"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:365
+msgid "Mark this day as a first day of high temperature level"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:367
+msgid "first day of fertile phase"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:367
+msgid "Mark this day as a first day of the fertile phase"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:368
-msgid "Help\tF1"
+msgid "first day of infertile phase"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:369
-msgid "Home page"
+#: src/nfpMainFrame.cpp:368
+msgid "Mark this day as a first day of the infertile phase (pre- or post-ovulatory infertility)"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:369
-msgid "Visit the web page of wx-nfp"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:370
-msgid "Report bug / comments"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:370
-msgid "Report bug found in the application or any comments to the application"
+#: src/nfpMainFrame.cpp:370 src/nfpMainFrame.cpp:414 src/nfpMainFrame.cpp:892
+msgid "Mark day XX as.."
 msgstr ""
 
 #: src/nfpMainFrame.cpp:372
+msgid "Analyze cycle data now"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:373
+msgid "Analyze cycle after each data change"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:373
+msgid "Analyze cycle automatically after each data change"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:374
+msgid "Change analysis settings"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:380 src/nfpMainFrame.cpp:381
+msgid "Statistics"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:390 src/nfpMainFrame.cpp:392
+msgid "Help"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:392
+msgid "Help\tF1"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:393
+msgid "Home page"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:393
+msgid "Visit the web page of wx-nfp"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:394
+msgid "Report bug / comments"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:394
+msgid "Report bug found in the application or any comments to the application"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:396
 msgid "Check for updates..."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:374
+#: src/nfpMainFrame.cpp:398
 msgid "About..."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:374
+#: src/nfpMainFrame.cpp:398
 msgid "General information about the application"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:442
+#: src/nfpMainFrame.cpp:485
 msgid ""
 "New version of the application is available on the server.\n"
 "-Download it and install in convenient time."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:450 src/nfpMainFrame.cpp:452
+#: src/nfpMainFrame.cpp:493 src/nfpMainFrame.cpp:495
 msgid "New version of application is not available."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:461 src/nfpMainFrame.cpp:463
+#: src/nfpMainFrame.cpp:504 src/nfpMainFrame.cpp:506
 #, c-format
 msgid "Unknown event ID: %i, message: %s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:482 src/nfpMainFrame.cpp:639
+#: src/nfpMainFrame.cpp:526 src/nfpMainFrame.cpp:688
 msgid ""
 "New version of application is ready for installation.\n"
 "-Press 'Yes' if you want to reinstall the application now.\n"
 "-Press 'No' if you prefer to reinstall it later."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:482 src/nfpMainFrame.cpp:639 src/nfpMainFrame.cpp:1300
-#: src/nfpMainFrame.cpp:1329 src/nfpMainFrame.cpp:1894 src/wx-nfpApp.cpp:45
-#: src/wx-nfpApp.cpp:48
-msgid "Question"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:490
+#: src/nfpMainFrame.cpp:534
 msgid "You chose to not reinstall the application now. I ask you again when you close the application."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:503
+#: src/nfpMainFrame.cpp:548
 #, c-format
 msgid "Cannot execute file: %s - NOT IMPLEMENTED YET!"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:513 src/nfpMainFrame.cpp:645
+#: src/nfpMainFrame.cpp:558 src/nfpMainFrame.cpp:694
 #, c-format
 msgid "Cannot execute file: %s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:693 src/nfpMainFrame.cpp:1786
-msgid "new_set"
+#: src/nfpMainFrame.cpp:755
+msgid "new set"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:746
+#: src/nfpMainFrame.cpp:844
 msgid "Please, remember to perform today a breasts self-examination."
-msgstr ""
-
-#: src/nfpMainFrame.cpp:834
-#, c-format
-msgid "Mark day %i as.."
-msgstr ""
-
-#: src/nfpMainFrame.cpp:890
-#, c-format
-msgid "%i to the next card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:892
-#, c-format
-msgid "%i - %i to the next card"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:896
-msgid "1 to the previous card"
 msgstr ""
 
 #: src/nfpMainFrame.cpp:898
 #, c-format
+msgid "Mark day %i as.."
+msgstr ""
+
+#: src/nfpMainFrame.cpp:954
+#, c-format
+msgid "%i to the next card"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:956
+#, c-format
+msgid "%i - %i to the next card"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:960
+msgid "1 to the previous card"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:962
+#, c-format
 msgid "1 - %i to the previous card"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:957
+#: src/nfpMainFrame.cpp:1020
 msgid "Open cards' set..."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:981
-#, c-format
-msgid ""
-"Error occured while reading data from file:\n"
-"%s"
+#: src/nfpMainFrame.cpp:1123
+msgid "Do you want to remove also cards' set from server?."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1031
+#: src/nfpMainFrame.cpp:1150
+msgid ""
+"Storing your cards' set on the server is not yet enabled.\n"
+" Do you want to enable it now?"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:1163
+msgid ""
+"Your cards' set is not stored on the server yet.\n"
+" Do you want to enable it now?"
+msgstr ""
+
+#: src/nfpMainFrame.cpp:1203
 msgid ""
 "Problem with printing occurred.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1033
+#: src/nfpMainFrame.cpp:1205
 msgid "Printing has been canceled."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1049
+#: src/nfpMainFrame.cpp:1222
 msgid ""
 "There was a problem previewing.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1049
+#: src/nfpMainFrame.cpp:1222
 msgid "Previewing"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1053
+#: src/nfpMainFrame.cpp:1226
 msgid "Demo Print Preview"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1155
+#: src/nfpMainFrame.cpp:1358
 msgid ""
 "Are you sure you want to unlock the card?\n"
 "Card's data will not be protected against accidental changes."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1293
+#: src/nfpMainFrame.cpp:1513
 #, c-format
 msgid "Should I move day %i to the previous card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1295
+#: src/nfpMainFrame.cpp:1515
 #, c-format
 msgid "Should I move days %i - %i to the previous card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1298
+#: src/nfpMainFrame.cpp:1518
 msgid "Current card will be removed, because all days will be moved."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1302
+#: src/nfpMainFrame.cpp:1522
 #, c-format
 msgid ""
 "Error occured while moving days to the previous card\n"
 "%s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1322
+#: src/nfpMainFrame.cpp:1543
 #, c-format
 msgid "Should I move day %i to the next card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1324
+#: src/nfpMainFrame.cpp:1545
 #, c-format
 msgid "Should I move days %i - %i to the next card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1327
+#: src/nfpMainFrame.cpp:1548
 msgid "New card will be created."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1331
+#: src/nfpMainFrame.cpp:1552
 #, c-format
 msgid ""
 "Error occured while moving days to the next card\n"
 "%s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1380 src/nfpMainFrame.cpp:1396
-#: src/nfpMainFrame.cpp:1412 src/nfpMainFrame.cpp:1428
-#: src/nfpMainFrame.cpp:1444 src/nfpMainFrame.cpp:1460
-#: src/nfpMainFrame.cpp:1478 src/nfpMainFrame.cpp:1496
-#: src/nfpMainFrame.cpp:1512
+#: src/nfpMainFrame.cpp:1610 src/nfpMainFrame.cpp:1627
+#: src/nfpMainFrame.cpp:1644 src/nfpMainFrame.cpp:1661
+#: src/nfpMainFrame.cpp:1678 src/nfpMainFrame.cpp:1695
+#: src/nfpMainFrame.cpp:1714 src/nfpMainFrame.cpp:1733
+#: src/nfpMainFrame.cpp:1750
 msgid "Setting result faild:"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1482
+#: src/nfpMainFrame.cpp:1718
 #, c-format
 msgid "%i, %i"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1584 src/nfpMainFrame.cpp:1598
+#: src/nfpMainFrame.cpp:1824 src/nfpMainFrame.cpp:1840
+#: src/passwordDialog.cpp:82 src/syncActionTypeDialog.cpp:55
 #, c-format
 msgid "%s%s?l=en"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1591
+#: src/nfpMainFrame.cpp:1832
 #, c-format
 msgid "%s?l=en"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1668
+#: src/nfpMainFrame.cpp:1918
 msgid "Checking if new version of application is available."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1751 src/nfpMainFrame.cpp:1753
-msgid "Save changes in current cards' set to the file?"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:1774
-msgid "Save cards' set as..."
-msgstr ""
-
-#: src/nfpMainFrame.cpp:1811
-#, c-format
-msgid ""
-"Error occured while saving data to file:\n"
-"%s"
-msgstr ""
-
-#: src/nfpMainFrame.cpp:1894
+#: src/nfpMainFrame.cpp:2079
 #, c-format
 msgid ""
 "%i day should be added to the current card to have on the card all days including today.\n"
@@ -2169,19 +2443,19 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/nfpMainFrame.cpp:2015
+#: src/nfpMainFrame.cpp:2147
 msgid ""
 "Card is protected agains changes!\n"
 "Do you anyway want to updates results?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2039
+#: src/nfpMainFrame.cpp:2172
 msgid ""
 "In this release the automatic interpretation of cycle data has been implemented.\n"
 "Please read the documentation to understand how it works!"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2040
+#: src/nfpMainFrame.cpp:2173
 msgid ""
 "\n"
 "\n"
@@ -2191,42 +2465,81 @@ msgid ""
 "Because of that all existing data has been converted in following way:"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2041
+#: src/nfpMainFrame.cpp:2174
 msgid ""
 "\n"
 "- 1st reported sexual relation is now marked as 'in the evening'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2042
+#: src/nfpMainFrame.cpp:2175
 msgid ""
 "\n"
 "- 2nd reported sexual relation is now marked as 'during the day'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2046
+#: src/nfpMainFrame.cpp:2179
 msgid ""
 "\n"
 "- 3rd reported sexual relation is now marked as 'in the evening'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2050
+#: src/nfpMainFrame.cpp:2183
 msgid ""
 "\n"
 "- 4th and other reported sexual relations reported for a day are not stored anymore"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2054
+#: src/nfpMainFrame.cpp:2187
 msgid ""
 "\n"
 "Last file in previous format has been backed-up in:\n"
 msgstr ""
 
-#: src/notificationFrame.cpp:59 src/statisticsFrame.cpp:87
+#: src/nfpMainFrame_io_operations.cpp:98
+#: src/nfpMainFrame_io_operations.cpp:100
+msgid "Save changes in current cards' set to the file?"
+msgstr ""
+
+#: src/nfpMainFrame_io_operations.cpp:181
+msgid ""
+"You have just changed the synchronization server.\n"
+"Do you want to remove cards' set from previous server and enable synchronization on new one?"
+msgstr ""
+
+#: src/nfpMainFrame_io_operations.cpp:186
+msgid ""
+"Removing card from previous server was canceled or failed.\n"
+"Do you anyway want to enable synchronization on new server?"
+msgstr ""
+
+#: src/notificationFrame.cpp:59 src/statisticsFrame.cpp:88
 msgid "Close"
 msgstr ""
 
 #: src/notificationFrame.cpp:65
 msgid "NFP - notification"
+msgstr ""
+
+#: src/passwordDialog.cpp:47
+msgid "Type the password which will be used to encrypt the file:"
+msgstr ""
+
+#: src/passwordDialog.cpp:55
+msgid "Remember permanently"
+msgstr ""
+
+#: src/passwordDialog.cpp:58
+msgid ""
+"It's not recomended to save password\n"
+"if it's not your private computer!"
+msgstr ""
+
+#: src/passwordDialog.cpp:60
+msgid "Read more information in documentation"
+msgstr ""
+
+#: src/passwordDialog.cpp:84
+msgid "Type the password which has been used to encrypt the file:"
 msgstr ""
 
 #: src/phasesChart.cpp:18
@@ -2237,25 +2550,25 @@ msgstr ""
 msgid "Phases length in all cycles"
 msgstr ""
 
-#: src/phasesChart.cpp:107
+#: src/phasesChart.cpp:101
 msgid "I phase"
 msgstr ""
 
-#: src/phasesChart.cpp:108
+#: src/phasesChart.cpp:102
 msgid "II phase"
 msgstr ""
 
-#: src/phasesChart.cpp:109
+#: src/phasesChart.cpp:103
 msgid "III phase"
 msgstr ""
 
-#: src/phasesChart.cpp:110
+#: src/phasesChart.cpp:104
 msgid ""
 "phases not\n"
 "calculated"
 msgstr ""
 
-#: src/phasesChart.cpp:111
+#: src/phasesChart.cpp:105
 msgid ""
 "after-pregnancy\n"
 "or peri-menopause"
@@ -2323,6 +2636,90 @@ msgstr ""
 msgid "NFP - print cards.."
 msgstr ""
 
+#: src/serverOperationsForm.cpp:53
+msgid ""
+"Synchronization with server is performed.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:57
+msgid ""
+"Checking is server is accessible.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:61
+msgid ""
+"Checking if synchronization is needed.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:65
+msgid ""
+"Downloading file with your cycles data from the server.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:69
+msgid ""
+"Uploading file with your cycles data to the server.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:73
+msgid ""
+"Removing file with your cycles data and all backups from the server.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:77
+msgid "Error - unknown operation"
+msgstr ""
+
+#: src/serverOperationsForm.cpp:94
+msgid "NFP - synchronizig data with server"
+msgstr ""
+
+#: src/serverOperationsForm.cpp:98
+msgid ""
+"Synchronization with server is performed. Synchronization with server is performed.\n"
+"Please wait..."
+msgstr ""
+
+#: src/serverOperationsForm.cpp:149
+msgid "Error occured while creating thread.. cannot sync data with server"
+msgstr ""
+
+#: src/serverOperationsForm.cpp:155
+msgid "Error occured while running thread.. cannot sync data with server"
+msgstr ""
+
+#: src/syncActionTypeDialog.cpp:28
+msgid "NFP - synchronizing cards' set with server"
+msgstr ""
+
+#: src/syncActionTypeDialog.cpp:32
+msgid ""
+"If your cards' set is already stored on the server\n"
+"(e.g. synchronization is enabled on another computer),\n"
+"select 'read existing cards' set'\n"
+"\n"
+"If your cards' set is not yet stored on the server,\n"
+"select 'create new cards' set' button."
+msgstr ""
+
+#: src/syncActionTypeDialog.cpp:34
+msgid "Read more information about this feature"
+msgstr ""
+
+#: src/syncActionTypeDialog.cpp:36
+msgid "read existing cards' set"
+msgstr ""
+
+#: src/syncActionTypeDialog.cpp:38
+msgid "create new cards' set"
+msgstr ""
+
 #: src/temperaturesChart.cpp:15
 msgid "temperature in cycles"
 msgstr ""
@@ -2361,6 +2758,10 @@ msgid ""
 "Wrong format of .mo file?"
 msgstr ""
 
+#: src/updatesNotificationForm.cpp:56
+msgid "NFP - new version is available"
+msgstr ""
+
 #: src/updatesNotificationForm.cpp:60
 msgid ""
 "New version of the application is available.\n"
@@ -2368,26 +2769,115 @@ msgid ""
 "-If you don't want to install it now, press 'remind me later' button."
 msgstr ""
 
-#: src/updatesNotificationForm.cpp:71
+#: src/updatesNotificationForm.cpp:65
 msgid "Download and install"
 msgstr ""
 
-#: src/updatesNotificationForm.cpp:75
+#: src/updatesNotificationForm.cpp:67
 msgid "Remind me later"
 msgstr ""
 
-#: src/updatesNotificationForm.cpp:81
-msgid "NFP - new version is available"
-msgstr ""
-
-#: src/updatesNotificationForm.cpp:110
+#: src/updatesNotificationForm.cpp:104
 msgid ""
 "Application installer is downloading.\n"
 "During that time you can continue your work with the application."
 msgstr ""
 
-#: src/updatesNotificationForm.cpp:149
-msgid "downloaded already: "
+#: src/wxHttpThread.cpp:129
+#, c-format
+msgid "Incorrect data received from Web Server: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:139
+#, c-format
+msgid "Incorrect data received from server -there should be exactly one ';' character in the string: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:156
+#, c-format
+msgid "Incorrect data received from server -couldn't find the '.' character in the 'availableVersion' string '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:198 src/wxHttpThread.cpp:324 src/wxHttpThread.cpp:609
+#: src/wxHttpThread.cpp:711
+msgid "receiving data"
+msgstr ""
+
+#: src/wxHttpThread.cpp:206
+#, c-format
+msgid "Cannot save file to disk: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:250
+#, c-format
+msgid "Error: Wrong response from server. Expected: '%s', received: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:267 src/wxHttpThread.cpp:308 src/wxHttpThread.cpp:409
+msgid "Error: Hash is empty - it seems that data file has never been stored on the server"
+msgstr ""
+
+#: src/wxHttpThread.cpp:290 src/wxHttpThread.cpp:390 src/wxHttpThread.cpp:432
+#, c-format
+msgid "Error: Incorrect data received from server: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:332
+#, c-format
+msgid "Error: Cannot save file to disk: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:344
+#, c-format
+msgid "Error: incorrect response code: %i (expected 200)"
+msgstr ""
+
+#: src/wxHttpThread.cpp:350
+#, c-format
+msgid "Error: content type of the response: '%s' ((expected 'application/octet-stream')"
+msgstr ""
+
+#: src/wxHttpThread.cpp:369
+#, c-format
+msgid "Error: File parameter is not defined: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:373
+#, c-format
+msgid "Error: File does not exist: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:377
+#, c-format
+msgid "Error: File name parameter is not defined: '%s'"
+msgstr ""
+
+#: src/wxHttpThread.cpp:527 src/wxHttpThread.cpp:631
+#, c-format
+msgid "opening connection to the server: %s:%i"
+msgstr ""
+
+#: src/wxHttpThread.cpp:560
+#, c-format
+msgid "Error: cannot connect to the server: %s:%i"
+msgstr ""
+
+#: src/wxHttpThread.cpp:590 src/wxHttpThread.cpp:673
+msgid "sending data"
+msgstr ""
+
+#: src/wxHttpThread.cpp:597
+#, c-format
+msgid "Problem with reading data from: http://%s%i%s.. error code: %d"
+msgstr ""
+
+#: src/wxHttpThread.cpp:618
+#, c-format
+msgid "Error: problem with server, error code: %i"
+msgstr ""
+
+#: src/wxHttpThread.cpp:644
+msgid "preparing data to sent"
 msgstr ""
 
 #: src/wx-nfpApp.cpp:45

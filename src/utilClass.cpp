@@ -1,7 +1,7 @@
 /*******************************************************************************
 //
 // Name:        utilClass.cpp
-// Author:      enkeli
+// Author:      Grzegorz Szura
 // Description:
 //
 *******************************************************************************/
@@ -9,22 +9,14 @@
 #include "utilClass.h"
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
+#include <wx/dir.h>
+#include <wx/log.h>
+
+#define HASH _T("Ala kota chciała ale kot powiedział Ali, że Ala może się wypchać")
 
 /*******************************************************************************
 ********************************************************************************
 *******************************************************************************/
-
-/**
- *
- */
-utilClass::utilClass()
-{
-//#if defined(__UNIX__)
-//    m_standardPaths.SetInstallPrefix( _T("/usr") );
-//#endif
-}
-
-/******************************************************************************/
 
 /**
  *
@@ -44,6 +36,30 @@ int utilClass::strToInt( wxString input )
  *
  */
 wxString utilClass::intToStr( int input )
+{
+    wxString ret = wxEmptyString;
+    ret << input;
+    return ret;
+}
+
+/**
+ *
+ */
+long utilClass::strToLong( wxString input )
+{
+    long ret;
+
+    if ( input.ToLong( &ret ) ) {
+        return ret;
+    } else {
+        return -1;
+    }
+}
+
+/**
+ *
+ */
+wxString utilClass::longToStr( long input )
 {
     wxString ret = wxEmptyString;
     ret << input;
@@ -284,6 +300,14 @@ wxString utilClass::getLocalePath()
 }
 
 /**
+ *
+ */
+wxString utilClass::getTempFolderPath()
+{
+    return m_standardPaths.GetTempDir() + wxFileName::GetPathSeparator();
+}
+
+/**
  * Return the path to the help file for specific language (../<lang>/wx-nfp_doc.zip).
  * This method doesn't check if the file exists, just return the path.
  */
@@ -374,6 +398,181 @@ int utilClass::fahrenheitCelsiusTo( int in )
     float tC = ( float )( 5 / 9 ) * ( tF - ( float ) 32 );
     return ( int )( tC*100 );
 }
+
+/******************************************************************************/
+
+/**
+ * get number of days between dateTime1 and dateTime2 (== dateTime2 - dateTime1)
+ */
+int utilClass::getNumberOfDays( wxDateTime dateTime1, wxDateTime dateTime2 )
+{
+    int year1  = dateTime1.GetYear();
+    int month1 = dateTime1.GetMonth();
+    int day1   = dateTime1.GetDay();
+    int year2  = dateTime2.GetYear();
+    int month2 = dateTime2.GetMonth();
+    int day2   = dateTime2.GetDay();
+    int daysNumber = 0;
+
+    if ( year1 > year2 ) {
+
+        return -1;
+    }
+    if ( year1 == year2 && month1 > month2 ) {
+
+        return -1;
+    }
+    if ( year1 == year2 && month1 == month2 && day1 > day2 ) {
+
+        return -1;
+    }
+
+    if ( year1 < year2 ) {
+        daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( month1 ), year1, ( wxDateTime::Calendar )( 0 ) ) - day1;
+
+        for ( int m = month1 + 1; m < 12; m++ ) {
+            daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year1, ( wxDateTime::Calendar )( 0 ) );
+
+        }
+        for ( int y = year1 + 1; y < year2; y++ ) {
+            for ( int m = 0; m < 12; m++ ) {
+                daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), y, ( wxDateTime::Calendar )( 0 ) );
+
+            }
+        }
+        for ( int m = 0; m < month2; m++ ) {
+            daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year2, ( wxDateTime::Calendar )( 0 ) );
+
+        }
+        daysNumber += day2;
+
+    } else if ( month1 < month2 ) {
+        daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( month1 ), year2, ( wxDateTime::Calendar )( 0 ) ) - day1;
+
+        for ( int m = month1 + 1; m < month2; m++ ) {
+            daysNumber += wxDateTime::GetNumberOfDays(( wxDateTime::Month )( m ), year2, ( wxDateTime::Calendar )( 0 ) );
+
+        }
+        daysNumber += day2;
+
+    } else {
+        daysNumber += day2 - day1;
+
+    }
+
+    return daysNumber;
+}
+
+/******************************************************************************/
+wxString utilClass::generateFancyFileName(wxString str1, wxString str2)
+{
+    wxString ret = wxEmptyString;
+    int l = ( str1.Length() > str2.Length() ? str1.Length() : str2.Length());
+    int i2 = l-1;
+    for (int i1=0; i1<l; i1++) {
+        int x1 = 0;
+        int x2 = 0;
+        for (int e=i1; e<l; e++)
+            x1 += (int)str1.Length() > e ? (int)str1[e] : 1;
+        for (int e=i2; e<l; e++)
+            x2 += (int)str2.Length() > e ? (int)str2[e] : 1;
+        ret << (x1 * x2);
+        i2--;
+    }
+    return ret;
+}
+
+
+wxString utilClass::hashString(wxString input)
+{
+    wxString ret = wxEmptyString;
+    size_t c;
+    for (size_t i=0; i<64; i++) {
+        c = (input.Length() > i ? (int)input[i] : 0) + (int)HASH[i];
+        if (c < 100)
+            ret << _T("0");
+        if (c < 10)
+            ret << _T("0");
+        ret << c;
+    }
+    return ret;
+}
+
+wxString utilClass::unhashString(wxString input)
+{
+    wxString ret = wxEmptyString;
+    wxChar c;
+    for (int i=0; i<64; i++) {
+        int x = strToInt( input.Mid(i*3, 3) ) - (int)HASH[i];
+        if (x > 0) {
+            c = x;
+            ret.Append(c);
+        }
+    }
+    return ret;
+}
+
+/******************************************************************************/
+
+/**
+ * Make a backup of the file, but only one per minute,
+ * i.e. if the file '<fileName>_YYYYmmddHH.<ext>' already exists in the 'backup' folder then new backup is not created.
+ */
+void utilClass::backupFile(wxString fileName)
+{
+    wxLogDebug( wxString::Format( _T("[utilClass] making backup of file: '%s'"), fileName.c_str()) );
+    if ( wxFileExists( fileName ) ) {
+        wxString path = wxEmptyString;
+        wxString name = wxEmptyString;
+        wxString ext = wxEmptyString;
+        wxString backupFile = wxEmptyString;
+
+        wxLogDebug( wxString::Format( _T("[utilClass] file exists: '%s'"), fileName.c_str()) );
+
+        wxFileName::SplitPath( fileName, &path, &name, &ext );
+
+        wxLogDebug( wxString::Format( _T("[utilClass] file path: '%s'"), path.c_str()) );
+
+        if ( !path.IsEmpty() ) {
+            path << wxFileName::GetPathSeparator() << _T( "backup" );
+            wxLogDebug( wxString::Format( _T("[utilClass] path: '%s'"), path.c_str()) );
+
+            if ( ! wxDirExists( path ) ) {
+                wxLogDebug( wxString::Format( _T("[utilClass] mkdir: '%s'"), path.c_str()) );
+                wxFileName::Mkdir( path, 0755, wxPATH_MKDIR_FULL );
+            }
+
+            backupFile << path << wxFileName::GetPathSeparator() << name << wxDateTime::Now().Format( _T( "_%Y%m%d%H%M." ) ) << ext;
+            wxLogDebug( wxString::Format( _T("[utilClass] backupFile: '%s'"), backupFile.c_str()) );
+
+            if ( !wxFileExists( backupFile ) ) {
+                wxLogDebug( wxString::Format( _T("[utilClass] copy: %s -> %s"), fileName.c_str(), backupFile.c_str()) );
+                wxCopyFile( fileName, backupFile );
+            } else {
+                wxLogDebug( _T("[utilClass] backupFile with this name already exists (we can do one backup per minute)'") );
+            }
+
+            // remove older backup files
+            wxSortedArrayString backupFilesArr;
+            wxDir::GetAllFiles( path, &backupFilesArr, name + _T("_*"), wxDIR_FILES );
+            if (backupFilesArr.GetCount() > 30)
+                for ( size_t i = 0; i < backupFilesArr.GetCount()-15; i++ ) {
+                    wxLogDebug( wxString::Format( _T("[utilClass] remove old backup: '%s'"), backupFilesArr[i].c_str()) );
+                    wxRemoveFile( backupFilesArr[i] );
+                }
+        } else {
+            wxLogDebug( wxString::Format( _T("[utilClass] cannot extract path from the file path: '%s'"), fileName.c_str()) );
+        }
+    } else {
+        wxLogDebug( wxString::Format( _T("[utilClass] given file doesn't exist: '%s'"), fileName.c_str()) );
+    }
+
+    wxLogDebug( _T("[utilClass] making backup done") );
+}
+
+/******************************************************************************/
+
+
 
 /*******************************************************************************
 ********************************************************************************
