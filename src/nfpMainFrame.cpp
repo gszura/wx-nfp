@@ -1118,7 +1118,7 @@ void nfpMainFrame::MnuEnableSyncClick( wxCommandEvent& event )
         updateAll();
         //Refresh();
 
-    } else {
+    } else if ( m_cycleData->getServerFileName().IsEmpty() ) {
         // disable sync
         int answer = wxMessageBox( _( "Do you want to remove also cards' set from server?." ), _( "Question" ), wxYES_NO | wxICON_QUESTION, this );
         if ( answer == wxYES ) {
@@ -1146,9 +1146,11 @@ void nfpMainFrame::MnuAutoSyncClick( wxCommandEvent& event )
 {
     m_config->syncFileAutomatically = !m_config->syncFileAutomatically;
     menuNfp->Check( ID_MNU_AUTO_SYNC, m_config->syncFileAutomatically );
-    if ( m_cycleData->getServerFileName().IsEmpty() ) {
+
+    if ( m_config->syncFileAutomatically && m_cycleData->getServerFileName().IsEmpty() ) {
         int answer = wxMessageBox( _( "Storing your cards' set on the server is not yet enabled.\n Do you want to enable it now?" ), _( "Question" ), wxYES_NO | wxICON_QUESTION, this );
         if ( answer == wxYES ) {
+            menuNfp->Check(ID_MNU_ENABLE_SYNC, true);
             MnuEnableSyncClick(event);
         }
     }
@@ -2117,8 +2119,10 @@ void nfpMainFrame::showNotification( const wxString& message, int textAlign )
 
 void nfpMainFrame::showAnalysisResultNotification( const wxString& message )
 {
-    m_notificationFrm->Destroy();
     if (m_config->showAutoanalysisDetails) {
+        if (m_notificationFrm)
+            m_notificationFrm->Destroy();
+
         wxPoint pos = GetPosition();
         pos.x += 10;
         pos.y += 130;

@@ -1,6 +1,5 @@
 == todo
 * Encryption of local data file
-* Storing data file on the server, synchronizing changed files between server and application (it can be useful when using more than one computer)
 * Displaying phases in different colours
 * Quick help (pl)
 * Detailed help (pl)
@@ -13,19 +12,16 @@
 
 == known issues
 * Drukowanie pod Linuxem z poprawnymi fontami nie działa (przynajmniej u mnie ;)
-* Statystyki nie działają poprawnie
 
-== 0.9.2 (build 2010, 2012-10-24)
+== 0.9.2 (build 2016, 2013-06-02)
 * New: Synchronizacja z serwerem
 * New: Szyfrowanie pliku danych wysyłanego na serwer 
 * New: Historia otwieranych plików
-
 
 == 0.9.1 (build 1439, 2012-09-13)
 * New: Dodano nowe statystyki.
 * Fix: Poprawiono istniejące statystyki.
 * Fix: Naprawiony problem duplikujących się notyfikacji po obliczeniu fazy cyklu. Teraz jest zawsze tylko jedno takie okienko.
-
 
 == 0.9 (build 1116, 2012-09-05)
 * New: Automatyczne wyznaczanie wyników.
@@ -37,7 +33,6 @@
 * Change: Zmieniono sposób zapisu danych o współżyciu - zamiast wpisywania 'ile razy', można teraz wpisać 'rano', 'w ciągu dnia', 'wieczorem'.
 * Change: Linia fazy niepłodności zaczyna sie w 3/4 szerokości dnia, by unaocznić, że faza niepłodności rozpoczyna się wieczorem danego dnia.
 * Fix: różne ;)
-
 
 == 0.9 beta (build 645, 2010-05-12)
 * New: Created autoconfig scripts - now the application can be easily compiled by runing standard ./configure; make; make install commands.

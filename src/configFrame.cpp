@@ -848,7 +848,7 @@ void configFrame::buildGui(wxWindow* parent)
     FlexGridSizer2->AddGrowableCol(0);
     checkBoxUseCustomServer = new wxCheckBox(panelOther, ID_checkBoxUseCustomServer, _("Use custom server"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_checkBoxUseCustomServer"));
     checkBoxUseCustomServer->SetValue(false);
-    checkBoxUseCustomServer->SetToolTip(_("If you want you cas setup your own server for storing cards file. More details you can find in the documentation."));
+    checkBoxUseCustomServer->SetToolTip(_("If you want you can setup your own server for storing cards file. More details you can find in the documentation."));
     FlexGridSizer2->Add(checkBoxUseCustomServer, 0, wxTOP|wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesUseCustomServer = new wxStaticText(panelOther, ID_changesUseCustomServer, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesUseCustomServer"));
     changesUseCustomServer->SetForegroundColour(wxColour(255,0,0));
@@ -868,7 +868,7 @@ void configFrame::buildGui(wxWindow* parent)
     StaticText18->SetForegroundColour(wxColour(255,0,0));
     BoxSizer12->Add(StaticText18, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     textCustomServerUri = new wxTextCtrl(panelOther, ID_textCustomServerUri, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_textCustomServerUri"));
-    textCustomServerUri->SetToolTip(_("If you want you cas setup your own server for storing cards file. More details you can find in the documentation."));
+    textCustomServerUri->SetToolTip(_("If you want you can setup your own server for storing cards file. More details you can find in the documentation."));
     BoxSizer12->Add(textCustomServerUri, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer2->Add(BoxSizer12, 0, wxBOTTOM|wxRIGHT|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     changesCustomServerUri = new wxStaticText(panelOther, ID_changesCustomServerUri, wxEmptyString, wxDefaultPosition, wxSize(15,-1), wxALIGN_CENTRE, _T("ID_changesCustomServerUri"));

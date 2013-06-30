@@ -168,7 +168,6 @@
 		</VirtualTargets>
 		<Compiler>
 			<Add directory="include" />
-			<Add directory="lib/wxcurl/include" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#wx)/include" />

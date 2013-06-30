@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-23 16:18+0300\n"
+"POT-Creation-Date: 2013-06-02 17:17+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Grzegorz Szura <grzegorz@szura.net>\n"
 "Language-Team:  <grzegorz@szura.net>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: include/chart.h:39
 msgid "Select statistic to display"
-msgstr "Wybierz statystyki"
+msgstr "Select statistic to display"
 
 #: include/configClass.h:30
 msgid "21/20 days rule"
@@ -40,7 +40,7 @@ msgid "cervical mucus position rule"
 msgstr "reguła szyjki macicy"
 
 #: include/customPrintout.h:79
-#: src/nfpMainFrame.cpp:1199
+#: src/nfpMainFrame.cpp:1201
 msgid "wx-nfp"
 msgstr "wx-npr"
 
@@ -486,8 +486,8 @@ msgstr ""
 #: src/IOoperations.cpp:69
 #: src/nfpMainFrame.cpp:501
 #: src/nfpMainFrame.cpp:506
-#: src/nfpMainFrame.cpp:1358
-#: src/nfpMainFrame.cpp:2147
+#: src/nfpMainFrame.cpp:1360
+#: src/nfpMainFrame.cpp:2151
 #: src/nfpMainFrame_io_operations.cpp:98
 #: src/nfpMainFrame_io_operations.cpp:100
 #: src/translationHelper.cpp:154
@@ -961,8 +961,8 @@ msgstr "Użyj innego serwera"
 
 #: src/configFrame.cpp:851
 #: src/configFrame.cpp:871
-msgid "If you want you cas setup your own server for storing cards file. More details you can find in the documentation."
-msgstr "Zostaw kart możesz zapamiętywać na swoim serwerze. Szczegóły jak to zrobić znajdziesz w dokumentacji."
+msgid "If you want you can setup your own server for storing cards file. More details you can find in the documentation."
+msgstr "Zestaw kart możesz zapamiętywać na swoim serwerze. Szczegóły jak to zrobić znajdziesz w dokumentacji."
 
 #: src/configFrame.cpp:860
 msgid "URL:"
@@ -1143,14 +1143,14 @@ msgstr "Chekbox 'Użyj innego serwera' jest zaznaczony, ale nie wpisałeś adres
 #: src/nfpMainFrame.cpp:548
 #: src/nfpMainFrame.cpp:558
 #: src/nfpMainFrame.cpp:694
-#: src/nfpMainFrame.cpp:1203
 #: src/nfpMainFrame.cpp:1205
-#: src/nfpMainFrame.cpp:1426
-#: src/nfpMainFrame.cpp:1433
-#: src/nfpMainFrame.cpp:1494
-#: src/nfpMainFrame.cpp:1522
-#: src/nfpMainFrame.cpp:1552
-#: src/nfpMainFrame.cpp:2097
+#: src/nfpMainFrame.cpp:1207
+#: src/nfpMainFrame.cpp:1428
+#: src/nfpMainFrame.cpp:1435
+#: src/nfpMainFrame.cpp:1496
+#: src/nfpMainFrame.cpp:1524
+#: src/nfpMainFrame.cpp:1554
+#: src/nfpMainFrame.cpp:2099
 #: src/serverOperationsForm.cpp:149
 #: src/serverOperationsForm.cpp:155
 #: src/wxHttpThread.cpp:128
@@ -1343,7 +1343,7 @@ msgid "File is empty: %s"
 msgstr "Plik jest pusty: %s"
 
 #: src/cyclesData.cpp:782
-#: src/nfpMainFrame.cpp:1433
+#: src/nfpMainFrame.cpp:1435
 msgid "Error occured while adding new card"
 msgstr "Błąd przy dodawaniu nowej karty do zestawu"
 
@@ -1354,9 +1354,9 @@ msgstr "Niepoprawny numer karty: %i, spodziewany: %i"
 
 #: src/cyclesData.cpp:893
 #: src/dayFrame.cpp:811
-#: src/nfpMainFrame.cpp:1426
-#: src/nfpMainFrame.cpp:1494
-#: src/nfpMainFrame.cpp:2097
+#: src/nfpMainFrame.cpp:1428
+#: src/nfpMainFrame.cpp:1496
+#: src/nfpMainFrame.cpp:2099
 msgid "Error occured while adding new day"
 msgstr "Błąd przy dodawaniu nowego dnia do karty"
 
@@ -1999,11 +1999,11 @@ msgstr ""
 #: src/nfpMainFrame.cpp:526
 #: src/nfpMainFrame.cpp:688
 #: src/nfpMainFrame.cpp:1123
-#: src/nfpMainFrame.cpp:1150
-#: src/nfpMainFrame.cpp:1163
-#: src/nfpMainFrame.cpp:1520
-#: src/nfpMainFrame.cpp:1550
-#: src/nfpMainFrame.cpp:2079
+#: src/nfpMainFrame.cpp:1151
+#: src/nfpMainFrame.cpp:1165
+#: src/nfpMainFrame.cpp:1522
+#: src/nfpMainFrame.cpp:1552
+#: src/nfpMainFrame.cpp:2081
 #: src/nfpMainFrame_io_operations.cpp:181
 #: src/nfpMainFrame_io_operations.cpp:186
 #: src/wx-nfpApp.cpp:45
@@ -2685,7 +2685,7 @@ msgstr "Otwórz zestaw..."
 msgid "Do you want to remove also cards' set from server?."
 msgstr "Czy chcesz również usunąć zestaw z serwera?"
 
-#: src/nfpMainFrame.cpp:1150
+#: src/nfpMainFrame.cpp:1151
 msgid ""
 "Storing your cards' set on the server is not yet enabled.\n"
 " Do you want to enable it now?"
@@ -2693,7 +2693,7 @@ msgstr ""
 "Zapisywanie zestawu na serwerze jeszcze nie jest włączone.\n"
 "Czy chcesz je włączyć teraz?"
 
-#: src/nfpMainFrame.cpp:1163
+#: src/nfpMainFrame.cpp:1165
 msgid ""
 "Your cards' set is not stored on the server yet.\n"
 " Do you want to enable it now?"
@@ -2701,7 +2701,7 @@ msgstr ""
 "Twój zestaw jeszcze nie jest zapisany na serwerze.\n"
 "Czy chcesz go zapisać teraz?"
 
-#: src/nfpMainFrame.cpp:1203
+#: src/nfpMainFrame.cpp:1205
 msgid ""
 "Problem with printing occurred.\n"
 "Perhaps your current printer is not set correctly?"
@@ -2709,11 +2709,11 @@ msgstr ""
 "Wystąpił problem z drukowaniem.\n"
 "Drukarka jest źle skonfigurowana? A może nie włączona?"
 
-#: src/nfpMainFrame.cpp:1205
+#: src/nfpMainFrame.cpp:1207
 msgid "Printing has been canceled."
 msgstr "Drukowanie zostało anulowane."
 
-#: src/nfpMainFrame.cpp:1222
+#: src/nfpMainFrame.cpp:1224
 msgid ""
 "There was a problem previewing.\n"
 "Perhaps your current printer is not set correctly?"
@@ -2721,15 +2721,15 @@ msgstr ""
 "Wystąpił problem z podglądem wydruku.\n"
 "Drukarka jest źle skonfigurowana? Hmm.."
 
-#: src/nfpMainFrame.cpp:1222
+#: src/nfpMainFrame.cpp:1224
 msgid "Previewing"
 msgstr "Podgląd"
 
-#: src/nfpMainFrame.cpp:1226
+#: src/nfpMainFrame.cpp:1228
 msgid "Demo Print Preview"
 msgstr "Podgląd wydruku"
 
-#: src/nfpMainFrame.cpp:1358
+#: src/nfpMainFrame.cpp:1360
 msgid ""
 "Are you sure you want to unlock the card?\n"
 "Card's data will not be protected against accidental changes."
@@ -2737,21 +2737,21 @@ msgstr ""
 "Czy na pewno chcesz odblokować kartę?\n"
 "Dane nie będą chronione przed przypadkowymi zmianami."
 
-#: src/nfpMainFrame.cpp:1513
+#: src/nfpMainFrame.cpp:1515
 #, c-format
 msgid "Should I move day %i to the previous card?"
 msgstr "Przenieść dzień %i do poprzedniej karty?"
 
-#: src/nfpMainFrame.cpp:1515
+#: src/nfpMainFrame.cpp:1517
 #, c-format
 msgid "Should I move days %i - %i to the previous card?"
 msgstr "Przenieść dni %i - %i do poprzedniej karty?"
 
-#: src/nfpMainFrame.cpp:1518
+#: src/nfpMainFrame.cpp:1520
 msgid "Current card will be removed, because all days will be moved."
 msgstr "Aktualna karta zostanie usunięta, gdyż wszystkie dni zostaną przeniesione."
 
-#: src/nfpMainFrame.cpp:1522
+#: src/nfpMainFrame.cpp:1524
 #, c-format
 msgid ""
 "Error occured while moving days to the previous card\n"
@@ -2760,21 +2760,21 @@ msgstr ""
 "Wystąpił błąd przy przenoszeniu dni do poprzedniej karty\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:1543
+#: src/nfpMainFrame.cpp:1545
 #, c-format
 msgid "Should I move day %i to the next card?"
 msgstr "Przenieść dzień %i do następnej karty?"
 
-#: src/nfpMainFrame.cpp:1545
+#: src/nfpMainFrame.cpp:1547
 #, c-format
 msgid "Should I move days %i - %i to the next card?"
 msgstr "Przenieść dni %i - %i do następnej karty?"
 
-#: src/nfpMainFrame.cpp:1548
+#: src/nfpMainFrame.cpp:1550
 msgid "New card will be created."
 msgstr "Zostanie utworzona nowa karta."
 
-#: src/nfpMainFrame.cpp:1552
+#: src/nfpMainFrame.cpp:1554
 #, c-format
 msgid ""
 "Error occured while moving days to the next card\n"
@@ -2783,41 +2783,41 @@ msgstr ""
 "Wystąpił błąd przy przenoszeniu dni do następnej karty\n"
 "%s"
 
-#: src/nfpMainFrame.cpp:1610
-#: src/nfpMainFrame.cpp:1627
-#: src/nfpMainFrame.cpp:1644
-#: src/nfpMainFrame.cpp:1661
-#: src/nfpMainFrame.cpp:1678
-#: src/nfpMainFrame.cpp:1695
-#: src/nfpMainFrame.cpp:1714
-#: src/nfpMainFrame.cpp:1733
-#: src/nfpMainFrame.cpp:1750
+#: src/nfpMainFrame.cpp:1612
+#: src/nfpMainFrame.cpp:1629
+#: src/nfpMainFrame.cpp:1646
+#: src/nfpMainFrame.cpp:1663
+#: src/nfpMainFrame.cpp:1680
+#: src/nfpMainFrame.cpp:1697
+#: src/nfpMainFrame.cpp:1716
+#: src/nfpMainFrame.cpp:1735
+#: src/nfpMainFrame.cpp:1752
 msgid "Setting result faild:"
 msgstr "Błąd ustawiania wyników:"
 
-#: src/nfpMainFrame.cpp:1718
+#: src/nfpMainFrame.cpp:1720
 #, c-format
 msgid "%i, %i"
 msgstr "%i, %i"
 
-#: src/nfpMainFrame.cpp:1824
-#: src/nfpMainFrame.cpp:1840
+#: src/nfpMainFrame.cpp:1826
+#: src/nfpMainFrame.cpp:1842
 #: src/passwordDialog.cpp:82
 #: src/syncActionTypeDialog.cpp:55
 #, c-format
 msgid "%s%s?l=en"
 msgstr "%s%s?l=pl"
 
-#: src/nfpMainFrame.cpp:1832
+#: src/nfpMainFrame.cpp:1834
 #, c-format
 msgid "%s?l=en"
 msgstr "%s?l=pl"
 
-#: src/nfpMainFrame.cpp:1918
+#: src/nfpMainFrame.cpp:1920
 msgid "Checking if new version of application is available."
 msgstr "Sprawdzam, czy jest dostępna nowa wercja aplikacji."
 
-#: src/nfpMainFrame.cpp:2079
+#: src/nfpMainFrame.cpp:2081
 #, c-format
 msgid ""
 "%i day should be added to the current card to have on the card all days including today.\n"
@@ -2835,7 +2835,7 @@ msgstr[2] ""
 "%i dni powinno być dodanych do aktualnej karty aby na karcie znajdowały się wszystkie dni łącznie z dzisiejszym.\n"
 "Czy dodać brakujące dni?"
 
-#: src/nfpMainFrame.cpp:2147
+#: src/nfpMainFrame.cpp:2151
 msgid ""
 "Card is protected agains changes!\n"
 "Do you anyway want to updates results?"
@@ -2843,7 +2843,7 @@ msgstr ""
 "Karta jest chroniona przed zmianami!\n"
 "Czy mimo wszystko chcesz zmodyfikować wyniki?"
 
-#: src/nfpMainFrame.cpp:2172
+#: src/nfpMainFrame.cpp:2176
 msgid ""
 "In this release the automatic interpretation of cycle data has been implemented.\n"
 "Please read the documentation to understand how it works!"
@@ -2852,7 +2852,7 @@ msgstr ""
 "Proszę przeczytać informacje z dokumentacji aby zrozumieć jak to działa!\n"
 "Oczywiście wszelkie informacje o nieprawidłowym działaniu mile widziane."
 
-#: src/nfpMainFrame.cpp:2173
+#: src/nfpMainFrame.cpp:2177
 msgid ""
 "\n"
 "\n"
@@ -2867,7 +2867,7 @@ msgstr ""
 "Zamiast wpisywania 'ile razy' teraz można zapisać o której porze dnia współżycie nastąpiło.\n"
 "Z tego powodu dotychczasowe dane zostały przekonwertowane w następujący sposób:"
 
-#: src/nfpMainFrame.cpp:2174
+#: src/nfpMainFrame.cpp:2178
 msgid ""
 "\n"
 "- 1st reported sexual relation is now marked as 'in the evening'"
@@ -2875,7 +2875,7 @@ msgstr ""
 "\n"
 "- 1-sze współżycie danego dnia zostało zaznaczone jako 'wieczorem'"
 
-#: src/nfpMainFrame.cpp:2175
+#: src/nfpMainFrame.cpp:2179
 msgid ""
 "\n"
 "- 2nd reported sexual relation is now marked as 'during the day'"
@@ -2883,7 +2883,7 @@ msgstr ""
 "\n"
 "- 2-gie współżycie danego dnia zostało zaznaczone jako 'w ciągnu dnia'"
 
-#: src/nfpMainFrame.cpp:2179
+#: src/nfpMainFrame.cpp:2183
 msgid ""
 "\n"
 "- 3rd reported sexual relation is now marked as 'in the evening'"
@@ -2891,7 +2891,7 @@ msgstr ""
 "\n"
 "- 3-cie współżycie danego dnia zostało zaznaczone jako 'rano'"
 
-#: src/nfpMainFrame.cpp:2183
+#: src/nfpMainFrame.cpp:2187
 msgid ""
 "\n"
 "- 4th and other reported sexual relations reported for a day are not stored anymore"
@@ -2899,7 +2899,7 @@ msgstr ""
 "\n"
 "- 4-te i kolejne współżycia danego dnia nie mogły zostać przekonwertowane do nowego formatu."
 
-#: src/nfpMainFrame.cpp:2187
+#: src/nfpMainFrame.cpp:2191
 msgid ""
 "\n"
 "Last file in previous format has been backed-up in:\n"

@@ -2102,8 +2102,8 @@ bool dayFrame::save()
                 } else {
                     day->setSpotting( -1 );
                 }
-                day->setAdditionalNotes( textAdditionalNotes->GetValue() );
             }
+            day->setAdditionalNotes( textAdditionalNotes->GetValue() );
         } else {
         }
         m_cycleData->setCardModified( true );

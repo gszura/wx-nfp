@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-23 16:18+0300\n"
+"POT-Creation-Date: 2012-10-25 20:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "cervical mucus position rule"
 msgstr ""
 
-#: include/customPrintout.h:79 src/nfpMainFrame.cpp:1199
+#: include/customPrintout.h:79 src/nfpMainFrame.cpp:1200
 msgid "wx-nfp"
 msgstr ""
 
@@ -434,8 +434,8 @@ msgstr ""
 
 #: src/cardFrame.cpp:1281 src/cardFrame.cpp:1283 src/dayFrame.cpp:1908
 #: src/dayFrame.cpp:1910 src/IOoperations.cpp:69 src/nfpMainFrame.cpp:501
-#: src/nfpMainFrame.cpp:506 src/nfpMainFrame.cpp:1358
-#: src/nfpMainFrame.cpp:2147 src/nfpMainFrame_io_operations.cpp:98
+#: src/nfpMainFrame.cpp:506 src/nfpMainFrame.cpp:1359
+#: src/nfpMainFrame.cpp:2148 src/nfpMainFrame_io_operations.cpp:98
 #: src/nfpMainFrame_io_operations.cpp:100 src/translationHelper.cpp:154
 #: src/translationHelper.cpp:165
 msgid "Warning"
@@ -995,11 +995,11 @@ msgstr ""
 #: src/IOoperations.cpp:578 src/IOoperations.cpp:584 src/IOoperations.cpp:585
 #: src/IOoperations.cpp:592 src/IOoperations.cpp:597 src/IOoperations.cpp:626
 #: src/IOoperations.cpp:656 src/nfpMainFrame.cpp:548 src/nfpMainFrame.cpp:558
-#: src/nfpMainFrame.cpp:694 src/nfpMainFrame.cpp:1203
-#: src/nfpMainFrame.cpp:1205 src/nfpMainFrame.cpp:1426
-#: src/nfpMainFrame.cpp:1433 src/nfpMainFrame.cpp:1494
-#: src/nfpMainFrame.cpp:1522 src/nfpMainFrame.cpp:1552
-#: src/nfpMainFrame.cpp:2097 src/serverOperationsForm.cpp:149
+#: src/nfpMainFrame.cpp:694 src/nfpMainFrame.cpp:1204
+#: src/nfpMainFrame.cpp:1206 src/nfpMainFrame.cpp:1427
+#: src/nfpMainFrame.cpp:1434 src/nfpMainFrame.cpp:1495
+#: src/nfpMainFrame.cpp:1523 src/nfpMainFrame.cpp:1553
+#: src/nfpMainFrame.cpp:2098 src/serverOperationsForm.cpp:149
 #: src/serverOperationsForm.cpp:155 src/wxHttpThread.cpp:128
 #: src/wxHttpThread.cpp:289 src/wxHttpThread.cpp:389 src/wxHttpThread.cpp:431
 msgid "Error"
@@ -1161,7 +1161,7 @@ msgstr ""
 msgid "File is empty: %s"
 msgstr ""
 
-#: src/cyclesData.cpp:782 src/nfpMainFrame.cpp:1433
+#: src/cyclesData.cpp:782 src/nfpMainFrame.cpp:1434
 msgid "Error occured while adding new card"
 msgstr ""
 
@@ -1170,8 +1170,8 @@ msgstr ""
 msgid "Incorrect card number: %i, expected: %i"
 msgstr ""
 
-#: src/cyclesData.cpp:893 src/dayFrame.cpp:811 src/nfpMainFrame.cpp:1426
-#: src/nfpMainFrame.cpp:1494 src/nfpMainFrame.cpp:2097
+#: src/cyclesData.cpp:893 src/dayFrame.cpp:811 src/nfpMainFrame.cpp:1427
+#: src/nfpMainFrame.cpp:1495 src/nfpMainFrame.cpp:2098
 msgid "Error occured while adding new day"
 msgstr ""
 
@@ -1727,9 +1727,9 @@ msgstr ""
 
 #: src/IOoperations.cpp:240 src/IOoperations.cpp:302 src/nfpMainFrame.cpp:526
 #: src/nfpMainFrame.cpp:688 src/nfpMainFrame.cpp:1123
-#: src/nfpMainFrame.cpp:1150 src/nfpMainFrame.cpp:1163
-#: src/nfpMainFrame.cpp:1520 src/nfpMainFrame.cpp:1550
-#: src/nfpMainFrame.cpp:2079 src/nfpMainFrame_io_operations.cpp:181
+#: src/nfpMainFrame.cpp:1151 src/nfpMainFrame.cpp:1164
+#: src/nfpMainFrame.cpp:1521 src/nfpMainFrame.cpp:1551
+#: src/nfpMainFrame.cpp:2080 src/nfpMainFrame_io_operations.cpp:181
 #: src/nfpMainFrame_io_operations.cpp:186 src/wx-nfpApp.cpp:45
 #: src/wx-nfpApp.cpp:48
 msgid "Question"
@@ -2320,119 +2320,119 @@ msgstr ""
 msgid "Do you want to remove also cards' set from server?."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1150
+#: src/nfpMainFrame.cpp:1151
 msgid ""
 "Storing your cards' set on the server is not yet enabled.\n"
 " Do you want to enable it now?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1163
+#: src/nfpMainFrame.cpp:1164
 msgid ""
 "Your cards' set is not stored on the server yet.\n"
 " Do you want to enable it now?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1203
+#: src/nfpMainFrame.cpp:1204
 msgid ""
 "Problem with printing occurred.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1205
+#: src/nfpMainFrame.cpp:1206
 msgid "Printing has been canceled."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1222
+#: src/nfpMainFrame.cpp:1223
 msgid ""
 "There was a problem previewing.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1222
+#: src/nfpMainFrame.cpp:1223
 msgid "Previewing"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1226
+#: src/nfpMainFrame.cpp:1227
 msgid "Demo Print Preview"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1358
+#: src/nfpMainFrame.cpp:1359
 msgid ""
 "Are you sure you want to unlock the card?\n"
 "Card's data will not be protected against accidental changes."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1513
+#: src/nfpMainFrame.cpp:1514
 #, c-format
 msgid "Should I move day %i to the previous card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1515
+#: src/nfpMainFrame.cpp:1516
 #, c-format
 msgid "Should I move days %i - %i to the previous card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1518
+#: src/nfpMainFrame.cpp:1519
 msgid "Current card will be removed, because all days will be moved."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1522
+#: src/nfpMainFrame.cpp:1523
 #, c-format
 msgid ""
 "Error occured while moving days to the previous card\n"
 "%s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1543
+#: src/nfpMainFrame.cpp:1544
 #, c-format
 msgid "Should I move day %i to the next card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1545
+#: src/nfpMainFrame.cpp:1546
 #, c-format
 msgid "Should I move days %i - %i to the next card?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1548
+#: src/nfpMainFrame.cpp:1549
 msgid "New card will be created."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1552
+#: src/nfpMainFrame.cpp:1553
 #, c-format
 msgid ""
 "Error occured while moving days to the next card\n"
 "%s"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1610 src/nfpMainFrame.cpp:1627
-#: src/nfpMainFrame.cpp:1644 src/nfpMainFrame.cpp:1661
-#: src/nfpMainFrame.cpp:1678 src/nfpMainFrame.cpp:1695
-#: src/nfpMainFrame.cpp:1714 src/nfpMainFrame.cpp:1733
-#: src/nfpMainFrame.cpp:1750
+#: src/nfpMainFrame.cpp:1611 src/nfpMainFrame.cpp:1628
+#: src/nfpMainFrame.cpp:1645 src/nfpMainFrame.cpp:1662
+#: src/nfpMainFrame.cpp:1679 src/nfpMainFrame.cpp:1696
+#: src/nfpMainFrame.cpp:1715 src/nfpMainFrame.cpp:1734
+#: src/nfpMainFrame.cpp:1751
 msgid "Setting result faild:"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1718
+#: src/nfpMainFrame.cpp:1719
 #, c-format
 msgid "%i, %i"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1824 src/nfpMainFrame.cpp:1840
+#: src/nfpMainFrame.cpp:1825 src/nfpMainFrame.cpp:1841
 #: src/passwordDialog.cpp:82 src/syncActionTypeDialog.cpp:55
 #, c-format
 msgid "%s%s?l=en"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1832
+#: src/nfpMainFrame.cpp:1833
 #, c-format
 msgid "%s?l=en"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:1918
+#: src/nfpMainFrame.cpp:1919
 msgid "Checking if new version of application is available."
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2079
+#: src/nfpMainFrame.cpp:2080
 #, c-format
 msgid ""
 "%i day should be added to the current card to have on the card all days including today.\n"
@@ -2443,19 +2443,19 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/nfpMainFrame.cpp:2147
+#: src/nfpMainFrame.cpp:2148
 msgid ""
 "Card is protected agains changes!\n"
 "Do you anyway want to updates results?"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2172
+#: src/nfpMainFrame.cpp:2173
 msgid ""
 "In this release the automatic interpretation of cycle data has been implemented.\n"
 "Please read the documentation to understand how it works!"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2173
+#: src/nfpMainFrame.cpp:2174
 msgid ""
 "\n"
 "\n"
@@ -2465,31 +2465,31 @@ msgid ""
 "Because of that all existing data has been converted in following way:"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2174
+#: src/nfpMainFrame.cpp:2175
 msgid ""
 "\n"
 "- 1st reported sexual relation is now marked as 'in the evening'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2175
+#: src/nfpMainFrame.cpp:2176
 msgid ""
 "\n"
 "- 2nd reported sexual relation is now marked as 'during the day'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2179
+#: src/nfpMainFrame.cpp:2180
 msgid ""
 "\n"
 "- 3rd reported sexual relation is now marked as 'in the evening'"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2183
+#: src/nfpMainFrame.cpp:2184
 msgid ""
 "\n"
 "- 4th and other reported sexual relations reported for a day are not stored anymore"
 msgstr ""
 
-#: src/nfpMainFrame.cpp:2187
+#: src/nfpMainFrame.cpp:2188
 msgid ""
 "\n"
 "Last file in previous format has been backed-up in:\n"
